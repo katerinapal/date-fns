@@ -1,23 +1,33 @@
-import ext_moment from "moment";
-import imp_endOfDay from "./";
+"use strict";
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var endOfDay = imp_endOfDay
-var moment = ext_moment
+var endOfDay = _2.default;
+var moment = _moment2.default;
 
 suite('endOfDay', function () {
   benchmark('date-fns', function () {
-    return endOfDay(this.date)
-  })
+    return endOfDay(this.date);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.endOf('day')
-  })
+    return this.moment.endOf('day');
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = moment();
   }
-})
+});

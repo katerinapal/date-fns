@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../add_months/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_addYears = addYears;
-import imp_addMonths from "../add_months/index.js";
-var addMonths = imp_addMonths
+
+var addMonths = _index2.default;
 
 /**
  * @category Year Helpers
@@ -18,9 +30,9 @@ var addMonths = imp_addMonths
  * var result = addYears(new Date(2014, 8, 1), 5)
  * //=> Sun Sep 01 2019 00:00:00
  */
-function addYears (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return addMonths(dirtyDate, amount * 12)
+function addYears(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return addMonths(dirtyDate, amount * 12);
 }
 
 /**
@@ -39,4 +51,5 @@ function addYears (dirtyDate, dirtyAmount) {
  * var result = addYears(new Date(2014, 8, 1), 5)
  * //=> Sun Sep 01 2019 00:00:00
  */
-export default mod_addYears;
+exports.default = mod_addYears;
+module.exports = exports.default;

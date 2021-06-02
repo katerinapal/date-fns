@@ -1,16 +1,23 @@
-import imp_isThisMinute from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisMinute = imp_isThisMinute
+var isThisMinute = _2.default;
 
 suite('isThisMinute', function () {
   benchmark('date-fns', function () {
-    return isThisMinute(this.date)
-  })
+    return isThisMinute(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

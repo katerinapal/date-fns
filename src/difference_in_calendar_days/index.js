@@ -1,9 +1,21 @@
-var mod_differenceInCalendarDays = differenceInCalendarDays;
-import imp_startOfDay from "../start_of_day/index.js";
-var startOfDay = imp_startOfDay
+"use strict";
 
-var MILLISECONDS_IN_MINUTE = 60000
-var MILLISECONDS_IN_DAY = 86400000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_day/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mod_differenceInCalendarDays = differenceInCalendarDays;
+
+var startOfDay = _index2.default;
+
+var MILLISECONDS_IN_MINUTE = 60000;
+var MILLISECONDS_IN_DAY = 86400000;
 
 /**
  * @category Day Helpers
@@ -25,19 +37,17 @@ var MILLISECONDS_IN_DAY = 86400000
  * )
  * //=> 366
  */
-function differenceInCalendarDays (dirtyDateLeft, dirtyDateRight) {
-  var startOfDayLeft = startOfDay(dirtyDateLeft)
-  var startOfDayRight = startOfDay(dirtyDateRight)
+function differenceInCalendarDays(dirtyDateLeft, dirtyDateRight) {
+  var startOfDayLeft = startOfDay(dirtyDateLeft);
+  var startOfDayRight = startOfDay(dirtyDateRight);
 
-  var timestampLeft = startOfDayLeft.getTime() -
-    startOfDayLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
-  var timestampRight = startOfDayRight.getTime() -
-    startOfDayRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+  var timestampLeft = startOfDayLeft.getTime() - startOfDayLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+  var timestampRight = startOfDayRight.getTime() - startOfDayRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
 
   // Round the number of days to the nearest integer
   // because the number of milliseconds in a day is not constant
   // (e.g. it's different in the day of the daylight saving time clock shift)
-  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_DAY)
+  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_DAY);
 }
 
 /**
@@ -60,4 +70,5 @@ function differenceInCalendarDays (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 366
  */
-export default mod_differenceInCalendarDays;
+exports.default = mod_differenceInCalendarDays;
+module.exports = exports.default;

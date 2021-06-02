@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isPast = isPast;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Common Helpers
@@ -17,8 +29,8 @@ var parse = imp_parse
  * var result = isPast(new Date(2014, 6, 2))
  * //=> true
  */
-function isPast (dirtyDate) {
-  return parse(dirtyDate).getTime() < new Date().getTime()
+function isPast(dirtyDate) {
+  return parse(dirtyDate).getTime() < new Date().getTime();
 }
 
 /**
@@ -36,4 +48,5 @@ function isPast (dirtyDate) {
  * var result = isPast(new Date(2014, 6, 2))
  * //=> true
  */
-export default mod_isPast;
+exports.default = mod_isPast;
+module.exports = exports.default;

@@ -1,60 +1,51 @@
-import imp_isSameWeek from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 
-var assert = ext_powerassert
-var isSameWeek = imp_isSameWeek
+var assert = _powerAssert2.default;
+var isSameWeek = _2.default;
 
 describe('isSameWeek', function () {
   it('returns true if the given dates have the same week', function () {
-    var result = isSameWeek(
-      new Date(2014, 7 /* Aug */, 31),
-      new Date(2014, 8 /* Sep */, 4)
-    )
-    assert(result === true)
-  })
+    var result = isSameWeek(new Date(2014, 7 /* Aug */, 31), new Date(2014, 8 /* Sep */, 4));
+    assert(result === true);
+  });
 
   it('returns false if the given dates have different weeks', function () {
-    var result = isSameWeek(
-      new Date(2014, 7 /* Aug */, 30),
-      new Date(2014, 8 /* Sep */, 4)
-    )
-    assert(result === false)
-  })
+    var result = isSameWeek(new Date(2014, 7 /* Aug */, 30), new Date(2014, 8 /* Sep */, 4));
+    assert(result === false);
+  });
 
   it('allows to specify which day is the first day of the week', function () {
-    var result = isSameWeek(
-      new Date(2014, 7 /* Aug */, 31),
-      new Date(2014, 8 /* Sep */, 4),
-      {weekStartsOn: 1}
-    )
-    assert(result === false)
-  })
+    var result = isSameWeek(new Date(2014, 7 /* Aug */, 31), new Date(2014, 8 /* Sep */, 4), { weekStartsOn: 1 });
+    assert(result === false);
+  });
 
   it('implicitly converts options', function () {
-    var result = isSameWeek(
-      new Date(2014, 7 /* Aug */, 31),
-      new Date(2014, 8 /* Sep */, 4),
-      // $ExpectedMistake
-      {weekStartsOn: '1'}
-    )
-    assert(result === false)
-  })
+    var result = isSameWeek(new Date(2014, 7 /* Aug */, 31), new Date(2014, 8 /* Sep */, 4),
+    // $ExpectedMistake
+    { weekStartsOn: '1' });
+    assert(result === false);
+  });
 
   it('accepts a string', function () {
-    var result = isSameWeek(
-      new Date(2014, 7 /* Aug */, 31).toISOString(),
-      new Date(2014, 8 /* Sep */, 4).toISOString()
-    )
-    assert(result === true)
-  })
+    var result = isSameWeek(new Date(2014, 7 /* Aug */, 31).toISOString(), new Date(2014, 8 /* Sep */, 4).toISOString());
+    assert(result === true);
+  });
 
   it('accepts a timestamp', function () {
-    var result = isSameWeek(
-      new Date(2014, 7 /* Aug */, 31).getTime(),
-      new Date(2014, 8 /* Sep */, 4).getTime()
-    )
-    assert(result === true)
-  })
-})
+    var result = isSameWeek(new Date(2014, 7 /* Aug */, 31).getTime(), new Date(2014, 8 /* Sep */, 4).getTime());
+    assert(result === true);
+  });
+});

@@ -1,8 +1,23 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../get_iso_week/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../parse/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_setISOWeek = setISOWeek;
-import imp_getISOWeek from "../get_iso_week/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var getISOWeek = imp_getISOWeek
+
+var parse = _index4.default;
+var getISOWeek = _index2.default;
 
 /**
  * @category ISO Week Helpers
@@ -22,12 +37,12 @@ var getISOWeek = imp_getISOWeek
  * var result = setISOWeek(new Date(2004, 7, 7), 53)
  * //=> Sat Jan 01 2005 00:00:00
  */
-function setISOWeek (dirtyDate, dirtyISOWeek) {
-  var date = parse(dirtyDate)
-  var isoWeek = Number(dirtyISOWeek)
-  var diff = getISOWeek(date) - isoWeek
-  date.setDate(date.getDate() - diff * 7)
-  return date
+function setISOWeek(dirtyDate, dirtyISOWeek) {
+  var date = parse(dirtyDate);
+  var isoWeek = Number(dirtyISOWeek);
+  var diff = getISOWeek(date) - isoWeek;
+  date.setDate(date.getDate() - diff * 7);
+  return date;
 }
 
 /**
@@ -48,4 +63,5 @@ function setISOWeek (dirtyDate, dirtyISOWeek) {
  * var result = setISOWeek(new Date(2004, 7, 7), 53)
  * //=> Sat Jan 01 2005 00:00:00
  */
-export default mod_setISOWeek;
+exports.default = mod_setISOWeek;
+module.exports = exports.default;

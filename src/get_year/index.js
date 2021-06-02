@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_getYear = getYear;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Year Helpers
@@ -17,10 +29,10 @@ var parse = imp_parse
  * var result = getYear(new Date(2014, 6, 2))
  * //=> 2014
  */
-function getYear (dirtyDate) {
-  var date = parse(dirtyDate)
-  var year = date.getFullYear()
-  return year
+function getYear(dirtyDate) {
+  var date = parse(dirtyDate);
+  var year = date.getFullYear();
+  return year;
 }
 
 /**
@@ -38,4 +50,5 @@ function getYear (dirtyDate) {
  * var result = getYear(new Date(2014, 6, 2))
  * //=> 2014
  */
-export default mod_getYear;
+exports.default = mod_getYear;
+module.exports = exports.default;

@@ -1,78 +1,88 @@
-import imp_startOfWeek from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 
-var assert = ext_powerassert
-var startOfWeek = imp_startOfWeek
+var assert = _powerAssert2.default;
+var startOfWeek = _2.default;
 
 describe('startOfWeek', function () {
   it('returns the date with the time setted to 00:00:00 and the date setted to the first day of a week', function () {
-    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0)
-    var result = startOfWeek(date)
-    assert.deepEqual(result, new Date(2014, 7 /* Aug */, 31))
-  })
+    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0);
+    var result = startOfWeek(date);
+    assert.deepEqual(result, new Date(2014, 7 /* Aug */, 31));
+  });
 
   it('allows to specify which day is the first day of the week', function () {
-    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0)
-    var result = startOfWeek(date, {weekStartsOn: 1})
-    assert.deepEqual(result, new Date(2014, 8 /* Sep */, 1))
-  })
+    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0);
+    var result = startOfWeek(date, { weekStartsOn: 1 });
+    assert.deepEqual(result, new Date(2014, 8 /* Sep */, 1));
+  });
 
   it('implicitly converts options', function () {
-    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0)
+    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0);
     // $ExpectedMistake
-    var result = startOfWeek(date, {weekStartsOn: '1'})
-    assert.deepEqual(result, new Date(2014, 8 /* Sep */, 1))
-  })
+    var result = startOfWeek(date, { weekStartsOn: '1' });
+    assert.deepEqual(result, new Date(2014, 8 /* Sep */, 1));
+  });
 
   it('accepts a string', function () {
-    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0).toISOString()
-    var result = startOfWeek(date)
-    assert.deepEqual(result, new Date(2014, 7 /* Aug */, 31))
-  })
+    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0).toISOString();
+    var result = startOfWeek(date);
+    assert.deepEqual(result, new Date(2014, 7 /* Aug */, 31));
+  });
 
   it('accepts a timestamp', function () {
-    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0).getTime()
-    var result = startOfWeek(date)
-    assert.deepEqual(result, new Date(2014, 7 /* Aug */, 31))
-  })
+    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0).getTime();
+    var result = startOfWeek(date);
+    assert.deepEqual(result, new Date(2014, 7 /* Aug */, 31));
+  });
 
   it('does not mutate the original date', function () {
-    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0)
-    startOfWeek(date)
-    assert.deepEqual(date, new Date(2014, 8 /* Sep */, 2, 11, 55, 0))
-  })
+    var date = new Date(2014, 8 /* Sep */, 2, 11, 55, 0);
+    startOfWeek(date);
+    assert.deepEqual(date, new Date(2014, 8 /* Sep */, 2, 11, 55, 0));
+  });
 
   describe('edge cases', function () {
     context('when the given day is before the start of a week', function () {
       it('it returns the start of a week', function () {
-        var date = new Date(2014, 9 /* Oct */, 6)
-        var result = startOfWeek(date, {weekStartsOn: 3})
-        assert.deepEqual(result, new Date(2014, 9 /* Oct */, 1))
-      })
-    })
+        var date = new Date(2014, 9 /* Oct */, 6);
+        var result = startOfWeek(date, { weekStartsOn: 3 });
+        assert.deepEqual(result, new Date(2014, 9 /* Oct */, 1));
+      });
+    });
 
     context('when the given day is the start of a week', function () {
       it('it returns the start of a week', function () {
-        var date = new Date(2014, 9 /* Oct */, 8)
-        var result = startOfWeek(date, {weekStartsOn: 3})
-        assert.deepEqual(result, new Date(2014, 9 /* Oct */, 8))
-      })
-    })
+        var date = new Date(2014, 9 /* Oct */, 8);
+        var result = startOfWeek(date, { weekStartsOn: 3 });
+        assert.deepEqual(result, new Date(2014, 9 /* Oct */, 8));
+      });
+    });
 
     context('when the given day is after the start of a week', function () {
       it('it returns the start of a week', function () {
-        var date = new Date(2014, 9 /* Oct */, 10)
-        var result = startOfWeek(date, {weekStartsOn: 3})
-        assert.deepEqual(result, new Date(2014, 9 /* Oct */, 8))
-      })
-    })
+        var date = new Date(2014, 9 /* Oct */, 10);
+        var result = startOfWeek(date, { weekStartsOn: 3 });
+        assert.deepEqual(result, new Date(2014, 9 /* Oct */, 8));
+      });
+    });
 
     it('handles the week at the start of a year', function () {
-      var date = new Date(2014, 0 /* Jan */, 1)
-      var result = startOfWeek(date)
-      assert.deepEqual(result, new Date(2013, 11 /* Dec */, 29))
-    })
-  })
-})
+      var date = new Date(2014, 0 /* Jan */, 1);
+      var result = startOfWeek(date);
+      assert.deepEqual(result, new Date(2013, 11 /* Dec */, 29));
+    });
+  });
+});

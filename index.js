@@ -1,3 +1,8 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 mod_indexjs = {
   addDays: require('./add_days/index.js'),
   addHours: require('./add_hours/index.js'),
@@ -153,6 +158,7 @@ mod_indexjs = {
   subSeconds: require('./sub_seconds/index.js'),
   subWeeks: require('./sub_weeks/index.js'),
   subYears: require('./sub_years/index.js')
-}
+};
 var mod_indexjs;
-export default mod_indexjs;
+exports.default = mod_indexjs;
+module.exports = exports.default;

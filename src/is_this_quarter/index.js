@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../is_same_quarter/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isThisQuarter = isThisQuarter;
-import imp_isSameQuarter from "../is_same_quarter/index.js";
-var isSameQuarter = imp_isSameQuarter
+
+var isSameQuarter = _index2.default;
 
 /**
  * @category Quarter Helpers
@@ -17,8 +29,8 @@ var isSameQuarter = imp_isSameQuarter
  * var result = isThisQuarter(new Date(2014, 6, 2))
  * //=> true
  */
-function isThisQuarter (dirtyDate) {
-  return isSameQuarter(new Date(), dirtyDate)
+function isThisQuarter(dirtyDate) {
+  return isSameQuarter(new Date(), dirtyDate);
 }
 
 /**
@@ -36,4 +48,5 @@ function isThisQuarter (dirtyDate) {
  * var result = isThisQuarter(new Date(2014, 6, 2))
  * //=> true
  */
-export default mod_isThisQuarter;
+exports.default = mod_isThisQuarter;
+module.exports = exports.default;

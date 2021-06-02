@@ -1,9 +1,21 @@
-var mod_differenceInCalendarISOWeeks = differenceInCalendarISOWeeks;
-import imp_startOfISOWeek from "../start_of_iso_week/index.js";
-var startOfISOWeek = imp_startOfISOWeek
+"use strict";
 
-var MILLISECONDS_IN_MINUTE = 60000
-var MILLISECONDS_IN_WEEK = 604800000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_iso_week/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mod_differenceInCalendarISOWeeks = differenceInCalendarISOWeeks;
+
+var startOfISOWeek = _index2.default;
+
+var MILLISECONDS_IN_MINUTE = 60000;
+var MILLISECONDS_IN_WEEK = 604800000;
 
 /**
  * @category ISO Week Helpers
@@ -26,19 +38,17 @@ var MILLISECONDS_IN_WEEK = 604800000
  * )
  * //=> 3
  */
-function differenceInCalendarISOWeeks (dirtyDateLeft, dirtyDateRight) {
-  var startOfISOWeekLeft = startOfISOWeek(dirtyDateLeft)
-  var startOfISOWeekRight = startOfISOWeek(dirtyDateRight)
+function differenceInCalendarISOWeeks(dirtyDateLeft, dirtyDateRight) {
+  var startOfISOWeekLeft = startOfISOWeek(dirtyDateLeft);
+  var startOfISOWeekRight = startOfISOWeek(dirtyDateRight);
 
-  var timestampLeft = startOfISOWeekLeft.getTime() -
-    startOfISOWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
-  var timestampRight = startOfISOWeekRight.getTime() -
-    startOfISOWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+  var timestampLeft = startOfISOWeekLeft.getTime() - startOfISOWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+  var timestampRight = startOfISOWeekRight.getTime() - startOfISOWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
 
   // Round the number of days to the nearest integer
   // because the number of milliseconds in a week is not constant
   // (e.g. it's different in the week of the daylight saving time clock shift)
-  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK)
+  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK);
 }
 
 /**
@@ -62,4 +72,5 @@ function differenceInCalendarISOWeeks (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 3
  */
-export default mod_differenceInCalendarISOWeeks;
+exports.default = mod_differenceInCalendarISOWeeks;
+module.exports = exports.default;

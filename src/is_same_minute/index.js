@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_minute/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isSameMinute = isSameMinute;
-import imp_startOfMinute from "../start_of_minute/index.js";
-var startOfMinute = imp_startOfMinute
+
+var startOfMinute = _index2.default;
 
 /**
  * @category Minute Helpers
@@ -22,11 +34,11 @@ var startOfMinute = imp_startOfMinute
  * )
  * //=> true
  */
-function isSameMinute (dirtyDateLeft, dirtyDateRight) {
-  var dateLeftStartOfMinute = startOfMinute(dirtyDateLeft)
-  var dateRightStartOfMinute = startOfMinute(dirtyDateRight)
+function isSameMinute(dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfMinute = startOfMinute(dirtyDateLeft);
+  var dateRightStartOfMinute = startOfMinute(dirtyDateRight);
 
-  return dateLeftStartOfMinute.getTime() === dateRightStartOfMinute.getTime()
+  return dateLeftStartOfMinute.getTime() === dateRightStartOfMinute.getTime();
 }
 
 /**
@@ -49,4 +61,5 @@ function isSameMinute (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> true
  */
-export default mod_isSameMinute;
+exports.default = mod_isSameMinute;
+module.exports = exports.default;

@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../add_weeks/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_subWeeks = subWeeks;
-import imp_addWeeks from "../add_weeks/index.js";
-var addWeeks = imp_addWeeks
+
+var addWeeks = _index2.default;
 
 /**
  * @category Week Helpers
@@ -18,9 +30,9 @@ var addWeeks = imp_addWeeks
  * var result = subWeeks(new Date(2014, 8, 1), 4)
  * //=> Mon Aug 04 2014 00:00:00
  */
-function subWeeks (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return addWeeks(dirtyDate, -amount)
+function subWeeks(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return addWeeks(dirtyDate, -amount);
 }
 
 /**
@@ -39,4 +51,5 @@ function subWeeks (dirtyDate, dirtyAmount) {
  * var result = subWeeks(new Date(2014, 8, 1), 4)
  * //=> Mon Aug 04 2014 00:00:00
  */
-export default mod_subWeeks;
+exports.default = mod_subWeeks;
+module.exports = exports.default;

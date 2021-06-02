@@ -1,16 +1,23 @@
-import imp_lastDayOfISOYear from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var lastDayOfISOYear = imp_lastDayOfISOYear
+var lastDayOfISOYear = _2.default;
 
 suite('lastDayOfISOYear', function () {
   benchmark('date-fns', function () {
-    return lastDayOfISOYear(this.date)
-  })
+    return lastDayOfISOYear(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

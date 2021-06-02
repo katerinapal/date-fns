@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../add_months/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_addQuarters = addQuarters;
-import imp_addMonths from "../add_months/index.js";
-var addMonths = imp_addMonths
+
+var addMonths = _index2.default;
 
 /**
  * @category Quarter Helpers
@@ -18,10 +30,10 @@ var addMonths = imp_addMonths
  * var result = addQuarters(new Date(2014, 8, 1), 1)
  * //=> Mon Dec 01 2014 00:00:00
  */
-function addQuarters (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  var months = amount * 3
-  return addMonths(dirtyDate, months)
+function addQuarters(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  var months = amount * 3;
+  return addMonths(dirtyDate, months);
 }
 
 /**
@@ -40,4 +52,5 @@ function addQuarters (dirtyDate, dirtyAmount) {
  * var result = addQuarters(new Date(2014, 8, 1), 1)
  * //=> Mon Dec 01 2014 00:00:00
  */
-export default mod_addQuarters;
+exports.default = mod_addQuarters;
+module.exports = exports.default;

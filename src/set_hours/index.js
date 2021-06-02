@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_setHours = setHours;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Hour Helpers
@@ -18,11 +30,11 @@ var parse = imp_parse
  * var result = setHours(new Date(2014, 8, 1, 11, 30), 4)
  * //=> Mon Sep 01 2014 04:30:00
  */
-function setHours (dirtyDate, dirtyHours) {
-  var date = parse(dirtyDate)
-  var hours = Number(dirtyHours)
-  date.setHours(hours)
-  return date
+function setHours(dirtyDate, dirtyHours) {
+  var date = parse(dirtyDate);
+  var hours = Number(dirtyHours);
+  date.setHours(hours);
+  return date;
 }
 
 /**
@@ -41,4 +53,5 @@ function setHours (dirtyDate, dirtyHours) {
  * var result = setHours(new Date(2014, 8, 1, 11, 30), 4)
  * //=> Mon Sep 01 2014 04:30:00
  */
-export default mod_setHours;
+exports.default = mod_setHours;
+module.exports = exports.default;

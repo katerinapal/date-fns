@@ -1,27 +1,32 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
-function buildDistanceInWordsLocale () {
-  function futureSeconds (text) {
-    return text.replace(/sekuntia?/, 'sekunnin')
+function buildDistanceInWordsLocale() {
+  function futureSeconds(text) {
+    return text.replace(/sekuntia?/, 'sekunnin');
   }
 
-  function futureMinutes (text) {
-    return text.replace(/minuuttia?/, 'minuutin')
+  function futureMinutes(text) {
+    return text.replace(/minuuttia?/, 'minuutin');
   }
 
-  function futureHours (text) {
-    return text.replace(/tuntia?/, 'tunnin')
+  function futureHours(text) {
+    return text.replace(/tuntia?/, 'tunnin');
   }
 
-  function futureDays (text) {
-    return text.replace(/päivää?/, 'päivän')
+  function futureDays(text) {
+    return text.replace(/päivää?/, 'päivän');
   }
 
-  function futureMonths (text) {
-    return text.replace(/(kuukausi|kuukautta)/, 'kuukauden')
+  function futureMonths(text) {
+    return text.replace(/(kuukausi|kuukautta)/, 'kuukauden');
   }
 
-  function futureYears (text) {
-    return text.replace(/(vuosi|vuotta)/, 'vuoden')
+  function futureYears(text) {
+    return text.replace(/(vuosi|vuotta)/, 'vuoden');
   }
 
   var distanceInWordsLocale = {
@@ -40,8 +45,8 @@ function buildDistanceInWordsLocale () {
     halfAMinute: {
       one: 'puoli minuuttia',
       other: 'puoli minuuttia',
-      futureTense: function (text) {
-        return 'puolen minuutin'
+      futureTense: function futureTense(text) {
+        return 'puolen minuutin';
       }
     },
 
@@ -110,28 +115,29 @@ function buildDistanceInWordsLocale () {
       other: 'lähes {{count}} vuotta',
       futureTense: futureYears
     }
-  }
+  };
 
-  function localize (token, count, options) {
-    options = options || {}
+  function localize(token, count, options) {
+    options = options || {};
 
-    var distance = distanceInWordsLocale[token]
-    var result = count === 1 ? distance.one : distance.other.replace('{{count}}', count)
+    var distance = distanceInWordsLocale[token];
+    var result = count === 1 ? distance.one : distance.other.replace('{{count}}', count);
 
     if (options.addSuffix) {
       if (options.comparison > 0) {
-        return distance.futureTense(result) + ' kuluttua'
+        return distance.futureTense(result) + ' kuluttua';
       } else {
-        return result + ' sitten'
+        return result + ' sitten';
       }
     }
 
-    return result
+    return result;
   }
 
   return {
     localize: localize
-  }
+  };
 }
 
-export default mod_buildDistanceInWordsLocale;
+exports.default = mod_buildDistanceInWordsLocale;
+module.exports = exports.default;

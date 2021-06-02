@@ -1,8 +1,20 @@
-var mod_differenceInHours = differenceInHours;
-import imp_differenceInMilliseconds from "../difference_in_milliseconds/index.js";
-var differenceInMilliseconds = imp_differenceInMilliseconds
+"use strict";
 
-var MILLISECONDS_IN_HOUR = 3600000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../difference_in_milliseconds/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mod_differenceInHours = differenceInHours;
+
+var differenceInMilliseconds = _index2.default;
+
+var MILLISECONDS_IN_HOUR = 3600000;
 
 /**
  * @category Hour Helpers
@@ -23,9 +35,9 @@ var MILLISECONDS_IN_HOUR = 3600000
  * )
  * //=> 12
  */
-function differenceInHours (dirtyDateLeft, dirtyDateRight) {
-  var diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_HOUR
-  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+function differenceInHours(dirtyDateLeft, dirtyDateRight) {
+  var diff = differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_HOUR;
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff);
 }
 
 /**
@@ -47,4 +59,5 @@ function differenceInHours (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 12
  */
-export default mod_differenceInHours;
+exports.default = mod_differenceInHours;
+module.exports = exports.default;

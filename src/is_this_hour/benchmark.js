@@ -1,16 +1,23 @@
-import imp_isThisHour from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisHour = imp_isThisHour
+var isThisHour = _2.default;
 
 suite('isThisHour', function () {
   benchmark('date-fns', function () {
-    return isThisHour(this.date)
-  })
+    return isThisHour(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

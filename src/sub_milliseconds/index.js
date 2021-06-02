@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../add_milliseconds/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_subMilliseconds = subMilliseconds;
-import imp_addMilliseconds from "../add_milliseconds/index.js";
-var addMilliseconds = imp_addMilliseconds
+
+var addMilliseconds = _index2.default;
 
 /**
  * @category Millisecond Helpers
@@ -18,9 +30,9 @@ var addMilliseconds = imp_addMilliseconds
  * var result = subMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
  * //=> Thu Jul 10 2014 12:45:29.250
  */
-function subMilliseconds (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return addMilliseconds(dirtyDate, -amount)
+function subMilliseconds(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return addMilliseconds(dirtyDate, -amount);
 }
 
 /**
@@ -39,4 +51,5 @@ function subMilliseconds (dirtyDate, dirtyAmount) {
  * var result = subMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
  * //=> Thu Jul 10 2014 12:45:29.250
  */
-export default mod_subMilliseconds;
+exports.default = mod_subMilliseconds;
+module.exports = exports.default;

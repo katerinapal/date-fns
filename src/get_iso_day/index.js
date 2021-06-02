@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_getISODay = getISODay;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Weekday Helpers
@@ -20,15 +32,15 @@ var parse = imp_parse
  * var result = getISODay(new Date(2012, 1, 26))
  * //=> 7
  */
-function getISODay (dirtyDate) {
-  var date = parse(dirtyDate)
-  var day = date.getDay()
+function getISODay(dirtyDate) {
+  var date = parse(dirtyDate);
+  var day = date.getDay();
 
   if (day === 0) {
-    day = 7
+    day = 7;
   }
 
-  return day
+  return day;
 }
 
 /**
@@ -49,4 +61,5 @@ function getISODay (dirtyDate) {
  * var result = getISODay(new Date(2012, 1, 26))
  * //=> 7
  */
-export default mod_getISODay;
+exports.default = mod_getISODay;
+module.exports = exports.default;

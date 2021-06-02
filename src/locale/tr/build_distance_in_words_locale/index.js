@@ -1,5 +1,10 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
-function buildDistanceInWordsLocale () {
+function buildDistanceInWordsLocale() {
   var distanceInWordsLocale = {
     lessThanXSeconds: {
       one: 'bir saniyeden az',
@@ -67,45 +72,42 @@ function buildDistanceInWordsLocale () {
       one: 'neredeyse 1 yıl',
       other: 'neredeyse {{count}} yıl'
     }
-  }
+  };
 
-  var extraWordTokens = [
-    'lessThanXSeconds',
-    'lessThanXMinutes',
-    'overXYears'
-  ]
+  var extraWordTokens = ['lessThanXSeconds', 'lessThanXMinutes', 'overXYears'];
 
-  function localize (token, count, options) {
-    options = options || {}
+  function localize(token, count, options) {
+    options = options || {};
 
-    var result
+    var result;
     if (typeof distanceInWordsLocale[token] === 'string') {
-      result = distanceInWordsLocale[token]
+      result = distanceInWordsLocale[token];
     } else if (count === 1) {
-      result = distanceInWordsLocale[token].one
+      result = distanceInWordsLocale[token].one;
     } else {
-      result = distanceInWordsLocale[token].other.replace('{{count}}', count)
+      result = distanceInWordsLocale[token].other.replace('{{count}}', count);
     }
 
     if (options.addSuffix) {
-      var extraWord = ''
+      var extraWord = '';
       if (extraWordTokens.indexOf(token) > -1) {
-        extraWord = ' bir süre'
+        extraWord = ' bir süre';
       }
 
       if (options.comparison > 0) {
-        return result + extraWord + ' içinde'
+        return result + extraWord + ' içinde';
       } else {
-        return result + extraWord + ' önce'
+        return result + extraWord + ' önce';
       }
     }
 
-    return result
+    return result;
   }
 
   return {
     localize: localize
-  }
+  };
 }
 
-export default mod_buildDistanceInWordsLocale;
+exports.default = mod_buildDistanceInWordsLocale;
+module.exports = exports.default;

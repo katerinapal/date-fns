@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_second/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isSameSecond = isSameSecond;
-import imp_startOfSecond from "../start_of_second/index.js";
-var startOfSecond = imp_startOfSecond
+
+var startOfSecond = _index2.default;
 
 /**
  * @category Second Helpers
@@ -22,11 +34,11 @@ var startOfSecond = imp_startOfSecond
  * )
  * //=> true
  */
-function isSameSecond (dirtyDateLeft, dirtyDateRight) {
-  var dateLeftStartOfSecond = startOfSecond(dirtyDateLeft)
-  var dateRightStartOfSecond = startOfSecond(dirtyDateRight)
+function isSameSecond(dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfSecond = startOfSecond(dirtyDateLeft);
+  var dateRightStartOfSecond = startOfSecond(dirtyDateRight);
 
-  return dateLeftStartOfSecond.getTime() === dateRightStartOfSecond.getTime()
+  return dateLeftStartOfSecond.getTime() === dateRightStartOfSecond.getTime();
 }
 
 /**
@@ -49,4 +61,5 @@ function isSameSecond (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> true
  */
-export default mod_isSameSecond;
+exports.default = mod_isSameSecond;
+module.exports = exports.default;

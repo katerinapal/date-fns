@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_areRangesOverlapping = areRangesOverlapping;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Range Helpers
@@ -30,17 +42,17 @@ var parse = imp_parse
  * )
  * //=> false
  */
-function areRangesOverlapping (dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
-  var initialStartTime = parse(dirtyInitialRangeStartDate).getTime()
-  var initialEndTime = parse(dirtyInitialRangeEndDate).getTime()
-  var comparedStartTime = parse(dirtyComparedRangeStartDate).getTime()
-  var comparedEndTime = parse(dirtyComparedRangeEndDate).getTime()
+function areRangesOverlapping(dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
+  var initialStartTime = parse(dirtyInitialRangeStartDate).getTime();
+  var initialEndTime = parse(dirtyInitialRangeEndDate).getTime();
+  var comparedStartTime = parse(dirtyComparedRangeStartDate).getTime();
+  var comparedEndTime = parse(dirtyComparedRangeEndDate).getTime();
 
   if (initialStartTime > initialEndTime || comparedStartTime > comparedEndTime) {
-    throw new Error('The start of the range cannot be after the end of the range')
+    throw new Error('The start of the range cannot be after the end of the range');
   }
 
-  return initialStartTime < comparedEndTime && comparedStartTime < initialEndTime
+  return initialStartTime < comparedEndTime && comparedStartTime < initialEndTime;
 }
 
 /**
@@ -71,4 +83,5 @@ function areRangesOverlapping (dirtyInitialRangeStartDate, dirtyInitialRangeEndD
  * )
  * //=> false
  */
-export default mod_areRangesOverlapping;
+exports.default = mod_areRangesOverlapping;
+module.exports = exports.default;

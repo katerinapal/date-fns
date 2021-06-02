@@ -1,23 +1,33 @@
-import ext_moment from "moment";
-import imp_startOfISOWeek from "./";
+"use strict";
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var startOfISOWeek = imp_startOfISOWeek
-var moment = ext_moment
+var startOfISOWeek = _2.default;
+var moment = _moment2.default;
 
 suite('startOfISOWeek', function () {
   benchmark('date-fns', function () {
-    return startOfISOWeek(this.date)
-  })
+    return startOfISOWeek(this.date);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.startOf('isoWeek')
-  })
+    return this.moment.startOf('isoWeek');
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = moment();
   }
-})
+});

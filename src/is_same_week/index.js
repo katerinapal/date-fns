@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_week/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isSameWeek = isSameWeek;
-import imp_startOfWeek from "../start_of_week/index.js";
-var startOfWeek = imp_startOfWeek
+
+var startOfWeek = _index2.default;
 
 /**
  * @category Week Helpers
@@ -33,11 +45,11 @@ var startOfWeek = imp_startOfWeek
  * )
  * //=> false
  */
-function isSameWeek (dirtyDateLeft, dirtyDateRight, dirtyOptions) {
-  var dateLeftStartOfWeek = startOfWeek(dirtyDateLeft, dirtyOptions)
-  var dateRightStartOfWeek = startOfWeek(dirtyDateRight, dirtyOptions)
+function isSameWeek(dirtyDateLeft, dirtyDateRight, dirtyOptions) {
+  var dateLeftStartOfWeek = startOfWeek(dirtyDateLeft, dirtyOptions);
+  var dateRightStartOfWeek = startOfWeek(dirtyDateRight, dirtyOptions);
 
-  return dateLeftStartOfWeek.getTime() === dateRightStartOfWeek.getTime()
+  return dateLeftStartOfWeek.getTime() === dateRightStartOfWeek.getTime();
 }
 
 /**
@@ -71,4 +83,5 @@ function isSameWeek (dirtyDateLeft, dirtyDateRight, dirtyOptions) {
  * )
  * //=> false
  */
-export default mod_isSameWeek;
+exports.default = mod_isSameWeek;
+module.exports = exports.default;

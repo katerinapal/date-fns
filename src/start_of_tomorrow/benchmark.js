@@ -1,12 +1,19 @@
-import imp_startOfTomorrow from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var startOfTomorrow = imp_startOfTomorrow
+var startOfTomorrow = _2.default;
 
 suite('startOfTomorrow', function () {
   benchmark('date-fns', function () {
-    return startOfTomorrow()
-  })
-})
+    return startOfTomorrow();
+  });
+});

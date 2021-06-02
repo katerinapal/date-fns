@@ -1,10 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../difference_in_calendar_days/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../start_of_iso_year/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = require("../parse/index.js");
+
+var _index6 = _interopRequireDefault(_index5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_setISOYear = setISOYear;
-import imp_differenceInCalendarDays from "../difference_in_calendar_days/index.js";
-import imp_startOfISOYear from "../start_of_iso_year/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var startOfISOYear = imp_startOfISOYear
-var differenceInCalendarDays = imp_differenceInCalendarDays
+
+var parse = _index6.default;
+var startOfISOYear = _index4.default;
+var differenceInCalendarDays = _index2.default;
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -25,16 +43,16 @@ var differenceInCalendarDays = imp_differenceInCalendarDays
  * var result = setISOYear(new Date(2008, 11, 29), 2007)
  * //=> Mon Jan 01 2007 00:00:00
  */
-function setISOYear (dirtyDate, dirtyISOYear) {
-  var date = parse(dirtyDate)
-  var isoYear = Number(dirtyISOYear)
-  var diff = differenceInCalendarDays(date, startOfISOYear(date))
-  var fourthOfJanuary = new Date(0)
-  fourthOfJanuary.setFullYear(isoYear, 0, 4)
-  fourthOfJanuary.setHours(0, 0, 0, 0)
-  date = startOfISOYear(fourthOfJanuary)
-  date.setDate(date.getDate() + diff)
-  return date
+function setISOYear(dirtyDate, dirtyISOYear) {
+  var date = parse(dirtyDate);
+  var isoYear = Number(dirtyISOYear);
+  var diff = differenceInCalendarDays(date, startOfISOYear(date));
+  var fourthOfJanuary = new Date(0);
+  fourthOfJanuary.setFullYear(isoYear, 0, 4);
+  fourthOfJanuary.setHours(0, 0, 0, 0);
+  date = startOfISOYear(fourthOfJanuary);
+  date.setDate(date.getDate() + diff);
+  return date;
 }
 
 /**
@@ -56,4 +74,5 @@ function setISOYear (dirtyDate, dirtyISOYear) {
  * var result = setISOYear(new Date(2008, 11, 29), 2007)
  * //=> Mon Jan 01 2007 00:00:00
  */
-export default mod_setISOYear;
+exports.default = mod_setISOYear;
+module.exports = exports.default;

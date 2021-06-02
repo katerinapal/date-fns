@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../is_same_week/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isSameISOWeek = isSameISOWeek;
-import imp_isSameWeek from "../is_same_week/index.js";
-var isSameWeek = imp_isSameWeek
+
+var isSameWeek = _index2.default;
 
 /**
  * @category ISO Week Helpers
@@ -23,8 +35,8 @@ var isSameWeek = imp_isSameWeek
  * )
  * //=> true
  */
-function isSameISOWeek (dirtyDateLeft, dirtyDateRight) {
-  return isSameWeek(dirtyDateLeft, dirtyDateRight, {weekStartsOn: 1})
+function isSameISOWeek(dirtyDateLeft, dirtyDateRight) {
+  return isSameWeek(dirtyDateLeft, dirtyDateRight, { weekStartsOn: 1 });
 }
 
 /**
@@ -48,4 +60,5 @@ function isSameISOWeek (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> true
  */
-export default mod_isSameISOWeek;
+exports.default = mod_isSameISOWeek;
+module.exports = exports.default;

@@ -1,8 +1,23 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../get_days_in_month/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../parse/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_addMonths = addMonths;
-import imp_getDaysInMonth from "../get_days_in_month/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var getDaysInMonth = imp_getDaysInMonth
+
+var parse = _index4.default;
+var getDaysInMonth = _index2.default;
 
 /**
  * @category Month Helpers
@@ -20,18 +35,18 @@ var getDaysInMonth = imp_getDaysInMonth
  * var result = addMonths(new Date(2014, 8, 1), 5)
  * //=> Sun Feb 01 2015 00:00:00
  */
-function addMonths (dirtyDate, dirtyAmount) {
-  var date = parse(dirtyDate)
-  var amount = Number(dirtyAmount)
-  var desiredMonth = date.getMonth() + amount
-  var dateWithDesiredMonth = new Date(0)
-  dateWithDesiredMonth.setFullYear(date.getFullYear(), desiredMonth, 1)
-  dateWithDesiredMonth.setHours(0, 0, 0, 0)
-  var daysInMonth = getDaysInMonth(dateWithDesiredMonth)
+function addMonths(dirtyDate, dirtyAmount) {
+  var date = parse(dirtyDate);
+  var amount = Number(dirtyAmount);
+  var desiredMonth = date.getMonth() + amount;
+  var dateWithDesiredMonth = new Date(0);
+  dateWithDesiredMonth.setFullYear(date.getFullYear(), desiredMonth, 1);
+  dateWithDesiredMonth.setHours(0, 0, 0, 0);
+  var daysInMonth = getDaysInMonth(dateWithDesiredMonth);
   // Set the last day of the new month
   // if the original date was the last day of the longer month
-  date.setMonth(desiredMonth, Math.min(daysInMonth, date.getDate()))
-  return date
+  date.setMonth(desiredMonth, Math.min(daysInMonth, date.getDate()));
+  return date;
 }
 
 /**
@@ -50,4 +65,5 @@ function addMonths (dirtyDate, dirtyAmount) {
  * var result = addMonths(new Date(2014, 8, 1), 5)
  * //=> Sun Feb 01 2015 00:00:00
  */
-export default mod_addMonths;
+exports.default = mod_addMonths;
+module.exports = exports.default;

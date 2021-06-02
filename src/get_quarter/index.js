@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_getQuarter = getQuarter;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Quarter Helpers
@@ -17,10 +29,10 @@ var parse = imp_parse
  * var result = getQuarter(new Date(2014, 6, 2))
  * //=> 3
  */
-function getQuarter (dirtyDate) {
-  var date = parse(dirtyDate)
-  var quarter = Math.floor(date.getMonth() / 3) + 1
-  return quarter
+function getQuarter(dirtyDate) {
+  var date = parse(dirtyDate);
+  var quarter = Math.floor(date.getMonth() / 3) + 1;
+  return quarter;
 }
 
 /**
@@ -38,4 +50,5 @@ function getQuarter (dirtyDate) {
  * var result = getQuarter(new Date(2014, 6, 2))
  * //=> 3
  */
-export default mod_getQuarter;
+exports.default = mod_getQuarter;
+module.exports = exports.default;

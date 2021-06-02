@@ -1,40 +1,48 @@
-import imp_isThisQuarter from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global sinon */
 
-var assert = ext_powerassert
-var isThisQuarter = imp_isThisQuarter
+var assert = _powerAssert2.default;
+var isThisQuarter = _2.default;
 
 describe('isThisQuarter', function () {
   beforeEach(function () {
-    this.clock = sinon.useFakeTimers(
-      new Date(2014, 8 /* Sep */, 25).getTime()
-    )
-  })
+    this.clock = sinon.useFakeTimers(new Date(2014, 8 /* Sep */, 25).getTime());
+  });
 
   afterEach(function () {
-    this.clock.restore()
-  })
+    this.clock.restore();
+  });
 
   it('returns true if the given date and the current date have the same quarter (and year)', function () {
-    var date = new Date(2014, 6 /* Jul */, 2)
-    assert(isThisQuarter(date) === true)
-  })
+    var date = new Date(2014, 6 /* Jul */, 2);
+    assert(isThisQuarter(date) === true);
+  });
 
   it('returns false if the given date and the current date have different quarters', function () {
-    var date = new Date(2014, 1 /* Feb */, 11)
-    assert(isThisQuarter(date) === false)
-  })
+    var date = new Date(2014, 1 /* Feb */, 11);
+    assert(isThisQuarter(date) === false);
+  });
 
   it('accepts a string', function () {
-    var date = new Date(2014, 6 /* Jul */, 2).toISOString()
-    assert(isThisQuarter(date) === true)
-  })
+    var date = new Date(2014, 6 /* Jul */, 2).toISOString();
+    assert(isThisQuarter(date) === true);
+  });
 
   it('accepts a timestamp', function () {
-    var date = new Date(2014, 6 /* Jul */, 2).getTime()
-    assert(isThisQuarter(date) === true)
-  })
-})
+    var date = new Date(2014, 6 /* Jul */, 2).getTime();
+    assert(isThisQuarter(date) === true);
+  });
+});

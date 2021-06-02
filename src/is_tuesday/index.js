@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isTuesday = isTuesday;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Weekday Helpers
@@ -17,8 +29,8 @@ var parse = imp_parse
  * var result = isTuesday(new Date(2014, 8, 23))
  * //=> true
  */
-function isTuesday (dirtyDate) {
-  return parse(dirtyDate).getDay() === 2
+function isTuesday(dirtyDate) {
+  return parse(dirtyDate).getDay() === 2;
 }
 
 /**
@@ -36,4 +48,5 @@ function isTuesday (dirtyDate) {
  * var result = isTuesday(new Date(2014, 8, 23))
  * //=> true
  */
-export default mod_isTuesday;
+exports.default = mod_isTuesday;
+module.exports = exports.default;

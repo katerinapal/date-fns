@@ -1,23 +1,33 @@
-import ext_moment from "moment";
-import imp_startOfYear from "./";
+"use strict";
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var startOfYear = imp_startOfYear
-var moment = ext_moment
+var startOfYear = _2.default;
+var moment = _moment2.default;
 
 suite('startOfYear', function () {
   benchmark('date-fns', function () {
-    return startOfYear(this.date)
-  })
+    return startOfYear(this.date);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.startOf('year')
-  })
+    return this.moment.startOf('year');
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = moment();
   }
-})
+});

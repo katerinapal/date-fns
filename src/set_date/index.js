@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_setDate = setDate;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Day Helpers
@@ -18,11 +30,11 @@ var parse = imp_parse
  * var result = setDate(new Date(2014, 8, 1), 30)
  * //=> Tue Sep 30 2014 00:00:00
  */
-function setDate (dirtyDate, dirtyDayOfMonth) {
-  var date = parse(dirtyDate)
-  var dayOfMonth = Number(dirtyDayOfMonth)
-  date.setDate(dayOfMonth)
-  return date
+function setDate(dirtyDate, dirtyDayOfMonth) {
+  var date = parse(dirtyDate);
+  var dayOfMonth = Number(dirtyDayOfMonth);
+  date.setDate(dayOfMonth);
+  return date;
 }
 
 /**
@@ -41,4 +53,5 @@ function setDate (dirtyDate, dirtyDayOfMonth) {
  * var result = setDate(new Date(2014, 8, 1), 30)
  * //=> Tue Sep 30 2014 00:00:00
  */
-export default mod_setDate;
+exports.default = mod_setDate;
+module.exports = exports.default;

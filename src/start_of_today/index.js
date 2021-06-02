@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_day/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_startOfToday = startOfToday;
-import imp_startOfDay from "../start_of_day/index.js";
-var startOfDay = imp_startOfDay
+
+var startOfDay = _index2.default;
 
 /**
  * @category Day Helpers
@@ -16,8 +28,8 @@ var startOfDay = imp_startOfDay
  * var result = startOfToday()
  * //=> Mon Oct 6 2014 00:00:00
  */
-function startOfToday () {
-  return startOfDay(new Date())
+function startOfToday() {
+  return startOfDay(new Date());
 }
 
 /**
@@ -34,4 +46,5 @@ function startOfToday () {
  * var result = startOfToday()
  * //=> Mon Oct 6 2014 00:00:00
  */
-export default mod_startOfToday;
+exports.default = mod_startOfToday;
+module.exports = exports.default;

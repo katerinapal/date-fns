@@ -1,52 +1,66 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require('../../_lib/build_formatting_tokens_reg_exp/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
 var mod_buildFormatLocale = buildFormatLocale;
-import imp_buildFormattingTokensRegExp from "../../_lib/build_formatting_tokens_reg_exp/index.js";
-var buildFormattingTokensRegExp = imp_buildFormattingTokensRegExp
 
-function buildFormatLocale () {
-  var months3char = ['яну', 'фев', 'мар', 'апр', 'май', 'юни', 'юли', 'авг', 'сеп', 'окт', 'ное', 'дек']
-  var monthsFull = ['януари', 'февруари', 'март', 'април', 'май', 'юни', 'юли', 'август', 'септември', 'октомври', 'ноември', 'декември']
-  var weekdays2char = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
-  var weekdays3char = ['нед', 'пон', 'вто', 'сря', 'чет', 'пет', 'съб']
-  var weekdaysFull = ['неделя', 'понеделник', 'вторник', 'сряда', 'четвъртък', 'петък', 'събота']
-  var meridiem = ['сутринта', 'на обяд', 'следобед', 'вечерта']
+var buildFormattingTokensRegExp = _index2.default;
 
-  var timeOfDay = function (date) {
-    var hours = date.getHours()
+function buildFormatLocale() {
+  var months3char = ['яну', 'фев', 'мар', 'апр', 'май', 'юни', 'юли', 'авг', 'сеп', 'окт', 'ное', 'дек'];
+  var monthsFull = ['януари', 'февруари', 'март', 'април', 'май', 'юни', 'юли', 'август', 'септември', 'октомври', 'ноември', 'декември'];
+  var weekdays2char = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+  var weekdays3char = ['нед', 'пон', 'вто', 'сря', 'чет', 'пет', 'съб'];
+  var weekdaysFull = ['неделя', 'понеделник', 'вторник', 'сряда', 'четвъртък', 'петък', 'събота'];
+  var meridiem = ['сутринта', 'на обяд', 'следобед', 'вечерта'];
+
+  var timeOfDay = function timeOfDay(date) {
+    var hours = date.getHours();
     if (hours >= 4 && hours < 12) {
-      return meridiem[0]
+      return meridiem[0];
     } else if (hours >= 12 && hours < 14) {
-      return meridiem[1]
+      return meridiem[1];
     } else if (hours >= 14 && hours < 17) {
-      return meridiem[2]
+      return meridiem[2];
     } else {
-      return meridiem[3]
+      return meridiem[3];
     }
-  }
+  };
 
   var formatters = {
     // Month: Jan, Feb, ..., Dec
-    'MMM': function (date) {
-      return months3char[date.getMonth()]
+    'MMM': function MMM(date) {
+      return months3char[date.getMonth()];
     },
 
     // Month: January, February, ..., December
-    'MMMM': function (date) {
-      return monthsFull[date.getMonth()]
+    'MMMM': function MMMM(date) {
+      return monthsFull[date.getMonth()];
     },
 
     // Day of week: Su, Mo, ..., Sa
-    'dd': function (date) {
-      return weekdays2char[date.getDay()]
+    'dd': function dd(date) {
+      return weekdays2char[date.getDay()];
     },
 
     // Day of week: Sun, Mon, ..., Sat
-    'ddd': function (date) {
-      return weekdays3char[date.getDay()]
+    'ddd': function ddd(date) {
+      return weekdays3char[date.getDay()];
     },
 
     // Day of week: Sunday, Monday, ..., Saturday
-    'dddd': function (date) {
-      return weekdaysFull[date.getDay()]
+    'dddd': function dddd(date) {
+      return weekdaysFull[date.getDay()];
     },
 
     // AM, PM
@@ -57,33 +71,33 @@ function buildFormatLocale () {
 
     // a.m., p.m.
     'aa': timeOfDay
-  }
 
-  // Generate ordinal version of formatters: M -> Mo, D -> Do, etc.
-  var ordinalFormatters = ['M', 'D', 'DDD', 'd', 'Q', 'W']
+    // Generate ordinal version of formatters: M -> Mo, D -> Do, etc.
+  };var ordinalFormatters = ['M', 'D', 'DDD', 'd', 'Q', 'W'];
   ordinalFormatters.forEach(function (formatterToken) {
     formatters[formatterToken + 'o'] = function (date, formatters) {
-      return ordinal(formatters[formatterToken](date))
-    }
-  })
+      return ordinal(formatters[formatterToken](date));
+    };
+  });
 
   return {
     formatters: formatters,
     formattingTokensRegExp: buildFormattingTokensRegExp(formatters)
-  }
+  };
 }
 
-function ordinal (number) {
-  var rem100 = number % 100
+function ordinal(number) {
+  var rem100 = number % 100;
   if (rem100 > 20 || rem100 < 10) {
     switch (rem100 % 10) {
       case 1:
-        return number + '-ви'
+        return number + '-ви';
       case 2:
-        return number + '-ри'
+        return number + '-ри';
     }
   }
-  return number + '-и'
+  return number + '-и';
 }
 
-export default mod_buildFormatLocale;
+exports.default = mod_buildFormatLocale;
+module.exports = exports.default;

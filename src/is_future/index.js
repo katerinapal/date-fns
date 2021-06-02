@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isFuture = isFuture;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Common Helpers
@@ -17,8 +29,8 @@ var parse = imp_parse
  * var result = isFuture(new Date(2014, 11, 31))
  * //=> true
  */
-function isFuture (dirtyDate) {
-  return parse(dirtyDate).getTime() > new Date().getTime()
+function isFuture(dirtyDate) {
+  return parse(dirtyDate).getTime() > new Date().getTime();
 }
 
 /**
@@ -36,4 +48,5 @@ function isFuture (dirtyDate) {
  * var result = isFuture(new Date(2014, 11, 31))
  * //=> true
  */
-export default mod_isFuture;
+exports.default = mod_isFuture;
+module.exports = exports.default;

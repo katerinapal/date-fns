@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_setMinutes = setMinutes;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Minute Helpers
@@ -18,11 +30,11 @@ var parse = imp_parse
  * var result = setMinutes(new Date(2014, 8, 1, 11, 30, 40), 45)
  * //=> Mon Sep 01 2014 11:45:40
  */
-function setMinutes (dirtyDate, dirtyMinutes) {
-  var date = parse(dirtyDate)
-  var minutes = Number(dirtyMinutes)
-  date.setMinutes(minutes)
-  return date
+function setMinutes(dirtyDate, dirtyMinutes) {
+  var date = parse(dirtyDate);
+  var minutes = Number(dirtyMinutes);
+  date.setMinutes(minutes);
+  return date;
 }
 
 /**
@@ -41,4 +53,5 @@ function setMinutes (dirtyDate, dirtyMinutes) {
  * var result = setMinutes(new Date(2014, 8, 1, 11, 30, 40), 45)
  * //=> Mon Sep 01 2014 11:45:40
  */
-export default mod_setMinutes;
+exports.default = mod_setMinutes;
+module.exports = exports.default;

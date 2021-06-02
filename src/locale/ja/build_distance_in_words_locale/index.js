@@ -1,5 +1,10 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
-function buildDistanceInWordsLocale () {
+function buildDistanceInWordsLocale() {
   var distanceInWordsLocale = {
     lessThanXSeconds: {
       one: '1秒以下',
@@ -69,42 +74,43 @@ function buildDistanceInWordsLocale () {
       oneWithSuffix: '1年ぐらい',
       otherWithSuffix: '{{count}}年ぐらい'
     }
-  }
+  };
 
-  function localize (token, count, options) {
-    options = options || {}
+  function localize(token, count, options) {
+    options = options || {};
 
-    var result
+    var result;
     if (typeof distanceInWordsLocale[token] === 'string') {
-      result = distanceInWordsLocale[token]
+      result = distanceInWordsLocale[token];
     } else if (count === 1) {
       if (options.addSuffix && distanceInWordsLocale[token].oneWithSuffix) {
-        result = distanceInWordsLocale[token].oneWithSuffix
+        result = distanceInWordsLocale[token].oneWithSuffix;
       } else {
-        result = distanceInWordsLocale[token].one
+        result = distanceInWordsLocale[token].one;
       }
     } else {
       if (options.addSuffix && distanceInWordsLocale[token].otherWithSuffix) {
-        result = distanceInWordsLocale[token].otherWithSuffix.replace('{{count}}', count)
+        result = distanceInWordsLocale[token].otherWithSuffix.replace('{{count}}', count);
       } else {
-        result = distanceInWordsLocale[token].other.replace('{{count}}', count)
+        result = distanceInWordsLocale[token].other.replace('{{count}}', count);
       }
     }
 
     if (options.addSuffix) {
       if (options.comparison > 0) {
-        return result + '後'
+        return result + '後';
       } else {
-        return result + '前'
+        return result + '前';
       }
     }
 
-    return result
+    return result;
   }
 
   return {
     localize: localize
-  }
+  };
 }
 
-export default mod_buildDistanceInWordsLocale;
+exports.default = mod_buildDistanceInWordsLocale;
+module.exports = exports.default;

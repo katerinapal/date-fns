@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_day/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isSameDay = isSameDay;
-import imp_startOfDay from "../start_of_day/index.js";
-var startOfDay = imp_startOfDay
+
+var startOfDay = _index2.default;
 
 /**
  * @category Day Helpers
@@ -21,11 +33,11 @@ var startOfDay = imp_startOfDay
  * )
  * //=> true
  */
-function isSameDay (dirtyDateLeft, dirtyDateRight) {
-  var dateLeftStartOfDay = startOfDay(dirtyDateLeft)
-  var dateRightStartOfDay = startOfDay(dirtyDateRight)
+function isSameDay(dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfDay = startOfDay(dirtyDateLeft);
+  var dateRightStartOfDay = startOfDay(dirtyDateRight);
 
-  return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime()
+  return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime();
 }
 
 /**
@@ -47,4 +59,5 @@ function isSameDay (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> true
  */
-export default mod_isSameDay;
+exports.default = mod_isSameDay;
+module.exports = exports.default;

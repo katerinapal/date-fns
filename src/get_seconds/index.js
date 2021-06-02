@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_getSeconds = getSeconds;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Second Helpers
@@ -17,10 +29,10 @@ var parse = imp_parse
  * var result = getSeconds(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 5
  */
-function getSeconds (dirtyDate) {
-  var date = parse(dirtyDate)
-  var seconds = date.getSeconds()
-  return seconds
+function getSeconds(dirtyDate) {
+  var date = parse(dirtyDate);
+  var seconds = date.getSeconds();
+  return seconds;
 }
 
 /**
@@ -38,4 +50,5 @@ function getSeconds (dirtyDate) {
  * var result = getSeconds(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 5
  */
-export default mod_getSeconds;
+exports.default = mod_getSeconds;
+module.exports = exports.default;

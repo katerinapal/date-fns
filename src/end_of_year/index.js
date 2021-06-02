@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_endOfYear = endOfYear;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Year Helpers
@@ -18,12 +30,12 @@ var parse = imp_parse
  * var result = endOfYear(new Date(2014, 8, 2, 11, 55, 00))
  * //=> Wed Dec 31 2014 23:59:59.999
  */
-function endOfYear (dirtyDate) {
-  var date = parse(dirtyDate)
-  var year = date.getFullYear()
-  date.setFullYear(year + 1, 0, 0)
-  date.setHours(23, 59, 59, 999)
-  return date
+function endOfYear(dirtyDate) {
+  var date = parse(dirtyDate);
+  var year = date.getFullYear();
+  date.setFullYear(year + 1, 0, 0);
+  date.setHours(23, 59, 59, 999);
+  return date;
 }
 
 /**
@@ -42,4 +54,5 @@ function endOfYear (dirtyDate) {
  * var result = endOfYear(new Date(2014, 8, 2, 11, 55, 00))
  * //=> Wed Dec 31 2014 23:59:59.999
  */
-export default mod_endOfYear;
+exports.default = mod_endOfYear;
+module.exports = exports.default;

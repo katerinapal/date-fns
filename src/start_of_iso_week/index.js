@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_week/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_startOfISOWeek = startOfISOWeek;
-import imp_startOfWeek from "../start_of_week/index.js";
-var startOfWeek = imp_startOfWeek
+
+var startOfWeek = _index2.default;
 
 /**
  * @category ISO Week Helpers
@@ -20,8 +32,8 @@ var startOfWeek = imp_startOfWeek
  * var result = startOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Mon Sep 01 2014 00:00:00
  */
-function startOfISOWeek (dirtyDate) {
-  return startOfWeek(dirtyDate, {weekStartsOn: 1})
+function startOfISOWeek(dirtyDate) {
+  return startOfWeek(dirtyDate, { weekStartsOn: 1 });
 }
 
 /**
@@ -42,4 +54,5 @@ function startOfISOWeek (dirtyDate) {
  * var result = startOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Mon Sep 01 2014 00:00:00
  */
-export default mod_startOfISOWeek;
+exports.default = mod_startOfISOWeek;
+module.exports = exports.default;

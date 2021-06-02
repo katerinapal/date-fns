@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_setYear = setYear;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Year Helpers
@@ -18,11 +30,11 @@ var parse = imp_parse
  * var result = setYear(new Date(2014, 8, 1), 2013)
  * //=> Sun Sep 01 2013 00:00:00
  */
-function setYear (dirtyDate, dirtyYear) {
-  var date = parse(dirtyDate)
-  var year = Number(dirtyYear)
-  date.setFullYear(year)
-  return date
+function setYear(dirtyDate, dirtyYear) {
+  var date = parse(dirtyDate);
+  var year = Number(dirtyYear);
+  date.setFullYear(year);
+  return date;
 }
 
 /**
@@ -41,4 +53,5 @@ function setYear (dirtyDate, dirtyYear) {
  * var result = setYear(new Date(2014, 8, 1), 2013)
  * //=> Sun Sep 01 2013 00:00:00
  */
-export default mod_setYear;
+exports.default = mod_setYear;
+module.exports = exports.default;

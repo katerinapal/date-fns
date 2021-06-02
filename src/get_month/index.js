@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_getMonth = getMonth;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Month Helpers
@@ -17,10 +29,10 @@ var parse = imp_parse
  * var result = getMonth(new Date(2012, 1, 29))
  * //=> 1
  */
-function getMonth (dirtyDate) {
-  var date = parse(dirtyDate)
-  var month = date.getMonth()
-  return month
+function getMonth(dirtyDate) {
+  var date = parse(dirtyDate);
+  var month = date.getMonth();
+  return month;
 }
 
 /**
@@ -38,4 +50,5 @@ function getMonth (dirtyDate) {
  * var result = getMonth(new Date(2012, 1, 29))
  * //=> 1
  */
-export default mod_getMonth;
+exports.default = mod_getMonth;
+module.exports = exports.default;

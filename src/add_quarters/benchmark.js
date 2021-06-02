@@ -1,23 +1,33 @@
-import ext_moment from "moment";
-import imp_addQuarters from "./";
+"use strict";
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var addQuarters = imp_addQuarters
-var moment = ext_moment
+var addQuarters = _2.default;
+var moment = _moment2.default;
 
 suite('addQuarters', function () {
   benchmark('date-fns', function () {
-    return addQuarters(this.date, 2)
-  })
+    return addQuarters(this.date, 2);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.add(2, 'quarters')
-  })
+    return this.moment.add(2, 'quarters');
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = moment();
   }
-})
+});

@@ -1,25 +1,35 @@
-import ext_moment from "moment";
-import imp_distanceInWords from "./";
+"use strict";
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var distanceInWords = imp_distanceInWords
-var moment = ext_moment
+var distanceInWords = _2.default;
+var moment = _moment2.default;
 
 suite('distanceInWords', function () {
   benchmark('date-fns', function () {
-    return distanceInWords(this.dateA, this.dateB)
-  })
+    return distanceInWords(this.dateA, this.dateB);
+  });
 
   benchmark('Moment.js', function () {
-    return this.momentA.from(this.momentB)
-  })
+    return this.momentA.from(this.momentB);
+  });
 }, {
-  setup: function () {
-    this.dateA = new Date()
-    this.momentA = moment()
-    this.dateB = new Date(this.dateA.getTime() + 604800000)
-    this.momentB = this.momentA.clone().add(7, 'days')
+  setup: function setup() {
+    this.dateA = new Date();
+    this.momentA = moment();
+    this.dateB = new Date(this.dateA.getTime() + 604800000);
+    this.momentB = this.momentA.clone().add(7, 'days');
   }
-})
+});

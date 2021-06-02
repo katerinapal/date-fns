@@ -1,29 +1,39 @@
-import imp_isMonday from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 
-var assert = ext_powerassert
-var isMonday = imp_isMonday
+var assert = _powerAssert2.default;
+var isMonday = _2.default;
 
 describe('isMonday', function () {
   it('returns true if the given date is Monday', function () {
-    var result = isMonday(new Date(2014, 8 /* Sep */, 22))
-    assert(result === true)
-  })
+    var result = isMonday(new Date(2014, 8 /* Sep */, 22));
+    assert(result === true);
+  });
 
   it('returns false if the given date is not Monday', function () {
-    var result = isMonday(new Date(2014, 8 /* Sep */, 25))
-    assert(result === false)
-  })
+    var result = isMonday(new Date(2014, 8 /* Sep */, 25));
+    assert(result === false);
+  });
 
   it('accepts a string', function () {
-    var result = isMonday(new Date(2014, 6 /* Jul */, 7).toString())
-    assert(result === true)
-  })
+    var result = isMonday(new Date(2014, 6 /* Jul */, 7).toString());
+    assert(result === true);
+  });
 
   it('accepts a timestamp', function () {
-    var result = isMonday(new Date(2014, 1 /* Feb */, 10).getTime())
-    assert(result === true)
-  })
-})
+    var result = isMonday(new Date(2014, 1 /* Feb */, 10).getTime());
+    assert(result === true);
+  });
+});

@@ -1,64 +1,69 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
-function declensionGroup (scheme, count) {
+function declensionGroup(scheme, count) {
   if (count === 1) {
-    return scheme.one
+    return scheme.one;
   }
 
   if (count >= 2 && count <= 4) {
-    return scheme.twoFour
+    return scheme.twoFour;
   }
 
   // if count === null || count === 0 || count >= 5
-  return scheme.other
+  return scheme.other;
 }
 
-function declension (scheme, count, time) {
-  var group = declensionGroup(scheme, count)
-  var finalText = group[time] || group
-  return finalText.replace('{{count}}', count)
+function declension(scheme, count, time) {
+  var group = declensionGroup(scheme, count);
+  var finalText = group[time] || group;
+  return finalText.replace('{{count}}', count);
 }
 
-function extractPreposition (token) {
+function extractPreposition(token) {
   var result = ['lessThan', 'about', 'over', 'almost'].filter(function (preposition) {
-    return !!token.match(new RegExp('^' + preposition))
-  })
+    return !!token.match(new RegExp('^' + preposition));
+  });
 
-  return result[0]
+  return result[0];
 }
 
-function prefixPreposition (preposition) {
-  var translation = ''
+function prefixPreposition(preposition) {
+  var translation = '';
 
   if (preposition === 'almost') {
-    translation = 'takmer'
+    translation = 'takmer';
   }
 
   if (preposition === 'about') {
-    translation = 'približne'
+    translation = 'približne';
   }
 
-  return translation.length > 0 ? translation + ' ' : ''
+  return translation.length > 0 ? translation + ' ' : '';
 }
 
-function suffixPreposition (preposition) {
-  var translation = ''
+function suffixPreposition(preposition) {
+  var translation = '';
 
   if (preposition === 'lessThan') {
-    translation = 'menej než'
+    translation = 'menej než';
   }
 
   if (preposition === 'over') {
-    translation = 'viac než'
+    translation = 'viac než';
   }
 
-  return translation.length > 0 ? translation + ' ' : ''
+  return translation.length > 0 ? translation + ' ' : '';
 }
 
-function lowercaseFirstLetter (string) {
-  return string.charAt(0).toLowerCase() + string.slice(1)
+function lowercaseFirstLetter(string) {
+  return string.charAt(0).toLowerCase() + string.slice(1);
 }
 
-function buildDistanceInWordsLocale () {
+function buildDistanceInWordsLocale() {
   var distanceInWordsLocale = {
     xSeconds: {
       one: {
@@ -175,29 +180,30 @@ function buildDistanceInWordsLocale () {
         future: '{{count}} rokov'
       }
     }
-  }
+  };
 
-  function localize (token, count, options) {
-    options = options || {}
+  function localize(token, count, options) {
+    options = options || {};
 
-    var preposition = extractPreposition(token) || ''
-    var key = lowercaseFirstLetter(token.substring(preposition.length))
-    var scheme = distanceInWordsLocale[key]
+    var preposition = extractPreposition(token) || '';
+    var key = lowercaseFirstLetter(token.substring(preposition.length));
+    var scheme = distanceInWordsLocale[key];
 
     if (!options.addSuffix) {
-      return prefixPreposition(preposition) + suffixPreposition(preposition) + declension(scheme, count, 'regular')
+      return prefixPreposition(preposition) + suffixPreposition(preposition) + declension(scheme, count, 'regular');
     }
 
     if (options.comparison > 0) {
-      return prefixPreposition(preposition) + 'za ' + suffixPreposition(preposition) + declension(scheme, count, 'future')
+      return prefixPreposition(preposition) + 'za ' + suffixPreposition(preposition) + declension(scheme, count, 'future');
     } else {
-      return prefixPreposition(preposition) + 'pred ' + suffixPreposition(preposition) + declension(scheme, count, 'past')
+      return prefixPreposition(preposition) + 'pred ' + suffixPreposition(preposition) + declension(scheme, count, 'past');
     }
   }
 
   return {
     localize: localize
-  }
+  };
 }
 
-export default mod_buildDistanceInWordsLocale;
+exports.default = mod_buildDistanceInWordsLocale;
+module.exports = exports.default;

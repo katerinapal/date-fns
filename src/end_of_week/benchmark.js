@@ -1,23 +1,33 @@
-import ext_moment from "moment";
-import imp_endOfWeek from "./";
+"use strict";
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var endOfWeek = imp_endOfWeek
-var moment = ext_moment
+var endOfWeek = _2.default;
+var moment = _moment2.default;
 
 suite('endOfWeek', function () {
   benchmark('date-fns', function () {
-    return endOfWeek(this.date)
-  })
+    return endOfWeek(this.date);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.endOf('week')
-  })
+    return this.moment.endOf('week');
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = moment();
   }
-})
+});

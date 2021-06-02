@@ -1,10 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../compare_asc/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../difference_in_calendar_years/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = require("../parse/index.js");
+
+var _index6 = _interopRequireDefault(_index5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_differenceInYears = differenceInYears;
-import imp_compareAsc from "../compare_asc/index.js";
-import imp_differenceInCalendarYears from "../difference_in_calendar_years/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var differenceInCalendarYears = imp_differenceInCalendarYears
-var compareAsc = imp_compareAsc
+
+var parse = _index6.default;
+var differenceInCalendarYears = _index4.default;
+var compareAsc = _index2.default;
 
 /**
  * @category Year Helpers
@@ -25,18 +43,18 @@ var compareAsc = imp_compareAsc
  * )
  * //=> 1
  */
-function differenceInYears (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = parse(dirtyDateLeft)
-  var dateRight = parse(dirtyDateRight)
+function differenceInYears(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft);
+  var dateRight = parse(dirtyDateRight);
 
-  var sign = compareAsc(dateLeft, dateRight)
-  var difference = Math.abs(differenceInCalendarYears(dateLeft, dateRight))
-  dateLeft.setFullYear(dateLeft.getFullYear() - sign * difference)
+  var sign = compareAsc(dateLeft, dateRight);
+  var difference = Math.abs(differenceInCalendarYears(dateLeft, dateRight));
+  dateLeft.setFullYear(dateLeft.getFullYear() - sign * difference);
 
   // Math.abs(diff in full years - diff in calendar years) === 1 if last calendar year is not full
   // If so, result must be decreased by 1 in absolute value
-  var isLastYearNotFull = compareAsc(dateLeft, dateRight) === -sign
-  return sign * (difference - isLastYearNotFull)
+  var isLastYearNotFull = compareAsc(dateLeft, dateRight) === -sign;
+  return sign * (difference - isLastYearNotFull);
 }
 
 /**
@@ -58,4 +76,5 @@ function differenceInYears (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 1
  */
-export default mod_differenceInYears;
+exports.default = mod_differenceInYears;
+module.exports = exports.default;

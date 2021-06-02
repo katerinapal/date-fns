@@ -1,25 +1,35 @@
-import ext_moment from "moment";
-import imp_isSameHour from "./";
+"use strict";
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSameHour = imp_isSameHour
-var moment = ext_moment
+var isSameHour = _2.default;
+var moment = _moment2.default;
 
 suite('isSameHour', function () {
   benchmark('date-fns', function () {
-    return isSameHour(this.dateA, this.dateB)
-  })
+    return isSameHour(this.dateA, this.dateB);
+  });
 
   benchmark('Moment.js', function () {
-    return this.momentA.isSame(this.momentB, 'hour')
-  })
+    return this.momentA.isSame(this.momentB, 'hour');
+  });
 }, {
-  setup: function () {
-    this.dateA = new Date()
-    this.momentA = moment()
-    this.dateB = new Date(this.dateA.getTime() + 604800000)
-    this.momentB = this.momentA.clone().add(7, 'days')
+  setup: function setup() {
+    this.dateA = new Date();
+    this.momentA = moment();
+    this.dateB = new Date(this.dateA.getTime() + 604800000);
+    this.momentB = this.momentA.clone().add(7, 'days');
   }
-})
+});

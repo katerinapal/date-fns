@@ -1,8 +1,23 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../set_iso_year/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../get_iso_year/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_addISOYears = addISOYears;
-import imp_setISOYear from "../set_iso_year/index.js";
-import imp_getISOYear from "../get_iso_year/index.js";
-var getISOYear = imp_getISOYear
-var setISOYear = imp_setISOYear
+
+var getISOYear = _index4.default;
+var setISOYear = _index2.default;
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -22,9 +37,9 @@ var setISOYear = imp_setISOYear
  * var result = addISOYears(new Date(2010, 6, 2), 5)
  * //=> Fri Jun 26 2015 00:00:00
  */
-function addISOYears (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return setISOYear(dirtyDate, getISOYear(dirtyDate) + amount)
+function addISOYears(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return setISOYear(dirtyDate, getISOYear(dirtyDate) + amount);
 }
 
 /**
@@ -45,4 +60,5 @@ function addISOYears (dirtyDate, dirtyAmount) {
  * var result = addISOYears(new Date(2010, 6, 2), 5)
  * //=> Fri Jun 26 2015 00:00:00
  */
-export default mod_addISOYears;
+exports.default = mod_addISOYears;
+module.exports = exports.default;

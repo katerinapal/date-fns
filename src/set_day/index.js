@@ -1,8 +1,23 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../add_days/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../parse/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_setDay = setDay;
-import imp_addDays from "../add_days/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var addDays = imp_addDays
+
+var parse = _index4.default;
+var addDays = _index2.default;
 
 /**
  * @category Weekday Helpers
@@ -27,17 +42,17 @@ var addDays = imp_addDays
  * var result = setDay(new Date(2014, 8, 1), 0, {weekStartsOn: 1})
  * //=> Sun Sep 07 2014 00:00:00
  */
-function setDay (dirtyDate, dirtyDay, dirtyOptions) {
-  var weekStartsOn = dirtyOptions ? (Number(dirtyOptions.weekStartsOn) || 0) : 0
-  var date = parse(dirtyDate)
-  var day = Number(dirtyDay)
-  var currentDay = date.getDay()
+function setDay(dirtyDate, dirtyDay, dirtyOptions) {
+  var weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
+  var date = parse(dirtyDate);
+  var day = Number(dirtyDay);
+  var currentDay = date.getDay();
 
-  var remainder = day % 7
-  var dayIndex = (remainder + 7) % 7
+  var remainder = day % 7;
+  var dayIndex = (remainder + 7) % 7;
 
-  var diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay
-  return addDays(date, diff)
+  var diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay;
+  return addDays(date, diff);
 }
 
 /**
@@ -63,4 +78,5 @@ function setDay (dirtyDate, dirtyDay, dirtyOptions) {
  * var result = setDay(new Date(2014, 8, 1), 0, {weekStartsOn: 1})
  * //=> Sun Sep 07 2014 00:00:00
  */
-export default mod_setDay;
+exports.default = mod_setDay;
+module.exports = exports.default;

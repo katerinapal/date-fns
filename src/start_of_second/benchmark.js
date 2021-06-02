@@ -1,23 +1,33 @@
-import ext_moment from "moment";
-import imp_startOfSecond from "./";
+"use strict";
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var startOfSecond = imp_startOfSecond
-var moment = ext_moment
+var startOfSecond = _2.default;
+var moment = _moment2.default;
 
 suite('startOfSecond', function () {
   benchmark('date-fns', function () {
-    return startOfSecond(this.date)
-  })
+    return startOfSecond(this.date);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.startOf('second')
-  })
+    return this.moment.startOf('second');
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = moment();
   }
-})
+});

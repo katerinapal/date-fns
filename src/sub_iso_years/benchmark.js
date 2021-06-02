@@ -1,16 +1,23 @@
-import imp_subISOYears from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var subISOYears = imp_subISOYears
+var subISOYears = _2.default;
 
 suite('subISOYears', function () {
   benchmark('date-fns', function () {
-    return subISOYears(this.date, 7)
-  })
+    return subISOYears(this.date, 7);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../last_day_of_week/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_lastDayOfISOWeek = lastDayOfISOWeek;
-import imp_lastDayOfWeek from "../last_day_of_week/index.js";
-var lastDayOfWeek = imp_lastDayOfWeek
+
+var lastDayOfWeek = _index2.default;
 
 /**
  * @category ISO Week Helpers
@@ -20,8 +32,8 @@ var lastDayOfWeek = imp_lastDayOfWeek
  * var result = lastDayOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Sun Sep 07 2014 00:00:00
  */
-function lastDayOfISOWeek (dirtyDate) {
-  return lastDayOfWeek(dirtyDate, {weekStartsOn: 1})
+function lastDayOfISOWeek(dirtyDate) {
+  return lastDayOfWeek(dirtyDate, { weekStartsOn: 1 });
 }
 
 /**
@@ -42,4 +54,5 @@ function lastDayOfISOWeek (dirtyDate) {
  * var result = lastDayOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Sun Sep 07 2014 00:00:00
  */
-export default mod_lastDayOfISOWeek;
+exports.default = mod_lastDayOfISOWeek;
+module.exports = exports.default;

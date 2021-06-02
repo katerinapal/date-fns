@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_differenceInCalendarYears = differenceInCalendarYears;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Year Helpers
@@ -21,11 +33,11 @@ var parse = imp_parse
  * )
  * //=> 2
  */
-function differenceInCalendarYears (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = parse(dirtyDateLeft)
-  var dateRight = parse(dirtyDateRight)
+function differenceInCalendarYears(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft);
+  var dateRight = parse(dirtyDateRight);
 
-  return dateLeft.getFullYear() - dateRight.getFullYear()
+  return dateLeft.getFullYear() - dateRight.getFullYear();
 }
 
 /**
@@ -47,4 +59,5 @@ function differenceInCalendarYears (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 2
  */
-export default mod_differenceInCalendarYears;
+exports.default = mod_differenceInCalendarYears;
+module.exports = exports.default;

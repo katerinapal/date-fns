@@ -1,16 +1,23 @@
-import imp_isSunday from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSunday = imp_isSunday
+var isSunday = _2.default;
 
 suite('isSunday', function () {
   benchmark('date-fns', function () {
-    return isSunday(this.date)
-  })
+    return isSunday(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

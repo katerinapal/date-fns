@@ -1,16 +1,23 @@
-import imp_isTomorrow from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isTomorrow = imp_isTomorrow
+var isTomorrow = _2.default;
 
 suite('isTomorrow', function () {
   benchmark('date-fns', function () {
-    return isTomorrow(this.date)
-  })
+    return isTomorrow(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

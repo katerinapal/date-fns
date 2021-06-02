@@ -1,23 +1,33 @@
-import ext_moment from "moment";
-import imp_getDayOfYear from "./";
+"use strict";
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var getDayOfYear = imp_getDayOfYear
-var moment = ext_moment
+var getDayOfYear = _2.default;
+var moment = _moment2.default;
 
 suite('getDayOfYear', function () {
   benchmark('date-fns', function () {
-    return getDayOfYear(this.date)
-  })
+    return getDayOfYear(this.date);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.dayOfYear()
-  })
+    return this.moment.dayOfYear();
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = moment();
   }
-})
+});

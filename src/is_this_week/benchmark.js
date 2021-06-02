@@ -1,16 +1,23 @@
-import imp_isThisWeek from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisWeek = imp_isThisWeek
+var isThisWeek = _2.default;
 
 suite('isThisWeek', function () {
   benchmark('date-fns', function () {
-    return isThisWeek(this.date)
-  })
+    return isThisWeek(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

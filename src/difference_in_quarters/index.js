@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../difference_in_months/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_differenceInQuarters = differenceInQuarters;
-import imp_differenceInMonths from "../difference_in_months/index.js";
-var differenceInMonths = imp_differenceInMonths
+
+var differenceInMonths = _index2.default;
 
 /**
  * @category Quarter Helpers
@@ -21,9 +33,9 @@ var differenceInMonths = imp_differenceInMonths
  * )
  * //=> 2
  */
-function differenceInQuarters (dirtyDateLeft, dirtyDateRight) {
-  var diff = differenceInMonths(dirtyDateLeft, dirtyDateRight) / 3
-  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+function differenceInQuarters(dirtyDateLeft, dirtyDateRight) {
+  var diff = differenceInMonths(dirtyDateLeft, dirtyDateRight) / 3;
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff);
 }
 
 /**
@@ -45,4 +57,5 @@ function differenceInQuarters (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 2
  */
-export default mod_differenceInQuarters;
+exports.default = mod_differenceInQuarters;
+module.exports = exports.default;

@@ -1,49 +1,44 @@
-import imp_isAfter from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 
-var assert = ext_powerassert
-var isAfter = imp_isAfter
+var assert = _powerAssert2.default;
+var isAfter = _2.default;
 
 describe('isAfter', function () {
   it('returns true if the first date is after the second one', function () {
-    var result = isAfter(
-      new Date(1989, 6 /* Jul */, 10),
-      new Date(1987, 1 /* Feb */, 11)
-    )
-    assert(result === true)
-  })
+    var result = isAfter(new Date(1989, 6 /* Jul */, 10), new Date(1987, 1 /* Feb */, 11));
+    assert(result === true);
+  });
 
   it('returns false if the first date is before the second one', function () {
-    var result = isAfter(
-      new Date(1987, 1 /* Feb */, 11),
-      new Date(1989, 6 /* Jul */, 10)
-    )
-    assert(result === false)
-  })
+    var result = isAfter(new Date(1987, 1 /* Feb */, 11), new Date(1989, 6 /* Jul */, 10));
+    assert(result === false);
+  });
 
   it('returns false if the first date is equal to the second one', function () {
-    var result = isAfter(
-      new Date(1989, 6 /* Jul */, 10),
-      new Date(1989, 6 /* Jul */, 10)
-    )
-    assert(result === false)
-  })
+    var result = isAfter(new Date(1989, 6 /* Jul */, 10), new Date(1989, 6 /* Jul */, 10));
+    assert(result === false);
+  });
 
   it('accepts a string', function () {
-    var result = isAfter(
-      new Date(1989, 6 /* Jul */, 10).toISOString(),
-      new Date(1987, 1 /* Feb */, 11).toISOString()
-    )
-    assert(result === true)
-  })
+    var result = isAfter(new Date(1989, 6 /* Jul */, 10).toISOString(), new Date(1987, 1 /* Feb */, 11).toISOString());
+    assert(result === true);
+  });
 
   it('accepts a timestamp', function () {
-    var result = isAfter(
-      new Date(1989, 6 /* Jul */, 10).getTime(),
-      new Date(1987, 1 /* Feb */, 11).getTime()
-    )
-    assert(result === true)
-  })
-})
+    var result = isAfter(new Date(1989, 6 /* Jul */, 10).getTime(), new Date(1987, 1 /* Feb */, 11).getTime());
+    assert(result === true);
+  });
+});

@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../add_minutes/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_subMinutes = subMinutes;
-import imp_addMinutes from "../add_minutes/index.js";
-var addMinutes = imp_addMinutes
+
+var addMinutes = _index2.default;
 
 /**
  * @category Minute Helpers
@@ -18,9 +30,9 @@ var addMinutes = imp_addMinutes
  * var result = subMinutes(new Date(2014, 6, 10, 12, 0), 30)
  * //=> Thu Jul 10 2014 11:30:00
  */
-function subMinutes (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return addMinutes(dirtyDate, -amount)
+function subMinutes(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return addMinutes(dirtyDate, -amount);
 }
 
 /**
@@ -39,4 +51,5 @@ function subMinutes (dirtyDate, dirtyAmount) {
  * var result = subMinutes(new Date(2014, 6, 10, 12, 0), 30)
  * //=> Thu Jul 10 2014 11:30:00
  */
-export default mod_subMinutes;
+exports.default = mod_subMinutes;
+module.exports = exports.default;

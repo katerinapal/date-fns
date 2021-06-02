@@ -1,16 +1,23 @@
-import imp_isSoLastWeek from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSoLastWeek = imp_isSoLastWeek
+var isSoLastWeek = _2.default;
 
 suite('isSoLastWeek', function () {
   benchmark('date-fns', function () {
-    return isSoLastWeek(this.date)
-  })
+    return isSoLastWeek(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

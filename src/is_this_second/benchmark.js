@@ -1,16 +1,23 @@
-import imp_isThisSecond from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisSecond = imp_isThisSecond
+var isThisSecond = _2.default;
 
 suite('isThisSecond', function () {
   benchmark('date-fns', function () {
-    return isThisSecond(this.date)
-  })
+    return isThisSecond(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

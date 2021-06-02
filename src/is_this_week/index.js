@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../is_same_week/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isThisWeek = isThisWeek;
-import imp_isSameWeek from "../is_same_week/index.js";
-var isSameWeek = imp_isSameWeek
+
+var isSameWeek = _index2.default;
 
 /**
  * @category Week Helpers
@@ -25,8 +37,8 @@ var isSameWeek = imp_isSameWeek
  * var result = isThisWeek(new Date(2014, 8, 21), {weekStartsOn: 1})
  * //=> false
  */
-function isThisWeek (dirtyDate, dirtyOptions) {
-  return isSameWeek(new Date(), dirtyDate, dirtyOptions)
+function isThisWeek(dirtyDate, dirtyOptions) {
+  return isSameWeek(new Date(), dirtyDate, dirtyOptions);
 }
 
 /**
@@ -52,4 +64,5 @@ function isThisWeek (dirtyDate, dirtyOptions) {
  * var result = isThisWeek(new Date(2014, 8, 21), {weekStartsOn: 1})
  * //=> false
  */
-export default mod_isThisWeek;
+exports.default = mod_isThisWeek;
+module.exports = exports.default;

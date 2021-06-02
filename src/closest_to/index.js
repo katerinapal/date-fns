@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_closestTo = closestTo;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Common Helpers
@@ -23,27 +35,27 @@ var parse = imp_parse
  * ])
  * //=> Tue Jan 01 2030 00:00:00
  */
-function closestTo (dirtyDateToCompare, dirtyDatesArray) {
+function closestTo(dirtyDateToCompare, dirtyDatesArray) {
   if (!(dirtyDatesArray instanceof Array)) {
-    throw new TypeError(toString.call(dirtyDatesArray) + ' is not an instance of Array')
+    throw new TypeError(toString.call(dirtyDatesArray) + ' is not an instance of Array');
   }
 
-  var dateToCompare = parse(dirtyDateToCompare)
-  var timeToCompare = dateToCompare.getTime()
+  var dateToCompare = parse(dirtyDateToCompare);
+  var timeToCompare = dateToCompare.getTime();
 
-  var result
-  var minDistance
+  var result;
+  var minDistance;
 
   dirtyDatesArray.forEach(function (dirtyDate) {
-    var currentDate = parse(dirtyDate)
-    var distance = Math.abs(timeToCompare - currentDate.getTime())
+    var currentDate = parse(dirtyDate);
+    var distance = Math.abs(timeToCompare - currentDate.getTime());
     if (result === undefined || distance < minDistance) {
-      result = currentDate
-      minDistance = distance
+      result = currentDate;
+      minDistance = distance;
     }
-  })
+  });
 
-  return result
+  return result;
 }
 
 /**
@@ -67,4 +79,5 @@ function closestTo (dirtyDateToCompare, dirtyDatesArray) {
  * ])
  * //=> Tue Jan 01 2030 00:00:00
  */
-export default mod_closestTo;
+exports.default = mod_closestTo;
+module.exports = exports.default;

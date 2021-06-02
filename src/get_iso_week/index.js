@@ -1,12 +1,30 @@
-var mod_getISOWeek = getISOWeek;
-import imp_startOfISOYear from "../start_of_iso_year/index.js";
-import imp_startOfISOWeek from "../start_of_iso_week/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var startOfISOWeek = imp_startOfISOWeek
-var startOfISOYear = imp_startOfISOYear
+"use strict";
 
-var MILLISECONDS_IN_WEEK = 604800000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_iso_year/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../start_of_iso_week/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = require("../parse/index.js");
+
+var _index6 = _interopRequireDefault(_index5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mod_getISOWeek = getISOWeek;
+
+var parse = _index6.default;
+var startOfISOWeek = _index4.default;
+var startOfISOYear = _index2.default;
+
+var MILLISECONDS_IN_WEEK = 604800000;
 
 /**
  * @category ISO Week Helpers
@@ -25,14 +43,14 @@ var MILLISECONDS_IN_WEEK = 604800000
  * var result = getISOWeek(new Date(2005, 0, 2))
  * //=> 53
  */
-function getISOWeek (dirtyDate) {
-  var date = parse(dirtyDate)
-  var diff = startOfISOWeek(date).getTime() - startOfISOYear(date).getTime()
+function getISOWeek(dirtyDate) {
+  var date = parse(dirtyDate);
+  var diff = startOfISOWeek(date).getTime() - startOfISOYear(date).getTime();
 
   // Round the number of days to the nearest integer
   // because the number of milliseconds in a week is not constant
   // (e.g. it's different in the week of the daylight saving time clock shift)
-  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1
+  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
 }
 
 /**
@@ -52,4 +70,5 @@ function getISOWeek (dirtyDate) {
  * var result = getISOWeek(new Date(2005, 0, 2))
  * //=> 53
  */
-export default mod_getISOWeek;
+exports.default = mod_getISOWeek;
+module.exports = exports.default;

@@ -1,16 +1,23 @@
-import imp_isThisYear from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisYear = imp_isThisYear
+var isThisYear = _2.default;
 
 suite('isThisYear', function () {
   benchmark('date-fns', function () {
-    return isThisYear(this.date)
-  })
+    return isThisYear(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

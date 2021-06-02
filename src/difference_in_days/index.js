@@ -1,10 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../compare_asc/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../difference_in_calendar_days/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = require("../parse/index.js");
+
+var _index6 = _interopRequireDefault(_index5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_differenceInDays = differenceInDays;
-import imp_compareAsc from "../compare_asc/index.js";
-import imp_differenceInCalendarDays from "../difference_in_calendar_days/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var differenceInCalendarDays = imp_differenceInCalendarDays
-var compareAsc = imp_compareAsc
+
+var parse = _index6.default;
+var differenceInCalendarDays = _index4.default;
+var compareAsc = _index2.default;
 
 /**
  * @category Day Helpers
@@ -26,18 +44,18 @@ var compareAsc = imp_compareAsc
  * )
  * //=> 365
  */
-function differenceInDays (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = parse(dirtyDateLeft)
-  var dateRight = parse(dirtyDateRight)
+function differenceInDays(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft);
+  var dateRight = parse(dirtyDateRight);
 
-  var sign = compareAsc(dateLeft, dateRight)
-  var difference = Math.abs(differenceInCalendarDays(dateLeft, dateRight))
-  dateLeft.setDate(dateLeft.getDate() - sign * difference)
+  var sign = compareAsc(dateLeft, dateRight);
+  var difference = Math.abs(differenceInCalendarDays(dateLeft, dateRight));
+  dateLeft.setDate(dateLeft.getDate() - sign * difference);
 
   // Math.abs(diff in full days - diff in calendar days) === 1 if last calendar day is not full
   // If so, result must be decreased by 1 in absolute value
-  var isLastDayNotFull = compareAsc(dateLeft, dateRight) === -sign
-  return sign * (difference - isLastDayNotFull)
+  var isLastDayNotFull = compareAsc(dateLeft, dateRight) === -sign;
+  return sign * (difference - isLastDayNotFull);
 }
 
 /**
@@ -60,4 +78,5 @@ function differenceInDays (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 365
  */
-export default mod_differenceInDays;
+exports.default = mod_differenceInDays;
+module.exports = exports.default;

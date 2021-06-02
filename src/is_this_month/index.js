@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../is_same_month/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isThisMonth = isThisMonth;
-import imp_isSameMonth from "../is_same_month/index.js";
-var isSameMonth = imp_isSameMonth
+
+var isSameMonth = _index2.default;
 
 /**
  * @category Month Helpers
@@ -17,8 +29,8 @@ var isSameMonth = imp_isSameMonth
  * var result = isThisMonth(new Date(2014, 8, 15))
  * //=> true
  */
-function isThisMonth (dirtyDate) {
-  return isSameMonth(new Date(), dirtyDate)
+function isThisMonth(dirtyDate) {
+  return isSameMonth(new Date(), dirtyDate);
 }
 
 /**
@@ -36,4 +48,5 @@ function isThisMonth (dirtyDate) {
  * var result = isThisMonth(new Date(2014, 8, 15))
  * //=> true
  */
-export default mod_isThisMonth;
+exports.default = mod_isThisMonth;
+module.exports = exports.default;

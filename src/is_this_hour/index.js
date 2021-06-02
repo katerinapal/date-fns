@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../is_same_hour/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isThisHour = isThisHour;
-import imp_isSameHour from "../is_same_hour/index.js";
-var isSameHour = imp_isSameHour
+
+var isSameHour = _index2.default;
 
 /**
  * @category Hour Helpers
@@ -18,8 +30,8 @@ var isSameHour = imp_isSameHour
  * var result = isThisHour(new Date(2014, 8, 25, 18))
  * //=> true
  */
-function isThisHour (dirtyDate) {
-  return isSameHour(new Date(), dirtyDate)
+function isThisHour(dirtyDate) {
+  return isSameHour(new Date(), dirtyDate);
 }
 
 /**
@@ -38,4 +50,5 @@ function isThisHour (dirtyDate) {
  * var result = isThisHour(new Date(2014, 8, 25, 18))
  * //=> true
  */
-export default mod_isThisHour;
+exports.default = mod_isThisHour;
+module.exports = exports.default;

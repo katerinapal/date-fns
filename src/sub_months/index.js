@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../add_months/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_subMonths = subMonths;
-import imp_addMonths from "../add_months/index.js";
-var addMonths = imp_addMonths
+
+var addMonths = _index2.default;
 
 /**
  * @category Month Helpers
@@ -18,9 +30,9 @@ var addMonths = imp_addMonths
  * var result = subMonths(new Date(2015, 1, 1), 5)
  * //=> Mon Sep 01 2014 00:00:00
  */
-function subMonths (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return addMonths(dirtyDate, -amount)
+function subMonths(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return addMonths(dirtyDate, -amount);
 }
 
 /**
@@ -39,4 +51,5 @@ function subMonths (dirtyDate, dirtyAmount) {
  * var result = subMonths(new Date(2015, 1, 1), 5)
  * //=> Mon Sep 01 2014 00:00:00
  */
-export default mod_subMonths;
+exports.default = mod_subMonths;
+module.exports = exports.default;

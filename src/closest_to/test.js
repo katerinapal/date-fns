@@ -1,59 +1,56 @@
-import imp_closestTo from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 
-var assert = ext_powerassert
-var closestTo = imp_closestTo
+var assert = _powerAssert2.default;
+var closestTo = _2.default;
 
 describe('closestTo', function () {
   it('returns the date from the given array closest to the given date', function () {
-    var date = new Date(2014, 6 /* Jul */, 2)
-    var result = closestTo(date, [
-      new Date(2015, 7 /* Aug */, 31),
-      new Date(2012, 6 /* Jul */, 2)
-    ])
-    assert.deepEqual(result, new Date(2015, 7 /* Aug */, 31))
-  })
+    var date = new Date(2014, 6 /* Jul */, 2);
+    var result = closestTo(date, [new Date(2015, 7 /* Aug */, 31), new Date(2012, 6 /* Jul */, 2)]);
+    assert.deepEqual(result, new Date(2015, 7 /* Aug */, 31));
+  });
 
   it('works if the closest date from the given array is before the given date', function () {
-    var date = new Date(2014, 6 /* Jul */, 2, 6, 30, 4, 500)
-    var result = closestTo(date, [
-      new Date(2014, 6 /* Jul */, 2, 6, 30, 5, 900),
-      new Date(2014, 6 /* Jul */, 2, 6, 30, 3, 900),
-      new Date(2014, 6 /* Jul */, 2, 6, 30, 10)
-    ])
-    assert.deepEqual(result, new Date(2014, 6 /* Jul */, 2, 6, 30, 3, 900))
-  })
+    var date = new Date(2014, 6 /* Jul */, 2, 6, 30, 4, 500);
+    var result = closestTo(date, [new Date(2014, 6 /* Jul */, 2, 6, 30, 5, 900), new Date(2014, 6 /* Jul */, 2, 6, 30, 3, 900), new Date(2014, 6 /* Jul */, 2, 6, 30, 10)]);
+    assert.deepEqual(result, new Date(2014, 6 /* Jul */, 2, 6, 30, 3, 900));
+  });
 
   it('accepts strings', function () {
-    var date = new Date(2014, 6 /* Jul */, 2).toISOString()
-    var result = closestTo(date, [
-      new Date(2012, 6 /* Jul */, 2).toISOString(),
-      new Date(2015, 7 /* Aug */, 31).toISOString()
-    ])
-    assert.deepEqual(result, new Date(2015, 7 /* Aug */, 31))
-  })
+    var date = new Date(2014, 6 /* Jul */, 2).toISOString();
+    var result = closestTo(date, [new Date(2012, 6 /* Jul */, 2).toISOString(), new Date(2015, 7 /* Aug */, 31).toISOString()]);
+    assert.deepEqual(result, new Date(2015, 7 /* Aug */, 31));
+  });
 
   it('accepts timestamps', function () {
-    var date = new Date(2014, 6 /* Jul */, 2).getTime()
-    var result = closestTo(date, [
-      new Date(2015, 7 /* Aug */, 31).getTime(),
-      new Date(2012, 6 /* Jul */, 2).getTime()
-    ])
-    assert.deepEqual(result, new Date(2015, 7 /* Aug */, 31))
-  })
+    var date = new Date(2014, 6 /* Jul */, 2).getTime();
+    var result = closestTo(date, [new Date(2015, 7 /* Aug */, 31).getTime(), new Date(2012, 6 /* Jul */, 2).getTime()]);
+    assert.deepEqual(result, new Date(2015, 7 /* Aug */, 31));
+  });
 
   it('returns undefined if the given array is empty', function () {
-    var date = new Date(2014, 6 /* Jul */, 2).getTime()
-    var result = closestTo(date, [])
-    assert(result === undefined)
-  })
+    var date = new Date(2014, 6 /* Jul */, 2).getTime();
+    var result = closestTo(date, []);
+    assert(result === undefined);
+  });
 
   it('throws an exception if the second argument is not an instance of Array', function () {
-    var date = new Date(2014, 6 /* Jul */, 2).getTime()
+    var date = new Date(2014, 6 /* Jul */, 2).getTime();
     // $ExpectedMistake
-    var block = closestTo.bind(null, date, '')
-    assert.throws(block, TypeError, '[object String] is not an instance of Array')
-  })
-})
+    var block = closestTo.bind(null, date, '');
+    assert.throws(block, TypeError, '[object String] is not an instance of Array');
+  });
+});

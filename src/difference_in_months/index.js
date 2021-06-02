@@ -1,10 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../compare_asc/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../difference_in_calendar_months/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = require("../parse/index.js");
+
+var _index6 = _interopRequireDefault(_index5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_differenceInMonths = differenceInMonths;
-import imp_compareAsc from "../compare_asc/index.js";
-import imp_differenceInCalendarMonths from "../difference_in_calendar_months/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var differenceInCalendarMonths = imp_differenceInCalendarMonths
-var compareAsc = imp_compareAsc
+
+var parse = _index6.default;
+var differenceInCalendarMonths = _index4.default;
+var compareAsc = _index2.default;
 
 /**
  * @category Month Helpers
@@ -25,18 +43,18 @@ var compareAsc = imp_compareAsc
  * )
  * //=> 7
  */
-function differenceInMonths (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = parse(dirtyDateLeft)
-  var dateRight = parse(dirtyDateRight)
+function differenceInMonths(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = parse(dirtyDateLeft);
+  var dateRight = parse(dirtyDateRight);
 
-  var sign = compareAsc(dateLeft, dateRight)
-  var difference = Math.abs(differenceInCalendarMonths(dateLeft, dateRight))
-  dateLeft.setMonth(dateLeft.getMonth() - sign * difference)
+  var sign = compareAsc(dateLeft, dateRight);
+  var difference = Math.abs(differenceInCalendarMonths(dateLeft, dateRight));
+  dateLeft.setMonth(dateLeft.getMonth() - sign * difference);
 
   // Math.abs(diff in full months - diff in calendar months) === 1 if last calendar month is not full
   // If so, result must be decreased by 1 in absolute value
-  var isLastMonthNotFull = compareAsc(dateLeft, dateRight) === -sign
-  return sign * (difference - isLastMonthNotFull)
+  var isLastMonthNotFull = compareAsc(dateLeft, dateRight) === -sign;
+  return sign * (difference - isLastMonthNotFull);
 }
 
 /**
@@ -58,4 +76,5 @@ function differenceInMonths (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 7
  */
-export default mod_differenceInMonths;
+exports.default = mod_differenceInMonths;
+module.exports = exports.default;

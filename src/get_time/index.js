@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_getTime = getTime;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Timestamp Helpers
@@ -17,10 +29,10 @@ var parse = imp_parse
  * var result = getTime(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 1330515905123
  */
-function getTime (dirtyDate) {
-  var date = parse(dirtyDate)
-  var timestamp = date.getTime()
-  return timestamp
+function getTime(dirtyDate) {
+  var date = parse(dirtyDate);
+  var timestamp = date.getTime();
+  return timestamp;
 }
 
 /**
@@ -38,4 +50,5 @@ function getTime (dirtyDate) {
  * var result = getTime(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 1330515905123
  */
-export default mod_getTime;
+exports.default = mod_getTime;
+module.exports = exports.default;

@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_setMilliseconds = setMilliseconds;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Millisecond Helpers
@@ -18,11 +30,11 @@ var parse = imp_parse
  * var result = setMilliseconds(new Date(2014, 8, 1, 11, 30, 40, 500), 300)
  * //=> Mon Sep 01 2014 11:30:40.300
  */
-function setMilliseconds (dirtyDate, dirtyMilliseconds) {
-  var date = parse(dirtyDate)
-  var milliseconds = Number(dirtyMilliseconds)
-  date.setMilliseconds(milliseconds)
-  return date
+function setMilliseconds(dirtyDate, dirtyMilliseconds) {
+  var date = parse(dirtyDate);
+  var milliseconds = Number(dirtyMilliseconds);
+  date.setMilliseconds(milliseconds);
+  return date;
 }
 
 /**
@@ -41,4 +53,5 @@ function setMilliseconds (dirtyDate, dirtyMilliseconds) {
  * var result = setMilliseconds(new Date(2014, 8, 1, 11, 30, 40, 500), 300)
  * //=> Mon Sep 01 2014 11:30:40.300
  */
-export default mod_setMilliseconds;
+exports.default = mod_setMilliseconds;
+module.exports = exports.default;

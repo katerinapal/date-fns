@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../is_date/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isValid = isValid;
-import imp_isDate from "../is_date/index.js";
-var isDate = imp_isDate
+
+var isDate = _index2.default;
 
 /**
  * @category Common Helpers
@@ -26,11 +38,11 @@ var isDate = imp_isDate
  * var result = isValid(new Date(''))
  * //=> false
  */
-function isValid (dirtyDate) {
+function isValid(dirtyDate) {
   if (isDate(dirtyDate)) {
-    return !isNaN(dirtyDate)
+    return !isNaN(dirtyDate);
   } else {
-    throw new TypeError(toString.call(dirtyDate) + ' is not an instance of Date')
+    throw new TypeError(toString.call(dirtyDate) + ' is not an instance of Date');
   }
 }
 
@@ -58,4 +70,5 @@ function isValid (dirtyDate) {
  * var result = isValid(new Date(''))
  * //=> false
  */
-export default mod_isValid;
+exports.default = mod_isValid;
+module.exports = exports.default;

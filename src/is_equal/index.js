@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isEqual = isEqual;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Common Helpers
@@ -21,10 +33,10 @@ var parse = imp_parse
  * )
  * //=> false
  */
-function isEqual (dirtyLeftDate, dirtyRightDate) {
-  var dateLeft = parse(dirtyLeftDate)
-  var dateRight = parse(dirtyRightDate)
-  return dateLeft.getTime() === dateRight.getTime()
+function isEqual(dirtyLeftDate, dirtyRightDate) {
+  var dateLeft = parse(dirtyLeftDate);
+  var dateRight = parse(dirtyRightDate);
+  return dateLeft.getTime() === dateRight.getTime();
 }
 
 /**
@@ -46,4 +58,5 @@ function isEqual (dirtyLeftDate, dirtyRightDate) {
  * )
  * //=> false
  */
-export default mod_isEqual;
+exports.default = mod_isEqual;
+module.exports = exports.default;

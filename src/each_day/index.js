@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_eachDay = eachDay;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Day Helpers
@@ -29,28 +41,28 @@ var parse = imp_parse
  * //   Fri Oct 10 2014 00:00:00
  * // ]
  */
-function eachDay (dirtyStartDate, dirtyEndDate, dirtyStep) {
-  var startDate = parse(dirtyStartDate)
-  var endDate = parse(dirtyEndDate)
-  var step = dirtyStep !== undefined ? dirtyStep : 1
+function eachDay(dirtyStartDate, dirtyEndDate, dirtyStep) {
+  var startDate = parse(dirtyStartDate);
+  var endDate = parse(dirtyEndDate);
+  var step = dirtyStep !== undefined ? dirtyStep : 1;
 
-  var endTime = endDate.getTime()
+  var endTime = endDate.getTime();
 
   if (startDate.getTime() > endTime) {
-    throw new Error('The first date cannot be after the second date')
+    throw new Error('The first date cannot be after the second date');
   }
 
-  var dates = []
+  var dates = [];
 
-  var currentDate = startDate
-  currentDate.setHours(0, 0, 0, 0)
+  var currentDate = startDate;
+  currentDate.setHours(0, 0, 0, 0);
 
   while (currentDate.getTime() <= endTime) {
-    dates.push(parse(currentDate))
-    currentDate.setDate(currentDate.getDate() + step)
+    dates.push(parse(currentDate));
+    currentDate.setDate(currentDate.getDate() + step);
   }
 
-  return dates
+  return dates;
 }
 
 /**
@@ -80,4 +92,5 @@ function eachDay (dirtyStartDate, dirtyEndDate, dirtyStep) {
  * //   Fri Oct 10 2014 00:00:00
  * // ]
  */
-export default mod_eachDay;
+exports.default = mod_eachDay;
+module.exports = exports.default;

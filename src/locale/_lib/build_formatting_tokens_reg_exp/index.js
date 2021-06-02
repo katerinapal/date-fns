@@ -1,29 +1,24 @@
-var mod_buildFormattingTokensRegExp = buildFormattingTokensRegExp;
-var commonFormatterKeys = [
-  'M', 'MM', 'Q', 'D', 'DD', 'DDD', 'DDDD', 'd',
-  'E', 'W', 'WW', 'YY', 'YYYY', 'GG', 'GGGG',
-  'H', 'HH', 'h', 'hh', 'm', 'mm',
-  's', 'ss', 'S', 'SS', 'SSS',
-  'Z', 'ZZ', 'X', 'x'
-]
+'use strict';
 
-function buildFormattingTokensRegExp (formatters) {
-  var formatterKeys = []
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var mod_buildFormattingTokensRegExp = buildFormattingTokensRegExp;
+var commonFormatterKeys = ['M', 'MM', 'Q', 'D', 'DD', 'DDD', 'DDDD', 'd', 'E', 'W', 'WW', 'YY', 'YYYY', 'GG', 'GGGG', 'H', 'HH', 'h', 'hh', 'm', 'mm', 's', 'ss', 'S', 'SS', 'SSS', 'Z', 'ZZ', 'X', 'x'];
+
+function buildFormattingTokensRegExp(formatters) {
+  var formatterKeys = [];
   for (var key in formatters) {
     if (formatters.hasOwnProperty(key)) {
-      formatterKeys.push(key)
+      formatterKeys.push(key);
     }
   }
 
-  var formattingTokens = commonFormatterKeys
-    .concat(formatterKeys)
-    .sort()
-    .reverse()
-  var formattingTokensRegExp = new RegExp(
-    '(\\[[^\\[]*\\])|(\\\\)?' + '(' + formattingTokens.join('|') + '|.)', 'g'
-  )
+  var formattingTokens = commonFormatterKeys.concat(formatterKeys).sort().reverse();
+  var formattingTokensRegExp = new RegExp('(\\[[^\\[]*\\])|(\\\\)?' + '(' + formattingTokens.join('|') + '|.)', 'g');
 
-  return formattingTokensRegExp
+  return formattingTokensRegExp;
 }
 
-export default mod_buildFormattingTokensRegExp;
+exports.default = mod_buildFormattingTokensRegExp;
+module.exports = exports.default;

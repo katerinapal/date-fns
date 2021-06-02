@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isWithinRange = isWithinRange;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Range Helpers
@@ -29,16 +41,16 @@ var parse = imp_parse
  * )
  * //=> false
  */
-function isWithinRange (dirtyDate, dirtyStartDate, dirtyEndDate) {
-  var time = parse(dirtyDate).getTime()
-  var startTime = parse(dirtyStartDate).getTime()
-  var endTime = parse(dirtyEndDate).getTime()
+function isWithinRange(dirtyDate, dirtyStartDate, dirtyEndDate) {
+  var time = parse(dirtyDate).getTime();
+  var startTime = parse(dirtyStartDate).getTime();
+  var endTime = parse(dirtyEndDate).getTime();
 
   if (startTime > endTime) {
-    throw new Error('The start of the range cannot be after the end of the range')
+    throw new Error('The start of the range cannot be after the end of the range');
   }
 
-  return time >= startTime && time <= endTime
+  return time >= startTime && time <= endTime;
 }
 
 /**
@@ -68,4 +80,5 @@ function isWithinRange (dirtyDate, dirtyStartDate, dirtyEndDate) {
  * )
  * //=> false
  */
-export default mod_isWithinRange;
+exports.default = mod_isWithinRange;
+module.exports = exports.default;

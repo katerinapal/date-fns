@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../difference_in_days/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_differenceInWeeks = differenceInWeeks;
-import imp_differenceInDays from "../difference_in_days/index.js";
-var differenceInDays = imp_differenceInDays
+
+var differenceInDays = _index2.default;
 
 /**
  * @category Week Helpers
@@ -21,9 +33,9 @@ var differenceInDays = imp_differenceInDays
  * )
  * //=> 2
  */
-function differenceInWeeks (dirtyDateLeft, dirtyDateRight) {
-  var diff = differenceInDays(dirtyDateLeft, dirtyDateRight) / 7
-  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+function differenceInWeeks(dirtyDateLeft, dirtyDateRight) {
+  var diff = differenceInDays(dirtyDateLeft, dirtyDateRight) / 7;
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff);
 }
 
 /**
@@ -45,4 +57,5 @@ function differenceInWeeks (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 2
  */
-export default mod_differenceInWeeks;
+exports.default = mod_differenceInWeeks;
+module.exports = exports.default;

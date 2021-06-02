@@ -1,10 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../difference_in_calendar_days/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../start_of_year/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = require("../parse/index.js");
+
+var _index6 = _interopRequireDefault(_index5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_getDayOfYear = getDayOfYear;
-import imp_differenceInCalendarDays from "../difference_in_calendar_days/index.js";
-import imp_startOfYear from "../start_of_year/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var startOfYear = imp_startOfYear
-var differenceInCalendarDays = imp_differenceInCalendarDays
+
+var parse = _index6.default;
+var startOfYear = _index4.default;
+var differenceInCalendarDays = _index2.default;
 
 /**
  * @category Day Helpers
@@ -21,11 +39,11 @@ var differenceInCalendarDays = imp_differenceInCalendarDays
  * var result = getDayOfYear(new Date(2014, 6, 2))
  * //=> 183
  */
-function getDayOfYear (dirtyDate) {
-  var date = parse(dirtyDate)
-  var diff = differenceInCalendarDays(date, startOfYear(date))
-  var dayOfYear = diff + 1
-  return dayOfYear
+function getDayOfYear(dirtyDate) {
+  var date = parse(dirtyDate);
+  var diff = differenceInCalendarDays(date, startOfYear(date));
+  var dayOfYear = diff + 1;
+  return dayOfYear;
 }
 
 /**
@@ -43,4 +61,5 @@ function getDayOfYear (dirtyDate) {
  * var result = getDayOfYear(new Date(2014, 6, 2))
  * //=> 183
  */
-export default mod_getDayOfYear;
+exports.default = mod_getDayOfYear;
+module.exports = exports.default;

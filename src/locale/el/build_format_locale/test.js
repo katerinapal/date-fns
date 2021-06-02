@@ -1,389 +1,472 @@
-import imp_buildFormatLocale from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
 // @flow
 /* eslint-env mocha */
 
-var assert = ext_powerassert
-var buildFormatLocale = imp_buildFormatLocale
+var assert = _powerAssert2.default;
+var buildFormatLocale = _2.default;
 
 describe('el locale > buildFormatLocale', function () {
   it('returns an object', function () {
-    assert(typeof buildFormatLocale() === 'object')
-  })
+    assert(_typeof(buildFormatLocale()) === 'object');
+  });
 
   describe('formatters property', function () {
     it('is an object', function () {
-      assert(typeof buildFormatLocale().formatters === 'object')
-    })
+      assert(_typeof(buildFormatLocale().formatters) === 'object');
+    });
 
     describe('MMM', function () {
       it('returns the correct string for January', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 0)) === 'Ιαν')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 0)) === 'Ιαν');
+      });
 
       it('returns the correct string for February', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 1)) === 'Φεβ')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 1)) === 'Φεβ');
+      });
 
       it('returns the correct string for March', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 2)) === 'Μαρ')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 2)) === 'Μαρ');
+      });
 
       it('returns the correct string for April', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2015, 3)) === 'Απρ')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2015, 3)) === 'Απρ');
+      });
 
       it('returns the correct string for May', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 4)) === 'Μαϊ')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 4)) === 'Μαϊ');
+      });
 
       it('returns the correct string for June', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 5)) === 'Ιουν')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 5)) === 'Ιουν');
+      });
 
       it('returns the correct string for July', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 6)) === 'Ιουλ')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 6)) === 'Ιουλ');
+      });
 
       it('returns the correct string for August', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 7)) === 'Αυγ')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 7)) === 'Αυγ');
+      });
 
       it('returns the correct string for September', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 8)) === 'Σεπ')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 8)) === 'Σεπ');
+      });
 
       it('returns the correct string for October', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 9)) === 'Οκτ')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 9)) === 'Οκτ');
+      });
 
       it('returns the correct string for November', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 10)) === 'Νοε')
-      })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 10)) === 'Νοε');
+      });
 
       it('returns the correct string for December', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 11)) === 'Δεκ')
-      })
-    })
+        assert(buildFormatLocale().formatters.MMM(new Date(2016, 11)) === 'Δεκ');
+      });
+    });
 
     describe('MMMM', function () {
       it('returns the correct string for January', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 0)) === 'Ιανουάριος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 0)) === 'Ιανουάριος');
+      });
 
       it('returns the correct string for February', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 1)) === 'Φεβρουάριος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 1)) === 'Φεβρουάριος');
+      });
 
       it('returns the correct string for March', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 2)) === 'Μάρτιος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 2)) === 'Μάρτιος');
+      });
 
       it('returns the correct string for April', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2015, 3)) === 'Απρίλιος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2015, 3)) === 'Απρίλιος');
+      });
 
       it('returns the correct string for May', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 4)) === 'Μάιος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 4)) === 'Μάιος');
+      });
 
       it('returns the correct string for June', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 5)) === 'Ιούνιος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 5)) === 'Ιούνιος');
+      });
 
       it('returns the correct string for July', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 6)) === 'Ιούλιος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 6)) === 'Ιούλιος');
+      });
 
       it('returns the correct string for August', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 7)) === 'Αύγουστος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 7)) === 'Αύγουστος');
+      });
 
       it('returns the correct string for September', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 8)) === 'Σεπτέμβριος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 8)) === 'Σεπτέμβριος');
+      });
 
       it('returns the correct string for October', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 9)) === 'Οκτώβριος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 9)) === 'Οκτώβριος');
+      });
 
       it('returns the correct string for November', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 10)) === 'Νοέμβριος')
-      })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 10)) === 'Νοέμβριος');
+      });
 
       it('returns the correct string for December', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 11)) === 'Δεκέμβριος')
-      })
-    })
+        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 11)) === 'Δεκέμβριος');
+      });
+    });
 
     describe('D MMMM', function () {
-      var monthsGen = [
-        'Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου',
-        'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'
-      ]
+      var monthsGen = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'];
       var formatters = {
-        D: function () {
-          return 5
+        D: function D() {
+          return 5;
         }
-      }
-      var locale = buildFormatLocale()
+      };
+      var locale = buildFormatLocale();
       monthsGen.forEach(function (month, index) {
         it('returns 1 ' + month, function () {
-          assert(locale.formatters['D MMMM'](new Date(2016, index, 5), formatters) === '5 ' + month)
-        })
-      })
-    })
+          assert(locale.formatters['D MMMM'](new Date(2016, index, 5), formatters) === '5 ' + month);
+        });
+      });
+    });
 
     describe('DD MMMM', function () {
-      var monthsGen = [
-        'Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου',
-        'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'
-      ]
+      var monthsGen = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'];
       var formatters = {
-        DD: function () {
-          return '03'
+        DD: function DD() {
+          return '03';
         }
-      }
-      var locale = buildFormatLocale()
+      };
+      var locale = buildFormatLocale();
       monthsGen.forEach(function (month, index) {
         it('returns 01 ' + month, function () {
-          assert(locale.formatters['DD MMMM'](new Date(2016, index, 3), formatters) === '03 ' + month)
-        })
-      })
-    })
+          assert(locale.formatters['DD MMMM'](new Date(2016, index, 3), formatters) === '03 ' + month);
+        });
+      });
+    });
 
     describe('Do MMMM', function () {
-      var monthsGen = [
-        'Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου',
-        'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'
-      ]
+      var monthsGen = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'];
       var formatters = {
-        D: function () {
-          return '7'
+        D: function D() {
+          return '7';
         }
-      }
-      var locale = buildFormatLocale()
+      };
+      var locale = buildFormatLocale();
       monthsGen.forEach(function (month, index) {
         it('returns 1η ' + month, function () {
-          assert(locale.formatters['Do MMMM'](new Date(2016, index, 7), formatters) === '7η ' + month)
-        })
-      })
-    })
+          assert(locale.formatters['Do MMMM'](new Date(2016, index, 7), formatters) === '7η ' + month);
+        });
+      });
+    });
 
     describe('dd', function () {
       it('returns the correct string for Sunday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 7)) === 'Κυ')
-      })
+        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 7)) === 'Κυ');
+      });
 
       it('returns the correct string for Monday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 1)) === 'Δε')
-      })
+        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 1)) === 'Δε');
+      });
 
       it('returns the correct string for Tuesday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 2)) === 'Τρ')
-      })
+        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 2)) === 'Τρ');
+      });
 
       it('returns the correct string for Wednesday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 3)) === 'Τε')
-      })
+        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 3)) === 'Τε');
+      });
 
       it('returns the correct string for Thursday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 4)) === 'Πέ')
-      })
+        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 4)) === 'Πέ');
+      });
 
       it('returns the correct string for Friday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 5)) === 'Πα')
-      })
+        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 5)) === 'Πα');
+      });
 
       it('returns the correct string for Saturday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 6)) === 'Σά')
-      })
-    })
+        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 6)) === 'Σά');
+      });
+    });
 
     describe('ddd', function () {
       it('returns the correct string for Sunday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 7)) === 'Κυρ')
-      })
+        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 7)) === 'Κυρ');
+      });
 
       it('returns the correct string for Monday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 1)) === 'Δευ')
-      })
+        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 1)) === 'Δευ');
+      });
 
       it('returns the correct string for Tuesday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 2)) === 'Τρί')
-      })
+        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 2)) === 'Τρί');
+      });
 
       it('returns the correct string for Wednesday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 3)) === 'Τετ')
-      })
+        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 3)) === 'Τετ');
+      });
 
       it('returns the correct string for Thursday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 4)) === 'Πέμ')
-      })
+        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 4)) === 'Πέμ');
+      });
 
       it('returns the correct string for Friday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 5)) === 'Παρ')
-      })
+        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 5)) === 'Παρ');
+      });
 
       it('returns the correct string for Saturday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 6)) === 'Σάβ')
-      })
-    })
+        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 6)) === 'Σάβ');
+      });
+    });
 
     describe('dddd', function () {
       it('returns the correct string for Sunday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 7)) === 'Κυριακή')
-      })
+        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 7)) === 'Κυριακή');
+      });
 
       it('returns the correct string for Monday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 1)) === 'Δευτέρα')
-      })
+        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 1)) === 'Δευτέρα');
+      });
 
       it('returns the correct string for Tuesday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 2)) === 'Τρίτη')
-      })
+        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 2)) === 'Τρίτη');
+      });
 
       it('returns the correct string for Wednesday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 3)) === 'Τετάρτη')
-      })
+        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 3)) === 'Τετάρτη');
+      });
 
       it('returns the correct string for Thursday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 4)) === 'Πέμπτη')
-      })
+        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 4)) === 'Πέμπτη');
+      });
 
       it('returns the correct string for Friday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 5)) === 'Παρασκευή')
-      })
+        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 5)) === 'Παρασκευή');
+      });
 
       it('returns the correct string for Saturday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 6)) === 'Σάββατο')
-      })
-    })
+        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 6)) === 'Σάββατο');
+      });
+    });
 
     describe('A', function () {
       it('returns the correct string for 1-11 a.m.', function () {
-        assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 1)) === 'ΠΜ')
-      })
+        assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 1)) === 'ΠΜ');
+      });
 
       it('returns the correct string for 12 a.m.', function () {
-        assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 0)) === 'ΠΜ')
-      })
+        assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 0)) === 'ΠΜ');
+      });
 
       it('returns the correct string for 1-11 p.m.', function () {
-        assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 13)) === 'ΜΜ')
-      })
+        assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 13)) === 'ΜΜ');
+      });
 
       it('returns the correct string for 12 p.m.', function () {
-        assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 12)) === 'ΜΜ')
-      })
-    })
+        assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 12)) === 'ΜΜ');
+      });
+    });
 
     describe('a', function () {
       it('returns the correct string for 1-11 a.m.', function () {
-        assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 1)) === 'πμ')
-      })
+        assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 1)) === 'πμ');
+      });
 
       it('returns the correct string for 12 a.m.', function () {
-        assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 0)) === 'πμ')
-      })
+        assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 0)) === 'πμ');
+      });
 
       it('returns the correct string for 1-11 p.m.', function () {
-        assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 13)) === 'μμ')
-      })
+        assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 13)) === 'μμ');
+      });
 
       it('returns the correct string for 12 p.m.', function () {
-        assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 12)) === 'μμ')
-      })
-    })
+        assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 12)) === 'μμ');
+      });
+    });
 
     describe('aa', function () {
       it('returns the correct string for 1-11 a.m.', function () {
-        assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 1)) === 'π.μ.')
-      })
+        assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 1)) === 'π.μ.');
+      });
 
       it('returns the correct string for 12 a.m.', function () {
-        assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 0)) === 'π.μ.')
-      })
+        assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 0)) === 'π.μ.');
+      });
 
       it('returns the correct string for 1-11 p.m.', function () {
-        assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 13)) === 'μ.μ.')
-      })
+        assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 13)) === 'μ.μ.');
+      });
 
       it('returns the correct string for 12 p.m.', function () {
-        assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 12)) === 'μ.μ.')
-      })
-    })
+        assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 12)) === 'μ.μ.');
+      });
+    });
 
     describe('Mo', function () {
       it('returns ordinal result of M formatter', function () {
-        assert(buildFormatLocale().formatters.Mo(null, {M: function () { return 1 }}) === '1ος')
-        assert(buildFormatLocale().formatters.Mo(null, {M: function () { return 2 }}) === '2ος')
-        assert(buildFormatLocale().formatters.Mo(null, {M: function () { return 3 }}) === '3ος')
-        assert(buildFormatLocale().formatters.Mo(null, {M: function () { return 11 }}) === '11ος')
-        assert(buildFormatLocale().formatters.Mo(null, {M: function () { return 101 }}) === '101ος')
-        assert(buildFormatLocale().formatters.Mo(null, {M: function () { return 111 }}) === '111ος')
-      })
-    })
+        assert(buildFormatLocale().formatters.Mo(null, { M: function M() {
+            return 1;
+          } }) === '1ος');
+        assert(buildFormatLocale().formatters.Mo(null, { M: function M() {
+            return 2;
+          } }) === '2ος');
+        assert(buildFormatLocale().formatters.Mo(null, { M: function M() {
+            return 3;
+          } }) === '3ος');
+        assert(buildFormatLocale().formatters.Mo(null, { M: function M() {
+            return 11;
+          } }) === '11ος');
+        assert(buildFormatLocale().formatters.Mo(null, { M: function M() {
+            return 101;
+          } }) === '101ος');
+        assert(buildFormatLocale().formatters.Mo(null, { M: function M() {
+            return 111;
+          } }) === '111ος');
+      });
+    });
 
     describe('Do', function () {
       it('returns ordinal result of D formatter', function () {
-        assert(buildFormatLocale().formatters.Do(null, {D: function () { return 1 }}) === '1η')
-        assert(buildFormatLocale().formatters.Do(null, {D: function () { return 2 }}) === '2η')
-        assert(buildFormatLocale().formatters.Do(null, {D: function () { return 3 }}) === '3η')
-        assert(buildFormatLocale().formatters.Do(null, {D: function () { return 11 }}) === '11η')
-        assert(buildFormatLocale().formatters.Do(null, {D: function () { return 101 }}) === '101η')
-        assert(buildFormatLocale().formatters.Do(null, {D: function () { return 111 }}) === '111η')
-      })
-    })
+        assert(buildFormatLocale().formatters.Do(null, { D: function D() {
+            return 1;
+          } }) === '1η');
+        assert(buildFormatLocale().formatters.Do(null, { D: function D() {
+            return 2;
+          } }) === '2η');
+        assert(buildFormatLocale().formatters.Do(null, { D: function D() {
+            return 3;
+          } }) === '3η');
+        assert(buildFormatLocale().formatters.Do(null, { D: function D() {
+            return 11;
+          } }) === '11η');
+        assert(buildFormatLocale().formatters.Do(null, { D: function D() {
+            return 101;
+          } }) === '101η');
+        assert(buildFormatLocale().formatters.Do(null, { D: function D() {
+            return 111;
+          } }) === '111η');
+      });
+    });
 
     describe('DDDo', function () {
       it('returns ordinal result of DDD formatter', function () {
-        assert(buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 1 }}) === '1η')
-        assert(buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 2 }}) === '2η')
-        assert(buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 3 }}) === '3η')
-        assert(buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 11 }}) === '11η')
-        assert(buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 101 }}) === '101η')
-        assert(buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 111 }}) === '111η')
-      })
-    })
+        assert(buildFormatLocale().formatters.DDDo(null, { DDD: function DDD() {
+            return 1;
+          } }) === '1η');
+        assert(buildFormatLocale().formatters.DDDo(null, { DDD: function DDD() {
+            return 2;
+          } }) === '2η');
+        assert(buildFormatLocale().formatters.DDDo(null, { DDD: function DDD() {
+            return 3;
+          } }) === '3η');
+        assert(buildFormatLocale().formatters.DDDo(null, { DDD: function DDD() {
+            return 11;
+          } }) === '11η');
+        assert(buildFormatLocale().formatters.DDDo(null, { DDD: function DDD() {
+            return 101;
+          } }) === '101η');
+        assert(buildFormatLocale().formatters.DDDo(null, { DDD: function DDD() {
+            return 111;
+          } }) === '111η');
+      });
+    });
 
     describe('do', function () {
       it('returns ordinal result of d formatter', function () {
-        assert(buildFormatLocale().formatters.do(null, {d: function () { return 1 }}) === '1η')
-        assert(buildFormatLocale().formatters.do(null, {d: function () { return 2 }}) === '2η')
-        assert(buildFormatLocale().formatters.do(null, {d: function () { return 3 }}) === '3η')
-        assert(buildFormatLocale().formatters.do(null, {d: function () { return 11 }}) === '11η')
-        assert(buildFormatLocale().formatters.do(null, {d: function () { return 101 }}) === '101η')
-        assert(buildFormatLocale().formatters.do(null, {d: function () { return 111 }}) === '111η')
-      })
-    })
+        assert(buildFormatLocale().formatters.do(null, { d: function d() {
+            return 1;
+          } }) === '1η');
+        assert(buildFormatLocale().formatters.do(null, { d: function d() {
+            return 2;
+          } }) === '2η');
+        assert(buildFormatLocale().formatters.do(null, { d: function d() {
+            return 3;
+          } }) === '3η');
+        assert(buildFormatLocale().formatters.do(null, { d: function d() {
+            return 11;
+          } }) === '11η');
+        assert(buildFormatLocale().formatters.do(null, { d: function d() {
+            return 101;
+          } }) === '101η');
+        assert(buildFormatLocale().formatters.do(null, { d: function d() {
+            return 111;
+          } }) === '111η');
+      });
+    });
 
     describe('Qo', function () {
       it('returns ordinal result of Q formatter', function () {
-        assert(buildFormatLocale().formatters.Qo(null, {Q: function () { return 1 }}) === '1ο')
-        assert(buildFormatLocale().formatters.Qo(null, {Q: function () { return 2 }}) === '2ο')
-        assert(buildFormatLocale().formatters.Qo(null, {Q: function () { return 3 }}) === '3ο')
-        assert(buildFormatLocale().formatters.Qo(null, {Q: function () { return 11 }}) === '11ο')
-        assert(buildFormatLocale().formatters.Qo(null, {Q: function () { return 101 }}) === '101ο')
-        assert(buildFormatLocale().formatters.Qo(null, {Q: function () { return 111 }}) === '111ο')
-      })
-    })
+        assert(buildFormatLocale().formatters.Qo(null, { Q: function Q() {
+            return 1;
+          } }) === '1ο');
+        assert(buildFormatLocale().formatters.Qo(null, { Q: function Q() {
+            return 2;
+          } }) === '2ο');
+        assert(buildFormatLocale().formatters.Qo(null, { Q: function Q() {
+            return 3;
+          } }) === '3ο');
+        assert(buildFormatLocale().formatters.Qo(null, { Q: function Q() {
+            return 11;
+          } }) === '11ο');
+        assert(buildFormatLocale().formatters.Qo(null, { Q: function Q() {
+            return 101;
+          } }) === '101ο');
+        assert(buildFormatLocale().formatters.Qo(null, { Q: function Q() {
+            return 111;
+          } }) === '111ο');
+      });
+    });
 
     describe('Wo', function () {
       it('returns ordinal result of W formatter', function () {
-        assert(buildFormatLocale().formatters.Wo(null, {W: function () { return 1 }}) === '1η')
-        assert(buildFormatLocale().formatters.Wo(null, {W: function () { return 2 }}) === '2η')
-        assert(buildFormatLocale().formatters.Wo(null, {W: function () { return 3 }}) === '3η')
-        assert(buildFormatLocale().formatters.Wo(null, {W: function () { return 11 }}) === '11η')
-        assert(buildFormatLocale().formatters.Wo(null, {W: function () { return 101 }}) === '101η')
-        assert(buildFormatLocale().formatters.Wo(null, {W: function () { return 111 }}) === '111η')
-      })
-    })
-  })
+        assert(buildFormatLocale().formatters.Wo(null, { W: function W() {
+            return 1;
+          } }) === '1η');
+        assert(buildFormatLocale().formatters.Wo(null, { W: function W() {
+            return 2;
+          } }) === '2η');
+        assert(buildFormatLocale().formatters.Wo(null, { W: function W() {
+            return 3;
+          } }) === '3η');
+        assert(buildFormatLocale().formatters.Wo(null, { W: function W() {
+            return 11;
+          } }) === '11η');
+        assert(buildFormatLocale().formatters.Wo(null, { W: function W() {
+            return 101;
+          } }) === '101η');
+        assert(buildFormatLocale().formatters.Wo(null, { W: function W() {
+            return 111;
+          } }) === '111η');
+      });
+    });
+  });
 
   describe('formattingTokensRegExp property', function () {
     it('is an instance of RegExp', function () {
-      assert(buildFormatLocale().formattingTokensRegExp instanceof RegExp)
-    })
-  })
-})
+      assert(buildFormatLocale().formattingTokensRegExp instanceof RegExp);
+    });
+  });
+});

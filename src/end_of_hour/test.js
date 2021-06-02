@@ -1,32 +1,42 @@
-import imp_endOfHour from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 
-var assert = ext_powerassert
-var endOfHour = imp_endOfHour
+var assert = _powerAssert2.default;
+var endOfHour = _2.default;
 
 describe('endOfHour', function () {
   it('returns the date with the time setted to the last millisecond before an hour ends', function () {
-    var date = new Date(2014, 11, 1, 22, 15)
-    var result = endOfHour(date)
-    assert.deepEqual(result, new Date(2014, 11, 1, 22, 59, 59, 999))
-  })
+    var date = new Date(2014, 11, 1, 22, 15);
+    var result = endOfHour(date);
+    assert.deepEqual(result, new Date(2014, 11, 1, 22, 59, 59, 999));
+  });
 
   it('accepts a string', function () {
-    var date = new Date(2014, 11, 1, 13).toISOString()
-    var result = endOfHour(date)
-    assert.deepEqual(result, new Date(2014, 11, 1, 13, 59, 59, 999))
-  })
+    var date = new Date(2014, 11, 1, 13).toISOString();
+    var result = endOfHour(date);
+    assert.deepEqual(result, new Date(2014, 11, 1, 13, 59, 59, 999));
+  });
 
   it('accepts a timestamp', function () {
-    var result = endOfHour(new Date(2014, 11, 1, 22, 15).getTime())
-    assert.deepEqual(result, new Date(2014, 11, 1, 22, 59, 59, 999))
-  })
+    var result = endOfHour(new Date(2014, 11, 1, 22, 15).getTime());
+    assert.deepEqual(result, new Date(2014, 11, 1, 22, 59, 59, 999));
+  });
 
   it('does not mutate the original date', function () {
-    var date = new Date(2014, 11, 1, 22, 15)
-    endOfHour(date)
-    assert.deepEqual(date, new Date(2014, 11, 1, 22, 15))
-  })
-})
+    var date = new Date(2014, 11, 1, 22, 15);
+    endOfHour(date);
+    assert.deepEqual(date, new Date(2014, 11, 1, 22, 15));
+  });
+});

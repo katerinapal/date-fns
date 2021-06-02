@@ -1,16 +1,23 @@
-import imp_startOfISOYear from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var startOfISOYear = imp_startOfISOYear
+var startOfISOYear = _2.default;
 
 suite('startOfISOYear', function () {
   benchmark('date-fns', function () {
-    return startOfISOYear(this.date)
-  })
+    return startOfISOYear(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

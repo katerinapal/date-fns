@@ -1,16 +1,23 @@
-import imp_lastDayOfMonth from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var lastDayOfMonth = imp_lastDayOfMonth
+var lastDayOfMonth = _2.default;
 
 suite('lastDayOfMonth', function () {
   benchmark('date-fns', function () {
-    return lastDayOfMonth(this.date)
-  })
+    return lastDayOfMonth(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

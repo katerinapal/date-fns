@@ -1,8 +1,23 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_iso_week/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../get_iso_year/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_endOfISOYear = endOfISOYear;
-import imp_startOfISOWeek from "../start_of_iso_week/index.js";
-import imp_getISOYear from "../get_iso_year/index.js";
-var getISOYear = imp_getISOYear
-var startOfISOWeek = imp_startOfISOWeek
+
+var getISOYear = _index4.default;
+var startOfISOWeek = _index2.default;
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -23,14 +38,14 @@ var startOfISOWeek = imp_startOfISOWeek
  * var result = endOfISOYear(new Date(2005, 6, 2))
  * //=> Sun Jan 01 2006 23:59:59.999
  */
-function endOfISOYear (dirtyDate) {
-  var year = getISOYear(dirtyDate)
-  var fourthOfJanuaryOfNextYear = new Date(0)
-  fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4)
-  fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0)
-  var date = startOfISOWeek(fourthOfJanuaryOfNextYear)
-  date.setMilliseconds(date.getMilliseconds() - 1)
-  return date
+function endOfISOYear(dirtyDate) {
+  var year = getISOYear(dirtyDate);
+  var fourthOfJanuaryOfNextYear = new Date(0);
+  fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
+  fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0);
+  var date = startOfISOWeek(fourthOfJanuaryOfNextYear);
+  date.setMilliseconds(date.getMilliseconds() - 1);
+  return date;
 }
 
 /**
@@ -52,4 +67,5 @@ function endOfISOYear (dirtyDate) {
  * var result = endOfISOYear(new Date(2005, 6, 2))
  * //=> Sun Jan 01 2006 23:59:59.999
  */
-export default mod_endOfISOYear;
+exports.default = mod_endOfISOYear;
+module.exports = exports.default;

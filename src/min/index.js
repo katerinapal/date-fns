@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_min = min;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Common Helpers
@@ -22,13 +34,13 @@ var parse = imp_parse
  * )
  * //=> Wed Feb 11 1987 00:00:00
  */
-function min () {
-  var dirtyDates = Array.prototype.slice.call(arguments)
+function min() {
+  var dirtyDates = Array.prototype.slice.call(arguments);
   var dates = dirtyDates.map(function (dirtyDate) {
-    return parse(dirtyDate)
-  })
-  var earliestTimestamp = Math.min.apply(null, dates)
-  return new Date(earliestTimestamp)
+    return parse(dirtyDate);
+  });
+  var earliestTimestamp = Math.min.apply(null, dates);
+  return new Date(earliestTimestamp);
 }
 
 /**
@@ -51,4 +63,5 @@ function min () {
  * )
  * //=> Wed Feb 11 1987 00:00:00
  */
-export default mod_min;
+exports.default = mod_min;
+module.exports = exports.default;

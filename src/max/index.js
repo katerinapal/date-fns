@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../parse/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_max = max;
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
+
+var parse = _index2.default;
 
 /**
  * @category Common Helpers
@@ -22,13 +34,13 @@ var parse = imp_parse
  * )
  * //=> Sun Jul 02 1995 00:00:00
  */
-function max () {
-  var dirtyDates = Array.prototype.slice.call(arguments)
+function max() {
+  var dirtyDates = Array.prototype.slice.call(arguments);
   var dates = dirtyDates.map(function (dirtyDate) {
-    return parse(dirtyDate)
-  })
-  var latestTimestamp = Math.max.apply(null, dates)
-  return new Date(latestTimestamp)
+    return parse(dirtyDate);
+  });
+  var latestTimestamp = Math.max.apply(null, dates);
+  return new Date(latestTimestamp);
 }
 
 /**
@@ -51,4 +63,5 @@ function max () {
  * )
  * //=> Sun Jul 02 1995 00:00:00
  */
-export default mod_max;
+exports.default = mod_max;
+module.exports = exports.default;

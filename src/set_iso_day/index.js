@@ -1,10 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../get_iso_day/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../add_days/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = require("../parse/index.js");
+
+var _index6 = _interopRequireDefault(_index5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_setISODay = setISODay;
-import imp_getISODay from "../get_iso_day/index.js";
-import imp_addDays from "../add_days/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var addDays = imp_addDays
-var getISODay = imp_getISODay
+
+var parse = _index6.default;
+var addDays = _index4.default;
+var getISODay = _index2.default;
 
 /**
  * @category Weekday Helpers
@@ -24,12 +42,12 @@ var getISODay = imp_getISODay
  * var result = setISODay(new Date(2014, 8, 1), 7)
  * //=> Sun Sep 07 2014 00:00:00
  */
-function setISODay (dirtyDate, dirtyDay) {
-  var date = parse(dirtyDate)
-  var day = Number(dirtyDay)
-  var currentDay = getISODay(date)
-  var diff = day - currentDay
-  return addDays(date, diff)
+function setISODay(dirtyDate, dirtyDay) {
+  var date = parse(dirtyDate);
+  var day = Number(dirtyDay);
+  var currentDay = getISODay(date);
+  var diff = day - currentDay;
+  return addDays(date, diff);
 }
 
 /**
@@ -50,4 +68,5 @@ function setISODay (dirtyDate, dirtyDay) {
  * var result = setISODay(new Date(2014, 8, 1), 7)
  * //=> Sun Sep 07 2014 00:00:00
  */
-export default mod_setISODay;
+exports.default = mod_setISODay;
+module.exports = exports.default;

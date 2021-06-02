@@ -1,16 +1,37 @@
-var mod_distanceInWordsStrict = distanceInWordsStrict;
-import imp_indexjs from "../locale/en/index.js";
-import imp_differenceInSeconds from "../difference_in_seconds/index.js";
-import imp_parse from "../parse/index.js";
-import imp_compareDesc from "../compare_desc/index.js";
-var compareDesc = imp_compareDesc
-var parse = imp_parse
-var differenceInSeconds = imp_differenceInSeconds
-var enLocale = imp_indexjs
+"use strict";
 
-var MINUTES_IN_DAY = 1440
-var MINUTES_IN_MONTH = 43200
-var MINUTES_IN_YEAR = 525600
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../locale/en/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../difference_in_seconds/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = require("../parse/index.js");
+
+var _index6 = _interopRequireDefault(_index5);
+
+var _index7 = require("../compare_desc/index.js");
+
+var _index8 = _interopRequireDefault(_index7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mod_distanceInWordsStrict = distanceInWordsStrict;
+
+var compareDesc = _index8.default;
+var parse = _index6.default;
+var differenceInSeconds = _index4.default;
+var enLocale = _index2.default;
+
+var MINUTES_IN_DAY = 1440;
+var MINUTES_IN_MONTH = 43200;
+var MINUTES_IN_YEAR = 525600;
 
 /**
  * @category Common Helpers
@@ -96,86 +117,86 @@ var MINUTES_IN_YEAR = 525600
  * )
  * //=> '1 jaro'
  */
-function distanceInWordsStrict (dirtyDateToCompare, dirtyDate, dirtyOptions) {
-  var options = dirtyOptions || {}
+function distanceInWordsStrict(dirtyDateToCompare, dirtyDate, dirtyOptions) {
+  var options = dirtyOptions || {};
 
-  var comparison = compareDesc(dirtyDateToCompare, dirtyDate)
+  var comparison = compareDesc(dirtyDateToCompare, dirtyDate);
 
-  var locale = options.locale
-  var localize = enLocale.distanceInWords.localize
+  var locale = options.locale;
+  var localize = enLocale.distanceInWords.localize;
   if (locale && locale.distanceInWords && locale.distanceInWords.localize) {
-    localize = locale.distanceInWords.localize
+    localize = locale.distanceInWords.localize;
   }
 
   var localizeOptions = {
     addSuffix: Boolean(options.addSuffix),
     comparison: comparison
-  }
+  };
 
-  var dateLeft, dateRight
+  var dateLeft, dateRight;
   if (comparison > 0) {
-    dateLeft = parse(dirtyDateToCompare)
-    dateRight = parse(dirtyDate)
+    dateLeft = parse(dirtyDateToCompare);
+    dateRight = parse(dirtyDate);
   } else {
-    dateLeft = parse(dirtyDate)
-    dateRight = parse(dirtyDateToCompare)
+    dateLeft = parse(dirtyDate);
+    dateRight = parse(dirtyDateToCompare);
   }
 
-  var unit
-  var mathPartial = Math[options.partialMethod ? String(options.partialMethod) : 'floor']
-  var seconds = differenceInSeconds(dateRight, dateLeft)
-  var offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset()
-  var minutes = mathPartial(seconds / 60) - offset
-  var hours, days, months, years
+  var unit;
+  var mathPartial = Math[options.partialMethod ? String(options.partialMethod) : 'floor'];
+  var seconds = differenceInSeconds(dateRight, dateLeft);
+  var offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset();
+  var minutes = mathPartial(seconds / 60) - offset;
+  var hours, days, months, years;
 
   if (options.unit) {
-    unit = String(options.unit)
+    unit = String(options.unit);
   } else {
     if (minutes < 1) {
-      unit = 's'
+      unit = 's';
     } else if (minutes < 60) {
-      unit = 'm'
+      unit = 'm';
     } else if (minutes < MINUTES_IN_DAY) {
-      unit = 'h'
+      unit = 'h';
     } else if (minutes < MINUTES_IN_MONTH) {
-      unit = 'd'
+      unit = 'd';
     } else if (minutes < MINUTES_IN_YEAR) {
-      unit = 'M'
+      unit = 'M';
     } else {
-      unit = 'Y'
+      unit = 'Y';
     }
   }
 
   // 0 up to 60 seconds
   if (unit === 's') {
-    return localize('xSeconds', seconds, localizeOptions)
+    return localize('xSeconds', seconds, localizeOptions);
 
-  // 1 up to 60 mins
+    // 1 up to 60 mins
   } else if (unit === 'm') {
-    return localize('xMinutes', minutes, localizeOptions)
+    return localize('xMinutes', minutes, localizeOptions);
 
-  // 1 up to 24 hours
+    // 1 up to 24 hours
   } else if (unit === 'h') {
-    hours = mathPartial(minutes / 60)
-    return localize('xHours', hours, localizeOptions)
+    hours = mathPartial(minutes / 60);
+    return localize('xHours', hours, localizeOptions);
 
-  // 1 up to 30 days
+    // 1 up to 30 days
   } else if (unit === 'd') {
-    days = mathPartial(minutes / MINUTES_IN_DAY)
-    return localize('xDays', days, localizeOptions)
+    days = mathPartial(minutes / MINUTES_IN_DAY);
+    return localize('xDays', days, localizeOptions);
 
-  // 1 up to 12 months
+    // 1 up to 12 months
   } else if (unit === 'M') {
-    months = mathPartial(minutes / MINUTES_IN_MONTH)
-    return localize('xMonths', months, localizeOptions)
+    months = mathPartial(minutes / MINUTES_IN_MONTH);
+    return localize('xMonths', months, localizeOptions);
 
-  // 1 year up to max Date
+    // 1 year up to max Date
   } else if (unit === 'Y') {
-    years = mathPartial(minutes / MINUTES_IN_YEAR)
-    return localize('xYears', years, localizeOptions)
+    years = mathPartial(minutes / MINUTES_IN_YEAR);
+    return localize('xYears', years, localizeOptions);
   }
 
-  throw new Error('Unknown unit: ' + unit)
+  throw new Error('Unknown unit: ' + unit);
 }
 
 /**
@@ -262,4 +283,5 @@ function distanceInWordsStrict (dirtyDateToCompare, dirtyDate, dirtyOptions) {
  * )
  * //=> '1 jaro'
  */
-export default mod_distanceInWordsStrict;
+exports.default = mod_distanceInWordsStrict;
+module.exports = exports.default;

@@ -1,24 +1,34 @@
-import imp_getMonth from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 
-var assert = ext_powerassert
-var getMonth = imp_getMonth
+var assert = _powerAssert2.default;
+var getMonth = _2.default;
 
 describe('getMonth', function () {
   it('returns the month of the given date', function () {
-    var result = getMonth(new Date(2012, 1 /* Feb */, 29))
-    assert(result === 1)
-  })
+    var result = getMonth(new Date(2012, 1 /* Feb */, 29));
+    assert(result === 1);
+  });
 
   it('accepts a string', function () {
-    var result = getMonth(new Date(2014, 6 /* Jul */, 2).toISOString())
-    assert(result === 6)
-  })
+    var result = getMonth(new Date(2014, 6 /* Jul */, 2).toISOString());
+    assert(result === 6);
+  });
 
   it('accepts a timestamp', function () {
-    var result = getMonth(new Date(2014, 3 /* Apr */, 2).getTime())
-    assert(result === 3)
-  })
-})
+    var result = getMonth(new Date(2014, 3 /* Apr */, 2).getTime());
+    assert(result === 3);
+  });
+});

@@ -1,10 +1,28 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../end_of_month/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = require("../end_of_day/index.js");
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = require("../parse/index.js");
+
+var _index6 = _interopRequireDefault(_index5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isLastDayOfMonth = isLastDayOfMonth;
-import imp_endOfMonth from "../end_of_month/index.js";
-import imp_endOfDay from "../end_of_day/index.js";
-import imp_parse from "../parse/index.js";
-var parse = imp_parse
-var endOfDay = imp_endOfDay
-var endOfMonth = imp_endOfMonth
+
+var parse = _index6.default;
+var endOfDay = _index4.default;
+var endOfMonth = _index2.default;
 
 /**
  * @category Month Helpers
@@ -21,9 +39,9 @@ var endOfMonth = imp_endOfMonth
  * var result = isLastDayOfMonth(new Date(2014, 1, 28))
  * //=> true
  */
-function isLastDayOfMonth (dirtyDate) {
-  var date = parse(dirtyDate)
-  return endOfDay(date).getTime() === endOfMonth(date).getTime()
+function isLastDayOfMonth(dirtyDate) {
+  var date = parse(dirtyDate);
+  return endOfDay(date).getTime() === endOfMonth(date).getTime();
 }
 
 /**
@@ -41,4 +59,5 @@ function isLastDayOfMonth (dirtyDate) {
  * var result = isLastDayOfMonth(new Date(2014, 1, 28))
  * //=> true
  */
-export default mod_isLastDayOfMonth;
+exports.default = mod_isLastDayOfMonth;
+module.exports = exports.default;

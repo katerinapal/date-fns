@@ -1,5 +1,10 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
-function buildDistanceInWordsLocale () {
+function buildDistanceInWordsLocale() {
   var distanceInWordsLocale = {
     lessThanXSeconds: {
       one: 'minna en 1 sekúnda',
@@ -67,34 +72,35 @@ function buildDistanceInWordsLocale () {
       one: 'næstum 1 ár',
       other: 'næstum {{count}} ár'
     }
-  }
+  };
 
-  function localize (token, count, options) {
-    options = options || {}
+  function localize(token, count, options) {
+    options = options || {};
 
-    var result
+    var result;
     if (typeof distanceInWordsLocale[token] === 'string') {
-      result = distanceInWordsLocale[token]
+      result = distanceInWordsLocale[token];
     } else if (count === 1) {
-      result = distanceInWordsLocale[token].one
+      result = distanceInWordsLocale[token].one;
     } else {
-      result = distanceInWordsLocale[token].other.replace('{{count}}', count)
+      result = distanceInWordsLocale[token].other.replace('{{count}}', count);
     }
 
     if (options.addSuffix) {
       if (options.comparison > 0) {
-        return 'í ' + result
+        return 'í ' + result;
       } else {
-        return result + ' síðan'
+        return result + ' síðan';
       }
     }
 
-    return result
+    return result;
   }
 
   return {
     localize: localize
-  }
+  };
 }
 
-export default mod_buildDistanceInWordsLocale;
+exports.default = mod_buildDistanceInWordsLocale;
+module.exports = exports.default;

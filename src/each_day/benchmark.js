@@ -1,17 +1,24 @@
-import imp_eachDay from "./";
+'use strict';
+
+var _ = require('./');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var eachDay = imp_eachDay
+var eachDay = _2.default;
 
 suite('eachDay', function () {
   benchmark('date-fns', function () {
-    return eachDay(this.dateA, this.dateB)
-  })
+    return eachDay(this.dateA, this.dateB);
+  });
 }, {
-  setup: function () {
-    this.dateA = new Date()
-    this.dateB = new Date(this.dateA.getTime() + 604800000)
+  setup: function setup() {
+    this.dateA = new Date();
+    this.dateB = new Date(this.dateA.getTime() + 604800000);
   }
-})
+});

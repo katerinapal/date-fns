@@ -1,50 +1,55 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
-function declension (scheme, count) {
+function declension(scheme, count) {
   // scheme for count=1 exists
   if (scheme.one !== undefined && count === 1) {
-    return scheme.one
+    return scheme.one;
   }
 
-  var rem10 = count % 10
-  var rem100 = count % 100
+  var rem10 = count % 10;
+  var rem100 = count % 100;
 
   // 1, 21, 31, ...
   if (rem10 === 1 && rem100 !== 11) {
-    return scheme.singularNominative.replace('{{count}}', count)
+    return scheme.singularNominative.replace('{{count}}', count);
 
-  // 2, 3, 4, 22, 23, 24, 32 ...
-  } else if ((rem10 >= 2 && rem10 <= 4) && (rem100 < 10 || rem100 > 20)) {
-    return scheme.singularGenitive.replace('{{count}}', count)
+    // 2, 3, 4, 22, 23, 24, 32 ...
+  } else if (rem10 >= 2 && rem10 <= 4 && (rem100 < 10 || rem100 > 20)) {
+    return scheme.singularGenitive.replace('{{count}}', count);
 
-  // 5, 6, 7, 8, 9, 10, 11, ...
+    // 5, 6, 7, 8, 9, 10, 11, ...
   } else {
-    return scheme.pluralGenitive.replace('{{count}}', count)
+    return scheme.pluralGenitive.replace('{{count}}', count);
   }
 }
 
-function buildLocalizeTokenFn (scheme) {
+function buildLocalizeTokenFn(scheme) {
   return function (count, options) {
     if (options.addSuffix) {
       if (options.comparison > 0) {
         if (scheme.future) {
-          return declension(scheme.future, count)
+          return declension(scheme.future, count);
         } else {
-          return 'через ' + declension(scheme.regular, count)
+          return 'через ' + declension(scheme.regular, count);
         }
       } else {
         if (scheme.past) {
-          return declension(scheme.past, count)
+          return declension(scheme.past, count);
         } else {
-          return declension(scheme.regular, count) + ' назад'
+          return declension(scheme.regular, count) + ' назад';
         }
       }
     } else {
-      return declension(scheme.regular, count)
+      return declension(scheme.regular, count);
     }
-  }
+  };
 }
 
-function buildDistanceInWordsLocale () {
+function buildDistanceInWordsLocale() {
   var distanceInWordsLocale = {
     lessThanXSeconds: buildLocalizeTokenFn({
       regular: {
@@ -79,16 +84,16 @@ function buildDistanceInWordsLocale () {
       }
     }),
 
-    halfAMinute: function (_, options) {
+    halfAMinute: function halfAMinute(_, options) {
       if (options.addSuffix) {
         if (options.comparison > 0) {
-          return 'через полминуты'
+          return 'через полминуты';
         } else {
-          return 'полминуты назад'
+          return 'полминуты назад';
         }
       }
 
-      return 'полминуты'
+      return 'полминуты';
     },
 
     lessThanXMinutes: buildLocalizeTokenFn({
@@ -220,16 +225,17 @@ function buildDistanceInWordsLocale () {
         pluralGenitive: 'почти через {{count}} лет'
       }
     })
-  }
+  };
 
-  function localize (token, count, options) {
-    options = options || {}
-    return distanceInWordsLocale[token](count, options)
+  function localize(token, count, options) {
+    options = options || {};
+    return distanceInWordsLocale[token](count, options);
   }
 
   return {
     localize: localize
-  }
+  };
 }
 
-export default mod_buildDistanceInWordsLocale;
+exports.default = mod_buildDistanceInWordsLocale;
+module.exports = exports.default;

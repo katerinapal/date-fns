@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../add_days/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_subDays = subDays;
-import imp_addDays from "../add_days/index.js";
-var addDays = imp_addDays
+
+var addDays = _index2.default;
 
 /**
  * @category Day Helpers
@@ -18,9 +30,9 @@ var addDays = imp_addDays
  * var result = subDays(new Date(2014, 8, 1), 10)
  * //=> Fri Aug 22 2014 00:00:00
  */
-function subDays (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return addDays(dirtyDate, -amount)
+function subDays(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return addDays(dirtyDate, -amount);
 }
 
 /**
@@ -39,4 +51,5 @@ function subDays (dirtyDate, dirtyAmount) {
  * var result = subDays(new Date(2014, 8, 1), 10)
  * //=> Fri Aug 22 2014 00:00:00
  */
-export default mod_subDays;
+exports.default = mod_subDays;
+module.exports = exports.default;

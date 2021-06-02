@@ -1,229 +1,249 @@
-import imp_buildDistanceInWordsLocale from "./";
-import ext_powerassert from "power-assert";
+"use strict";
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
+
+var _ = require("./");
+
+var _2 = _interopRequireDefault(_);
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
 // @flow
 /* eslint-env mocha */
 
-var assert = ext_powerassert
-var buildDistanceInWordsLocale = imp_buildDistanceInWordsLocale
+var assert = _powerAssert2.default;
+var buildDistanceInWordsLocale = _2.default;
 
 describe('nl locale > buildDistanceInWordsLocale', function () {
   it('returns an object', function () {
-    assert(typeof buildDistanceInWordsLocale() === 'object')
-  })
+    assert(_typeof(buildDistanceInWordsLocale()) === 'object');
+  });
 
   it('localize property is a function', function () {
-    assert(typeof buildDistanceInWordsLocale().localize === 'function')
-  })
+    assert(typeof buildDistanceInWordsLocale().localize === 'function');
+  });
 
   describe('lessThanXSeconds', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 1) === 'minder dan een seconde')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 1) === 'minder dan een seconde');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 2) === 'minder dan 2 seconden')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 2) === 'minder dan 2 seconden');
+      });
+    });
+  });
 
   describe('xSeconds', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xSeconds', 1) === '1 seconde')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('xSeconds', 1) === '1 seconde');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xSeconds', 2) === '2 seconden')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('xSeconds', 2) === '2 seconden');
+      });
+    });
+  });
 
   describe('halfAMinute', function () {
     it('returns a proper string', function () {
-      assert(buildDistanceInWordsLocale().localize('halfAMinute') === 'een halve minuut')
-    })
+      assert(buildDistanceInWordsLocale().localize('halfAMinute') === 'een halve minuut');
+    });
 
     it('ignores the second argument', function () {
-      assert(buildDistanceInWordsLocale().localize('halfAMinute', 123) === 'een halve minuut')
-    })
-  })
+      assert(buildDistanceInWordsLocale().localize('halfAMinute', 123) === 'een halve minuut');
+    });
+  });
 
   describe('lessThanXMinutes', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 1) === 'minder dan een minuut')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 1) === 'minder dan een minuut');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 2) === 'minder dan 2 minuten')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 2) === 'minder dan 2 minuten');
+      });
+    });
+  });
 
   describe('xMinutes', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMinutes', 1) === 'een minuut')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('xMinutes', 1) === 'een minuut');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMinutes', 2) === '2 minuten')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('xMinutes', 2) === '2 minuten');
+      });
+    });
+  });
 
   describe('aboutXHours', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXHours', 1) === 'ongeveer 1 uur')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('aboutXHours', 1) === 'ongeveer 1 uur');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXHours', 2) === 'ongeveer 2 uur')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('aboutXHours', 2) === 'ongeveer 2 uur');
+      });
+    });
+  });
 
   describe('xHours', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xHours', 1) === '1 uur')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('xHours', 1) === '1 uur');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xHours', 2) === '2 uur')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('xHours', 2) === '2 uur');
+      });
+    });
+  });
 
   describe('xDays', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xDays', 1) === '1 dag')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('xDays', 1) === '1 dag');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xDays', 2) === '2 dagen')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('xDays', 2) === '2 dagen');
+      });
+    });
+  });
 
   describe('aboutXMonths', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXMonths', 1) === 'ongeveer 1 maand')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('aboutXMonths', 1) === 'ongeveer 1 maand');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXMonths', 2) === 'ongeveer 2 maanden')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('aboutXMonths', 2) === 'ongeveer 2 maanden');
+      });
+    });
+  });
 
   describe('xMonths', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMonths', 1) === '1 maand')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('xMonths', 1) === '1 maand');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMonths', 2) === '2 maanden')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('xMonths', 2) === '2 maanden');
+      });
+    });
+  });
 
   describe('aboutXYears', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXYears', 1) === 'ongeveer 1 jaar')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('aboutXYears', 1) === 'ongeveer 1 jaar');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXYears', 2) === 'ongeveer 2 jaar')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('aboutXYears', 2) === 'ongeveer 2 jaar');
+      });
+    });
+  });
 
   describe('xYears', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xYears', 1) === '1 jaar')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('xYears', 1) === '1 jaar');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xYears', 2) === '2 jaar')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('xYears', 2) === '2 jaar');
+      });
+    });
+  });
 
   describe('overXYears', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('overXYears', 1) === 'meer dan 1 jaar')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('overXYears', 1) === 'meer dan 1 jaar');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('overXYears', 2) === 'meer dan 2 jaar')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('overXYears', 2) === 'meer dan 2 jaar');
+      });
+    });
+  });
 
   describe('almostXYears', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('almostXYears', 1) === 'bijna 1 jaar')
-      })
-    })
+        assert(buildDistanceInWordsLocale().localize('almostXYears', 1) === 'bijna 1 jaar');
+      });
+    });
 
     context('when the count is more than 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('almostXYears', 2) === 'bijna 2 jaar')
-      })
-    })
-  })
+        assert(buildDistanceInWordsLocale().localize('almostXYears', 2) === 'bijna 2 jaar');
+      });
+    });
+  });
 
   context('with a past suffix', function () {
     it('adds `ago` to a string', function () {
       var result = buildDistanceInWordsLocale().localize('aboutXYears', 1, {
         addSuffix: true,
         comparison: -1
-      })
-      assert(result === 'ongeveer 1 jaar geleden')
-    })
-  })
+      });
+      assert(result === 'ongeveer 1 jaar geleden');
+    });
+  });
 
   context('with a future suffix', function () {
     it('adds `in` to a string', function () {
       var result = buildDistanceInWordsLocale().localize('halfAMinute', null, {
         addSuffix: true,
         comparison: 1
-      })
-      assert(result === 'over een halve minuut')
-    })
-  })
-})
+      });
+      assert(result === 'over een halve minuut');
+    });
+  });
+});

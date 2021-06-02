@@ -1,6 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _index = require("../start_of_day/index.js");
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var mod_isYesterday = isYesterday;
-import imp_startOfDay from "../start_of_day/index.js";
-var startOfDay = imp_startOfDay
+
+var startOfDay = _index2.default;
 
 /**
  * @category Day Helpers
@@ -17,10 +29,10 @@ var startOfDay = imp_startOfDay
  * var result = isYesterday(new Date(2014, 9, 5, 14, 0))
  * //=> true
  */
-function isYesterday (dirtyDate) {
-  var yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return startOfDay(dirtyDate).getTime() === startOfDay(yesterday).getTime()
+function isYesterday(dirtyDate) {
+  var yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  return startOfDay(dirtyDate).getTime() === startOfDay(yesterday).getTime();
 }
 
 /**
@@ -38,4 +50,5 @@ function isYesterday (dirtyDate) {
  * var result = isYesterday(new Date(2014, 9, 5, 14, 0))
  * //=> true
  */
-export default mod_isYesterday;
+exports.default = mod_isYesterday;
+module.exports = exports.default;
