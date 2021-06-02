@@ -1,4 +1,6 @@
-var parse = require('../parse/index.js')
+var mod_lastDayOfQuarter = lastDayOfQuarter;
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
 
 /**
  * @category Quarter Helpers
@@ -25,4 +27,20 @@ function lastDayOfQuarter (dirtyDate) {
   return date
 }
 
-module.exports = lastDayOfQuarter
+/**
+ * @category Quarter Helpers
+ * @summary Return the last day of a year quarter for the given date.
+ *
+ * @description
+ * Return the last day of a year quarter for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the last day of a quarter
+ *
+ * @example
+ * // The last day of a quarter for 2 September 2014 11:55:00:
+ * var result = lastDayOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Tue Sep 30 2014 00:00:00
+ */
+export default mod_lastDayOfQuarter;

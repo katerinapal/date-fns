@@ -1,8 +1,10 @@
+import imp_startOfHour from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var startOfHour = require('./')
+var assert = ext_powerassert
+var startOfHour = imp_startOfHour
 
 describe('startOfHour', function () {
   it('returns the date with the time setted to the first millisecond of an hour', function () {

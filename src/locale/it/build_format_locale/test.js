@@ -1,8 +1,10 @@
+import imp_buildFormatLocale from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var buildFormatLocale = require('./')
+var assert = ext_powerassert
+var buildFormatLocale = imp_buildFormatLocale
 
 describe('it locale > buildFormatLocale', function () {
   it('returns an object', function () {

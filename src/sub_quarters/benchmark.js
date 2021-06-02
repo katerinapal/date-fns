@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_subQuarters from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var subQuarters = require('./')
-var moment = require('moment')
+var subQuarters = imp_subQuarters
+var moment = ext_moment
 
 suite('subQuarters', function () {
   benchmark('date-fns', function () {

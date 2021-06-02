@@ -1,3 +1,4 @@
+var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
 function declension (scheme, count) {
   // scheme for count=1 exists
   if (scheme.one !== undefined && count === 1) {
@@ -231,4 +232,4 @@ function buildDistanceInWordsLocale () {
   }
 }
 
-module.exports = buildDistanceInWordsLocale
+export default mod_buildDistanceInWordsLocale;

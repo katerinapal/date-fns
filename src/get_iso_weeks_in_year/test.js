@@ -1,8 +1,10 @@
+import imp_getISOWeeksInYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getISOWeeksInYear = require('./')
+var assert = ext_powerassert
+var getISOWeeksInYear = imp_getISOWeeksInYear
 
 describe('getISOWeeksInYear', function () {
   it('returns the number of ISO weeks in the ISO week-numbering year of the given date', function () {

@@ -1,8 +1,10 @@
+import imp_differenceInYears from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var differenceInYears = require('./')
+var assert = ext_powerassert
+var differenceInYears = imp_differenceInYears
 
 describe('differenceInYears', function () {
   it('returns the number of full years between the given dates', function () {

@@ -1,9 +1,11 @@
+import imp_isFuture from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 /* global sinon */
 
-var assert = require('power-assert')
-var isFuture = require('./')
+var assert = ext_powerassert
+var isFuture = imp_isFuture
 
 describe('isFuture', function () {
   beforeEach(function () {

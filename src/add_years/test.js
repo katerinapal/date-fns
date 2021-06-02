@@ -1,8 +1,10 @@
+import imp_addYears from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var addYears = require('./')
+var assert = ext_powerassert
+var addYears = imp_addYears
 
 describe('addYears', function () {
   it('adds the given number of years', function () {

@@ -1,4 +1,6 @@
-var startOfDay = require('../start_of_day/index.js')
+var mod_isTomorrow = isTomorrow;
+import imp_startOfDay from "../start_of_day/index.js";
+var startOfDay = imp_startOfDay
 
 /**
  * @category Day Helpers
@@ -21,4 +23,19 @@ function isTomorrow (dirtyDate) {
   return startOfDay(dirtyDate).getTime() === startOfDay(tomorrow).getTime()
 }
 
-module.exports = isTomorrow
+/**
+ * @category Day Helpers
+ * @summary Is the given date tomorrow?
+ *
+ * @description
+ * Is the given date tomorrow?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is tomorrow
+ *
+ * @example
+ * // If today is 6 October 2014, is 7 October 14:00:00 tomorrow?
+ * var result = isTomorrow(new Date(2014, 9, 7, 14, 0))
+ * //=> true
+ */
+export default mod_isTomorrow;

@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_differenceInMilliseconds from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var differenceInMilliseconds = require('./')
-var moment = require('moment')
+var differenceInMilliseconds = imp_differenceInMilliseconds
+var moment = ext_moment
 
 suite('differenceInMilliseconds', function () {
   benchmark('date-fns', function () {

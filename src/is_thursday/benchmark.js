@@ -1,8 +1,9 @@
+import imp_isThursday from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThursday = require('./')
+var isThursday = imp_isThursday
 
 suite('isThursday', function () {
   benchmark('date-fns', function () {

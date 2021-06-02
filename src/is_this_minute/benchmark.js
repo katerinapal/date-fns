@@ -1,8 +1,9 @@
+import imp_isThisMinute from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisMinute = require('./')
+var isThisMinute = imp_isThisMinute
 
 suite('isThisMinute', function () {
   benchmark('date-fns', function () {

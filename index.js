@@ -1,4 +1,4 @@
-module.exports = {
+mod_indexjs = {
   addDays: require('./add_days/index.js'),
   addHours: require('./add_hours/index.js'),
   addISOYears: require('./add_iso_years/index.js'),
@@ -154,3 +154,5 @@ module.exports = {
   subWeeks: require('./sub_weeks/index.js'),
   subYears: require('./sub_years/index.js')
 }
+var mod_indexjs;
+export default mod_indexjs;

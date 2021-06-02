@@ -1,8 +1,10 @@
+import imp_parse from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var parse = require('./')
+var assert = ext_powerassert
+var parse = imp_parse
 
 describe('parse', function () {
   describe('date argument', function () {

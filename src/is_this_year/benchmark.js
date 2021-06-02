@@ -1,8 +1,9 @@
+import imp_isThisYear from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisYear = require('./')
+var isThisYear = imp_isThisYear
 
 suite('isThisYear', function () {
   benchmark('date-fns', function () {

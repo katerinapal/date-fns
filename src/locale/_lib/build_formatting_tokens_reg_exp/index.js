@@ -1,3 +1,4 @@
+var mod_buildFormattingTokensRegExp = buildFormattingTokensRegExp;
 var commonFormatterKeys = [
   'M', 'MM', 'Q', 'D', 'DD', 'DDD', 'DDDD', 'd',
   'E', 'W', 'WW', 'YY', 'YYYY', 'GG', 'GGGG',
@@ -25,4 +26,4 @@ function buildFormattingTokensRegExp (formatters) {
   return formattingTokensRegExp
 }
 
-module.exports = buildFormattingTokensRegExp
+export default mod_buildFormattingTokensRegExp;

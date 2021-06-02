@@ -1,8 +1,9 @@
+import imp_isThisQuarter from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisQuarter = require('./')
+var isThisQuarter = imp_isThisQuarter
 
 suite('isThisQuarter', function () {
   benchmark('date-fns', function () {

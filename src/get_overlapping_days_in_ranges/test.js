@@ -1,8 +1,10 @@
+import imp_getOverlappingDaysInRanges from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getOverlappingDaysInRanges = require('./')
+var assert = ext_powerassert
+var getOverlappingDaysInRanges = imp_getOverlappingDaysInRanges
 
 describe('getOverlappingDaysInRanges', function () {
   var initialRangeStart = new Date(2016, 10, 10, 13, 0, 0)

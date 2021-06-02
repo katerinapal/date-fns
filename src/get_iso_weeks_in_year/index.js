@@ -1,5 +1,8 @@
-var startOfISOYear = require('../start_of_iso_year/index.js')
-var addWeeks = require('../add_weeks/index.js')
+var mod_getISOWeeksInYear = getISOWeeksInYear;
+import imp_addWeeks from "../add_weeks/index.js";
+import imp_startOfISOYear from "../start_of_iso_year/index.js";
+var startOfISOYear = imp_startOfISOYear
+var addWeeks = imp_addWeeks
 
 var MILLISECONDS_IN_WEEK = 604800000
 
@@ -30,4 +33,21 @@ function getISOWeeksInYear (dirtyDate) {
   return Math.round(diff / MILLISECONDS_IN_WEEK)
 }
 
-module.exports = getISOWeeksInYear
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Get the number of weeks in an ISO week-numbering year of the given date.
+ *
+ * @description
+ * Get the number of weeks in an ISO week-numbering year of the given date.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the number of ISO weeks in a year
+ *
+ * @example
+ * // How many weeks are in ISO week-numbering year 2015?
+ * var result = getISOWeeksInYear(new Date(2015, 1, 11))
+ * //=> 53
+ */
+export default mod_getISOWeeksInYear;

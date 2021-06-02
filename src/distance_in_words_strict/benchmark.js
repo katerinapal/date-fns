@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_distanceInWordsStrict from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var distanceInWordsStrict = require('./')
-var moment = require('moment')
+var distanceInWordsStrict = imp_distanceInWordsStrict
+var moment = ext_moment
 
 suite('distanceInWordsStrict', function () {
   benchmark('date-fns', function () {

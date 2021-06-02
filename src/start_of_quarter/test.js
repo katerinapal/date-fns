@@ -1,8 +1,10 @@
+import imp_startOfQuarter from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var startOfQuarter = require('./')
+var assert = ext_powerassert
+var startOfQuarter = imp_startOfQuarter
 
 describe('startOfQuarter', function () {
   it('returns the date with the time setted to 00:00:00 and the date setted to the first day of a quarter', function () {

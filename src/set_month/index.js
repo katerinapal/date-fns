@@ -1,5 +1,8 @@
-var parse = require('../parse/index.js')
-var getDaysInMonth = require('../get_days_in_month/index.js')
+var mod_setMonth = setMonth;
+import imp_getDaysInMonth from "../get_days_in_month/index.js";
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
+var getDaysInMonth = imp_getDaysInMonth
 
 /**
  * @category Month Helpers
@@ -33,4 +36,20 @@ function setMonth (dirtyDate, dirtyMonth) {
   return date
 }
 
-module.exports = setMonth
+/**
+ * @category Month Helpers
+ * @summary Set the month to the given date.
+ *
+ * @description
+ * Set the month to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} month - the month of the new date
+ * @returns {Date} the new date with the month setted
+ *
+ * @example
+ * // Set February to 1 September 2014:
+ * var result = setMonth(new Date(2014, 8, 1), 1)
+ * //=> Sat Feb 01 2014 00:00:00
+ */
+export default mod_setMonth;

@@ -1,8 +1,10 @@
+import imp_getSeconds from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getSeconds = require('./')
+var assert = ext_powerassert
+var getSeconds = imp_getSeconds
 
 describe('getSeconds', function () {
   it('returns the seconds of the given date', function () {

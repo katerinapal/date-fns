@@ -1,8 +1,10 @@
+import imp_endOfYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var endOfYear = require('./')
+var assert = ext_powerassert
+var endOfYear = imp_endOfYear
 
 describe('endOfMonth', function () {
   it('returns the date with the time setted to 23:59:59.999 and the date setted to the last day of a year', function () {

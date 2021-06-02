@@ -1,8 +1,10 @@
+import imp_isLeapYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var isLeapYear = require('./')
+var assert = ext_powerassert
+var isLeapYear = imp_isLeapYear
 
 describe('isLeapYear', function () {
   it('returns true if the given date is in the leap year', function () {

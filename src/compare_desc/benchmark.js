@@ -1,8 +1,9 @@
+import imp_compareDesc from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var compareDesc = require('./')
+var compareDesc = imp_compareDesc
 
 suite('compareDesc', function () {
   benchmark('date-fns', function () {

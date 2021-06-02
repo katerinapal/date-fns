@@ -1,4 +1,6 @@
-var isLeapYear = require('../is_leap_year/index.js')
+var mod_getDaysInYear = getDaysInYear;
+import imp_isLeapYear from "../is_leap_year/index.js";
+var isLeapYear = imp_isLeapYear
 
 /**
  * @category Year Helpers
@@ -19,4 +21,19 @@ function getDaysInYear (dirtyDate) {
   return isLeapYear(dirtyDate) ? 366 : 365
 }
 
-module.exports = getDaysInYear
+/**
+ * @category Year Helpers
+ * @summary Get the number of days in a year of the given date.
+ *
+ * @description
+ * Get the number of days in a year of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the number of days in a year
+ *
+ * @example
+ * // How many days are in 2012?
+ * var result = getDaysInYear(new Date(2012, 0, 1))
+ * //=> 366
+ */
+export default mod_getDaysInYear;

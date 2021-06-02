@@ -1,8 +1,10 @@
+import imp_differenceInCalendarMonths from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var differenceInCalendarMonths = require('./')
+var assert = ext_powerassert
+var differenceInCalendarMonths = imp_differenceInCalendarMonths
 
 describe('differenceInCalendarMonths', function () {
   it('returns the number of calendar months between the given dates', function () {

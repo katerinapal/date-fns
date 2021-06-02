@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_max from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var max = require('./')
-var moment = require('moment')
+var max = imp_max
+var moment = ext_moment
 
 suite('max', function () {
   benchmark('date-fns', function () {

@@ -1,8 +1,10 @@
+import imp_getHours from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getHours = require('./')
+var assert = ext_powerassert
+var getHours = imp_getHours
 
 describe('getHours', function () {
   it('returns the hours of the given date', function () {

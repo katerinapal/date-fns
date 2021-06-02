@@ -1,8 +1,10 @@
+import imp_startOfISOYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var startOfISOYear = require('./')
+var assert = ext_powerassert
+var startOfISOYear = imp_startOfISOYear
 
 describe('startOfISOYear', function () {
   it('returns the date with the time setted to 00:00:00 and the date setted to the first day of an ISO year', function () {

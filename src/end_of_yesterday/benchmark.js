@@ -1,8 +1,9 @@
+import imp_endOfYesterday from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var endOfYesterday = require('./')
+var endOfYesterday = imp_endOfYesterday
 
 suite('endOfYesterday', function () {
   benchmark('date-fns', function () {

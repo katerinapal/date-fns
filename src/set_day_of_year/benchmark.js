@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_setDayOfYear from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var setDayOfYear = require('./')
-var moment = require('moment')
+var setDayOfYear = imp_setDayOfYear
+var moment = ext_moment
 
 suite('setDayOfYear', function () {
   benchmark('date-fns', function () {

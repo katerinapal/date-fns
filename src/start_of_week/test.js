@@ -1,8 +1,10 @@
+import imp_startOfWeek from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var startOfWeek = require('./')
+var assert = ext_powerassert
+var startOfWeek = imp_startOfWeek
 
 describe('startOfWeek', function () {
   it('returns the date with the time setted to 00:00:00 and the date setted to the first day of a week', function () {

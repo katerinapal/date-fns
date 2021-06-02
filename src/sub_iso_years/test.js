@@ -1,8 +1,10 @@
+import imp_subISOYears from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var subISOYears = require('./')
+var assert = ext_powerassert
+var subISOYears = imp_subISOYears
 
 describe('subISOYears', function () {
   it('subtracts the given number of ISO week-numbering years', function () {

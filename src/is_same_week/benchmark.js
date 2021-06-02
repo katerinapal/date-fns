@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_isSameWeek from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSameWeek = require('./')
-var moment = require('moment')
+var isSameWeek = imp_isSameWeek
+var moment = ext_moment
 
 suite('isSameWeek', function () {
   benchmark('date-fns', function () {

@@ -1,8 +1,10 @@
+import imp_subWeeks from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var subWeeks = require('./')
+var assert = ext_powerassert
+var subWeeks = imp_subWeeks
 
 describe('subWeeks', function () {
   it('subtracts the given number of weeks', function () {

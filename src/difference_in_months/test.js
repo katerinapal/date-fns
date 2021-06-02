@@ -1,8 +1,10 @@
+import imp_differenceInMonths from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var differenceInMonths = require('./')
+var assert = ext_powerassert
+var differenceInMonths = imp_differenceInMonths
 
 describe('differenceInMonths', function () {
   it('returns the number of full months between the given dates', function () {

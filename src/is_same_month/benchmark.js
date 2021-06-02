@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_isSameMonth from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSameMonth = require('./')
-var moment = require('moment')
+var isSameMonth = imp_isSameMonth
+var moment = ext_moment
 
 suite('isSameMonth', function () {
   benchmark('date-fns', function () {

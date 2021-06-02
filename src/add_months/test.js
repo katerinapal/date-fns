@@ -1,8 +1,10 @@
+import imp_addMonths from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var addMonths = require('./')
+var assert = ext_powerassert
+var addMonths = imp_addMonths
 
 describe('addMonths', function () {
   it('adds the given number of months', function () {

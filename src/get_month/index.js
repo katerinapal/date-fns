@@ -1,4 +1,6 @@
-var parse = require('../parse/index.js')
+var mod_getMonth = getMonth;
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
 
 /**
  * @category Month Helpers
@@ -21,4 +23,19 @@ function getMonth (dirtyDate) {
   return month
 }
 
-module.exports = getMonth
+/**
+ * @category Month Helpers
+ * @summary Get the month of the given date.
+ *
+ * @description
+ * Get the month of the given date.
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the month
+ *
+ * @example
+ * // Which month is 29 February 2012?
+ * var result = getMonth(new Date(2012, 1, 29))
+ * //=> 1
+ */
+export default mod_getMonth;

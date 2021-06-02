@@ -1,8 +1,10 @@
+import imp_subSeconds from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var subSeconds = require('./')
+var assert = ext_powerassert
+var subSeconds = imp_subSeconds
 
 describe('subSeconds', function () {
   it('subtracts the given number of seconds', function () {

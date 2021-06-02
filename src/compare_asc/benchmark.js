@@ -1,8 +1,9 @@
+import imp_compareAsc from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var compareAsc = require('./')
+var compareAsc = imp_compareAsc
 
 suite('compareAsc', function () {
   benchmark('date-fns', function () {

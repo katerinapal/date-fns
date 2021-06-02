@@ -1,4 +1,6 @@
-var parse = require('../parse/index.js')
+var mod_isFriday = isFriday;
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
 
 /**
  * @category Weekday Helpers
@@ -19,4 +21,19 @@ function isFriday (dirtyDate) {
   return parse(dirtyDate).getDay() === 5
 }
 
-module.exports = isFriday
+/**
+ * @category Weekday Helpers
+ * @summary Is the given date Friday?
+ *
+ * @description
+ * Is the given date Friday?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date is Friday
+ *
+ * @example
+ * // Is 26 September 2014 Friday?
+ * var result = isFriday(new Date(2014, 8, 26))
+ * //=> true
+ */
+export default mod_isFriday;

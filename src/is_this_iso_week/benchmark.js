@@ -1,8 +1,9 @@
+import imp_isThisISOWeek from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisISOWeek = require('./')
+var isThisISOWeek = imp_isThisISOWeek
 
 suite('isThisISOWeek', function () {
   benchmark('date-fns', function () {

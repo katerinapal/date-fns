@@ -1,4 +1,6 @@
-var buildFormattingTokensRegExp = require('../../_lib/build_formatting_tokens_reg_exp/index.js')
+var mod_buildFormatLocale = buildFormatLocale;
+import imp_buildFormattingTokensRegExp from "../../_lib/build_formatting_tokens_reg_exp/index.js";
+var buildFormattingTokensRegExp = imp_buildFormattingTokensRegExp
 
 function buildFormatLocale () {
   var months3char = ['jan', 'feb', 'mar', 'apr', 'máj', 'jún', 'júl', 'aug', 'sep', 'okt', 'nov', 'dec']
@@ -70,4 +72,4 @@ function ordinal (number) {
   return number + '.'
 }
 
-module.exports = buildFormatLocale
+export default mod_buildFormatLocale;

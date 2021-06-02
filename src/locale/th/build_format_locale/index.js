@@ -1,4 +1,6 @@
-var buildFormattingTokensRegExp = require('../../_lib/build_formatting_tokens_reg_exp/index.js')
+var mod_buildFormatLocale = buildFormatLocale;
+import imp_buildFormattingTokensRegExp from "../../_lib/build_formatting_tokens_reg_exp/index.js";
+var buildFormattingTokensRegExp = imp_buildFormattingTokensRegExp
 
 function buildFormatLocale () {
   var months3char = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.']
@@ -58,4 +60,4 @@ function buildFormatLocale () {
   }
 }
 
-module.exports = buildFormatLocale
+export default mod_buildFormatLocale;

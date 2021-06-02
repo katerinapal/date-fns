@@ -1,8 +1,10 @@
+import imp_differenceInMinutes from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var differenceInMinutes = require('./')
+var assert = ext_powerassert
+var differenceInMinutes = imp_differenceInMinutes
 
 describe('differenceInMinutes', function () {
   it('returns the number of minutes between the given dates', function () {

@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_subYears from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var subYears = require('./')
-var moment = require('moment')
+var subYears = imp_subYears
+var moment = ext_moment
 
 suite('subYears', function () {
   benchmark('date-fns', function () {

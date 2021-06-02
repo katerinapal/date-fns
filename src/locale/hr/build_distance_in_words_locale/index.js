@@ -1,3 +1,4 @@
+var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
 function buildDistanceInWordsLocale () {
   var distanceInWordsLocale = {
     lessThanXSeconds: {
@@ -175,4 +176,4 @@ function buildDistanceInWordsLocale () {
   }
 }
 
-module.exports = buildDistanceInWordsLocale
+export default mod_buildDistanceInWordsLocale;

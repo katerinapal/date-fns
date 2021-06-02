@@ -1,4 +1,6 @@
-var parse = require('../parse/index.js')
+var mod_lastDayOfWeek = lastDayOfWeek;
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
 
 /**
  * @category Week Helpers
@@ -35,4 +37,27 @@ function lastDayOfWeek (dirtyDate, dirtyOptions) {
   return date
 }
 
-module.exports = lastDayOfWeek
+/**
+ * @category Week Helpers
+ * @summary Return the last day of a week for the given date.
+ *
+ * @description
+ * Return the last day of a week for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @param {Object} [options] - the object with options
+ * @param {Number} [options.weekStartsOn=0] - the index of the first day of the week (0 - Sunday)
+ * @returns {Date} the last day of a week
+ *
+ * @example
+ * // The last day of a week for 2 September 2014 11:55:00:
+ * var result = lastDayOfWeek(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Sat Sep 06 2014 00:00:00
+ *
+ * @example
+ * // If the week starts on Monday, the last day of the week for 2 September 2014 11:55:00:
+ * var result = lastDayOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})
+ * //=> Sun Sep 07 2014 00:00:00
+ */
+export default mod_lastDayOfWeek;

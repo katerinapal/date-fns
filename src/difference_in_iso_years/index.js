@@ -1,7 +1,12 @@
-var parse = require('../parse/index.js')
-var differenceInCalendarISOYears = require('../difference_in_calendar_iso_years/index.js')
-var compareAsc = require('../compare_asc/index.js')
-var subISOYears = require('../sub_iso_years/index.js')
+var mod_differenceInISOYears = differenceInISOYears;
+import imp_subISOYears from "../sub_iso_years/index.js";
+import imp_compareAsc from "../compare_asc/index.js";
+import imp_differenceInCalendarISOYears from "../difference_in_calendar_iso_years/index.js";
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
+var differenceInCalendarISOYears = imp_differenceInCalendarISOYears
+var compareAsc = imp_compareAsc
+var subISOYears = imp_subISOYears
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -39,4 +44,25 @@ function differenceInISOYears (dirtyDateLeft, dirtyDateRight) {
   return sign * (difference - isLastISOYearNotFull)
 }
 
-module.exports = differenceInISOYears
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Get the number of full ISO week-numbering years between the given dates.
+ *
+ * @description
+ * Get the number of full ISO week-numbering years between the given dates.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of full ISO week-numbering years
+ *
+ * @example
+ * // How many full ISO week-numbering years are between 1 January 2010 and 1 January 2012?
+ * var result = differenceInISOYears(
+ *   new Date(2012, 0, 1),
+ *   new Date(2010, 0, 1)
+ * )
+ * //=> 1
+ */
+export default mod_differenceInISOYears;

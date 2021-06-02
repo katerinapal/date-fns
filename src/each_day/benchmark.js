@@ -1,8 +1,9 @@
+import imp_eachDay from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var eachDay = require('./')
+var eachDay = imp_eachDay
 
 suite('eachDay', function () {
   benchmark('date-fns', function () {

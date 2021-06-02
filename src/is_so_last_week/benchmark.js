@@ -1,8 +1,9 @@
+import imp_isSoLastWeek from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSoLastWeek = require('./')
+var isSoLastWeek = imp_isSoLastWeek
 
 suite('isSoLastWeek', function () {
   benchmark('date-fns', function () {

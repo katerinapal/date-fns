@@ -1,8 +1,10 @@
+import imp_getDaysInYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getDaysInYear = require('./')
+var assert = ext_powerassert
+var getDaysInYear = imp_getDaysInYear
 
 describe('getDaysInYear', function () {
   it('returns the number of days in the year of the given date', function () {

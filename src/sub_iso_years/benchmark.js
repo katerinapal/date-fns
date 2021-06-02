@@ -1,8 +1,9 @@
+import imp_subISOYears from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var subISOYears = require('./')
+var subISOYears = imp_subISOYears
 
 suite('subISOYears', function () {
   benchmark('date-fns', function () {

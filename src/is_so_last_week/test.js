@@ -1,9 +1,11 @@
+import imp_isSoLastWeek from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 /* global sinon */
 
-var assert = require('power-assert')
-var isSoLastWeek = require('./')
+var assert = ext_powerassert
+var isSoLastWeek = imp_isSoLastWeek
 
 describe('isSoLastWeek', function () {
   beforeEach(function () {

@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_parse from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var parse = require('./')
-var moment = require('moment')
+var parse = imp_parse
+var moment = ext_moment
 
 suite('parse', function () {
   benchmark('date-fns', function () {

@@ -1,8 +1,10 @@
+import imp_getQuarter from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getQuarter = require('./')
+var assert = ext_powerassert
+var getQuarter = imp_getQuarter
 
 describe('getQuarter', function () {
   it('returns the quarter of the given date', function () {

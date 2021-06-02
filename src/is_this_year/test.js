@@ -1,9 +1,11 @@
+import imp_isThisYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 /* global sinon */
 
-var assert = require('power-assert')
-var isThisYear = require('./')
+var assert = ext_powerassert
+var isThisYear = imp_isThisYear
 
 describe('isThisYear', function () {
   beforeEach(function () {

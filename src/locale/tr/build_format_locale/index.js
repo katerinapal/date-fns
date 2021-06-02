@@ -1,4 +1,6 @@
-var buildFormattingTokensRegExp = require('../../_lib/build_formatting_tokens_reg_exp/index.js')
+var mod_buildFormatLocale = buildFormatLocale;
+import imp_buildFormattingTokensRegExp from "../../_lib/build_formatting_tokens_reg_exp/index.js";
+var buildFormattingTokensRegExp = imp_buildFormattingTokensRegExp
 
 function buildFormatLocale () {
   // Note: in Turkish, the names of days of the week and months are capitalized.
@@ -103,4 +105,4 @@ function ordinal (number) {
   return number + (suffixes[x] || suffixes[y] || suffixes[z])
 }
 
-module.exports = buildFormatLocale
+export default mod_buildFormatLocale;

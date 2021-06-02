@@ -1,8 +1,10 @@
+import imp_differenceInWeeks from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var differenceInWeeks = require('./')
+var assert = ext_powerassert
+var differenceInWeeks = imp_differenceInWeeks
 
 describe('differenceInWeeks', function () {
   it('returns the number of full weeks between the given dates', function () {

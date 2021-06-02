@@ -1,4 +1,6 @@
-var parse = require('../parse/index.js')
+var mod_setHours = setHours;
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
 
 /**
  * @category Hour Helpers
@@ -23,4 +25,20 @@ function setHours (dirtyDate, dirtyHours) {
   return date
 }
 
-module.exports = setHours
+/**
+ * @category Hour Helpers
+ * @summary Set the hours to the given date.
+ *
+ * @description
+ * Set the hours to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} hours - the hours of the new date
+ * @returns {Date} the new date with the hours setted
+ *
+ * @example
+ * // Set 4 hours to 1 September 2014 11:30:00:
+ * var result = setHours(new Date(2014, 8, 1, 11, 30), 4)
+ * //=> Mon Sep 01 2014 04:30:00
+ */
+export default mod_setHours;

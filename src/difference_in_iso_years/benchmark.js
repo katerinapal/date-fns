@@ -1,8 +1,9 @@
+import imp_differenceInISOYears from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var differenceInISOYears = require('./')
+var differenceInISOYears = imp_differenceInISOYears
 
 suite('differenceInISOYears', function () {
   benchmark('date-fns', function () {

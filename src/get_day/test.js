@@ -1,8 +1,10 @@
+import imp_getDay from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getDay = require('./')
+var assert = ext_powerassert
+var getDay = imp_getDay
 
 describe('getDay', function () {
   it('returns the day of the week of the given date', function () {

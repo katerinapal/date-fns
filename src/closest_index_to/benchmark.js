@@ -1,8 +1,9 @@
+import imp_closestIndexTo from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var closestIndexTo = require('./')
+var closestIndexTo = imp_closestIndexTo
 
 suite('closestIndexTo', function () {
   benchmark('date-fns', function () {

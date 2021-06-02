@@ -1,8 +1,10 @@
+import imp_lastDayOfQuarter from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var lastDayOfQuarter = require('./')
+var assert = ext_powerassert
+var lastDayOfQuarter = imp_lastDayOfQuarter
 
 describe('lastDayOfQuarter', function () {
   it('returns the date with the time setted to 00:00:00 and the date setted to the last day of a quarter', function () {

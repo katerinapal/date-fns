@@ -1,8 +1,10 @@
+import imp_isSameHour from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var isSameHour = require('./')
+var assert = ext_powerassert
+var isSameHour = imp_isSameHour
 
 describe('isSameHour', function () {
   it('returns true if the given dates have the same hour', function () {

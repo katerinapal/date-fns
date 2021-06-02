@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_isLeapYear from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isLeapYear = require('./')
-var moment = require('moment')
+var isLeapYear = imp_isLeapYear
+var moment = ext_moment
 
 suite('isLeapYear', function () {
   benchmark('date-fns', function () {

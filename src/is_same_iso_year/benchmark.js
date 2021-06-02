@@ -1,8 +1,9 @@
+import imp_isSameISOYear from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSameISOYear = require('./')
+var isSameISOYear = imp_isSameISOYear
 
 suite('isSameISOYear', function () {
   benchmark('date-fns', function () {

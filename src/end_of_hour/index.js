@@ -1,4 +1,6 @@
-var parse = require('../parse/index.js')
+var mod_endOfHour = endOfHour;
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
 
 /**
  * @category Hour Helpers
@@ -22,4 +24,20 @@ function endOfHour (dirtyDate) {
   return date
 }
 
-module.exports = endOfHour
+/**
+ * @category Hour Helpers
+ * @summary Return the end of an hour for the given date.
+ *
+ * @description
+ * Return the end of an hour for the given date.
+ * The result will be in the local timezone.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of an hour
+ *
+ * @example
+ * // The end of an hour for 2 September 2014 11:55:00:
+ * var result = endOfHour(new Date(2014, 8, 2, 11, 55))
+ * //=> Tue Sep 02 2014 11:59:59.999
+ */
+export default mod_endOfHour;

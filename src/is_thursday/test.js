@@ -1,8 +1,10 @@
+import imp_isThursday from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var isThursday = require('./')
+var assert = ext_powerassert
+var isThursday = imp_isThursday
 
 describe('isThursday', function () {
   it('returns true if the given date is Thursday', function () {

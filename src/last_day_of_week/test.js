@@ -1,8 +1,10 @@
+import imp_lastDayOfWeek from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var lastDayOfWeek = require('./')
+var assert = ext_powerassert
+var lastDayOfWeek = imp_lastDayOfWeek
 
 describe('lastDayOfWeek', function () {
   it('returns the date with the time setted to 00:00:00 and the date setted to the last day of a week', function () {

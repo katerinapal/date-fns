@@ -1,8 +1,10 @@
+import imp_differenceInHours from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var differenceInHours = require('./')
+var assert = ext_powerassert
+var differenceInHours = imp_differenceInHours
 
 describe('differenceInHours', function () {
   it('returns the number of hours between the given dates', function () {

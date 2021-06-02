@@ -1,6 +1,10 @@
-var parse = require('../parse/index.js')
-var differenceInCalendarMonths = require('../difference_in_calendar_months/index.js')
-var compareAsc = require('../compare_asc/index.js')
+var mod_differenceInMonths = differenceInMonths;
+import imp_compareAsc from "../compare_asc/index.js";
+import imp_differenceInCalendarMonths from "../difference_in_calendar_months/index.js";
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
+var differenceInCalendarMonths = imp_differenceInCalendarMonths
+var compareAsc = imp_compareAsc
 
 /**
  * @category Month Helpers
@@ -35,4 +39,23 @@ function differenceInMonths (dirtyDateLeft, dirtyDateRight) {
   return sign * (difference - isLastMonthNotFull)
 }
 
-module.exports = differenceInMonths
+/**
+ * @category Month Helpers
+ * @summary Get the number of full months between the given dates.
+ *
+ * @description
+ * Get the number of full months between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of full months
+ *
+ * @example
+ * // How many full months are between 31 January 2014 and 1 September 2014?
+ * var result = differenceInMonths(
+ *   new Date(2014, 8, 1),
+ *   new Date(2014, 0, 31)
+ * )
+ * //=> 7
+ */
+export default mod_differenceInMonths;

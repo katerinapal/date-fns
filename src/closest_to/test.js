@@ -1,8 +1,10 @@
+import imp_closestTo from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var closestTo = require('./')
+var assert = ext_powerassert
+var closestTo = imp_closestTo
 
 describe('closestTo', function () {
   it('returns the date from the given array closest to the given date', function () {

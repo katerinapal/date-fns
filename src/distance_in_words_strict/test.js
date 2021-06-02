@@ -1,8 +1,10 @@
+import imp_distanceInWordsStrict from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var distanceInWordsStrict = require('./')
+var assert = ext_powerassert
+var distanceInWordsStrict = imp_distanceInWordsStrict
 
 describe('distanceInWordsStrict', function () {
   describe('seconds', function () {

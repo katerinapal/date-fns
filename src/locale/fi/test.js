@@ -1,8 +1,10 @@
+import imp_indexjs from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var fiLocale = require('./')
+var assert = ext_powerassert
+var fiLocale = imp_indexjs
 
 describe('fi locale', function () {
   it('exports distanceInWords object', function () {

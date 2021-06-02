@@ -1,5 +1,8 @@
-var getISOYear = require('../get_iso_year/index.js')
-var startOfISOWeek = require('../start_of_iso_week/index.js')
+var mod_lastDayOfISOYear = lastDayOfISOYear;
+import imp_startOfISOWeek from "../start_of_iso_week/index.js";
+import imp_getISOYear from "../get_iso_year/index.js";
+var getISOYear = imp_getISOYear
+var startOfISOWeek = imp_startOfISOWeek
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -30,4 +33,23 @@ function lastDayOfISOYear (dirtyDate) {
   return date
 }
 
-module.exports = lastDayOfISOYear
+/**
+ * @category ISO Week-Numbering Year Helpers
+ * @summary Return the last day of an ISO week-numbering year for the given date.
+ *
+ * @description
+ * Return the last day of an ISO week-numbering year,
+ * which always starts 3 days before the year's first Thursday.
+ * The result will be in the local timezone.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the original date
+ * @returns {Date} the end of an ISO week-numbering year
+ *
+ * @example
+ * // The last day of an ISO week-numbering year for 2 July 2005:
+ * var result = lastDayOfISOYear(new Date(2005, 6, 2))
+ * //=> Sun Jan 01 2006 00:00:00
+ */
+export default mod_lastDayOfISOYear;

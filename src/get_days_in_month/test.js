@@ -1,8 +1,10 @@
+import imp_getDaysInMonth from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getDaysInMonth = require('./')
+var assert = ext_powerassert
+var getDaysInMonth = imp_getDaysInMonth
 
 describe('getDaysInMonth', function () {
   it('returns the number of days in the month of the given date', function () {

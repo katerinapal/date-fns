@@ -1,4 +1,6 @@
-var buildFormattingTokensRegExp = require('../../_lib/build_formatting_tokens_reg_exp/index.js')
+var mod_buildFormatLocale = buildFormatLocale;
+import imp_buildFormattingTokensRegExp from "../../_lib/build_formatting_tokens_reg_exp/index.js";
+var buildFormattingTokensRegExp = imp_buildFormattingTokensRegExp
 
 function buildFormatLocale () {
   // Note: in Indonesian, the names of days of the week and months are capitalized.
@@ -83,4 +85,4 @@ function ordinal (number) {
   }
 }
 
-module.exports = buildFormatLocale
+export default mod_buildFormatLocale;

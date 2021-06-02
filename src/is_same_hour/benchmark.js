@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_isSameHour from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSameHour = require('./')
-var moment = require('moment')
+var isSameHour = imp_isSameHour
+var moment = ext_moment
 
 suite('isSameHour', function () {
   benchmark('date-fns', function () {

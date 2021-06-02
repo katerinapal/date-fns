@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_getDate from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var getDate = require('./')
-var moment = require('moment')
+var getDate = imp_getDate
+var moment = ext_moment
 
 suite('getDate', function () {
   benchmark('date-fns', function () {

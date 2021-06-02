@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_isWithinRange from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isWithinRange = require('./')
-var moment = require('moment')
+var isWithinRange = imp_isWithinRange
+var moment = ext_moment
 
 suite('isWithinRange', function () {
   benchmark('date-fns', function () {

@@ -1,8 +1,10 @@
+import imp_isSameISOYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var isSameISOYear = require('./')
+var assert = ext_powerassert
+var isSameISOYear = imp_isSameISOYear
 
 describe('isSameISOYear', function () {
   it('returns true if the given dates have the same ISO week-numbering year', function () {

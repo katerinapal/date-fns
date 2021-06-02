@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_isEqual from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isEqual = require('./')
-var moment = require('moment')
+var isEqual = imp_isEqual
+var moment = ext_moment
 
 suite('isEqual', function () {
   benchmark('date-fns', function () {

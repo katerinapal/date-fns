@@ -1,8 +1,10 @@
+import imp_format from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var format = require('./')
+var assert = ext_powerassert
+var format = imp_format
 
 describe('format', function () {
   beforeEach(function () {

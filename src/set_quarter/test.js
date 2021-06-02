@@ -1,8 +1,10 @@
+import imp_setQuarter from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var setQuarter = require('./')
+var assert = ext_powerassert
+var setQuarter = imp_setQuarter
 
 describe('setQuarter', function () {
   it('sets the quarter of the year', function () {

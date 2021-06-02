@@ -1,8 +1,10 @@
+import imp_isWithinRange from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var isWithinRange = require('./')
+var assert = ext_powerassert
+var isWithinRange = imp_isWithinRange
 
 describe('isWithinRange', function () {
   it('returns true if the given date in within the given range', function () {

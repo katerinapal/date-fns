@@ -1,5 +1,8 @@
-var parse = require('../parse/index.js')
-var getDaysInMonth = require('../get_days_in_month/index.js')
+var mod_addMonths = addMonths;
+import imp_getDaysInMonth from "../get_days_in_month/index.js";
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
+var getDaysInMonth = imp_getDaysInMonth
 
 /**
  * @category Month Helpers
@@ -31,4 +34,20 @@ function addMonths (dirtyDate, dirtyAmount) {
   return date
 }
 
-module.exports = addMonths
+/**
+ * @category Month Helpers
+ * @summary Add the specified number of months to the given date.
+ *
+ * @description
+ * Add the specified number of months to the given date.
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} amount - the amount of months to be added
+ * @returns {Date} the new date with the months added
+ *
+ * @example
+ * // Add 5 months to 1 September 2014:
+ * var result = addMonths(new Date(2014, 8, 1), 5)
+ * //=> Sun Feb 01 2015 00:00:00
+ */
+export default mod_addMonths;

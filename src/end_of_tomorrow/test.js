@@ -1,9 +1,11 @@
+import imp_endOfTomorrow from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 /* global sinon */
 
-var assert = require('power-assert')
-var endOfTomorrow = require('./')
+var assert = ext_powerassert
+var endOfTomorrow = imp_endOfTomorrow
 
 describe('endOfTomorrow', function () {
   it('returns tomorrow with the time setted to 23:59:59.999', function () {

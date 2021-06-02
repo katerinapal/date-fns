@@ -1,8 +1,10 @@
+import imp_addDays from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var addDays = require('./')
+var assert = ext_powerassert
+var addDays = imp_addDays
 
 describe('addDays', function () {
   it('adds the given number of days', function () {

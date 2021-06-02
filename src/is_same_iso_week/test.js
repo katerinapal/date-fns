@@ -1,8 +1,10 @@
+import imp_isSameISOWeek from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var isSameISOWeek = require('./')
+var assert = ext_powerassert
+var isSameISOWeek = imp_isSameISOWeek
 
 describe('isSameISOWeek', function () {
   it('returns true if the given dates have the same ISO week', function () {

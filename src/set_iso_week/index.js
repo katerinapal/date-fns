@@ -1,5 +1,8 @@
-var parse = require('../parse/index.js')
-var getISOWeek = require('../get_iso_week/index.js')
+var mod_setISOWeek = setISOWeek;
+import imp_getISOWeek from "../get_iso_week/index.js";
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
+var getISOWeek = imp_getISOWeek
 
 /**
  * @category ISO Week Helpers
@@ -27,4 +30,22 @@ function setISOWeek (dirtyDate, dirtyISOWeek) {
   return date
 }
 
-module.exports = setISOWeek
+/**
+ * @category ISO Week Helpers
+ * @summary Set the ISO week to the given date.
+ *
+ * @description
+ * Set the ISO week to the given date, saving the weekday number.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the date to be changed
+ * @param {Number} isoWeek - the ISO week of the new date
+ * @returns {Date} the new date with the ISO week setted
+ *
+ * @example
+ * // Set the 53rd ISO week to 7 August 2004:
+ * var result = setISOWeek(new Date(2004, 7, 7), 53)
+ * //=> Sat Jan 01 2005 00:00:00
+ */
+export default mod_setISOWeek;

@@ -1,9 +1,11 @@
+import imp_isThisSecond from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 /* global sinon */
 
-var assert = require('power-assert')
-var isThisSecond = require('./')
+var assert = ext_powerassert
+var isThisSecond = imp_isThisSecond
 
 describe('isThisSecond', function () {
   beforeEach(function () {

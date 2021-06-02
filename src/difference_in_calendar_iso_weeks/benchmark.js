@@ -1,8 +1,9 @@
+import imp_differenceInCalendarISOWeeks from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var differenceInCalendarISOWeeks = require('./')
+var differenceInCalendarISOWeeks = imp_differenceInCalendarISOWeeks
 
 suite('differenceInCalendarISOWeeks', function () {
   benchmark('date-fns', function () {

@@ -1,8 +1,9 @@
+import imp_getDaysInYear from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var getDaysInYear = require('./')
+var getDaysInYear = imp_getDaysInYear
 
 suite('getDaysInYear', function () {
   benchmark('date-fns', function () {

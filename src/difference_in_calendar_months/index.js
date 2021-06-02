@@ -1,4 +1,6 @@
-var parse = require('../parse/index.js')
+var mod_differenceInCalendarMonths = differenceInCalendarMonths;
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
 
 /**
  * @category Month Helpers
@@ -29,4 +31,23 @@ function differenceInCalendarMonths (dirtyDateLeft, dirtyDateRight) {
   return yearDiff * 12 + monthDiff
 }
 
-module.exports = differenceInCalendarMonths
+/**
+ * @category Month Helpers
+ * @summary Get the number of calendar months between the given dates.
+ *
+ * @description
+ * Get the number of calendar months between the given dates.
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of calendar months
+ *
+ * @example
+ * // How many calendar months are between 31 January 2014 and 1 September 2014?
+ * var result = differenceInCalendarMonths(
+ *   new Date(2014, 8, 1),
+ *   new Date(2014, 0, 31)
+ * )
+ * //=> 8
+ */
+export default mod_differenceInCalendarMonths;

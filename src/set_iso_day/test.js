@@ -1,8 +1,10 @@
+import imp_setISODay from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var setISODay = require('./')
+var assert = ext_powerassert
+var setISODay = imp_setISODay
 
 describe('setISODay', function () {
   it('sets the day of the ISO week', function () {

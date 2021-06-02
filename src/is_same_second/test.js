@@ -1,8 +1,10 @@
+import imp_isSameSecond from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var isSameSecond = require('./')
+var assert = ext_powerassert
+var isSameSecond = imp_isSameSecond
 
 describe('isSameSecond', function () {
   it('returns true if the given dates have the same second', function () {

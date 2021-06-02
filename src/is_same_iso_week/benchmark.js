@@ -1,8 +1,9 @@
+import imp_isSameISOWeek from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSameISOWeek = require('./')
+var isSameISOWeek = imp_isSameISOWeek
 
 suite('isSameISOWeek', function () {
   benchmark('date-fns', function () {

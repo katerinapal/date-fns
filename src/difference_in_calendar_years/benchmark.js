@@ -1,8 +1,9 @@
+import imp_differenceInCalendarYears from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var differenceInCalendarYears = require('./')
+var differenceInCalendarYears = imp_differenceInCalendarYears
 
 suite('differenceInCalendarYears', function () {
   benchmark('date-fns', function () {

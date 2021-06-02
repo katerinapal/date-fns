@@ -1,3 +1,4 @@
+var mod_endOfTomorrow = endOfTomorrow;
 /**
  * @category Day Helpers
  * @summary Return the end of tomorrow.
@@ -24,4 +25,18 @@ function endOfTomorrow () {
   return date
 }
 
-module.exports = endOfTomorrow
+/**
+ * @category Day Helpers
+ * @summary Return the end of tomorrow.
+ *
+ * @description
+ * Return the end of tomorrow.
+ *
+ * @returns {Date} the end of tomorrow
+ *
+ * @example
+ * // If today is 6 October 2014:
+ * var result = endOfTomorrow()
+ * //=> Tue Oct 7 2014 23:59:59.999
+ */
+export default mod_endOfTomorrow;

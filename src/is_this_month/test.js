@@ -1,9 +1,11 @@
+import imp_isThisMonth from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 /* global sinon */
 
-var assert = require('power-assert')
-var isThisMonth = require('./')
+var assert = ext_powerassert
+var isThisMonth = imp_isThisMonth
 
 describe('isThisMonth', function () {
   beforeEach(function () {

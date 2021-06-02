@@ -1,8 +1,10 @@
+import imp_subQuarters from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var subQuarters = require('./')
+var assert = ext_powerassert
+var subQuarters = imp_subQuarters
 
 describe('subQuarters', function () {
   it('subtracts the given number of quarters', function () {

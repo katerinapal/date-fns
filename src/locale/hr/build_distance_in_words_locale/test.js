@@ -1,8 +1,10 @@
+import imp_buildDistanceInWordsLocale from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var buildDistanceInWordsLocale = require('./')
+var assert = ext_powerassert
+var buildDistanceInWordsLocale = imp_buildDistanceInWordsLocale
 
 describe('hr locale > buildDistanceInWordsLocale', function () {
   it('returns an object', function () {

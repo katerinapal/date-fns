@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_endOfWeek from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var endOfWeek = require('./')
-var moment = require('moment')
+var endOfWeek = imp_endOfWeek
+var moment = ext_moment
 
 suite('endOfWeek', function () {
   benchmark('date-fns', function () {

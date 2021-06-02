@@ -1,8 +1,10 @@
+import imp_isDate from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var isDate = require('./')
+var assert = ext_powerassert
+var isDate = imp_isDate
 
 describe('isDate', function () {
   it('returns true if the given argument is an instance of Date', function () {

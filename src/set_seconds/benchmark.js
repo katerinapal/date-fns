@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_setSeconds from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var setSeconds = require('./')
-var moment = require('moment')
+var setSeconds = imp_setSeconds
+var moment = ext_moment
 
 suite('setSeconds', function () {
   benchmark('date-fns', function () {

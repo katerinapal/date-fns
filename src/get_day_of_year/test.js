@@ -1,8 +1,10 @@
+import imp_getDayOfYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getDayOfYear = require('./')
+var assert = ext_powerassert
+var getDayOfYear = imp_getDayOfYear
 
 describe('getDayOfYear', function () {
   it('returns the day of the year of the given date', function () {

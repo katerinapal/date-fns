@@ -1,8 +1,9 @@
+import imp_isFuture from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isFuture = require('./')
+var isFuture = imp_isFuture
 
 suite('isFuture', function () {
   benchmark('date-fns', function () {

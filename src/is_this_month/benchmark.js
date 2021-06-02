@@ -1,8 +1,9 @@
+import imp_isThisMonth from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isThisMonth = require('./')
+var isThisMonth = imp_isThisMonth
 
 suite('isThisMonth', function () {
   benchmark('date-fns', function () {

@@ -1,8 +1,10 @@
+import imp_subMonths from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var subMonths = require('./')
+var assert = ext_powerassert
+var subMonths = imp_subMonths
 
 describe('subMonths', function () {
   it('subtracts the given number of months', function () {

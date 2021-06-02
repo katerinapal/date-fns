@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_min from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var min = require('./')
-var moment = require('moment')
+var min = imp_min
+var moment = ext_moment
 
 suite('min', function () {
   benchmark('date-fns', function () {

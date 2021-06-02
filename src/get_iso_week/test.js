@@ -1,8 +1,10 @@
+import imp_getISOWeek from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getISOWeek = require('./')
+var assert = ext_powerassert
+var getISOWeek = imp_getISOWeek
 
 describe('getISOWeek', function () {
   it('returns the ISO week of the given date', function () {

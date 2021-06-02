@@ -1,8 +1,10 @@
+import imp_setISOYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var setISOYear = require('./')
+var assert = ext_powerassert
+var setISOYear = imp_setISOYear
 
 describe('setISOYear', function () {
   it('sets the ISO week-numbering year, saving the ISO week and the day of the week', function () {

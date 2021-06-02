@@ -1,8 +1,10 @@
+import imp_getTime from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getTime = require('./')
+var assert = ext_powerassert
+var getTime = imp_getTime
 
 describe('getTime', function () {
   it('returns the timestamp of the given date', function () {

@@ -1,8 +1,10 @@
+import imp_setMinutes from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var setMinutes = require('./')
+var assert = ext_powerassert
+var setMinutes = imp_setMinutes
 
 describe('setMinutes', function () {
   it('sets the minutes', function () {

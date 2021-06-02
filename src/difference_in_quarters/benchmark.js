@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_differenceInQuarters from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var differenceInQuarters = require('./')
-var moment = require('moment')
+var differenceInQuarters = imp_differenceInQuarters
+var moment = ext_moment
 
 suite('differenceInQuarters', function () {
   benchmark('date-fns', function () {

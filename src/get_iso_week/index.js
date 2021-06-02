@@ -1,6 +1,10 @@
-var parse = require('../parse/index.js')
-var startOfISOWeek = require('../start_of_iso_week/index.js')
-var startOfISOYear = require('../start_of_iso_year/index.js')
+var mod_getISOWeek = getISOWeek;
+import imp_startOfISOYear from "../start_of_iso_year/index.js";
+import imp_startOfISOWeek from "../start_of_iso_week/index.js";
+import imp_parse from "../parse/index.js";
+var parse = imp_parse
+var startOfISOWeek = imp_startOfISOWeek
+var startOfISOYear = imp_startOfISOYear
 
 var MILLISECONDS_IN_WEEK = 604800000
 
@@ -31,4 +35,21 @@ function getISOWeek (dirtyDate) {
   return Math.round(diff / MILLISECONDS_IN_WEEK) + 1
 }
 
-module.exports = getISOWeek
+/**
+ * @category ISO Week Helpers
+ * @summary Get the ISO week of the given date.
+ *
+ * @description
+ * Get the ISO week of the given date.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} date - the given date
+ * @returns {Number} the ISO week
+ *
+ * @example
+ * // Which week of the ISO-week numbering year is 2 January 2005?
+ * var result = getISOWeek(new Date(2005, 0, 2))
+ * //=> 53
+ */
+export default mod_getISOWeek;

@@ -1,8 +1,10 @@
+import imp_differenceInMilliseconds from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var differenceInMilliseconds = require('./')
+var assert = ext_powerassert
+var differenceInMilliseconds = imp_differenceInMilliseconds
 
 describe('differenceInMilliseconds', function () {
   it('returns the number of milliseconds between the given dates', function () {

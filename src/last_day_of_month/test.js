@@ -1,8 +1,10 @@
+import imp_lastDayOfMonth from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var lastDayOfMonth = require('./')
+var assert = ext_powerassert
+var lastDayOfMonth = imp_lastDayOfMonth
 
 describe('lastDayOfMonth', function () {
   it('returns the date with the time setted to 00:00:00 and the date setted to the last day of a month', function () {

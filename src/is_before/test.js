@@ -1,8 +1,10 @@
+import imp_isBefore from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var isBefore = require('./')
+var assert = ext_powerassert
+var isBefore = imp_isBefore
 
 describe('isBefore', function () {
   it('returns true if the first date is before the second one', function () {

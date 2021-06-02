@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_isBefore from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isBefore = require('./')
-var moment = require('moment')
+var isBefore = imp_isBefore
+var moment = ext_moment
 
 suite('isBefore', function () {
   benchmark('date-fns', function () {

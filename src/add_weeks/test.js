@@ -1,8 +1,10 @@
+import imp_addWeeks from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var addWeeks = require('./')
+var assert = ext_powerassert
+var addWeeks = imp_addWeeks
 
 describe('addWeeks', function () {
   it('adds the given number of weeks', function () {

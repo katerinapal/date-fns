@@ -1,9 +1,11 @@
+import ext_moment from "moment";
+import imp_isSameQuarter from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var isSameQuarter = require('./')
-var moment = require('moment')
+var isSameQuarter = imp_isSameQuarter
+var moment = ext_moment
 
 suite('isSameQuarter', function () {
   benchmark('date-fns', function () {

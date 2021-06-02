@@ -1,8 +1,9 @@
+import imp_lastDayOfISOYear from "./";
 // @flow
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-var lastDayOfISOYear = require('./')
+var lastDayOfISOYear = imp_lastDayOfISOYear
 
 suite('lastDayOfISOYear', function () {
   benchmark('date-fns', function () {

@@ -1,8 +1,10 @@
+import imp_getYear from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var getYear = require('./')
+var assert = ext_powerassert
+var getYear = imp_getYear
 
 describe('getYear', function () {
   it('returns the year of the given date', function () {

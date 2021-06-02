@@ -1,9 +1,11 @@
+import imp_endOfToday from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 /* global sinon */
 
-var assert = require('power-assert')
-var endOfToday = require('./')
+var assert = ext_powerassert
+var endOfToday = imp_endOfToday
 
 describe('endOfToday', function () {
   beforeEach(function () {

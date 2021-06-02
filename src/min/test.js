@@ -1,8 +1,10 @@
+import imp_min from "./";
+import ext_powerassert from "power-assert";
 // @flow
 /* eslint-env mocha */
 
-var assert = require('power-assert')
-var min = require('./')
+var assert = ext_powerassert
+var min = imp_min
 
 describe('min', function () {
   it('returns the earliest date', function () {
