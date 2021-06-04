@@ -3,12 +3,14 @@ import fs from 'fs'
 
 export default function listFiles () {
   const files = fs.readdirSync(path.join(process.cwd(), 'src'))
+
+  //modifying property path to meet a resolvable relative path
   return files
     .filter((file) => /^[^._]/.test(file) && file !== 'locale' && file !== 'is_so_last_week')
     .map((file) => ({
       name: camelize(file),
       snakeCaseName: file,
-      path: `./${file}`,
+      path: `./src/${file}`,
       fullPath: `./src/${file}/index.js`
     }))
 }
