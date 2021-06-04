@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var isThisMinute = require('./')
+import { isThisMinute as _isThisMinute } from "./";
 
 suite('isThisMinute', function () {
   benchmark('date-fns', function () {
-    return isThisMinute(this.date)
+    return _isThisMinute(this.date);
   })
 }, {
   setup: function () {

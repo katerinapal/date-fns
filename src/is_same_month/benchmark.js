@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var isSameMonth = require('./')
-var moment = require('moment')
+import { isSameMonth as _isSameMonth } from "./";
+import ext_moment_moment from "moment";
 
 suite('isSameMonth', function () {
   benchmark('date-fns', function () {
-    return isSameMonth(this.dateA, this.dateB)
+    return _isSameMonth(this.dateA, this.dateB);
   })
 
   benchmark('Moment.js', function () {
@@ -16,7 +12,7 @@ suite('isSameMonth', function () {
 }, {
   setup: function () {
     this.dateA = new Date()
-    this.momentA = moment()
+    this.momentA = ext_moment_moment()
     this.dateB = new Date(this.dateA.getTime() + 604800000)
     this.momentB = this.momentA.clone().add(7, 'days')
   }

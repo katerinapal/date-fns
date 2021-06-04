@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var isThisWeek = require('./')
+import { isThisWeek as _isThisWeek } from "./";
 
 suite('isThisWeek', function () {
   benchmark('date-fns', function () {
-    return isThisWeek(this.date)
+    return _isThisWeek(this.date);
   })
 }, {
   setup: function () {

@@ -1,9 +1,5 @@
-// @flow
-/* eslint-env mocha */
-/* global sinon */
-
-var assert = require('power-assert')
-var isThisHour = require('./')
+import ext_assert from "power-assert";
+import { isThisHour as _isThisHour } from "./";
 
 describe('isThisHour', function () {
   beforeEach(function () {
@@ -18,21 +14,21 @@ describe('isThisHour', function () {
 
   it('returns true if the given date and the current date have the same hour', function () {
     var date = new Date(2014, 8 /* Sep */, 25, 18)
-    assert(isThisHour(date) === true)
+    ext_assert(_isThisHour(date) === true)
   })
 
   it('returns false if the given date and the current date have different hours', function () {
     var date = new Date(2014, 8 /* Sep */, 25, 19)
-    assert(isThisHour(date) === false)
+    ext_assert(_isThisHour(date) === false)
   })
 
   it('accepts a string', function () {
     var date = new Date(2014, 8 /* Sep */, 25, 18, 59, 59, 999).toISOString()
-    assert(isThisHour(date) === true)
+    ext_assert(_isThisHour(date) === true)
   })
 
   it('accepts a timestamp', function () {
     var date = new Date(2014, 8 /* Sep */, 25, 18, 45).getTime()
-    assert(isThisHour(date) === true)
+    ext_assert(_isThisHour(date) === true)
   })
 })

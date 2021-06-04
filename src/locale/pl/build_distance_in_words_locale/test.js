@@ -1,8 +1,5 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var buildDistanceInWordsLocale = require('./')
+import ext_assert from "power-assert";
+import { buildDistanceInWordsLocale as _buildDistanceInWordsLocale } from "./";
 
 var PAST_OPTIONS = {
   addSuffix: true,
@@ -20,26 +17,26 @@ var MORE_THAN_ONE_RANGE = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1
 
 describe('pl locale > buildDistanceInWordsLocale', function () {
   it('returns an object', function () {
-    assert(typeof buildDistanceInWordsLocale() === 'object')
+    ext_assert(typeof _buildDistanceInWordsLocale() === 'object')
   })
 
   it('localize property is a function', function () {
-    assert(typeof buildDistanceInWordsLocale().localize === 'function')
+    ext_assert(typeof _buildDistanceInWordsLocale().localize === 'function')
   })
 
   describe('lessThanXSeconds', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 1) === 'mniej niż sekunda')
+          ext_assert(_buildDistanceInWordsLocale().localize('lessThanXSeconds', 1) === 'mniej niż sekunda')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXSeconds', number)
-            assert(result === 'mniej niż ' + number + ' sekundy')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number)
+            ext_assert(result === 'mniej niż ' + number + ' sekundy')
           })
         })
       })
@@ -47,8 +44,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXSeconds', number)
-            assert(result === 'mniej niż ' + number + ' sekund')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number)
+            ext_assert(result === 'mniej niż ' + number + ' sekund')
           })
         })
       })
@@ -57,15 +54,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 1, PAST_OPTIONS) === 'mniej niż sekundę temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('lessThanXSeconds', 1, PAST_OPTIONS) === 'mniej niż sekundę temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXSeconds', number, PAST_OPTIONS)
-            assert(result === 'mniej niż ' + number + ' sekundy temu')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number, PAST_OPTIONS)
+            ext_assert(result === 'mniej niż ' + number + ' sekundy temu')
           })
         })
       })
@@ -73,8 +70,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXSeconds', number, PAST_OPTIONS)
-            assert(result === 'mniej niż ' + number + ' sekund temu')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number, PAST_OPTIONS)
+            ext_assert(result === 'mniej niż ' + number + ' sekund temu')
           })
         })
       })
@@ -83,15 +80,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 1, FUTURE_OPTIONS) === 'za mniej niż sekundę')
+          ext_assert(_buildDistanceInWordsLocale().localize('lessThanXSeconds', 1, FUTURE_OPTIONS) === 'za mniej niż sekundę')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXSeconds', number, FUTURE_OPTIONS)
-            assert(result === 'za mniej niż ' + number + ' sekundy')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za mniej niż ' + number + ' sekundy')
           })
         })
       })
@@ -99,8 +96,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXSeconds', number, FUTURE_OPTIONS)
-            assert(result === 'za mniej niż ' + number + ' sekund')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za mniej niż ' + number + ' sekund')
           })
         })
       })
@@ -111,15 +108,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xSeconds', 1) === 'sekunda')
+          ext_assert(_buildDistanceInWordsLocale().localize('xSeconds', 1) === 'sekunda')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xSeconds', number)
-            assert(result === number + ' sekundy')
+            var result = _buildDistanceInWordsLocale().localize('xSeconds', number)
+            ext_assert(result === number + ' sekundy')
           })
         })
       })
@@ -127,8 +124,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xSeconds', number)
-            assert(result === number + ' sekund')
+            var result = _buildDistanceInWordsLocale().localize('xSeconds', number)
+            ext_assert(result === number + ' sekund')
           })
         })
       })
@@ -137,15 +134,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xSeconds', 1, PAST_OPTIONS) === 'sekundę temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('xSeconds', 1, PAST_OPTIONS) === 'sekundę temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xSeconds', number, PAST_OPTIONS)
-            assert(result === number + ' sekundy temu')
+            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, PAST_OPTIONS)
+            ext_assert(result === number + ' sekundy temu')
           })
         })
       })
@@ -153,8 +150,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xSeconds', number, PAST_OPTIONS)
-            assert(result === number + ' sekund temu')
+            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, PAST_OPTIONS)
+            ext_assert(result === number + ' sekund temu')
           })
         })
       })
@@ -167,15 +164,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
 
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xSeconds', 1, FUTURE_OPTIONS) === 'za sekundę')
+          ext_assert(_buildDistanceInWordsLocale().localize('xSeconds', 1, FUTURE_OPTIONS) === 'za sekundę')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xSeconds', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' sekundy')
+            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' sekundy')
           })
         })
       })
@@ -183,8 +180,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xSeconds', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' sekund')
+            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' sekund')
           })
         })
       })
@@ -194,31 +191,31 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
   describe('halfAMinute', function () {
     describe('no suffix', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('halfAMinute', 0) === 'pół minuty')
+        ext_assert(_buildDistanceInWordsLocale().localize('halfAMinute', 0) === 'pół minuty')
       })
 
       it('ignores the second argument', function () {
-        assert(buildDistanceInWordsLocale().localize('halfAMinute', 123) === 'pół minuty')
+        ext_assert(_buildDistanceInWordsLocale().localize('halfAMinute', 123) === 'pół minuty')
       })
     })
 
     describe('past suffix', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('halfAMinute', 0, PAST_OPTIONS) === 'pół minuty temu')
+        ext_assert(_buildDistanceInWordsLocale().localize('halfAMinute', 0, PAST_OPTIONS) === 'pół minuty temu')
       })
 
       it('ignores the second argument', function () {
-        assert(buildDistanceInWordsLocale().localize('halfAMinute', 123, PAST_OPTIONS) === 'pół minuty temu')
+        ext_assert(_buildDistanceInWordsLocale().localize('halfAMinute', 123, PAST_OPTIONS) === 'pół minuty temu')
       })
     })
 
     describe('future suffix', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('halfAMinute', 0, FUTURE_OPTIONS) === 'za pół minuty')
+        ext_assert(_buildDistanceInWordsLocale().localize('halfAMinute', 0, FUTURE_OPTIONS) === 'za pół minuty')
       })
 
       it('ignores the second argument', function () {
-        assert(buildDistanceInWordsLocale().localize('halfAMinute', 123, FUTURE_OPTIONS) === 'za pół minuty')
+        ext_assert(_buildDistanceInWordsLocale().localize('halfAMinute', 123, FUTURE_OPTIONS) === 'za pół minuty')
       })
     })
   })
@@ -227,15 +224,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 1) === 'mniej niż minuta')
+          ext_assert(_buildDistanceInWordsLocale().localize('lessThanXMinutes', 1) === 'mniej niż minuta')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXMinutes', number)
-            assert(result === 'mniej niż ' + number + ' minuty')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number)
+            ext_assert(result === 'mniej niż ' + number + ' minuty')
           })
         })
       })
@@ -243,8 +240,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXMinutes', number)
-            assert(result === 'mniej niż ' + number + ' minut')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number)
+            ext_assert(result === 'mniej niż ' + number + ' minut')
           })
         })
       })
@@ -253,15 +250,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 1, PAST_OPTIONS) === 'mniej niż minutę temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('lessThanXMinutes', 1, PAST_OPTIONS) === 'mniej niż minutę temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXMinutes', number, PAST_OPTIONS)
-            assert(result === 'mniej niż ' + number + ' minuty temu')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number, PAST_OPTIONS)
+            ext_assert(result === 'mniej niż ' + number + ' minuty temu')
           })
         })
       })
@@ -269,8 +266,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXMinutes', number, PAST_OPTIONS)
-            assert(result === 'mniej niż ' + number + ' minut temu')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number, PAST_OPTIONS)
+            ext_assert(result === 'mniej niż ' + number + ' minut temu')
           })
         })
       })
@@ -279,15 +276,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 1, FUTURE_OPTIONS) === 'za mniej niż minutę')
+          ext_assert(_buildDistanceInWordsLocale().localize('lessThanXMinutes', 1, FUTURE_OPTIONS) === 'za mniej niż minutę')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXMinutes', number, FUTURE_OPTIONS)
-            assert(result === 'za mniej niż ' + number + ' minuty')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za mniej niż ' + number + ' minuty')
           })
         })
       })
@@ -295,8 +292,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('lessThanXMinutes', number, FUTURE_OPTIONS)
-            assert(result === 'za mniej niż ' + number + ' minut')
+            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za mniej niż ' + number + ' minut')
           })
         })
       })
@@ -307,15 +304,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xMinutes', 1) === 'minuta')
+          ext_assert(_buildDistanceInWordsLocale().localize('xMinutes', 1) === 'minuta')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMinutes', number)
-            assert(result === number + ' minuty')
+            var result = _buildDistanceInWordsLocale().localize('xMinutes', number)
+            ext_assert(result === number + ' minuty')
           })
         })
       })
@@ -323,8 +320,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMinutes', number)
-            assert(result === number + ' minut')
+            var result = _buildDistanceInWordsLocale().localize('xMinutes', number)
+            ext_assert(result === number + ' minut')
           })
         })
       })
@@ -333,15 +330,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xMinutes', 1, PAST_OPTIONS) === 'minutę temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('xMinutes', 1, PAST_OPTIONS) === 'minutę temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMinutes', number, PAST_OPTIONS)
-            assert(result === number + ' minuty temu')
+            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, PAST_OPTIONS)
+            ext_assert(result === number + ' minuty temu')
           })
         })
       })
@@ -349,8 +346,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMinutes', number, PAST_OPTIONS)
-            assert(result === number + ' minut temu')
+            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, PAST_OPTIONS)
+            ext_assert(result === number + ' minut temu')
           })
         })
       })
@@ -359,15 +356,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xMinutes', 1, FUTURE_OPTIONS) === 'za minutę')
+          ext_assert(_buildDistanceInWordsLocale().localize('xMinutes', 1, FUTURE_OPTIONS) === 'za minutę')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMinutes', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' minuty')
+            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' minuty')
           })
         })
       })
@@ -375,8 +372,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMinutes', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' minut')
+            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' minut')
           })
         })
       })
@@ -387,15 +384,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('aboutXHours', 1) === 'około godzina')
+          ext_assert(_buildDistanceInWordsLocale().localize('aboutXHours', 1) === 'około godzina')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXHours', number)
-            assert(result === 'około ' + number + ' godziny')
+            var result = _buildDistanceInWordsLocale().localize('aboutXHours', number)
+            ext_assert(result === 'około ' + number + ' godziny')
           })
         })
       })
@@ -403,8 +400,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXHours', number)
-            assert(result === 'około ' + number + ' godzin')
+            var result = _buildDistanceInWordsLocale().localize('aboutXHours', number)
+            ext_assert(result === 'około ' + number + ' godzin')
           })
         })
       })
@@ -413,15 +410,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('aboutXHours', 1, PAST_OPTIONS) === 'około godziny temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('aboutXHours', 1, PAST_OPTIONS) === 'około godziny temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXHours', number, PAST_OPTIONS)
-            assert(result === 'około ' + number + ' godziny temu')
+            var result = _buildDistanceInWordsLocale().localize('aboutXHours', number, PAST_OPTIONS)
+            ext_assert(result === 'około ' + number + ' godziny temu')
           })
         })
       })
@@ -429,8 +426,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXHours', number, PAST_OPTIONS)
-            assert(result === 'około ' + number + ' godzin temu')
+            var result = _buildDistanceInWordsLocale().localize('aboutXHours', number, PAST_OPTIONS)
+            ext_assert(result === 'około ' + number + ' godzin temu')
           })
         })
       })
@@ -439,15 +436,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('aboutXHours', 1, FUTURE_OPTIONS) === 'za około godzinę')
+          ext_assert(_buildDistanceInWordsLocale().localize('aboutXHours', 1, FUTURE_OPTIONS) === 'za około godzinę')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXHours', number, FUTURE_OPTIONS)
-            assert(result === 'za około ' + number + ' godziny')
+            var result = _buildDistanceInWordsLocale().localize('aboutXHours', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za około ' + number + ' godziny')
           })
         })
       })
@@ -455,8 +452,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXHours', number, FUTURE_OPTIONS)
-            assert(result === 'za około ' + number + ' godzin')
+            var result = _buildDistanceInWordsLocale().localize('aboutXHours', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za około ' + number + ' godzin')
           })
         })
       })
@@ -467,15 +464,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xHours', 1) === 'godzina')
+          ext_assert(_buildDistanceInWordsLocale().localize('xHours', 1) === 'godzina')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xHours', number)
-            assert(result === number + ' godziny')
+            var result = _buildDistanceInWordsLocale().localize('xHours', number)
+            ext_assert(result === number + ' godziny')
           })
         })
       })
@@ -483,8 +480,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xHours', number)
-            assert(result === number + ' godzin')
+            var result = _buildDistanceInWordsLocale().localize('xHours', number)
+            ext_assert(result === number + ' godzin')
           })
         })
       })
@@ -493,15 +490,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xHours', 1, PAST_OPTIONS) === 'godzinę temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('xHours', 1, PAST_OPTIONS) === 'godzinę temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xHours', number, PAST_OPTIONS)
-            assert(result === number + ' godziny temu')
+            var result = _buildDistanceInWordsLocale().localize('xHours', number, PAST_OPTIONS)
+            ext_assert(result === number + ' godziny temu')
           })
         })
       })
@@ -509,8 +506,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xHours', number, PAST_OPTIONS)
-            assert(result === number + ' godzin temu')
+            var result = _buildDistanceInWordsLocale().localize('xHours', number, PAST_OPTIONS)
+            ext_assert(result === number + ' godzin temu')
           })
         })
       })
@@ -519,15 +516,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xHours', 1, FUTURE_OPTIONS) === 'za godzinę')
+          ext_assert(_buildDistanceInWordsLocale().localize('xHours', 1, FUTURE_OPTIONS) === 'za godzinę')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xHours', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' godziny')
+            var result = _buildDistanceInWordsLocale().localize('xHours', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' godziny')
           })
         })
       })
@@ -535,8 +532,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xHours', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' godzin')
+            var result = _buildDistanceInWordsLocale().localize('xHours', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' godzin')
           })
         })
       })
@@ -547,15 +544,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xDays', 1) === 'dzień')
+          ext_assert(_buildDistanceInWordsLocale().localize('xDays', 1) === 'dzień')
         })
       })
 
       context('when the count is more than 1', function () {
         it('returns a proper string', function () {
           MORE_THAN_ONE_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xDays', number)
-            assert(result === number + ' dni')
+            var result = _buildDistanceInWordsLocale().localize('xDays', number)
+            ext_assert(result === number + ' dni')
           })
         })
       })
@@ -564,15 +561,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xDays', 1, PAST_OPTIONS) === 'dzień temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('xDays', 1, PAST_OPTIONS) === 'dzień temu')
         })
       })
 
       context('when the count is more than 1', function () {
         it('returns a proper string', function () {
           MORE_THAN_ONE_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xDays', number, PAST_OPTIONS)
-            assert(result === number + ' dni temu')
+            var result = _buildDistanceInWordsLocale().localize('xDays', number, PAST_OPTIONS)
+            ext_assert(result === number + ' dni temu')
           })
         })
       })
@@ -581,15 +578,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xDays', 1, FUTURE_OPTIONS) === 'za 1 dzień')
+          ext_assert(_buildDistanceInWordsLocale().localize('xDays', 1, FUTURE_OPTIONS) === 'za 1 dzień')
         })
       })
 
       context('when the count is more than 1', function () {
         it('returns a proper string', function () {
           MORE_THAN_ONE_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xDays', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' dni')
+            var result = _buildDistanceInWordsLocale().localize('xDays', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' dni')
           })
         })
       })
@@ -600,15 +597,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('aboutXMonths', 1) === 'około miesiąc')
+          ext_assert(_buildDistanceInWordsLocale().localize('aboutXMonths', 1) === 'około miesiąc')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXMonths', number)
-            assert(result === 'około ' + number + ' miesiące')
+            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number)
+            ext_assert(result === 'około ' + number + ' miesiące')
           })
         })
       })
@@ -616,8 +613,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXMonths', number)
-            assert(result === 'około ' + number + ' miesięcy')
+            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number)
+            ext_assert(result === 'około ' + number + ' miesięcy')
           })
         })
       })
@@ -626,15 +623,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('aboutXMonths', 1, PAST_OPTIONS) === 'około miesiąc temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('aboutXMonths', 1, PAST_OPTIONS) === 'około miesiąc temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXMonths', number, PAST_OPTIONS)
-            assert(result === 'około ' + number + ' miesiące temu')
+            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number, PAST_OPTIONS)
+            ext_assert(result === 'około ' + number + ' miesiące temu')
           })
         })
       })
@@ -642,8 +639,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXMonths', number, PAST_OPTIONS)
-            assert(result === 'około ' + number + ' miesięcy temu')
+            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number, PAST_OPTIONS)
+            ext_assert(result === 'około ' + number + ' miesięcy temu')
           })
         })
       })
@@ -652,15 +649,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('aboutXMonths', 1, FUTURE_OPTIONS) === 'za około miesiąc')
+          ext_assert(_buildDistanceInWordsLocale().localize('aboutXMonths', 1, FUTURE_OPTIONS) === 'za około miesiąc')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXMonths', number, FUTURE_OPTIONS)
-            assert(result === 'za około ' + number + ' miesiące')
+            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za około ' + number + ' miesiące')
           })
         })
       })
@@ -668,8 +665,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXMonths', number, FUTURE_OPTIONS)
-            assert(result === 'za około ' + number + ' miesięcy')
+            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za około ' + number + ' miesięcy')
           })
         })
       })
@@ -680,15 +677,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xMonths', 1) === 'miesiąc')
+          ext_assert(_buildDistanceInWordsLocale().localize('xMonths', 1) === 'miesiąc')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMonths', number)
-            assert(result === number + ' miesiące')
+            var result = _buildDistanceInWordsLocale().localize('xMonths', number)
+            ext_assert(result === number + ' miesiące')
           })
         })
       })
@@ -696,8 +693,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMonths', number)
-            assert(result === number + ' miesięcy')
+            var result = _buildDistanceInWordsLocale().localize('xMonths', number)
+            ext_assert(result === number + ' miesięcy')
           })
         })
       })
@@ -706,15 +703,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xMonths', 1, PAST_OPTIONS) === 'miesiąc temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('xMonths', 1, PAST_OPTIONS) === 'miesiąc temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMonths', number, PAST_OPTIONS)
-            assert(result === number + ' miesiące temu')
+            var result = _buildDistanceInWordsLocale().localize('xMonths', number, PAST_OPTIONS)
+            ext_assert(result === number + ' miesiące temu')
           })
         })
       })
@@ -722,8 +719,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMonths', number, PAST_OPTIONS)
-            assert(result === number + ' miesięcy temu')
+            var result = _buildDistanceInWordsLocale().localize('xMonths', number, PAST_OPTIONS)
+            ext_assert(result === number + ' miesięcy temu')
           })
         })
       })
@@ -732,15 +729,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xMonths', 1, FUTURE_OPTIONS) === 'za miesiąc')
+          ext_assert(_buildDistanceInWordsLocale().localize('xMonths', 1, FUTURE_OPTIONS) === 'za miesiąc')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMonths', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' miesiące')
+            var result = _buildDistanceInWordsLocale().localize('xMonths', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' miesiące')
           })
         })
       })
@@ -748,8 +745,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xMonths', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' miesięcy')
+            var result = _buildDistanceInWordsLocale().localize('xMonths', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' miesięcy')
           })
         })
       })
@@ -760,15 +757,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('aboutXYears', 1) === 'około rok')
+          ext_assert(_buildDistanceInWordsLocale().localize('aboutXYears', 1) === 'około rok')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXYears', number)
-            assert(result === 'około ' + number + ' lata')
+            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number)
+            ext_assert(result === 'około ' + number + ' lata')
           })
         })
       })
@@ -776,8 +773,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXYears', number)
-            assert(result === 'około ' + number + ' lat')
+            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number)
+            ext_assert(result === 'około ' + number + ' lat')
           })
         })
       })
@@ -786,15 +783,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('aboutXYears', 1, PAST_OPTIONS) === 'około rok temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('aboutXYears', 1, PAST_OPTIONS) === 'około rok temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXYears', number, PAST_OPTIONS)
-            assert(result === 'około ' + number + ' lata temu')
+            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number, PAST_OPTIONS)
+            ext_assert(result === 'około ' + number + ' lata temu')
           })
         })
       })
@@ -802,8 +799,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXYears', number, PAST_OPTIONS)
-            assert(result === 'około ' + number + ' lat temu')
+            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number, PAST_OPTIONS)
+            ext_assert(result === 'około ' + number + ' lat temu')
           })
         })
       })
@@ -812,15 +809,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('aboutXYears', 1, FUTURE_OPTIONS) === 'za około rok')
+          ext_assert(_buildDistanceInWordsLocale().localize('aboutXYears', 1, FUTURE_OPTIONS) === 'za około rok')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXYears', number, FUTURE_OPTIONS)
-            assert(result === 'za około ' + number + ' lata')
+            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za około ' + number + ' lata')
           })
         })
       })
@@ -828,8 +825,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('aboutXYears', number, FUTURE_OPTIONS)
-            assert(result === 'za około ' + number + ' lat')
+            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za około ' + number + ' lat')
           })
         })
       })
@@ -840,15 +837,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xYears', 1) === 'rok')
+          ext_assert(_buildDistanceInWordsLocale().localize('xYears', 1) === 'rok')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xYears', number)
-            assert(result === number + ' lata')
+            var result = _buildDistanceInWordsLocale().localize('xYears', number)
+            ext_assert(result === number + ' lata')
           })
         })
       })
@@ -856,8 +853,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xYears', number)
-            assert(result === number + ' lat')
+            var result = _buildDistanceInWordsLocale().localize('xYears', number)
+            ext_assert(result === number + ' lat')
           })
         })
       })
@@ -866,15 +863,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xYears', 1, PAST_OPTIONS) === 'rok temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('xYears', 1, PAST_OPTIONS) === 'rok temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xYears', number, PAST_OPTIONS)
-            assert(result === number + ' lata temu')
+            var result = _buildDistanceInWordsLocale().localize('xYears', number, PAST_OPTIONS)
+            ext_assert(result === number + ' lata temu')
           })
         })
       })
@@ -882,8 +879,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xYears', number, PAST_OPTIONS)
-            assert(result === number + ' lat temu')
+            var result = _buildDistanceInWordsLocale().localize('xYears', number, PAST_OPTIONS)
+            ext_assert(result === number + ' lat temu')
           })
         })
       })
@@ -892,15 +889,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('xYears', 1, FUTURE_OPTIONS) === 'za rok')
+          ext_assert(_buildDistanceInWordsLocale().localize('xYears', 1, FUTURE_OPTIONS) === 'za rok')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xYears', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' lata')
+            var result = _buildDistanceInWordsLocale().localize('xYears', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' lata')
           })
         })
       })
@@ -908,8 +905,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('xYears', number, FUTURE_OPTIONS)
-            assert(result === 'za ' + number + ' lat')
+            var result = _buildDistanceInWordsLocale().localize('xYears', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ' + number + ' lat')
           })
         })
       })
@@ -920,15 +917,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('overXYears', 1) === 'ponad rok')
+          ext_assert(_buildDistanceInWordsLocale().localize('overXYears', 1) === 'ponad rok')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('overXYears', number)
-            assert(result === 'ponad ' + number + ' lata')
+            var result = _buildDistanceInWordsLocale().localize('overXYears', number)
+            ext_assert(result === 'ponad ' + number + ' lata')
           })
         })
       })
@@ -936,8 +933,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('overXYears', number)
-            assert(result === 'ponad ' + number + ' lat')
+            var result = _buildDistanceInWordsLocale().localize('overXYears', number)
+            ext_assert(result === 'ponad ' + number + ' lat')
           })
         })
       })
@@ -946,15 +943,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('overXYears', 1, PAST_OPTIONS) === 'ponad rok temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('overXYears', 1, PAST_OPTIONS) === 'ponad rok temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('overXYears', number, PAST_OPTIONS)
-            assert(result === 'ponad ' + number + ' lata temu')
+            var result = _buildDistanceInWordsLocale().localize('overXYears', number, PAST_OPTIONS)
+            ext_assert(result === 'ponad ' + number + ' lata temu')
           })
         })
       })
@@ -962,8 +959,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('overXYears', number, PAST_OPTIONS)
-            assert(result === 'ponad ' + number + ' lat temu')
+            var result = _buildDistanceInWordsLocale().localize('overXYears', number, PAST_OPTIONS)
+            ext_assert(result === 'ponad ' + number + ' lat temu')
           })
         })
       })
@@ -972,15 +969,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('overXYears', 1, FUTURE_OPTIONS) === 'za ponad rok')
+          ext_assert(_buildDistanceInWordsLocale().localize('overXYears', 1, FUTURE_OPTIONS) === 'za ponad rok')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('overXYears', number, FUTURE_OPTIONS)
-            assert(result === 'za ponad ' + number + ' lata')
+            var result = _buildDistanceInWordsLocale().localize('overXYears', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ponad ' + number + ' lata')
           })
         })
       })
@@ -988,8 +985,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('overXYears', number, FUTURE_OPTIONS)
-            assert(result === 'za ponad ' + number + ' lat')
+            var result = _buildDistanceInWordsLocale().localize('overXYears', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za ponad ' + number + ' lat')
           })
         })
       })
@@ -1000,15 +997,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('almostXYears', 1) === 'prawie rok')
+          ext_assert(_buildDistanceInWordsLocale().localize('almostXYears', 1) === 'prawie rok')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('almostXYears', number)
-            assert(result === 'prawie ' + number + ' lata')
+            var result = _buildDistanceInWordsLocale().localize('almostXYears', number)
+            ext_assert(result === 'prawie ' + number + ' lata')
           })
         })
       })
@@ -1016,8 +1013,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('almostXYears', number)
-            assert(result === 'prawie ' + number + ' lat')
+            var result = _buildDistanceInWordsLocale().localize('almostXYears', number)
+            ext_assert(result === 'prawie ' + number + ' lat')
           })
         })
       })
@@ -1026,15 +1023,15 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          assert(buildDistanceInWordsLocale().localize('almostXYears', 1, PAST_OPTIONS) === 'prawie rok temu')
+          ext_assert(_buildDistanceInWordsLocale().localize('almostXYears', 1, PAST_OPTIONS) === 'prawie rok temu')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('almostXYears', number, PAST_OPTIONS)
-            assert(result === 'prawie ' + number + ' lata temu')
+            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, PAST_OPTIONS)
+            ext_assert(result === 'prawie ' + number + ' lata temu')
           })
         })
       })
@@ -1042,8 +1039,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('almostXYears', number, PAST_OPTIONS)
-            assert(result === 'prawie ' + number + ' lat temu')
+            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, PAST_OPTIONS)
+            ext_assert(result === 'prawie ' + number + ' lat temu')
           })
         })
       })
@@ -1052,16 +1049,16 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          var result = buildDistanceInWordsLocale().localize('almostXYears', 1, FUTURE_OPTIONS)
-          assert(result === 'za prawie rok')
+          var result = _buildDistanceInWordsLocale().localize('almostXYears', 1, FUTURE_OPTIONS)
+          ext_assert(result === 'za prawie rok')
         })
       })
 
       context('when the count is more than 1, less than 5', function () {
         it('returns a proper string', function () {
           TWO_FOUR_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('almostXYears', number, FUTURE_OPTIONS)
-            assert(result === 'za prawie ' + number + ' lata')
+            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za prawie ' + number + ' lata')
           })
         })
       })
@@ -1069,8 +1066,8 @@ describe('pl locale > buildDistanceInWordsLocale', function () {
       context('when the count is more than 4', function () {
         it('returns a proper string', function () {
           OTHER_RANGE.forEach(function (number) {
-            var result = buildDistanceInWordsLocale().localize('almostXYears', number, FUTURE_OPTIONS)
-            assert(result === 'za prawie ' + number + ' lat')
+            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, FUTURE_OPTIONS)
+            ext_assert(result === 'za prawie ' + number + ' lat')
           })
         })
       })

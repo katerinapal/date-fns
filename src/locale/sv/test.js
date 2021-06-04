@@ -1,15 +1,12 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var svLocale = require('./')
+import ext_assert from "power-assert";
+import { indexjs as svLocale } from "./";
 
 describe('sv locale', function () {
   it('exports distanceInWords object', function () {
-    assert(typeof svLocale.distanceInWords === 'object')
+    ext_assert(typeof svLocale.distanceInWords === 'object')
   })
 
   it('exports format object', function () {
-    assert(typeof svLocale.format === 'object')
+    ext_assert(typeof svLocale.format === 'object')
   })
 })

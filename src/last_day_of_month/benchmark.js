@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var lastDayOfMonth = require('./')
+import { lastDayOfMonth as _lastDayOfMonth } from "./";
 
 suite('lastDayOfMonth', function () {
   benchmark('date-fns', function () {
-    return lastDayOfMonth(this.date)
+    return _lastDayOfMonth(this.date);
   })
 }, {
   setup: function () {

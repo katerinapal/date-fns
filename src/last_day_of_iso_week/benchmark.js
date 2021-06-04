@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var lastDayOfISOWeek = require('./')
+import { lastDayOfISOWeek as _lastDayOfISOWeek } from "./";
 
 suite('lastDayOfISOWeek', function () {
   benchmark('date-fns', function () {
-    return lastDayOfISOWeek(this.date)
+    return _lastDayOfISOWeek(this.date);
   })
 }, {
   setup: function () {

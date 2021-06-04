@@ -1,12 +1,14 @@
-var buildDistanceInWordsLocale = require('./build_distance_in_words_locale/index.js')
-var buildFormatLocale = require('./build_format_locale/index.js')
+import { buildDistanceInWordsLocale as index_buildDistanceInWordsLocale } from "./build_distance_in_words_locale/index.js";
+import { buildFormatLocale as index_buildFormatLocale } from "./build_format_locale/index.js";
 
 /**
  * @category Locales
  * @summary Turkish locale.
  * @author Alpcan Aydın [@alpcanaydin]{@link https://github.com/alpcanaydin}
  */
-module.exports = {
-  distanceInWords: buildDistanceInWordsLocale(),
-  format: buildFormatLocale()
+mod_indexjs = {
+  distanceInWords: index_buildDistanceInWordsLocale(),
+  format: index_buildFormatLocale()
 }
+var mod_indexjs;
+export { mod_indexjs as indexjs };

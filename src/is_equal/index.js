@@ -1,4 +1,5 @@
-var parse = require('../parse/index.js')
+var mod_isEqual = isEqual;
+import { parse as index_parse } from "../parse/index.js";
 
 /**
  * @category Common Helpers
@@ -20,9 +21,28 @@ var parse = require('../parse/index.js')
  * //=> false
  */
 function isEqual (dirtyLeftDate, dirtyRightDate) {
-  var dateLeft = parse(dirtyLeftDate)
-  var dateRight = parse(dirtyRightDate)
+  var dateLeft = index_parse(dirtyLeftDate)
+  var dateRight = index_parse(dirtyRightDate)
   return dateLeft.getTime() === dateRight.getTime()
 }
 
-module.exports = isEqual
+/**
+ * @category Common Helpers
+ * @summary Are the given dates equal?
+ *
+ * @description
+ * Are the given dates equal?
+ *
+ * @param {Date|String|Number} dateLeft - the first date to compare
+ * @param {Date|String|Number} dateRight - the second date to compare
+ * @returns {Boolean} the dates are equal
+ *
+ * @example
+ * // Are 2 July 2014 06:30:45.000 and 2 July 2014 06:30:45.500 equal?
+ * var result = isEqual(
+ *   new Date(2014, 6, 2, 6, 30, 45, 0)
+ *   new Date(2014, 6, 2, 6, 30, 45, 500)
+ * )
+ * //=> false
+ */
+export { mod_isEqual as isEqual };

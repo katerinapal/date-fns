@@ -1,9 +1,5 @@
-// @flow
-/* eslint-env mocha */
-/* global sinon */
-
-var assert = require('power-assert')
-var isThisYear = require('./')
+import ext_assert from "power-assert";
+import { isThisYear as _isThisYear } from "./";
 
 describe('isThisYear', function () {
   beforeEach(function () {
@@ -18,21 +14,21 @@ describe('isThisYear', function () {
 
   it('returns true if the given date and the current date have the same year', function () {
     var date = new Date(2014, 6 /* Jul */, 2)
-    assert(isThisYear(date) === true)
+    ext_assert(_isThisYear(date) === true)
   })
 
   it('returns false if the given date and the current date have different years', function () {
     var date = new Date(2015, 6 /* Jul */, 2)
-    assert(isThisYear(date) === false)
+    ext_assert(_isThisYear(date) === false)
   })
 
   it('accepts a string', function () {
     var date = new Date(2014, 6 /* Jul */, 2).toISOString()
-    assert(isThisYear(date) === true)
+    ext_assert(_isThisYear(date) === true)
   })
 
   it('accepts a timestamp', function () {
     var date = new Date(2014, 6 /* Jul */, 2).getTime()
-    assert(isThisYear(date) === true)
+    ext_assert(_isThisYear(date) === true)
   })
 })

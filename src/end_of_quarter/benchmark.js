@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var endOfQuarter = require('./')
-var moment = require('moment')
+import { endOfQuarter as _endOfQuarter } from "./";
+import ext_moment_moment from "moment";
 
 suite('endOfQuarter', function () {
   benchmark('date-fns', function () {
-    return endOfQuarter(this.date)
+    return _endOfQuarter(this.date);
   })
 
   benchmark('Moment.js', function () {
@@ -16,6 +12,6 @@ suite('endOfQuarter', function () {
 }, {
   setup: function () {
     this.date = new Date()
-    this.moment = moment()
+    this.moment = ext_moment_moment()
   }
 })

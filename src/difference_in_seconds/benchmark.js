@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var differenceInSeconds = require('./')
-var moment = require('moment')
+import { differenceInSeconds as _differenceInSeconds } from "./";
+import ext_moment_moment from "moment";
 
 suite('differenceInSeconds', function () {
   benchmark('date-fns', function () {
-    return differenceInSeconds(this.dateA, this.dateB)
+    return _differenceInSeconds(this.dateA, this.dateB);
   })
 
   benchmark('Moment.js', function () {
@@ -16,7 +12,7 @@ suite('differenceInSeconds', function () {
 }, {
   setup: function () {
     this.dateA = new Date()
-    this.momentA = moment()
+    this.momentA = ext_moment_moment()
     this.dateB = new Date(this.dateA.getTime() + 604800000)
     this.momentB = this.momentA.clone().add(7, 'days')
   }

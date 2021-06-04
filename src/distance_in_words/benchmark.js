@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var distanceInWords = require('./')
-var moment = require('moment')
+import { distanceInWords as _distanceInWords } from "./";
+import ext_moment_moment from "moment";
 
 suite('distanceInWords', function () {
   benchmark('date-fns', function () {
-    return distanceInWords(this.dateA, this.dateB)
+    return _distanceInWords(this.dateA, this.dateB);
   })
 
   benchmark('Moment.js', function () {
@@ -16,7 +12,7 @@ suite('distanceInWords', function () {
 }, {
   setup: function () {
     this.dateA = new Date()
-    this.momentA = moment()
+    this.momentA = ext_moment_moment()
     this.dateB = new Date(this.dateA.getTime() + 604800000)
     this.momentB = this.momentA.clone().add(7, 'days')
   }

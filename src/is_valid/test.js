@@ -1,23 +1,20 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var isValid = require('./')
+import ext_assert from "power-assert";
+import { isValid as _isValid } from "./";
 
 describe('isValid', function () {
   it('returns true if the given date is valid', function () {
-    var result = isValid(new Date())
-    assert(result === true)
+    var result = _isValid(new Date())
+    ext_assert(result === true)
   })
 
   it('returns false if the given date is invalid', function () {
-    var result = isValid(new Date(''))
-    assert(result === false)
+    var result = _isValid(new Date(''))
+    ext_assert(result === false)
   })
 
   it('throws an exception if the argument is not an instance of Date', function () {
     // $ExpectedMistake
-    var block = isValid.bind(null, '')
-    assert.throws(block, TypeError, '[object String] is not an instance of Date')
+    var block = _isValid.bind(null, '')
+    ext_assert.throws(block, TypeError, '[object String] is not an instance of Date')
   })
 })

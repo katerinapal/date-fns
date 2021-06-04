@@ -1,27 +1,24 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var isFriday = require('./')
+import ext_assert from "power-assert";
+import { isFriday as _isFriday } from "./";
 
 describe('isFriday', function () {
   it('returns true if the given date is Friday', function () {
-    var result = isFriday(new Date(2014, 8 /* Sep */, 26))
-    assert(result === true)
+    var result = _isFriday(new Date(2014, 8 /* Sep */, 26))
+    ext_assert(result === true)
   })
 
   it('returns false if the given date is not Friday', function () {
-    var result = isFriday(new Date(2014, 8 /* Sep */, 25))
-    assert(result === false)
+    var result = _isFriday(new Date(2014, 8 /* Sep */, 25))
+    ext_assert(result === false)
   })
 
   it('accepts a string', function () {
-    var result = isFriday(new Date(2014, 6 /* Jul */, 11).toString())
-    assert(result === true)
+    var result = _isFriday(new Date(2014, 6 /* Jul */, 11).toString())
+    ext_assert(result === true)
   })
 
   it('accepts a timestamp', function () {
-    var result = isFriday(new Date(2014, 1 /* Feb */, 14).getTime())
-    assert(result === true)
+    var result = _isFriday(new Date(2014, 1 /* Feb */, 14).getTime())
+    ext_assert(result === true)
   })
 })

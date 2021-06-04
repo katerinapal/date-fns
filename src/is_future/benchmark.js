@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var isFuture = require('./')
+import { isFuture as _isFuture } from "./";
 
 suite('isFuture', function () {
   benchmark('date-fns', function () {
-    return isFuture(this.date)
+    return _isFuture(this.date);
   })
 }, {
   setup: function () {

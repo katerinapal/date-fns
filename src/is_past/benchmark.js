@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var isPast = require('./')
+import { isPast as _isPast } from "./";
 
 suite('isPast', function () {
   benchmark('date-fns', function () {
-    return isPast(this.date)
+    return _isPast(this.date);
   })
 }, {
   setup: function () {

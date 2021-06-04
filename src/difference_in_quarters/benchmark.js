@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var differenceInQuarters = require('./')
-var moment = require('moment')
+import { differenceInQuarters as _differenceInQuarters } from "./";
+import ext_moment_moment from "moment";
 
 suite('differenceInQuarters', function () {
   benchmark('date-fns', function () {
-    return differenceInQuarters(this.dateA, this.dateB)
+    return _differenceInQuarters(this.dateA, this.dateB);
   })
 
   benchmark('Moment.js', function () {
@@ -16,7 +12,7 @@ suite('differenceInQuarters', function () {
 }, {
   setup: function () {
     this.dateA = new Date()
-    this.momentA = moment()
+    this.momentA = ext_moment_moment()
     this.dateB = new Date(this.dateA.getTime() + 604800000)
     this.momentB = this.momentA.clone().add(7, 'days')
   }

@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var subISOYears = require('./')
+import { subISOYears as _subISOYears } from "./";
 
 suite('subISOYears', function () {
   benchmark('date-fns', function () {
-    return subISOYears(this.date, 7)
+    return _subISOYears(this.date, 7);
   })
 }, {
   setup: function () {
