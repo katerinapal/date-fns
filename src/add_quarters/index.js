@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addQuarters = undefined;
+
+var _index = require("../add_months/index.js");
+
 var mod_addQuarters = addQuarters;
-import { addMonths as index_addMonths } from "../add_months/index.js";
+
 
 /**
  * @category Quarter Helpers
@@ -17,10 +26,10 @@ import { addMonths as index_addMonths } from "../add_months/index.js";
  * var result = addQuarters(new Date(2014, 8, 1), 1)
  * //=> Mon Dec 01 2014 00:00:00
  */
-function addQuarters (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  var months = amount * 3
-  return index_addMonths(dirtyDate, months);
+function addQuarters(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  var months = amount * 3;
+  return (0, _index.addMonths)(dirtyDate, months);
 }
 
 /**
@@ -39,4 +48,4 @@ function addQuarters (dirtyDate, dirtyAmount) {
  * var result = addQuarters(new Date(2014, 8, 1), 1)
  * //=> Mon Dec 01 2014 00:00:00
  */
-export { mod_addQuarters as addQuarters };
+exports.addQuarters = mod_addQuarters;

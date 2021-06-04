@@ -1,11 +1,13 @@
-import { lastDayOfISOYear as _lastDayOfISOYear } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('lastDayOfISOYear', function () {
   benchmark('date-fns', function () {
-    return _lastDayOfISOYear(this.date);
-  })
+    return (0, _.lastDayOfISOYear)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

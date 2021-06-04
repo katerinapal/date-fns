@@ -1,413 +1,416 @@
-import ext_assert from "power-assert";
-import { format as _format } from "./";
+"use strict";
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+var _ = require("./");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('format', function () {
   beforeEach(function () {
-    this._date = new Date(1986, 3 /* Apr */, 4, 10, 32, 0, 900)
+    this._date = new Date(1986, 3 /* Apr */, 4, 10, 32, 0, 900);
 
-    var offset = this._date.getTimezoneOffset()
-    var absoluteOffset = Math.abs(offset)
-    var hours = Math.floor(absoluteOffset / 60)
-    var hoursLeadingZero = hours < 10 ? '0' : ''
-    var minutes = absoluteOffset % 60
-    var minutesLeadingZero = minutes < 10 ? '0' : ''
-    var sign = offset > 0 ? '-' : '+'
-    this._timezone = sign + hoursLeadingZero + hours + ':' + minutesLeadingZero + minutes
-    this._timezoneShort = this._timezone.replace(':', '')
+    var offset = this._date.getTimezoneOffset();
+    var absoluteOffset = Math.abs(offset);
+    var hours = Math.floor(absoluteOffset / 60);
+    var hoursLeadingZero = hours < 10 ? '0' : '';
+    var minutes = absoluteOffset % 60;
+    var minutesLeadingZero = minutes < 10 ? '0' : '';
+    var sign = offset > 0 ? '-' : '+';
+    this._timezone = sign + hoursLeadingZero + hours + ':' + minutesLeadingZero + minutes;
+    this._timezoneShort = this._timezone.replace(':', '');
 
-    this._timestamp = this._date.getTime().toString()
-    this._secondsTimestamp = Math.floor(this._date.getTime() / 1000).toString()
-  })
+    this._timestamp = this._date.getTime().toString();
+    this._secondsTimestamp = Math.floor(this._date.getTime() / 1000).toString();
+  });
 
   it('accepts a string', function () {
-    var date = new Date(2014, 3, 4).toISOString()
-    ext_assert(_format(date, 'YYYY-MM-DD') === '2014-04-04')
-  })
+    var date = new Date(2014, 3, 4).toISOString();
+    (0, _powerAssert2.default)((0, _.format)(date, 'YYYY-MM-DD') === '2014-04-04');
+  });
 
   it('accepts a timestamp', function () {
-    var date = new Date(2014, 3, 4).getTime()
-    ext_assert(_format(date, 'YYYY-MM-DD') === '2014-04-04')
-  })
+    var date = new Date(2014, 3, 4).getTime();
+    (0, _powerAssert2.default)((0, _.format)(date, 'YYYY-MM-DD') === '2014-04-04');
+  });
 
   it('uses the default ISO string format if format is not specified', function () {
-    ext_assert(_format(this._date) === '1986-04-04T10:32:00.900' + this._timezone)
-  })
+    (0, _powerAssert2.default)((0, _.format)(this._date) === '1986-04-04T10:32:00.900' + this._timezone);
+  });
 
   it('escapes characters between the square brackets', function () {
-    var result = _format(this._date, '[YYYY-]MM-DD[THH:mm:ss.SSSZ] YYYY-[MM-DD]')
-    ext_assert(result === 'YYYY-04-04THH:mm:ss.SSSZ 1986-MM-DD')
-  })
+    var result = (0, _.format)(this._date, '[YYYY-]MM-DD[THH:mm:ss.SSSZ] YYYY-[MM-DD]');
+    (0, _powerAssert2.default)(result === 'YYYY-04-04THH:mm:ss.SSSZ 1986-MM-DD');
+  });
 
   describe('ordinal numbers', function () {
     it('an ordinal day of an ordinal month', function () {
-      var result = _format(this._date, 'Do of t[h][e] Mo in YYYY')
-      ext_assert(result === '4th of the 4th in 1986')
-    })
+      var result = (0, _.format)(this._date, 'Do of t[h][e] Mo in YYYY');
+      (0, _powerAssert2.default)(result === '4th of the 4th in 1986');
+    });
 
     it('should return a correct ordinal number', function () {
-      var result = []
+      var result = [];
       for (var i = 1; i <= 31; i++) {
-        result.push(_format(new Date(2015, 0, i), 'Do'))
+        result.push((0, _.format)(new Date(2015, 0, i), 'Do'));
       }
-      var expected = [
-        '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th',
-        '11th', '12th', '13th', '14th', '15th', '16th', '17th', '18th', '19th', '20th',
-        '21st', '22nd', '23rd', '24th', '25th', '26th', '27th', '28th', '29th', '30th', '31st'
-      ]
-      ext_assert.deepEqual(result, expected)
-    })
-  })
+      var expected = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th', '13th', '14th', '15th', '16th', '17th', '18th', '19th', '20th', '21st', '22nd', '23rd', '24th', '25th', '26th', '27th', '28th', '29th', '30th', '31st'];
+      _powerAssert2.default.deepEqual(result, expected);
+    });
+  });
 
   describe('months', function () {
     it('a cardinal number', function () {
-      ext_assert(_format(this._date, 'M') === '4')
-    })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'M') === '4');
+    });
 
     it('a cardinal number with a leading zero', function () {
-      ext_assert(_format(this._date, 'MM') === '04')
-    })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'MM') === '04');
+    });
 
     it('an ordinal number', function () {
-      ext_assert(_format(this._date, 'Mo') === '4th')
-    })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'Mo') === '4th');
+    });
 
     it('a short name', function () {
-      ext_assert(_format(this._date, 'MMM') === 'Apr')
-    })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'MMM') === 'Apr');
+    });
 
     it('a full name', function () {
-      ext_assert(_format(this._date, 'MMMM') === 'April')
-    })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'MMMM') === 'April');
+    });
 
     it('all variants', function () {
-      var date = _format(this._date, 'M Mo MM MMM MMMM')
-      ext_assert(date === '4 4th 04 Apr April')
-    })
-  })
+      var date = (0, _.format)(this._date, 'M Mo MM MMM MMMM');
+      (0, _powerAssert2.default)(date === '4 4th 04 Apr April');
+    });
+  });
 
   describe('quarters', function () {
     it('returns a correct quarter', function () {
-      var result = []
+      var result = [];
       for (var i = 0; i <= 11; i++) {
-        result.push(_format(new Date(1986, i, 1), 'Q'))
+        result.push((0, _.format)(new Date(1986, i, 1), 'Q'));
       }
-      var expected = ['1', '1', '1', '2', '2', '2', '3', '3', '3', '4', '4', '4']
-      ext_assert.deepEqual(result, expected)
-    })
+      var expected = ['1', '1', '1', '2', '2', '2', '3', '3', '3', '4', '4', '4'];
+      _powerAssert2.default.deepEqual(result, expected);
+    });
 
     it('all variants', function () {
-      ext_assert(_format(this._date, 'Q Qo') === '2 2nd')
-    })
-  })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'Q Qo') === '2 2nd');
+    });
+  });
 
   describe('days of a month', function () {
     it('all variants', function () {
-      ext_assert(_format(this._date, 'D Do DD') === '4 4th 04')
-    })
-  })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'D Do DD') === '4 4th 04');
+    });
+  });
 
   describe('days of a year', function () {
     context('for the first day of a year', function () {
       it('returns a correct day number', function () {
-        var result = _format(new Date(1992, 0 /* Jan */, 1), 'DDD')
-        ext_assert(result === '1')
-      })
-    })
+        var result = (0, _.format)(new Date(1992, 0 /* Jan */, 1), 'DDD');
+        (0, _powerAssert2.default)(result === '1');
+      });
+    });
 
     context('for the last day of a common year', function () {
       it('returns a correct day number', function () {
-        var result = _format(new Date(1986, 11 /* Dec */, 31, 23, 59, 59, 999), 'DDD')
-        ext_assert(result === '365')
-      })
-    })
+        var result = (0, _.format)(new Date(1986, 11 /* Dec */, 31, 23, 59, 59, 999), 'DDD');
+        (0, _powerAssert2.default)(result === '365');
+      });
+    });
 
     context('for the last day of a leap year', function () {
       it('returns a correct day number', function () {
-        var result = _format(new Date(1992, 11 /* Dec */, 31, 23, 59, 59, 999), 'DDD')
-        ext_assert(result === '366')
-      })
-    })
+        var result = (0, _.format)(new Date(1992, 11 /* Dec */, 31, 23, 59, 59, 999), 'DDD');
+        (0, _powerAssert2.default)(result === '366');
+      });
+    });
 
     it('an ordinal number', function () {
-      var result = _format(new Date(1992, 0 /* Jan */, 1), 'DDDo')
-      ext_assert(result === '1st')
-    })
+      var result = (0, _.format)(new Date(1992, 0 /* Jan */, 1), 'DDDo');
+      (0, _powerAssert2.default)(result === '1st');
+    });
 
     it('a cardinal number with leading zeros', function () {
-      var result = _format(new Date(1992, 0 /* Jan */, 1), 'DDDD')
-      ext_assert(result === '001')
-    })
-  })
+      var result = (0, _.format)(new Date(1992, 0 /* Jan */, 1), 'DDDD');
+      (0, _powerAssert2.default)(result === '001');
+    });
+  });
 
   describe('days of a week', function () {
     it('all variants', function () {
-      var result = _format(this._date, 'd do dd ddd dddd')
-      ext_assert(result === '5 5th Fr Fri Friday')
-    })
-  })
+      var result = (0, _.format)(this._date, 'd do dd ddd dddd');
+      (0, _powerAssert2.default)(result === '5 5th Fr Fri Friday');
+    });
+  });
 
   describe('days of an ISO week', function () {
     it('returns a correct day of an ISO week', function () {
-      var result = []
+      var result = [];
       for (var i = 1; i <= 7; i++) {
-        result.push(_format(new Date(1986, 8 /* Sep */, i), 'E'))
+        result.push((0, _.format)(new Date(1986, 8 /* Sep */, i), 'E'));
       }
-      var expected = ['1', '2', '3', '4', '5', '6', '7']
-      ext_assert.deepEqual(result, expected)
-    })
-  })
+      var expected = ['1', '2', '3', '4', '5', '6', '7'];
+      _powerAssert2.default.deepEqual(result, expected);
+    });
+  });
 
   describe('ISO weeks', function () {
     it('a cardinal number with a leading zero', function () {
-      var result = _format(new Date(1992, 0 /* Jan */, 5), 'WW')
-      ext_assert(result === '01')
-    })
+      var result = (0, _.format)(new Date(1992, 0 /* Jan */, 5), 'WW');
+      (0, _powerAssert2.default)(result === '01');
+    });
 
     it('all variants', function () {
-      var result = _format(this._date, 'W Wo WW')
-      ext_assert(result === '14 14th 14')
-    })
-  })
+      var result = (0, _.format)(this._date, 'W Wo WW');
+      (0, _powerAssert2.default)(result === '14 14th 14');
+    });
+  });
 
   describe('years', function () {
     it('all variants', function () {
-      var result = _format(this._date, 'YY YYYY')
-      ext_assert(result === '86 1986')
-    })
+      var result = (0, _.format)(this._date, 'YY YYYY');
+      (0, _powerAssert2.default)(result === '86 1986');
+    });
 
     it('years less than 100', function () {
-      var result = _format('0001-01-01', 'YY YYYY')
-      ext_assert(result === '01 0001')
-    })
-  })
+      var result = (0, _.format)('0001-01-01', 'YY YYYY');
+      (0, _powerAssert2.default)(result === '01 0001');
+    });
+  });
 
   describe('ISO week-numbering years', function () {
     it('the first week of the next year', function () {
-      var result = _format(new Date(2013, 11 /* Dec */, 30), 'GGGG')
-      ext_assert(result === '2014')
-    })
+      var result = (0, _.format)(new Date(2013, 11 /* Dec */, 30), 'GGGG');
+      (0, _powerAssert2.default)(result === '2014');
+    });
 
     it('the last week of the previous year', function () {
-      var result = _format(new Date(2016, 0 /* Jan */, 1), 'GGGG')
-      ext_assert(result === '2015')
-    })
+      var result = (0, _.format)(new Date(2016, 0 /* Jan */, 1), 'GGGG');
+      (0, _powerAssert2.default)(result === '2015');
+    });
 
     it('all variants', function () {
-      var result = _format(this._date, 'GG GGGG')
-      ext_assert(result === '86 1986')
-    })
-  })
+      var result = (0, _.format)(this._date, 'GG GGGG');
+      (0, _powerAssert2.default)(result === '86 1986');
+    });
+  });
 
   describe('hours and am/pm', function () {
     it('am/pm', function () {
-      ext_assert(_format(this._date, 'hh:mm a') === '10:32 am')
-    })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'hh:mm a') === '10:32 am');
+    });
 
     it('12 pm', function () {
-      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 900)
-      ext_assert(_format(date, 'hh:mm a') === '12:00 pm')
-    })
+      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 900);
+      (0, _powerAssert2.default)((0, _.format)(date, 'hh:mm a') === '12:00 pm');
+    });
 
     it('12 am', function () {
-      var date = new Date(1986, 3 /* Apr */, 6, 0, 0, 0, 900)
-      ext_assert(_format(date, 'h:mm a') === '12:00 am')
-    })
+      var date = new Date(1986, 3 /* Apr */, 6, 0, 0, 0, 900);
+      (0, _powerAssert2.default)((0, _.format)(date, 'h:mm a') === '12:00 am');
+    });
 
     it('12 a.m.', function () {
-      var date = new Date(1986, 3 /* Apr */, 6, 0, 0, 0, 900)
-      ext_assert(_format(date, 'h:mm aa') === '12:00 a.m.')
-    })
+      var date = new Date(1986, 3 /* Apr */, 6, 0, 0, 0, 900);
+      (0, _powerAssert2.default)((0, _.format)(date, 'h:mm aa') === '12:00 a.m.');
+    });
 
     it('12 p.m.', function () {
-      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 900)
-      ext_assert(_format(date, 'hh:mm aa') === '12:00 p.m.')
-    })
+      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 900);
+      (0, _powerAssert2.default)((0, _.format)(date, 'hh:mm aa') === '12:00 p.m.');
+    });
 
     it('12PM', function () {
-      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 900)
-      ext_assert(_format(date, 'hh:mmA') === '12:00PM')
-    })
+      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 900);
+      (0, _powerAssert2.default)((0, _.format)(date, 'hh:mmA') === '12:00PM');
+    });
 
     it('cardinal numbers with leading zeros', function () {
-      var date = new Date(1986, 3 /* Apr */, 4, 5, 0, 0, 900)
-      ext_assert(_format(date, 'HH hh') === '05 05')
-    })
+      var date = new Date(1986, 3 /* Apr */, 4, 5, 0, 0, 900);
+      (0, _powerAssert2.default)((0, _.format)(date, 'HH hh') === '05 05');
+    });
 
     it('all hour variants', function () {
-      ext_assert(_format(this._date, 'H HH h hh') === '10 10 10 10')
-    })
-  })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'H HH h hh') === '10 10 10 10');
+    });
+  });
 
   describe('minutes', function () {
     it('a cardinal number with a leading zero', function () {
-      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 900)
-      ext_assert(_format(date, 'mm') === '00')
-    })
+      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 900);
+      (0, _powerAssert2.default)((0, _.format)(date, 'mm') === '00');
+    });
 
     it('all variants', function () {
-      ext_assert(_format(this._date, 'm mm') === '32 32')
-    })
-  })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'm mm') === '32 32');
+    });
+  });
 
   describe('seconds', function () {
     it('all variants', function () {
-      ext_assert(_format(this._date, 's ss') === '0 00')
-    })
-  })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 's ss') === '0 00');
+    });
+  });
 
   describe('fractions of a second', function () {
     it('1/10 of a second', function () {
-      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 859)
-      ext_assert(_format(date, 'S') === '8')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 0)
-      ext_assert(_format(date, 'S') === '0')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 1)
-      ext_assert(_format(date, 'S') === '0')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 10)
-      ext_assert(_format(date, 'S') === '0')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 100)
-      ext_assert(_format(date, 'S') === '1')
-    })
+      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 859);
+      (0, _powerAssert2.default)((0, _.format)(date, 'S') === '8');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 0);
+      (0, _powerAssert2.default)((0, _.format)(date, 'S') === '0');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 1);
+      (0, _powerAssert2.default)((0, _.format)(date, 'S') === '0');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 10);
+      (0, _powerAssert2.default)((0, _.format)(date, 'S') === '0');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 100);
+      (0, _powerAssert2.default)((0, _.format)(date, 'S') === '1');
+    });
 
     it('1/100 of a second', function () {
-      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 859)
-      ext_assert(_format(date, 'SS') === '85')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 0)
-      ext_assert(_format(date, 'SS') === '00')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 1)
-      ext_assert(_format(date, 'SS') === '00')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 10)
-      ext_assert(_format(date, 'SS') === '01')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 42)
-      ext_assert(_format(date, 'SS') === '04')
-    })
+      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 859);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SS') === '85');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 0);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SS') === '00');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 1);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SS') === '00');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 10);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SS') === '01');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 42);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SS') === '04');
+    });
 
     it('a millisecond', function () {
-      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 859)
-      ext_assert(_format(date, 'SSS') === '859')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 0)
-      ext_assert(_format(date, 'SSS') === '000')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 1)
-      ext_assert(_format(date, 'SSS') === '001')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 10)
-      ext_assert(_format(date, 'SSS') === '010')
-      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 42)
-      ext_assert(_format(date, 'SSS') === '042')
-    })
-  })
+      var date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 859);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SSS') === '859');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 0);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SSS') === '000');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 1);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SSS') === '001');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 10);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SSS') === '010');
+      date = new Date(1986, 3 /* Apr */, 4, 12, 0, 0, 42);
+      (0, _powerAssert2.default)((0, _.format)(date, 'SSS') === '042');
+    });
+  });
 
   describe('timezones', function () {
     it('should parse the given date in a local timezone', function () {
-      ext_assert(_format('2015-01-01', 'YYYY-MM-DD') === '2015-01-01')
-    })
+      (0, _powerAssert2.default)((0, _.format)('2015-01-01', 'YYYY-MM-DD') === '2015-01-01');
+    });
 
     it('all variants', function () {
-      var result = _format(this._date, 'Z ZZ')
-      ext_assert(result === this._timezone + ' ' + this._timezoneShort)
-    })
-  })
+      var result = (0, _.format)(this._date, 'Z ZZ');
+      (0, _powerAssert2.default)(result === this._timezone + ' ' + this._timezoneShort);
+    });
+  });
 
   describe('timestamps', function () {
     it('a unix seconds timestamp', function () {
-      ext_assert(_format(this._date, 'X') === this._secondsTimestamp)
-    })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'X') === this._secondsTimestamp);
+    });
 
     it('a unix milliseconds timestamp', function () {
-      ext_assert(_format(this._date, 'x') === this._timestamp)
-    })
-  })
+      (0, _powerAssert2.default)((0, _.format)(this._date, 'x') === this._timestamp);
+    });
+  });
 
   describe('edge cases', function () {
     it('returns String(\'Invalid Date\') if the date isn\'t valid', function () {
-      ext_assert(_format(new Date(NaN), 'MMMM D, YYYY') === 'Invalid Date')
-    })
+      (0, _powerAssert2.default)((0, _.format)(new Date(NaN), 'MMMM D, YYYY') === 'Invalid Date');
+    });
 
     it('handles dates before 100 AD', function () {
-      var initialDate = new Date(0)
-      initialDate.setFullYear(7, 11 /* Dec */, 31)
-      initialDate.setHours(0, 0, 0, 0)
-      ext_assert(_format(initialDate, 'GGGG WW E') === '8 01 1')
-    })
-  })
+      var initialDate = new Date(0);
+      initialDate.setFullYear(7, 11 /* Dec */, 31);
+      initialDate.setHours(0, 0, 0, 0);
+      (0, _powerAssert2.default)((0, _.format)(initialDate, 'GGGG WW E') === '8 01 1');
+    });
+  });
 
   it('implicitly converts options', function () {
     // eslint-disable-next-line no-new-wrappers
-    var formatString = new String('YYYY-MM-DD')
+    var formatString = new String('YYYY-MM-DD');
 
-    var date = new Date(2014, 3, 4)
+    var date = new Date(2014, 3, 4);
 
     // $ExpectedMistake
-    ext_assert(_format(date, formatString) === '2014-04-04')
-  })
+    (0, _powerAssert2.default)((0, _.format)(date, formatString) === '2014-04-04');
+  });
 
   describe('custom locale', function () {
     it('can be passed to the function', function () {
-      var currentDate = this._date
+      var currentDate = this._date;
 
       var formatters = {
-        'ABC': function (date) {
-          ext_assert.deepEqual(date, currentDate)
-          return 'It'
+        'ABC': function ABC(date) {
+          _powerAssert2.default.deepEqual(date, currentDate);
+          return 'It';
         },
 
-        'EFG': function (date) {
-          ext_assert.deepEqual(date, currentDate)
-          return 'works'
+        'EFG': function EFG(date) {
+          _powerAssert2.default.deepEqual(date, currentDate);
+          return 'works';
         }
-      }
+      };
 
-      var formattingTokensRegExp = /(\[[^[]*])|(\\)?(ABC|EFG|.)/g
+      var formattingTokensRegExp = /(\[[^[]*])|(\\)?(ABC|EFG|.)/g;
 
       var customLocale = {
         format: {
           formatters: formatters,
           formattingTokensRegExp: formattingTokensRegExp
         }
-      }
+      };
 
-      var result = _format(this._date, 'ABC EFG [correctly!]', {locale: customLocale})
-      ext_assert(result === 'It works correctly!')
-    })
+      var result = (0, _.format)(this._date, 'ABC EFG [correctly!]', { locale: customLocale });
+      (0, _powerAssert2.default)(result === 'It works correctly!');
+    });
 
     context('does not contain `format` property', function () {
       it('fallbacks to enLocale', function () {
-        var customLocale = {}
-        ext_assert(_format(this._date, 'MMMM', {locale: customLocale}) === 'April')
-      })
-    })
+        var customLocale = {};
+        (0, _powerAssert2.default)((0, _.format)(this._date, 'MMMM', { locale: customLocale }) === 'April');
+      });
+    });
 
     context('does not contain `format.formatters` property', function () {
       it('fallbacks to enLocale', function () {
-        var customLocale = {format: {}}
-        ext_assert(_format(this._date, 'MMMM', {locale: customLocale}) === 'April')
-      })
-    })
+        var customLocale = { format: {} };
+        (0, _powerAssert2.default)((0, _.format)(this._date, 'MMMM', { locale: customLocale }) === 'April');
+      });
+    });
 
     context('does not contain `format.formattingTokensRegExp` property', function () {
       it('uses `format.formattingTokensRegExp` of enLocale', function () {
-        var currentDate = this._date
+        var currentDate = this._date;
 
         var formatters = {
-          'MMMM': function (date) {
-            ext_assert.deepEqual(date, currentDate)
-            return 'It'
+          'MMMM': function MMMM(date) {
+            _powerAssert2.default.deepEqual(date, currentDate);
+            return 'It';
           },
 
-          'YYYY': function (date) {
-            ext_assert.deepEqual(date, currentDate)
-            return 'works'
+          'YYYY': function YYYY(date) {
+            _powerAssert2.default.deepEqual(date, currentDate);
+            return 'works';
           }
-        }
+        };
 
         var customLocale = {
           format: {
             formatters: formatters
           }
-        }
+        };
 
-        var result = _format(this._date, 'MMMM YYYY [correctly!] GGGG', {locale: customLocale})
-        ext_assert(result === 'It works correctly! 1986')
-      })
-    })
-  })
-})
+        var result = (0, _.format)(this._date, 'MMMM YYYY [correctly!] GGGG', { locale: customLocale });
+        (0, _powerAssert2.default)(result === 'It works correctly! 1986');
+      });
+    });
+  });
+});

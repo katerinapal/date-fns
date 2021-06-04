@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isThisQuarter = undefined;
+
+var _index = require("../is_same_quarter/index.js");
+
 var mod_isThisQuarter = isThisQuarter;
-import { isSameQuarter as index_isSameQuarter } from "../is_same_quarter/index.js";
+
 
 /**
  * @category Quarter Helpers
@@ -16,8 +25,8 @@ import { isSameQuarter as index_isSameQuarter } from "../is_same_quarter/index.j
  * var result = isThisQuarter(new Date(2014, 6, 2))
  * //=> true
  */
-function isThisQuarter (dirtyDate) {
-  return index_isSameQuarter(new Date(), dirtyDate);
+function isThisQuarter(dirtyDate) {
+  return (0, _index.isSameQuarter)(new Date(), dirtyDate);
 }
 
 /**
@@ -35,4 +44,4 @@ function isThisQuarter (dirtyDate) {
  * var result = isThisQuarter(new Date(2014, 6, 2))
  * //=> true
  */
-export { mod_isThisQuarter as isThisQuarter };
+exports.isThisQuarter = mod_isThisQuarter;

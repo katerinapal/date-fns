@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addYears = undefined;
+
+var _index = require("../add_months/index.js");
+
 var mod_addYears = addYears;
-import { addMonths as index_addMonths } from "../add_months/index.js";
+
 
 /**
  * @category Year Helpers
@@ -17,9 +26,9 @@ import { addMonths as index_addMonths } from "../add_months/index.js";
  * var result = addYears(new Date(2014, 8, 1), 5)
  * //=> Sun Sep 01 2019 00:00:00
  */
-function addYears (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addMonths(dirtyDate, amount * 12);
+function addYears(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addMonths)(dirtyDate, amount * 12);
 }
 
 /**
@@ -38,4 +47,4 @@ function addYears (dirtyDate, dirtyAmount) {
  * var result = addYears(new Date(2014, 8, 1), 5)
  * //=> Sun Sep 01 2019 00:00:00
  */
-export { mod_addYears as addYears };
+exports.addYears = mod_addYears;

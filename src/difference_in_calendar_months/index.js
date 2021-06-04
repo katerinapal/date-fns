@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInCalendarMonths = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_differenceInCalendarMonths = differenceInCalendarMonths;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Month Helpers
@@ -20,14 +29,14 @@ import { parse as index_parse } from "../parse/index.js";
  * )
  * //=> 8
  */
-function differenceInCalendarMonths (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = index_parse(dirtyDateLeft)
-  var dateRight = index_parse(dirtyDateRight)
+function differenceInCalendarMonths(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = (0, _index.parse)(dirtyDateLeft);
+  var dateRight = (0, _index.parse)(dirtyDateRight);
 
-  var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear()
-  var monthDiff = dateLeft.getMonth() - dateRight.getMonth()
+  var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
+  var monthDiff = dateLeft.getMonth() - dateRight.getMonth();
 
-  return yearDiff * 12 + monthDiff
+  return yearDiff * 12 + monthDiff;
 }
 
 /**
@@ -49,4 +58,4 @@ function differenceInCalendarMonths (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 8
  */
-export { mod_differenceInCalendarMonths as differenceInCalendarMonths };
+exports.differenceInCalendarMonths = mod_differenceInCalendarMonths;

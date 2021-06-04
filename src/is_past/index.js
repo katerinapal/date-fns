@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isPast = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_isPast = isPast;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Common Helpers
@@ -16,8 +25,8 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = isPast(new Date(2014, 6, 2))
  * //=> true
  */
-function isPast (dirtyDate) {
-  return index_parse(dirtyDate).getTime() < new Date().getTime();
+function isPast(dirtyDate) {
+  return (0, _index.parse)(dirtyDate).getTime() < new Date().getTime();
 }
 
 /**
@@ -35,4 +44,4 @@ function isPast (dirtyDate) {
  * var result = isPast(new Date(2014, 6, 2))
  * //=> true
  */
-export { mod_isPast as isPast };
+exports.isPast = mod_isPast;

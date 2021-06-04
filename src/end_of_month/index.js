@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.endOfMonth = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_endOfMonth = endOfMonth;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Month Helpers
@@ -17,12 +26,12 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = endOfMonth(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 23:59:59.999
  */
-function endOfMonth (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var month = date.getMonth()
-  date.setFullYear(date.getFullYear(), month + 1, 0)
-  date.setHours(23, 59, 59, 999)
-  return date
+function endOfMonth(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var month = date.getMonth();
+  date.setFullYear(date.getFullYear(), month + 1, 0);
+  date.setHours(23, 59, 59, 999);
+  return date;
 }
 
 /**
@@ -41,4 +50,4 @@ function endOfMonth (dirtyDate) {
  * var result = endOfMonth(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 23:59:59.999
  */
-export { mod_endOfMonth as endOfMonth };
+exports.endOfMonth = mod_endOfMonth;

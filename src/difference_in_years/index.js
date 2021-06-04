@@ -1,7 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInYears = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../difference_in_calendar_years/index.js");
+
+var _index3 = require("../compare_asc/index.js");
+
 var mod_differenceInYears = differenceInYears;
-import { parse as index_parse } from "../parse/index.js";
-import { differenceInCalendarYears as index_differenceInCalendarYears } from "../difference_in_calendar_years/index.js";
-import { compareAsc as index_compareAsc } from "../compare_asc/index.js";
+
 
 /**
  * @category Year Helpers
@@ -22,18 +33,18 @@ import { compareAsc as index_compareAsc } from "../compare_asc/index.js";
  * )
  * //=> 1
  */
-function differenceInYears (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = index_parse(dirtyDateLeft)
-  var dateRight = index_parse(dirtyDateRight)
+function differenceInYears(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = (0, _index.parse)(dirtyDateLeft);
+  var dateRight = (0, _index.parse)(dirtyDateRight);
 
-  var sign = index_compareAsc(dateLeft, dateRight)
-  var difference = Math.abs(index_differenceInCalendarYears(dateLeft, dateRight))
-  dateLeft.setFullYear(dateLeft.getFullYear() - sign * difference)
+  var sign = (0, _index3.compareAsc)(dateLeft, dateRight);
+  var difference = Math.abs((0, _index2.differenceInCalendarYears)(dateLeft, dateRight));
+  dateLeft.setFullYear(dateLeft.getFullYear() - sign * difference);
 
   // Math.abs(diff in full years - diff in calendar years) === 1 if last calendar year is not full
   // If so, result must be decreased by 1 in absolute value
-  var isLastYearNotFull = index_compareAsc(dateLeft, dateRight) === -sign
-  return sign * (difference - isLastYearNotFull)
+  var isLastYearNotFull = (0, _index3.compareAsc)(dateLeft, dateRight) === -sign;
+  return sign * (difference - isLastYearNotFull);
 }
 
 /**
@@ -55,4 +66,4 @@ function differenceInYears (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 1
  */
-export { mod_differenceInYears as differenceInYears };
+exports.differenceInYears = mod_differenceInYears;

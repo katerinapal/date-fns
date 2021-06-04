@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isThursday = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_isThursday = isThursday;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Weekday Helpers
@@ -16,8 +25,8 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = isThursday(new Date(2014, 8, 25))
  * //=> true
  */
-function isThursday (dirtyDate) {
-  return index_parse(dirtyDate).getDay() === 4;
+function isThursday(dirtyDate) {
+  return (0, _index.parse)(dirtyDate).getDay() === 4;
 }
 
 /**
@@ -35,4 +44,4 @@ function isThursday (dirtyDate) {
  * var result = isThursday(new Date(2014, 8, 25))
  * //=> true
  */
-export { mod_isThursday as isThursday };
+exports.isThursday = mod_isThursday;

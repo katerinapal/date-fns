@@ -1,264 +1,281 @@
-import ext_assert from "power-assert";
-import { buildFormatLocale as _buildFormatLocale } from "./";
+"use strict";
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+var _ = require("./");
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
 describe('th locale > buildFormatLocale', function () {
   it('returns an object', function () {
-    ext_assert(typeof _buildFormatLocale() === 'object')
-  })
+    (0, _powerAssert2.default)(_typeof((0, _.buildFormatLocale)()) === 'object');
+  });
 
   describe('formatters property', function () {
     it('is an object', function () {
-      ext_assert(typeof _buildFormatLocale().formatters === 'object')
-    })
+      (0, _powerAssert2.default)(_typeof((0, _.buildFormatLocale)().formatters) === 'object');
+    });
 
     describe('MMM', function () {
       it('returns the correct string for January', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 0)) === 'ม.ค.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 0)) === 'ม.ค.');
+      });
 
       it('returns the correct string for February', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 1)) === 'ก.พ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 1)) === 'ก.พ.');
+      });
 
       it('returns the correct string for March', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 2)) === 'มี.ค.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 2)) === 'มี.ค.');
+      });
 
       it('returns the correct string for April', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2015, 3)) === 'เม.ย.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2015, 3)) === 'เม.ย.');
+      });
 
       it('returns the correct string for May', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 4)) === 'พ.ค.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 4)) === 'พ.ค.');
+      });
 
       it('returns the correct string for June', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 5)) === 'มิ.ย.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 5)) === 'มิ.ย.');
+      });
 
       it('returns the correct string for July', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 6)) === 'ก.ค.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 6)) === 'ก.ค.');
+      });
 
       it('returns the correct string for August', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 7)) === 'ส.ค.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 7)) === 'ส.ค.');
+      });
 
       it('returns the correct string for September', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 8)) === 'ก.ย.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 8)) === 'ก.ย.');
+      });
 
       it('returns the correct string for October', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 9)) === 'ต.ค.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 9)) === 'ต.ค.');
+      });
 
       it('returns the correct string for November', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 10)) === 'พ.ย.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 10)) === 'พ.ย.');
+      });
 
       it('returns the correct string for December', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 11)) === 'ธ.ค.')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 11)) === 'ธ.ค.');
+      });
+    });
 
     describe('MMMM', function () {
       it('returns the correct string for January', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 0)) === 'มกราคม')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 0)) === 'มกราคม');
+      });
 
       it('returns the correct string for February', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 1)) === 'กุมภาพันธ์')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 1)) === 'กุมภาพันธ์');
+      });
 
       it('returns the correct string for March', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 2)) === 'มีนาคม')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 2)) === 'มีนาคม');
+      });
 
       it('returns the correct string for April', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2015, 3)) === 'เมษายน')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2015, 3)) === 'เมษายน');
+      });
 
       it('returns the correct string for May', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 4)) === 'พฤษภาคม')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 4)) === 'พฤษภาคม');
+      });
 
       it('returns the correct string for June', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 5)) === 'มิถุนายน')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 5)) === 'มิถุนายน');
+      });
 
       it('returns the correct string for July', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 6)) === 'กรกฎาคม')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 6)) === 'กรกฎาคม');
+      });
 
       it('returns the correct string for August', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 7)) === 'สิงหาคม')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 7)) === 'สิงหาคม');
+      });
 
       it('returns the correct string for September', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 8)) === 'กันยายน')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 8)) === 'กันยายน');
+      });
 
       it('returns the correct string for October', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 9)) === 'ตุลาคม')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 9)) === 'ตุลาคม');
+      });
 
       it('returns the correct string for November', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 10)) === 'พฤศจิกายน')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 10)) === 'พฤศจิกายน');
+      });
 
       it('returns the correct string for December', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 11)) === 'ธันวาคม')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 11)) === 'ธันวาคม');
+      });
+    });
 
     describe('dd', function () {
       it('returns the correct string for Sunday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 7)) === 'อา.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 7)) === 'อา.');
+      });
 
       it('returns the correct string for Monday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 1)) === 'จ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 1)) === 'จ.');
+      });
 
       it('returns the correct string for Tuesday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 2)) === 'อ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 2)) === 'อ.');
+      });
 
       it('returns the correct string for Wednesday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 3)) === 'พ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 3)) === 'พ.');
+      });
 
       it('returns the correct string for Thursday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 4)) === 'พฤ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 4)) === 'พฤ.');
+      });
 
       it('returns the correct string for Friday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 5)) === 'ศ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 5)) === 'ศ.');
+      });
 
       it('returns the correct string for Saturday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 6)) === 'ส.')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 6)) === 'ส.');
+      });
+    });
 
     describe('ddd', function () {
       it('returns the correct string for Sunday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 7)) === 'อา.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 7)) === 'อา.');
+      });
 
       it('returns the correct string for Monday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 1)) === 'จ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 1)) === 'จ.');
+      });
 
       it('returns the correct string for Tuesday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 2)) === 'อ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 2)) === 'อ.');
+      });
 
       it('returns the correct string for Wednesday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 3)) === 'พ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 3)) === 'พ.');
+      });
 
       it('returns the correct string for Thursday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 4)) === 'พฤ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 4)) === 'พฤ.');
+      });
 
       it('returns the correct string for Friday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 5)) === 'ศ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 5)) === 'ศ.');
+      });
 
       it('returns the correct string for Saturday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 6)) === 'ส.')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 6)) === 'ส.');
+      });
+    });
 
     describe('dddd', function () {
       it('returns the correct string for Sunday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 7)) === 'อาทิตย์')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 7)) === 'อาทิตย์');
+      });
 
       it('returns the correct string for Monday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 1)) === 'จันทร์')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 1)) === 'จันทร์');
+      });
 
       it('returns the correct string for Tuesday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 2)) === 'อังคาร')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 2)) === 'อังคาร');
+      });
 
       it('returns the correct string for Wednesday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 3)) === 'พุธ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 3)) === 'พุธ');
+      });
 
       it('returns the correct string for Thursday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 4)) === 'พฤหัสบดี')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 4)) === 'พฤหัสบดี');
+      });
 
       it('returns the correct string for Friday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 5)) === 'ศุกร์')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 5)) === 'ศุกร์');
+      });
 
       it('returns the correct string for Saturday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 6)) === 'เสาร์')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 6)) === 'เสาร์');
+      });
+    });
 
     describe('A', function () {
       it('returns the correct string for 1-11 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 1)) === 'น.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.A(new Date(2016, 1 /* Feb */, 11, 1)) === 'น.');
+      });
 
       it('returns the correct string for 12 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 0)) === 'น.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.A(new Date(2016, 1 /* Feb */, 11, 0)) === 'น.');
+      });
 
       it('returns the correct string for 1-11 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 13)) === 'น.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.A(new Date(2016, 1 /* Feb */, 11, 13)) === 'น.');
+      });
 
       it('returns the correct string for 12 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 12)) === 'น.')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.A(new Date(2016, 1 /* Feb */, 11, 12)) === 'น.');
+      });
+    });
 
     describe('a', function () {
       it('returns the correct string for 1-11 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 1)) === 'น.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.a(new Date(2016, 1 /* Feb */, 11, 1)) === 'น.');
+      });
 
       it('returns the correct string for 12 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 0)) === 'น.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.a(new Date(2016, 1 /* Feb */, 11, 0)) === 'น.');
+      });
 
       it('returns the correct string for 1-11 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 13)) === 'น.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.a(new Date(2016, 1 /* Feb */, 11, 13)) === 'น.');
+      });
 
       it('returns the correct string for 12 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 12)) === 'น.')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.a(new Date(2016, 1 /* Feb */, 11, 12)) === 'น.');
+      });
+    });
 
     describe('aa', function () {
       it('returns the correct string for 1-11 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 1)) === 'นาฬิกา')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.aa(new Date(2016, 1 /* Feb */, 11, 1)) === 'นาฬิกา');
+      });
 
       it('returns the correct string for 12 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 0)) === 'นาฬิกา')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.aa(new Date(2016, 1 /* Feb */, 11, 0)) === 'นาฬิกา');
+      });
 
       it('returns the correct string for 1-11 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 13)) === 'นาฬิกา')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.aa(new Date(2016, 1 /* Feb */, 11, 13)) === 'นาฬิกา');
+      });
 
       it('returns the correct string for 12 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 12)) === 'นาฬิกา')
-      })
-    })
-  })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.aa(new Date(2016, 1 /* Feb */, 11, 12)) === 'นาฬิกา');
+      });
+    });
+  });
 
   describe('formattingTokensRegExp property', function () {
     it('is an instance of RegExp', function () {
-      ext_assert(_buildFormatLocale().formattingTokensRegExp instanceof RegExp)
-    })
-  })
-})
+      (0, _powerAssert2.default)((0, _.buildFormatLocale)().formattingTokensRegExp instanceof RegExp);
+    });
+  });
+});

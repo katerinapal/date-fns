@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isValid = undefined;
+
+var _index = require("../is_date/index.js");
+
 var mod_isValid = isValid;
-import { isDate as index_isDate } from "../is_date/index.js";
+
 
 /**
  * @category Common Helpers
@@ -25,11 +34,11 @@ import { isDate as index_isDate } from "../is_date/index.js";
  * var result = isValid(new Date(''))
  * //=> false
  */
-function isValid (dirtyDate) {
-  if (index_isDate(dirtyDate)) {
-    return !isNaN(dirtyDate)
+function isValid(dirtyDate) {
+  if ((0, _index.isDate)(dirtyDate)) {
+    return !isNaN(dirtyDate);
   } else {
-    throw new TypeError(toString.call(dirtyDate) + ' is not an instance of Date')
+    throw new TypeError(toString.call(dirtyDate) + ' is not an instance of Date');
   }
 }
 
@@ -57,4 +66,4 @@ function isValid (dirtyDate) {
  * var result = isValid(new Date(''))
  * //=> false
  */
-export { mod_isValid as isValid };
+exports.isValid = mod_isValid;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.startOfMinute = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_startOfMinute = startOfMinute;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Minute Helpers
@@ -17,10 +26,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = startOfMinute(new Date(2014, 11, 1, 22, 15, 45, 400))
  * //=> Mon Dec 01 2014 22:15:00
  */
-function startOfMinute (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  date.setSeconds(0, 0)
-  return date
+function startOfMinute(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  date.setSeconds(0, 0);
+  return date;
 }
 
 /**
@@ -39,4 +48,4 @@ function startOfMinute (dirtyDate) {
  * var result = startOfMinute(new Date(2014, 11, 1, 22, 15, 45, 400))
  * //=> Mon Dec 01 2014 22:15:00
  */
-export { mod_startOfMinute as startOfMinute };
+exports.startOfMinute = mod_startOfMinute;

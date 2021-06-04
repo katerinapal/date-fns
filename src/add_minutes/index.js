@@ -1,7 +1,16 @@
-var mod_addMinutes = addMinutes;
-import { addMilliseconds as index_addMilliseconds } from "../add_milliseconds/index.js";
+"use strict";
 
-var MILLISECONDS_IN_MINUTE = 60000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addMinutes = undefined;
+
+var _index = require("../add_milliseconds/index.js");
+
+var mod_addMinutes = addMinutes;
+
+
+var MILLISECONDS_IN_MINUTE = 60000;
 
 /**
  * @category Minute Helpers
@@ -19,9 +28,9 @@ var MILLISECONDS_IN_MINUTE = 60000
  * var result = addMinutes(new Date(2014, 6, 10, 12, 0), 30)
  * //=> Thu Jul 10 2014 12:30:00
  */
-function addMinutes (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addMilliseconds(dirtyDate, amount * MILLISECONDS_IN_MINUTE);
+function addMinutes(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addMilliseconds)(dirtyDate, amount * MILLISECONDS_IN_MINUTE);
 }
 
 /**
@@ -40,4 +49,4 @@ function addMinutes (dirtyDate, dirtyAmount) {
  * var result = addMinutes(new Date(2014, 6, 10, 12, 0), 30)
  * //=> Thu Jul 10 2014 12:30:00
  */
-export { mod_addMinutes as addMinutes };
+exports.addMinutes = mod_addMinutes;

@@ -1,384 +1,464 @@
-import ext_assert from "power-assert";
-import { buildFormatLocale as _buildFormatLocale } from "./";
+"use strict";
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+var _ = require("./");
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
 describe('el locale > buildFormatLocale', function () {
   it('returns an object', function () {
-    ext_assert(typeof _buildFormatLocale() === 'object')
-  })
+    (0, _powerAssert2.default)(_typeof((0, _.buildFormatLocale)()) === 'object');
+  });
 
   describe('formatters property', function () {
     it('is an object', function () {
-      ext_assert(typeof _buildFormatLocale().formatters === 'object')
-    })
+      (0, _powerAssert2.default)(_typeof((0, _.buildFormatLocale)().formatters) === 'object');
+    });
 
     describe('MMM', function () {
       it('returns the correct string for January', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 0)) === 'Ιαν')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 0)) === 'Ιαν');
+      });
 
       it('returns the correct string for February', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 1)) === 'Φεβ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 1)) === 'Φεβ');
+      });
 
       it('returns the correct string for March', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 2)) === 'Μαρ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 2)) === 'Μαρ');
+      });
 
       it('returns the correct string for April', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2015, 3)) === 'Απρ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2015, 3)) === 'Απρ');
+      });
 
       it('returns the correct string for May', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 4)) === 'Μαϊ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 4)) === 'Μαϊ');
+      });
 
       it('returns the correct string for June', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 5)) === 'Ιουν')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 5)) === 'Ιουν');
+      });
 
       it('returns the correct string for July', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 6)) === 'Ιουλ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 6)) === 'Ιουλ');
+      });
 
       it('returns the correct string for August', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 7)) === 'Αυγ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 7)) === 'Αυγ');
+      });
 
       it('returns the correct string for September', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 8)) === 'Σεπ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 8)) === 'Σεπ');
+      });
 
       it('returns the correct string for October', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 9)) === 'Οκτ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 9)) === 'Οκτ');
+      });
 
       it('returns the correct string for November', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 10)) === 'Νοε')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 10)) === 'Νοε');
+      });
 
       it('returns the correct string for December', function () {
-        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 11)) === 'Δεκ')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMM(new Date(2016, 11)) === 'Δεκ');
+      });
+    });
 
     describe('MMMM', function () {
       it('returns the correct string for January', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 0)) === 'Ιανουάριος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 0)) === 'Ιανουάριος');
+      });
 
       it('returns the correct string for February', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 1)) === 'Φεβρουάριος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 1)) === 'Φεβρουάριος');
+      });
 
       it('returns the correct string for March', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 2)) === 'Μάρτιος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 2)) === 'Μάρτιος');
+      });
 
       it('returns the correct string for April', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2015, 3)) === 'Απρίλιος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2015, 3)) === 'Απρίλιος');
+      });
 
       it('returns the correct string for May', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 4)) === 'Μάιος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 4)) === 'Μάιος');
+      });
 
       it('returns the correct string for June', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 5)) === 'Ιούνιος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 5)) === 'Ιούνιος');
+      });
 
       it('returns the correct string for July', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 6)) === 'Ιούλιος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 6)) === 'Ιούλιος');
+      });
 
       it('returns the correct string for August', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 7)) === 'Αύγουστος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 7)) === 'Αύγουστος');
+      });
 
       it('returns the correct string for September', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 8)) === 'Σεπτέμβριος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 8)) === 'Σεπτέμβριος');
+      });
 
       it('returns the correct string for October', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 9)) === 'Οκτώβριος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 9)) === 'Οκτώβριος');
+      });
 
       it('returns the correct string for November', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 10)) === 'Νοέμβριος')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 10)) === 'Νοέμβριος');
+      });
 
       it('returns the correct string for December', function () {
-        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 11)) === 'Δεκέμβριος')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.MMMM(new Date(2016, 11)) === 'Δεκέμβριος');
+      });
+    });
 
     describe('D MMMM', function () {
-      var monthsGen = [
-        'Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου',
-        'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'
-      ]
+      var monthsGen = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'];
       var formatters = {
-        D: function () {
-          return 5
+        D: function D() {
+          return 5;
         }
-      }
-      var locale = _buildFormatLocale()
+      };
+      var locale = (0, _.buildFormatLocale)();
       monthsGen.forEach(function (month, index) {
         it('returns 1 ' + month, function () {
-          ext_assert(locale.formatters['D MMMM'](new Date(2016, index, 5), formatters) === '5 ' + month)
-        })
-      })
-    })
+          (0, _powerAssert2.default)(locale.formatters['D MMMM'](new Date(2016, index, 5), formatters) === '5 ' + month);
+        });
+      });
+    });
 
     describe('DD MMMM', function () {
-      var monthsGen = [
-        'Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου',
-        'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'
-      ]
+      var monthsGen = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'];
       var formatters = {
-        DD: function () {
-          return '03'
+        DD: function DD() {
+          return '03';
         }
-      }
-      var locale = _buildFormatLocale()
+      };
+      var locale = (0, _.buildFormatLocale)();
       monthsGen.forEach(function (month, index) {
         it('returns 01 ' + month, function () {
-          ext_assert(locale.formatters['DD MMMM'](new Date(2016, index, 3), formatters) === '03 ' + month)
-        })
-      })
-    })
+          (0, _powerAssert2.default)(locale.formatters['DD MMMM'](new Date(2016, index, 3), formatters) === '03 ' + month);
+        });
+      });
+    });
 
     describe('Do MMMM', function () {
-      var monthsGen = [
-        'Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου',
-        'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'
-      ]
+      var monthsGen = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'];
       var formatters = {
-        D: function () {
-          return '7'
+        D: function D() {
+          return '7';
         }
-      }
-      var locale = _buildFormatLocale()
+      };
+      var locale = (0, _.buildFormatLocale)();
       monthsGen.forEach(function (month, index) {
         it('returns 1η ' + month, function () {
-          ext_assert(locale.formatters['Do MMMM'](new Date(2016, index, 7), formatters) === '7η ' + month)
-        })
-      })
-    })
+          (0, _powerAssert2.default)(locale.formatters['Do MMMM'](new Date(2016, index, 7), formatters) === '7η ' + month);
+        });
+      });
+    });
 
     describe('dd', function () {
       it('returns the correct string for Sunday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 7)) === 'Κυ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 7)) === 'Κυ');
+      });
 
       it('returns the correct string for Monday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 1)) === 'Δε')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 1)) === 'Δε');
+      });
 
       it('returns the correct string for Tuesday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 2)) === 'Τρ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 2)) === 'Τρ');
+      });
 
       it('returns the correct string for Wednesday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 3)) === 'Τε')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 3)) === 'Τε');
+      });
 
       it('returns the correct string for Thursday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 4)) === 'Πέ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 4)) === 'Πέ');
+      });
 
       it('returns the correct string for Friday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 5)) === 'Πα')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 5)) === 'Πα');
+      });
 
       it('returns the correct string for Saturday', function () {
-        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 6)) === 'Σά')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dd(new Date(2016, 1 /* Feb */, 6)) === 'Σά');
+      });
+    });
 
     describe('ddd', function () {
       it('returns the correct string for Sunday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 7)) === 'Κυρ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 7)) === 'Κυρ');
+      });
 
       it('returns the correct string for Monday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 1)) === 'Δευ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 1)) === 'Δευ');
+      });
 
       it('returns the correct string for Tuesday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 2)) === 'Τρί')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 2)) === 'Τρί');
+      });
 
       it('returns the correct string for Wednesday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 3)) === 'Τετ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 3)) === 'Τετ');
+      });
 
       it('returns the correct string for Thursday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 4)) === 'Πέμ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 4)) === 'Πέμ');
+      });
 
       it('returns the correct string for Friday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 5)) === 'Παρ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 5)) === 'Παρ');
+      });
 
       it('returns the correct string for Saturday', function () {
-        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 6)) === 'Σάβ')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.ddd(new Date(2016, 1 /* Feb */, 6)) === 'Σάβ');
+      });
+    });
 
     describe('dddd', function () {
       it('returns the correct string for Sunday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 7)) === 'Κυριακή')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 7)) === 'Κυριακή');
+      });
 
       it('returns the correct string for Monday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 1)) === 'Δευτέρα')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 1)) === 'Δευτέρα');
+      });
 
       it('returns the correct string for Tuesday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 2)) === 'Τρίτη')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 2)) === 'Τρίτη');
+      });
 
       it('returns the correct string for Wednesday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 3)) === 'Τετάρτη')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 3)) === 'Τετάρτη');
+      });
 
       it('returns the correct string for Thursday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 4)) === 'Πέμπτη')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 4)) === 'Πέμπτη');
+      });
 
       it('returns the correct string for Friday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 5)) === 'Παρασκευή')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 5)) === 'Παρασκευή');
+      });
 
       it('returns the correct string for Saturday', function () {
-        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 6)) === 'Σάββατο')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.dddd(new Date(2016, 1 /* Feb */, 6)) === 'Σάββατο');
+      });
+    });
 
     describe('A', function () {
       it('returns the correct string for 1-11 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 1)) === 'ΠΜ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.A(new Date(2016, 1 /* Feb */, 11, 1)) === 'ΠΜ');
+      });
 
       it('returns the correct string for 12 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 0)) === 'ΠΜ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.A(new Date(2016, 1 /* Feb */, 11, 0)) === 'ΠΜ');
+      });
 
       it('returns the correct string for 1-11 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 13)) === 'ΜΜ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.A(new Date(2016, 1 /* Feb */, 11, 13)) === 'ΜΜ');
+      });
 
       it('returns the correct string for 12 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, 12)) === 'ΜΜ')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.A(new Date(2016, 1 /* Feb */, 11, 12)) === 'ΜΜ');
+      });
+    });
 
     describe('a', function () {
       it('returns the correct string for 1-11 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 1)) === 'πμ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.a(new Date(2016, 1 /* Feb */, 11, 1)) === 'πμ');
+      });
 
       it('returns the correct string for 12 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 0)) === 'πμ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.a(new Date(2016, 1 /* Feb */, 11, 0)) === 'πμ');
+      });
 
       it('returns the correct string for 1-11 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 13)) === 'μμ')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.a(new Date(2016, 1 /* Feb */, 11, 13)) === 'μμ');
+      });
 
       it('returns the correct string for 12 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, 12)) === 'μμ')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.a(new Date(2016, 1 /* Feb */, 11, 12)) === 'μμ');
+      });
+    });
 
     describe('aa', function () {
       it('returns the correct string for 1-11 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 1)) === 'π.μ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.aa(new Date(2016, 1 /* Feb */, 11, 1)) === 'π.μ.');
+      });
 
       it('returns the correct string for 12 a.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 0)) === 'π.μ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.aa(new Date(2016, 1 /* Feb */, 11, 0)) === 'π.μ.');
+      });
 
       it('returns the correct string for 1-11 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 13)) === 'μ.μ.')
-      })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.aa(new Date(2016, 1 /* Feb */, 11, 13)) === 'μ.μ.');
+      });
 
       it('returns the correct string for 12 p.m.', function () {
-        ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, 12)) === 'μ.μ.')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.aa(new Date(2016, 1 /* Feb */, 11, 12)) === 'μ.μ.');
+      });
+    });
 
     describe('Mo', function () {
       it('returns ordinal result of M formatter', function () {
-        ext_assert(_buildFormatLocale().formatters.Mo(null, {M: function () { return 1 }}) === '1ος')
-        ext_assert(_buildFormatLocale().formatters.Mo(null, {M: function () { return 2 }}) === '2ος')
-        ext_assert(_buildFormatLocale().formatters.Mo(null, {M: function () { return 3 }}) === '3ος')
-        ext_assert(_buildFormatLocale().formatters.Mo(null, {M: function () { return 11 }}) === '11ος')
-        ext_assert(_buildFormatLocale().formatters.Mo(null, {M: function () { return 101 }}) === '101ος')
-        ext_assert(_buildFormatLocale().formatters.Mo(null, {M: function () { return 111 }}) === '111ος')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Mo(null, { M: function M() {
+            return 1;
+          } }) === '1ος');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Mo(null, { M: function M() {
+            return 2;
+          } }) === '2ος');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Mo(null, { M: function M() {
+            return 3;
+          } }) === '3ος');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Mo(null, { M: function M() {
+            return 11;
+          } }) === '11ος');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Mo(null, { M: function M() {
+            return 101;
+          } }) === '101ος');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Mo(null, { M: function M() {
+            return 111;
+          } }) === '111ος');
+      });
+    });
 
     describe('Do', function () {
       it('returns ordinal result of D formatter', function () {
-        ext_assert(_buildFormatLocale().formatters.Do(null, {D: function () { return 1 }}) === '1η')
-        ext_assert(_buildFormatLocale().formatters.Do(null, {D: function () { return 2 }}) === '2η')
-        ext_assert(_buildFormatLocale().formatters.Do(null, {D: function () { return 3 }}) === '3η')
-        ext_assert(_buildFormatLocale().formatters.Do(null, {D: function () { return 11 }}) === '11η')
-        ext_assert(_buildFormatLocale().formatters.Do(null, {D: function () { return 101 }}) === '101η')
-        ext_assert(_buildFormatLocale().formatters.Do(null, {D: function () { return 111 }}) === '111η')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Do(null, { D: function D() {
+            return 1;
+          } }) === '1η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Do(null, { D: function D() {
+            return 2;
+          } }) === '2η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Do(null, { D: function D() {
+            return 3;
+          } }) === '3η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Do(null, { D: function D() {
+            return 11;
+          } }) === '11η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Do(null, { D: function D() {
+            return 101;
+          } }) === '101η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Do(null, { D: function D() {
+            return 111;
+          } }) === '111η');
+      });
+    });
 
     describe('DDDo', function () {
       it('returns ordinal result of DDD formatter', function () {
-        ext_assert(_buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 1 }}) === '1η')
-        ext_assert(_buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 2 }}) === '2η')
-        ext_assert(_buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 3 }}) === '3η')
-        ext_assert(_buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 11 }}) === '11η')
-        ext_assert(_buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 101 }}) === '101η')
-        ext_assert(_buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 111 }}) === '111η')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.DDDo(null, { DDD: function DDD() {
+            return 1;
+          } }) === '1η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.DDDo(null, { DDD: function DDD() {
+            return 2;
+          } }) === '2η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.DDDo(null, { DDD: function DDD() {
+            return 3;
+          } }) === '3η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.DDDo(null, { DDD: function DDD() {
+            return 11;
+          } }) === '11η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.DDDo(null, { DDD: function DDD() {
+            return 101;
+          } }) === '101η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.DDDo(null, { DDD: function DDD() {
+            return 111;
+          } }) === '111η');
+      });
+    });
 
     describe('do', function () {
       it('returns ordinal result of d formatter', function () {
-        ext_assert(_buildFormatLocale().formatters.do(null, {d: function () { return 1 }}) === '1η')
-        ext_assert(_buildFormatLocale().formatters.do(null, {d: function () { return 2 }}) === '2η')
-        ext_assert(_buildFormatLocale().formatters.do(null, {d: function () { return 3 }}) === '3η')
-        ext_assert(_buildFormatLocale().formatters.do(null, {d: function () { return 11 }}) === '11η')
-        ext_assert(_buildFormatLocale().formatters.do(null, {d: function () { return 101 }}) === '101η')
-        ext_assert(_buildFormatLocale().formatters.do(null, {d: function () { return 111 }}) === '111η')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.do(null, { d: function d() {
+            return 1;
+          } }) === '1η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.do(null, { d: function d() {
+            return 2;
+          } }) === '2η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.do(null, { d: function d() {
+            return 3;
+          } }) === '3η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.do(null, { d: function d() {
+            return 11;
+          } }) === '11η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.do(null, { d: function d() {
+            return 101;
+          } }) === '101η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.do(null, { d: function d() {
+            return 111;
+          } }) === '111η');
+      });
+    });
 
     describe('Qo', function () {
       it('returns ordinal result of Q formatter', function () {
-        ext_assert(_buildFormatLocale().formatters.Qo(null, {Q: function () { return 1 }}) === '1ο')
-        ext_assert(_buildFormatLocale().formatters.Qo(null, {Q: function () { return 2 }}) === '2ο')
-        ext_assert(_buildFormatLocale().formatters.Qo(null, {Q: function () { return 3 }}) === '3ο')
-        ext_assert(_buildFormatLocale().formatters.Qo(null, {Q: function () { return 11 }}) === '11ο')
-        ext_assert(_buildFormatLocale().formatters.Qo(null, {Q: function () { return 101 }}) === '101ο')
-        ext_assert(_buildFormatLocale().formatters.Qo(null, {Q: function () { return 111 }}) === '111ο')
-      })
-    })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Qo(null, { Q: function Q() {
+            return 1;
+          } }) === '1ο');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Qo(null, { Q: function Q() {
+            return 2;
+          } }) === '2ο');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Qo(null, { Q: function Q() {
+            return 3;
+          } }) === '3ο');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Qo(null, { Q: function Q() {
+            return 11;
+          } }) === '11ο');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Qo(null, { Q: function Q() {
+            return 101;
+          } }) === '101ο');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Qo(null, { Q: function Q() {
+            return 111;
+          } }) === '111ο');
+      });
+    });
 
     describe('Wo', function () {
       it('returns ordinal result of W formatter', function () {
-        ext_assert(_buildFormatLocale().formatters.Wo(null, {W: function () { return 1 }}) === '1η')
-        ext_assert(_buildFormatLocale().formatters.Wo(null, {W: function () { return 2 }}) === '2η')
-        ext_assert(_buildFormatLocale().formatters.Wo(null, {W: function () { return 3 }}) === '3η')
-        ext_assert(_buildFormatLocale().formatters.Wo(null, {W: function () { return 11 }}) === '11η')
-        ext_assert(_buildFormatLocale().formatters.Wo(null, {W: function () { return 101 }}) === '101η')
-        ext_assert(_buildFormatLocale().formatters.Wo(null, {W: function () { return 111 }}) === '111η')
-      })
-    })
-  })
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Wo(null, { W: function W() {
+            return 1;
+          } }) === '1η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Wo(null, { W: function W() {
+            return 2;
+          } }) === '2η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Wo(null, { W: function W() {
+            return 3;
+          } }) === '3η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Wo(null, { W: function W() {
+            return 11;
+          } }) === '11η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Wo(null, { W: function W() {
+            return 101;
+          } }) === '101η');
+        (0, _powerAssert2.default)((0, _.buildFormatLocale)().formatters.Wo(null, { W: function W() {
+            return 111;
+          } }) === '111η');
+      });
+    });
+  });
 
   describe('formattingTokensRegExp property', function () {
     it('is an instance of RegExp', function () {
-      ext_assert(_buildFormatLocale().formattingTokensRegExp instanceof RegExp)
-    })
-  })
-})
+      (0, _powerAssert2.default)((0, _.buildFormatLocale)().formattingTokensRegExp instanceof RegExp);
+    });
+  });
+});

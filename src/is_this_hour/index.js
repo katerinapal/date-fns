@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isThisHour = undefined;
+
+var _index = require("../is_same_hour/index.js");
+
 var mod_isThisHour = isThisHour;
-import { isSameHour as index_isSameHour } from "../is_same_hour/index.js";
+
 
 /**
  * @category Hour Helpers
@@ -17,8 +26,8 @@ import { isSameHour as index_isSameHour } from "../is_same_hour/index.js";
  * var result = isThisHour(new Date(2014, 8, 25, 18))
  * //=> true
  */
-function isThisHour (dirtyDate) {
-  return index_isSameHour(new Date(), dirtyDate);
+function isThisHour(dirtyDate) {
+  return (0, _index.isSameHour)(new Date(), dirtyDate);
 }
 
 /**
@@ -37,4 +46,4 @@ function isThisHour (dirtyDate) {
  * var result = isThisHour(new Date(2014, 8, 25, 18))
  * //=> true
  */
-export { mod_isThisHour as isThisHour };
+exports.isThisHour = mod_isThisHour;

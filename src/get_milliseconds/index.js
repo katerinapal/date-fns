@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getMilliseconds = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getMilliseconds = getMilliseconds;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Millisecond Helpers
@@ -16,10 +25,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getMilliseconds(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 123
  */
-function getMilliseconds (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var milliseconds = date.getMilliseconds()
-  return milliseconds
+function getMilliseconds(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var milliseconds = date.getMilliseconds();
+  return milliseconds;
 }
 
 /**
@@ -37,4 +46,4 @@ function getMilliseconds (dirtyDate) {
  * var result = getMilliseconds(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 123
  */
-export { mod_getMilliseconds as getMilliseconds };
+exports.getMilliseconds = mod_getMilliseconds;

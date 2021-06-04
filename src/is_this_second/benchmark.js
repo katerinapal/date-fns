@@ -1,11 +1,13 @@
-import { isThisSecond as _isThisSecond } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isThisSecond', function () {
   benchmark('date-fns', function () {
-    return _isThisSecond(this.date);
-  })
+    return (0, _.isThisSecond)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

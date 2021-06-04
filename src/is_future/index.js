@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isFuture = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_isFuture = isFuture;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Common Helpers
@@ -16,8 +25,8 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = isFuture(new Date(2014, 11, 31))
  * //=> true
  */
-function isFuture (dirtyDate) {
-  return index_parse(dirtyDate).getTime() > new Date().getTime();
+function isFuture(dirtyDate) {
+  return (0, _index.parse)(dirtyDate).getTime() > new Date().getTime();
 }
 
 /**
@@ -35,4 +44,4 @@ function isFuture (dirtyDate) {
  * var result = isFuture(new Date(2014, 11, 31))
  * //=> true
  */
-export { mod_isFuture as isFuture };
+exports.isFuture = mod_isFuture;

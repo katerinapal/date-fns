@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.lastDayOfYear = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_lastDayOfYear = lastDayOfYear;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Year Helpers
@@ -17,12 +26,12 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = lastDayOfYear(new Date(2014, 8, 2, 11, 55, 00))
  * //=> Wed Dec 31 2014 00:00:00
  */
-function lastDayOfYear (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var year = date.getFullYear()
-  date.setFullYear(year + 1, 0, 0)
-  date.setHours(0, 0, 0, 0)
-  return date
+function lastDayOfYear(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var year = date.getFullYear();
+  date.setFullYear(year + 1, 0, 0);
+  date.setHours(0, 0, 0, 0);
+  return date;
 }
 
 /**
@@ -41,4 +50,4 @@ function lastDayOfYear (dirtyDate) {
  * var result = lastDayOfYear(new Date(2014, 8, 2, 11, 55, 00))
  * //=> Wed Dec 31 2014 00:00:00
  */
-export { mod_lastDayOfYear as lastDayOfYear };
+exports.lastDayOfYear = mod_lastDayOfYear;

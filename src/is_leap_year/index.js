@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isLeapYear = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_isLeapYear = isLeapYear;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Year Helpers
@@ -16,10 +25,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = isLeapYear(new Date(2012, 8, 1))
  * //=> true
  */
-function isLeapYear (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var year = date.getFullYear()
-  return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0
+function isLeapYear(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var year = date.getFullYear();
+  return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0;
 }
 
 /**
@@ -37,4 +46,4 @@ function isLeapYear (dirtyDate) {
  * var result = isLeapYear(new Date(2012, 8, 1))
  * //=> true
  */
-export { mod_isLeapYear as isLeapYear };
+exports.isLeapYear = mod_isLeapYear;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addSeconds = undefined;
+
+var _index = require("../add_milliseconds/index.js");
+
 var mod_addSeconds = addSeconds;
-import { addMilliseconds as index_addMilliseconds } from "../add_milliseconds/index.js";
+
 
 /**
  * @category Second Helpers
@@ -17,9 +26,9 @@ import { addMilliseconds as index_addMilliseconds } from "../add_milliseconds/in
  * var result = addSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)
  * //=> Thu Jul 10 2014 12:45:30
  */
-function addSeconds (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addMilliseconds(dirtyDate, amount * 1000);
+function addSeconds(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addMilliseconds)(dirtyDate, amount * 1000);
 }
 
 /**
@@ -38,4 +47,4 @@ function addSeconds (dirtyDate, dirtyAmount) {
  * var result = addSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)
  * //=> Thu Jul 10 2014 12:45:30
  */
-export { mod_addSeconds as addSeconds };
+exports.addSeconds = mod_addSeconds;

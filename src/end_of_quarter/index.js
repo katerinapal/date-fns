@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.endOfQuarter = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_endOfQuarter = endOfQuarter;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Quarter Helpers
@@ -17,13 +26,13 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = endOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 23:59:59.999
  */
-function endOfQuarter (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var currentMonth = date.getMonth()
-  var month = currentMonth - currentMonth % 3 + 3
-  date.setMonth(month, 0)
-  date.setHours(23, 59, 59, 999)
-  return date
+function endOfQuarter(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var currentMonth = date.getMonth();
+  var month = currentMonth - currentMonth % 3 + 3;
+  date.setMonth(month, 0);
+  date.setHours(23, 59, 59, 999);
+  return date;
 }
 
 /**
@@ -42,4 +51,4 @@ function endOfQuarter (dirtyDate) {
  * var result = endOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 23:59:59.999
  */
-export { mod_endOfQuarter as endOfQuarter };
+exports.endOfQuarter = mod_endOfQuarter;

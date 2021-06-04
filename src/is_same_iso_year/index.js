@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isSameISOYear = undefined;
+
+var _index = require("../start_of_iso_year/index.js");
+
 var mod_isSameISOYear = isSameISOYear;
-import { startOfISOYear as index_startOfISOYear } from "../start_of_iso_year/index.js";
+
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -22,11 +31,11 @@ import { startOfISOYear as index_startOfISOYear } from "../start_of_iso_year/ind
  * )
  * //=> true
  */
-function isSameISOYear (dirtyDateLeft, dirtyDateRight) {
-  var dateLeftStartOfYear = index_startOfISOYear(dirtyDateLeft)
-  var dateRightStartOfYear = index_startOfISOYear(dirtyDateRight)
+function isSameISOYear(dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfYear = (0, _index.startOfISOYear)(dirtyDateLeft);
+  var dateRightStartOfYear = (0, _index.startOfISOYear)(dirtyDateRight);
 
-  return dateLeftStartOfYear.getTime() === dateRightStartOfYear.getTime()
+  return dateLeftStartOfYear.getTime() === dateRightStartOfYear.getTime();
 }
 
 /**
@@ -50,4 +59,4 @@ function isSameISOYear (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> true
  */
-export { mod_isSameISOYear as isSameISOYear };
+exports.isSameISOYear = mod_isSameISOYear;

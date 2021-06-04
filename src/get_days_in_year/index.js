@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getDaysInYear = undefined;
+
+var _index = require("../is_leap_year/index.js");
+
 var mod_getDaysInYear = getDaysInYear;
-import { isLeapYear as index_isLeapYear } from "../is_leap_year/index.js";
+
 
 /**
  * @category Year Helpers
@@ -16,8 +25,8 @@ import { isLeapYear as index_isLeapYear } from "../is_leap_year/index.js";
  * var result = getDaysInYear(new Date(2012, 0, 1))
  * //=> 366
  */
-function getDaysInYear (dirtyDate) {
-  return index_isLeapYear(dirtyDate) ? 366 : 365;
+function getDaysInYear(dirtyDate) {
+  return (0, _index.isLeapYear)(dirtyDate) ? 366 : 365;
 }
 
 /**
@@ -35,4 +44,4 @@ function getDaysInYear (dirtyDate) {
  * var result = getDaysInYear(new Date(2012, 0, 1))
  * //=> 366
  */
-export { mod_getDaysInYear as getDaysInYear };
+exports.getDaysInYear = mod_getDaysInYear;

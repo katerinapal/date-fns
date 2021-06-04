@@ -1,9 +1,20 @@
-var mod_getISOWeek = getISOWeek;
-import { parse as index_parse } from "../parse/index.js";
-import { startOfISOWeek as index_startOfISOWeek } from "../start_of_iso_week/index.js";
-import { startOfISOYear as index_startOfISOYear } from "../start_of_iso_year/index.js";
+"use strict";
 
-var MILLISECONDS_IN_WEEK = 604800000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getISOWeek = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../start_of_iso_week/index.js");
+
+var _index3 = require("../start_of_iso_year/index.js");
+
+var mod_getISOWeek = getISOWeek;
+
+
+var MILLISECONDS_IN_WEEK = 604800000;
 
 /**
  * @category ISO Week Helpers
@@ -22,14 +33,14 @@ var MILLISECONDS_IN_WEEK = 604800000
  * var result = getISOWeek(new Date(2005, 0, 2))
  * //=> 53
  */
-function getISOWeek (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var diff = index_startOfISOWeek(date).getTime() - index_startOfISOYear(date).getTime()
+function getISOWeek(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var diff = (0, _index2.startOfISOWeek)(date).getTime() - (0, _index3.startOfISOYear)(date).getTime();
 
   // Round the number of days to the nearest integer
   // because the number of milliseconds in a week is not constant
   // (e.g. it's different in the week of the daylight saving time clock shift)
-  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1
+  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
 }
 
 /**
@@ -49,4 +60,4 @@ function getISOWeek (dirtyDate) {
  * var result = getISOWeek(new Date(2005, 0, 2))
  * //=> 53
  */
-export { mod_getISOWeek as getISOWeek };
+exports.getISOWeek = mod_getISOWeek;

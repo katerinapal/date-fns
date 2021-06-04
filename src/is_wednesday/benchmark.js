@@ -1,11 +1,13 @@
-import { isWednesday as _isWednesday } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isWednesday', function () {
   benchmark('date-fns', function () {
-    return _isWednesday(this.date);
-  })
+    return (0, _.isWednesday)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

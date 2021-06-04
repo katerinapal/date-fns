@@ -1,17 +1,24 @@
-import { startOfQuarter as _startOfQuarter } from "./";
-import ext_moment_moment from "moment";
+"use strict";
+
+var _ = require("./");
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 suite('startOfQuarter', function () {
   benchmark('date-fns', function () {
-    return _startOfQuarter(this.date);
-  })
+    return (0, _.startOfQuarter)(this.date);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.startOf('quarter')
-  })
+    return this.moment.startOf('quarter');
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = ext_moment_moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = (0, _moment2.default)();
   }
-})
+});

@@ -1,11 +1,13 @@
-import { lastDayOfISOWeek as _lastDayOfISOWeek } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('lastDayOfISOWeek', function () {
   benchmark('date-fns', function () {
-    return _lastDayOfISOWeek(this.date);
-  })
+    return (0, _.lastDayOfISOWeek)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

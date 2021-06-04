@@ -1,11 +1,13 @@
-import { isThisISOWeek as _isThisISOWeek } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isThisISOWeek', function () {
   benchmark('date-fns', function () {
-    return _isThisISOWeek(this.date);
-  })
+    return (0, _.isThisISOWeek)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

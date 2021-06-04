@@ -1,11 +1,13 @@
-import { getDaysInYear as _getDaysInYear } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('getDaysInYear', function () {
   benchmark('date-fns', function () {
-    return _getDaysInYear(this.date);
-  })
+    return (0, _.getDaysInYear)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

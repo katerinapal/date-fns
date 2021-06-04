@@ -1,19 +1,26 @@
-import ext_assert from "power-assert";
-import { getDate as _getDate } from "./";
+"use strict";
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+var _ = require("./");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('getDate', function () {
   it('returns the day of the month of the given date', function () {
-    var result = _getDate(new Date(2012, 1 /* Feb */, 29))
-    ext_assert(result === 29)
-  })
+    var result = (0, _.getDate)(new Date(2012, 1 /* Feb */, 29));
+    (0, _powerAssert2.default)(result === 29);
+  });
 
   it('accepts a string', function () {
-    var result = _getDate(new Date(2014, 6 /* Jul */, 2).toISOString())
-    ext_assert(result === 2)
-  })
+    var result = (0, _.getDate)(new Date(2014, 6 /* Jul */, 2).toISOString());
+    (0, _powerAssert2.default)(result === 2);
+  });
 
   it('accepts a timestamp', function () {
-    var result = _getDate(new Date(2014, 11 /* Dec */, 31).getTime())
-    ext_assert(result === 31)
-  })
-})
+    var result = (0, _.getDate)(new Date(2014, 11 /* Dec */, 31).getTime());
+    (0, _powerAssert2.default)(result === 31);
+  });
+});

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isSameQuarter = undefined;
+
+var _index = require("../start_of_quarter/index.js");
+
 var mod_isSameQuarter = isSameQuarter;
-import { startOfQuarter as index_startOfQuarter } from "../start_of_quarter/index.js";
+
 
 /**
  * @category Quarter Helpers
@@ -20,11 +29,11 @@ import { startOfQuarter as index_startOfQuarter } from "../start_of_quarter/inde
  * )
  * //=> true
  */
-function isSameQuarter (dirtyDateLeft, dirtyDateRight) {
-  var dateLeftStartOfQuarter = index_startOfQuarter(dirtyDateLeft)
-  var dateRightStartOfQuarter = index_startOfQuarter(dirtyDateRight)
+function isSameQuarter(dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfQuarter = (0, _index.startOfQuarter)(dirtyDateLeft);
+  var dateRightStartOfQuarter = (0, _index.startOfQuarter)(dirtyDateRight);
 
-  return dateLeftStartOfQuarter.getTime() === dateRightStartOfQuarter.getTime()
+  return dateLeftStartOfQuarter.getTime() === dateRightStartOfQuarter.getTime();
 }
 
 /**
@@ -46,4 +55,4 @@ function isSameQuarter (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> true
  */
-export { mod_isSameQuarter as isSameQuarter };
+exports.isSameQuarter = mod_isSameQuarter;

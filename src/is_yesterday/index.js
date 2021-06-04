@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isYesterday = undefined;
+
+var _index = require("../start_of_day/index.js");
+
 var mod_isYesterday = isYesterday;
-import { startOfDay as index_startOfDay } from "../start_of_day/index.js";
+
 
 /**
  * @category Day Helpers
@@ -16,10 +25,10 @@ import { startOfDay as index_startOfDay } from "../start_of_day/index.js";
  * var result = isYesterday(new Date(2014, 9, 5, 14, 0))
  * //=> true
  */
-function isYesterday (dirtyDate) {
-  var yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return index_startOfDay(dirtyDate).getTime() === index_startOfDay(yesterday).getTime();
+function isYesterday(dirtyDate) {
+  var yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  return (0, _index.startOfDay)(dirtyDate).getTime() === (0, _index.startOfDay)(yesterday).getTime();
 }
 
 /**
@@ -37,4 +46,4 @@ function isYesterday (dirtyDate) {
  * var result = isYesterday(new Date(2014, 9, 5, 14, 0))
  * //=> true
  */
-export { mod_isYesterday as isYesterday };
+exports.isYesterday = mod_isYesterday;

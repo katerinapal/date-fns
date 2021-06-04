@@ -1,11 +1,13 @@
-import { isYesterday as _isYesterday } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isYesterday', function () {
   benchmark('date-fns', function () {
-    return _isYesterday(this.date);
-  })
+    return (0, _.isYesterday)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

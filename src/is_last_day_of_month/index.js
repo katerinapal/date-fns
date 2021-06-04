@@ -1,7 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isLastDayOfMonth = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../end_of_day/index.js");
+
+var _index3 = require("../end_of_month/index.js");
+
 var mod_isLastDayOfMonth = isLastDayOfMonth;
-import { parse as index_parse } from "../parse/index.js";
-import { endOfDay as index_endOfDay } from "../end_of_day/index.js";
-import { endOfMonth as index_endOfMonth } from "../end_of_month/index.js";
+
 
 /**
  * @category Month Helpers
@@ -18,9 +29,9 @@ import { endOfMonth as index_endOfMonth } from "../end_of_month/index.js";
  * var result = isLastDayOfMonth(new Date(2014, 1, 28))
  * //=> true
  */
-function isLastDayOfMonth (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  return index_endOfDay(date).getTime() === index_endOfMonth(date).getTime();
+function isLastDayOfMonth(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  return (0, _index2.endOfDay)(date).getTime() === (0, _index3.endOfMonth)(date).getTime();
 }
 
 /**
@@ -38,4 +49,4 @@ function isLastDayOfMonth (dirtyDate) {
  * var result = isLastDayOfMonth(new Date(2014, 1, 28))
  * //=> true
  */
-export { mod_isLastDayOfMonth as isLastDayOfMonth };
+exports.isLastDayOfMonth = mod_isLastDayOfMonth;

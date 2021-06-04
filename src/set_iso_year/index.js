@@ -1,7 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setISOYear = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../start_of_iso_year/index.js");
+
+var _index3 = require("../difference_in_calendar_days/index.js");
+
 var mod_setISOYear = setISOYear;
-import { parse as index_parse } from "../parse/index.js";
-import { startOfISOYear as index_startOfISOYear } from "../start_of_iso_year/index.js";
-import { differenceInCalendarDays as index_differenceInCalendarDays } from "../difference_in_calendar_days/index.js";
+
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -22,16 +33,16 @@ import { differenceInCalendarDays as index_differenceInCalendarDays } from "../d
  * var result = setISOYear(new Date(2008, 11, 29), 2007)
  * //=> Mon Jan 01 2007 00:00:00
  */
-function setISOYear (dirtyDate, dirtyISOYear) {
-  var date = index_parse(dirtyDate)
-  var isoYear = Number(dirtyISOYear)
-  var diff = index_differenceInCalendarDays(date, index_startOfISOYear(date))
-  var fourthOfJanuary = new Date(0)
-  fourthOfJanuary.setFullYear(isoYear, 0, 4)
-  fourthOfJanuary.setHours(0, 0, 0, 0)
-  date = index_startOfISOYear(fourthOfJanuary)
-  date.setDate(date.getDate() + diff)
-  return date
+function setISOYear(dirtyDate, dirtyISOYear) {
+  var date = (0, _index.parse)(dirtyDate);
+  var isoYear = Number(dirtyISOYear);
+  var diff = (0, _index3.differenceInCalendarDays)(date, (0, _index2.startOfISOYear)(date));
+  var fourthOfJanuary = new Date(0);
+  fourthOfJanuary.setFullYear(isoYear, 0, 4);
+  fourthOfJanuary.setHours(0, 0, 0, 0);
+  date = (0, _index2.startOfISOYear)(fourthOfJanuary);
+  date.setDate(date.getDate() + diff);
+  return date;
 }
 
 /**
@@ -53,4 +64,4 @@ function setISOYear (dirtyDate, dirtyISOYear) {
  * var result = setISOYear(new Date(2008, 11, 29), 2007)
  * //=> Mon Jan 01 2007 00:00:00
  */
-export { mod_setISOYear as setISOYear };
+exports.setISOYear = mod_setISOYear;

@@ -1,5 +1,10 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
-function buildDistanceInWordsLocale () {
+function buildDistanceInWordsLocale() {
   var distanceInWordsLocale = {
     lessThanXSeconds: {
       standalone: {
@@ -149,38 +154,36 @@ function buildDistanceInWordsLocale () {
         other: 'fast {{count}} Jahren'
       }
     }
-  }
+  };
 
-  function localize (token, count, options) {
-    options = options || {}
+  function localize(token, count, options) {
+    options = options || {};
 
-    var usageGroup = options.addSuffix
-      ? distanceInWordsLocale[token].withPreposition
-      : distanceInWordsLocale[token].standalone
+    var usageGroup = options.addSuffix ? distanceInWordsLocale[token].withPreposition : distanceInWordsLocale[token].standalone;
 
-    var result
+    var result;
     if (typeof usageGroup === 'string') {
-      result = usageGroup
+      result = usageGroup;
     } else if (count === 1) {
-      result = usageGroup.one
+      result = usageGroup.one;
     } else {
-      result = usageGroup.other.replace('{{count}}', count)
+      result = usageGroup.other.replace('{{count}}', count);
     }
 
     if (options.addSuffix) {
       if (options.comparison > 0) {
-        return 'in ' + result
+        return 'in ' + result;
       } else {
-        return 'vor ' + result
+        return 'vor ' + result;
       }
     }
 
-    return result
+    return result;
   }
 
   return {
     localize: localize
-  }
+  };
 }
 
-export { mod_buildDistanceInWordsLocale as buildDistanceInWordsLocale };
+exports.buildDistanceInWordsLocale = mod_buildDistanceInWordsLocale;

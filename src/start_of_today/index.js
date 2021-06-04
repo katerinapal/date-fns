@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.startOfToday = undefined;
+
+var _index = require("../start_of_day/index.js");
+
 var mod_startOfToday = startOfToday;
-import { startOfDay as index_startOfDay } from "../start_of_day/index.js";
+
 
 /**
  * @category Day Helpers
@@ -15,8 +24,8 @@ import { startOfDay as index_startOfDay } from "../start_of_day/index.js";
  * var result = startOfToday()
  * //=> Mon Oct 6 2014 00:00:00
  */
-function startOfToday () {
-  return index_startOfDay(new Date());
+function startOfToday() {
+  return (0, _index.startOfDay)(new Date());
 }
 
 /**
@@ -33,4 +42,4 @@ function startOfToday () {
  * var result = startOfToday()
  * //=> Mon Oct 6 2014 00:00:00
  */
-export { mod_startOfToday as startOfToday };
+exports.startOfToday = mod_startOfToday;

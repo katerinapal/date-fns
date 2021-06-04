@@ -1,7 +1,16 @@
-var mod_getOverlappingDaysInRanges = getOverlappingDaysInRanges;
-import { parse as index_parse } from "../parse/index.js";
+"use strict";
 
-var MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getOverlappingDaysInRanges = undefined;
+
+var _index = require("../parse/index.js");
+
+var mod_getOverlappingDaysInRanges = getOverlappingDaysInRanges;
+
+
+var MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000;
 
 /**
  * @category Range Helpers
@@ -31,33 +40,29 @@ var MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
  * )
  * //=> 0
  */
-function getOverlappingDaysInRanges (dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
-  var initialStartTime = index_parse(dirtyInitialRangeStartDate).getTime()
-  var initialEndTime = index_parse(dirtyInitialRangeEndDate).getTime()
-  var comparedStartTime = index_parse(dirtyComparedRangeStartDate).getTime()
-  var comparedEndTime = index_parse(dirtyComparedRangeEndDate).getTime()
+function getOverlappingDaysInRanges(dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
+  var initialStartTime = (0, _index.parse)(dirtyInitialRangeStartDate).getTime();
+  var initialEndTime = (0, _index.parse)(dirtyInitialRangeEndDate).getTime();
+  var comparedStartTime = (0, _index.parse)(dirtyComparedRangeStartDate).getTime();
+  var comparedEndTime = (0, _index.parse)(dirtyComparedRangeEndDate).getTime();
 
   if (initialStartTime > initialEndTime || comparedStartTime > comparedEndTime) {
-    throw new Error('The start of the range cannot be after the end of the range')
+    throw new Error('The start of the range cannot be after the end of the range');
   }
 
-  var isOverlapping = initialStartTime < comparedEndTime && comparedStartTime < initialEndTime
+  var isOverlapping = initialStartTime < comparedEndTime && comparedStartTime < initialEndTime;
 
   if (!isOverlapping) {
-    return 0
+    return 0;
   }
 
-  var overlapStartDate = comparedStartTime < initialStartTime
-    ? initialStartTime
-    : comparedStartTime
+  var overlapStartDate = comparedStartTime < initialStartTime ? initialStartTime : comparedStartTime;
 
-  var overlapEndDate = comparedEndTime > initialEndTime
-    ? initialEndTime
-    : comparedEndTime
+  var overlapEndDate = comparedEndTime > initialEndTime ? initialEndTime : comparedEndTime;
 
-  var differenceInMs = overlapEndDate - overlapStartDate
+  var differenceInMs = overlapEndDate - overlapStartDate;
 
-  return Math.ceil(differenceInMs / MILLISECONDS_IN_DAY)
+  return Math.ceil(differenceInMs / MILLISECONDS_IN_DAY);
 }
 
 /**
@@ -88,4 +93,4 @@ function getOverlappingDaysInRanges (dirtyInitialRangeStartDate, dirtyInitialRan
  * )
  * //=> 0
  */
-export { mod_getOverlappingDaysInRanges as getOverlappingDaysInRanges };
+exports.getOverlappingDaysInRanges = mod_getOverlappingDaysInRanges;

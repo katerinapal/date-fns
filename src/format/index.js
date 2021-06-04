@@ -1,10 +1,24 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.format = undefined;
+
+var _index = require("../get_day_of_year/index.js");
+
+var _index2 = require("../get_iso_week/index.js");
+
+var _index3 = require("../get_iso_year/index.js");
+
+var _index4 = require("../parse/index.js");
+
+var _index5 = require("../is_valid/index.js");
+
+var _index6 = require("../locale/en/index.js");
+
 var mod_format = format;
-import { getDayOfYear as index_getDayOfYear } from "../get_day_of_year/index.js";
-import { getISOWeek as index_getISOWeek } from "../get_iso_week/index.js";
-import { getISOYear as index_getISOYear } from "../get_iso_year/index.js";
-import { parse as index_parse } from "../parse/index.js";
-import { isValid as index_isValid } from "../is_valid/index.js";
-import { indexjs as enLocale } from "../locale/en/index.js";
+
 
 /**
  * @category Common Helpers
@@ -89,241 +103,241 @@ import { indexjs as enLocale } from "../locale/en/index.js";
  * )
  * //=> '2-a de julio 2014'
  */
-function format (dirtyDate, dirtyFormatStr, dirtyOptions) {
-  var formatStr = dirtyFormatStr ? String(dirtyFormatStr) : 'YYYY-MM-DDTHH:mm:ss.SSSZ'
-  var options = dirtyOptions || {}
+function format(dirtyDate, dirtyFormatStr, dirtyOptions) {
+  var formatStr = dirtyFormatStr ? String(dirtyFormatStr) : 'YYYY-MM-DDTHH:mm:ss.SSSZ';
+  var options = dirtyOptions || {};
 
-  var locale = options.locale
-  var localeFormatters = enLocale.format.formatters
-  var formattingTokensRegExp = enLocale.format.formattingTokensRegExp
+  var locale = options.locale;
+  var localeFormatters = _index6.indexjs.format.formatters;
+  var formattingTokensRegExp = _index6.indexjs.format.formattingTokensRegExp;
   if (locale && locale.format && locale.format.formatters) {
-    localeFormatters = locale.format.formatters
+    localeFormatters = locale.format.formatters;
 
     if (locale.format.formattingTokensRegExp) {
-      formattingTokensRegExp = locale.format.formattingTokensRegExp
+      formattingTokensRegExp = locale.format.formattingTokensRegExp;
     }
   }
 
-  var date = index_parse(dirtyDate)
+  var date = (0, _index4.parse)(dirtyDate);
 
-  if (!index_isValid(date)) {
-    return 'Invalid Date'
+  if (!(0, _index5.isValid)(date)) {
+    return 'Invalid Date';
   }
 
-  var formatFn = buildFormatFn(formatStr, localeFormatters, formattingTokensRegExp)
+  var formatFn = buildFormatFn(formatStr, localeFormatters, formattingTokensRegExp);
 
-  return formatFn(date)
+  return formatFn(date);
 }
 
 var formatters = {
   // Month: 1, 2, ..., 12
-  'M': function (date) {
-    return date.getMonth() + 1
+  'M': function M(date) {
+    return date.getMonth() + 1;
   },
 
   // Month: 01, 02, ..., 12
-  'MM': function (date) {
-    return addLeadingZeros(date.getMonth() + 1, 2)
+  'MM': function MM(date) {
+    return addLeadingZeros(date.getMonth() + 1, 2);
   },
 
   // Quarter: 1, 2, 3, 4
-  'Q': function (date) {
-    return Math.ceil((date.getMonth() + 1) / 3)
+  'Q': function Q(date) {
+    return Math.ceil((date.getMonth() + 1) / 3);
   },
 
   // Day of month: 1, 2, ..., 31
-  'D': function (date) {
-    return date.getDate()
+  'D': function D(date) {
+    return date.getDate();
   },
 
   // Day of month: 01, 02, ..., 31
-  'DD': function (date) {
-    return addLeadingZeros(date.getDate(), 2)
+  'DD': function DD(date) {
+    return addLeadingZeros(date.getDate(), 2);
   },
 
   // Day of year: 1, 2, ..., 366
-  'DDD': function (date) {
-    return index_getDayOfYear(date);
+  'DDD': function DDD(date) {
+    return (0, _index.getDayOfYear)(date);
   },
 
   // Day of year: 001, 002, ..., 366
-  'DDDD': function (date) {
-    return addLeadingZeros(index_getDayOfYear(date), 3);
+  'DDDD': function DDDD(date) {
+    return addLeadingZeros((0, _index.getDayOfYear)(date), 3);
   },
 
   // Day of week: 0, 1, ..., 6
-  'd': function (date) {
-    return date.getDay()
+  'd': function d(date) {
+    return date.getDay();
   },
 
   // Day of ISO week: 1, 2, ..., 7
-  'E': function (date) {
-    return date.getDay() || 7
+  'E': function E(date) {
+    return date.getDay() || 7;
   },
 
   // ISO week: 1, 2, ..., 53
-  'W': function (date) {
-    return index_getISOWeek(date);
+  'W': function W(date) {
+    return (0, _index2.getISOWeek)(date);
   },
 
   // ISO week: 01, 02, ..., 53
-  'WW': function (date) {
-    return addLeadingZeros(index_getISOWeek(date), 2);
+  'WW': function WW(date) {
+    return addLeadingZeros((0, _index2.getISOWeek)(date), 2);
   },
 
   // Year: 00, 01, ..., 99
-  'YY': function (date) {
-    return addLeadingZeros(date.getFullYear(), 4).substr(2)
+  'YY': function YY(date) {
+    return addLeadingZeros(date.getFullYear(), 4).substr(2);
   },
 
   // Year: 1900, 1901, ..., 2099
-  'YYYY': function (date) {
-    return addLeadingZeros(date.getFullYear(), 4)
+  'YYYY': function YYYY(date) {
+    return addLeadingZeros(date.getFullYear(), 4);
   },
 
   // ISO week-numbering year: 00, 01, ..., 99
-  'GG': function (date) {
-    return String(index_getISOYear(date)).substr(2);
+  'GG': function GG(date) {
+    return String((0, _index3.getISOYear)(date)).substr(2);
   },
 
   // ISO week-numbering year: 1900, 1901, ..., 2099
-  'GGGG': function (date) {
-    return index_getISOYear(date);
+  'GGGG': function GGGG(date) {
+    return (0, _index3.getISOYear)(date);
   },
 
   // Hour: 0, 1, ... 23
-  'H': function (date) {
-    return date.getHours()
+  'H': function H(date) {
+    return date.getHours();
   },
 
   // Hour: 00, 01, ..., 23
-  'HH': function (date) {
-    return addLeadingZeros(date.getHours(), 2)
+  'HH': function HH(date) {
+    return addLeadingZeros(date.getHours(), 2);
   },
 
   // Hour: 1, 2, ..., 12
-  'h': function (date) {
-    var hours = date.getHours()
+  'h': function h(date) {
+    var hours = date.getHours();
     if (hours === 0) {
-      return 12
+      return 12;
     } else if (hours > 12) {
-      return hours % 12
+      return hours % 12;
     } else {
-      return hours
+      return hours;
     }
   },
 
   // Hour: 01, 02, ..., 12
-  'hh': function (date) {
-    return addLeadingZeros(formatters['h'](date), 2)
+  'hh': function hh(date) {
+    return addLeadingZeros(formatters['h'](date), 2);
   },
 
   // Minute: 0, 1, ..., 59
-  'm': function (date) {
-    return date.getMinutes()
+  'm': function m(date) {
+    return date.getMinutes();
   },
 
   // Minute: 00, 01, ..., 59
-  'mm': function (date) {
-    return addLeadingZeros(date.getMinutes(), 2)
+  'mm': function mm(date) {
+    return addLeadingZeros(date.getMinutes(), 2);
   },
 
   // Second: 0, 1, ..., 59
-  's': function (date) {
-    return date.getSeconds()
+  's': function s(date) {
+    return date.getSeconds();
   },
 
   // Second: 00, 01, ..., 59
-  'ss': function (date) {
-    return addLeadingZeros(date.getSeconds(), 2)
+  'ss': function ss(date) {
+    return addLeadingZeros(date.getSeconds(), 2);
   },
 
   // 1/10 of second: 0, 1, ..., 9
-  'S': function (date) {
-    return Math.floor(date.getMilliseconds() / 100)
+  'S': function S(date) {
+    return Math.floor(date.getMilliseconds() / 100);
   },
 
   // 1/100 of second: 00, 01, ..., 99
-  'SS': function (date) {
-    return addLeadingZeros(Math.floor(date.getMilliseconds() / 10), 2)
+  'SS': function SS(date) {
+    return addLeadingZeros(Math.floor(date.getMilliseconds() / 10), 2);
   },
 
   // Millisecond: 000, 001, ..., 999
-  'SSS': function (date) {
-    return addLeadingZeros(date.getMilliseconds(), 3)
+  'SSS': function SSS(date) {
+    return addLeadingZeros(date.getMilliseconds(), 3);
   },
 
   // Timezone: -01:00, +00:00, ... +12:00
-  'Z': function (date) {
-    return formatTimezone(date.getTimezoneOffset(), ':')
+  'Z': function Z(date) {
+    return formatTimezone(date.getTimezoneOffset(), ':');
   },
 
   // Timezone: -0100, +0000, ... +1200
-  'ZZ': function (date) {
-    return formatTimezone(date.getTimezoneOffset())
+  'ZZ': function ZZ(date) {
+    return formatTimezone(date.getTimezoneOffset());
   },
 
   // Seconds timestamp: 512969520
-  'X': function (date) {
-    return Math.floor(date.getTime() / 1000)
+  'X': function X(date) {
+    return Math.floor(date.getTime() / 1000);
   },
 
   // Milliseconds timestamp: 512969520900
-  'x': function (date) {
-    return date.getTime()
+  'x': function x(date) {
+    return date.getTime();
   }
-}
+};
 
-function buildFormatFn (formatStr, localeFormatters, formattingTokensRegExp) {
-  var array = formatStr.match(formattingTokensRegExp)
-  var length = array.length
+function buildFormatFn(formatStr, localeFormatters, formattingTokensRegExp) {
+  var array = formatStr.match(formattingTokensRegExp);
+  var length = array.length;
 
-  var i
-  var formatter
+  var i;
+  var formatter;
   for (i = 0; i < length; i++) {
-    formatter = localeFormatters[array[i]] || formatters[array[i]]
+    formatter = localeFormatters[array[i]] || formatters[array[i]];
     if (formatter) {
-      array[i] = formatter
+      array[i] = formatter;
     } else {
-      array[i] = removeFormattingTokens(array[i])
+      array[i] = removeFormattingTokens(array[i]);
     }
   }
 
   return function (date) {
-    var output = ''
+    var output = '';
     for (var i = 0; i < length; i++) {
       if (array[i] instanceof Function) {
-        output += array[i](date, formatters)
+        output += array[i](date, formatters);
       } else {
-        output += array[i]
+        output += array[i];
       }
     }
-    return output
-  }
+    return output;
+  };
 }
 
-function removeFormattingTokens (input) {
+function removeFormattingTokens(input) {
   if (input.match(/\[[\s\S]/)) {
-    return input.replace(/^\[|]$/g, '')
+    return input.replace(/^\[|]$/g, '');
   }
-  return input.replace(/\\/g, '')
+  return input.replace(/\\/g, '');
 }
 
-function formatTimezone (offset, delimeter) {
-  delimeter = delimeter || ''
-  var sign = offset > 0 ? '-' : '+'
-  var absOffset = Math.abs(offset)
-  var hours = Math.floor(absOffset / 60)
-  var minutes = absOffset % 60
-  return sign + addLeadingZeros(hours, 2) + delimeter + addLeadingZeros(minutes, 2)
+function formatTimezone(offset, delimeter) {
+  delimeter = delimeter || '';
+  var sign = offset > 0 ? '-' : '+';
+  var absOffset = Math.abs(offset);
+  var hours = Math.floor(absOffset / 60);
+  var minutes = absOffset % 60;
+  return sign + addLeadingZeros(hours, 2) + delimeter + addLeadingZeros(minutes, 2);
 }
 
-function addLeadingZeros (number, targetLength) {
-  var output = Math.abs(number).toString()
+function addLeadingZeros(number, targetLength) {
+  var output = Math.abs(number).toString();
   while (output.length < targetLength) {
-    output = '0' + output
+    output = '0' + output;
   }
-  return output
+  return output;
 }
 
 /**
@@ -409,4 +423,4 @@ function addLeadingZeros (number, targetLength) {
  * )
  * //=> '2-a de julio 2014'
  */
-export { mod_format as format };
+exports.format = mod_format;

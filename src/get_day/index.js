@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getDay = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getDay = getDay;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Weekday Helpers
@@ -16,10 +25,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getDay(new Date(2012, 1, 29))
  * //=> 3
  */
-function getDay (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var day = date.getDay()
-  return day
+function getDay(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var day = date.getDay();
+  return day;
 }
 
 /**
@@ -37,4 +46,4 @@ function getDay (dirtyDate) {
  * var result = getDay(new Date(2012, 1, 29))
  * //=> 3
  */
-export { mod_getDay as getDay };
+exports.getDay = mod_getDay;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInWeeks = undefined;
+
+var _index = require("../difference_in_days/index.js");
+
 var mod_differenceInWeeks = differenceInWeeks;
-import { differenceInDays as index_differenceInDays } from "../difference_in_days/index.js";
+
 
 /**
  * @category Week Helpers
@@ -20,9 +29,9 @@ import { differenceInDays as index_differenceInDays } from "../difference_in_day
  * )
  * //=> 2
  */
-function differenceInWeeks (dirtyDateLeft, dirtyDateRight) {
-  var diff = index_differenceInDays(dirtyDateLeft, dirtyDateRight) / 7
-  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+function differenceInWeeks(dirtyDateLeft, dirtyDateRight) {
+  var diff = (0, _index.differenceInDays)(dirtyDateLeft, dirtyDateRight) / 7;
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff);
 }
 
 /**
@@ -44,4 +53,4 @@ function differenceInWeeks (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 2
  */
-export { mod_differenceInWeeks as differenceInWeeks };
+exports.differenceInWeeks = mod_differenceInWeeks;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addWeeks = undefined;
+
+var _index = require("../add_days/index.js");
+
 var mod_addWeeks = addWeeks;
-import { addDays as index_addDays } from "../add_days/index.js";
+
 
 /**
  * @category Week Helpers
@@ -17,10 +26,10 @@ import { addDays as index_addDays } from "../add_days/index.js";
  * var result = addWeeks(new Date(2014, 8, 1), 4)
  * //=> Mon Sep 29 2014 00:00:00
  */
-function addWeeks (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  var days = amount * 7
-  return index_addDays(dirtyDate, days);
+function addWeeks(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  var days = amount * 7;
+  return (0, _index.addDays)(dirtyDate, days);
 }
 
 /**
@@ -39,4 +48,4 @@ function addWeeks (dirtyDate, dirtyAmount) {
  * var result = addWeeks(new Date(2014, 8, 1), 4)
  * //=> Mon Sep 29 2014 00:00:00
  */
-export { mod_addWeeks as addWeeks };
+exports.addWeeks = mod_addWeeks;

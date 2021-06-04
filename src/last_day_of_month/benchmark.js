@@ -1,11 +1,13 @@
-import { lastDayOfMonth as _lastDayOfMonth } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('lastDayOfMonth', function () {
   benchmark('date-fns', function () {
-    return _lastDayOfMonth(this.date);
-  })
+    return (0, _.lastDayOfMonth)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

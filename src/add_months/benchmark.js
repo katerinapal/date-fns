@@ -1,17 +1,24 @@
-import { addMonths as _addMonths } from "./";
-import ext_moment_moment from "moment";
+"use strict";
+
+var _ = require("./");
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 suite('addMonths', function () {
   benchmark('date-fns', function () {
-    return _addMonths(this.date, 4);
-  })
+    return (0, _.addMonths)(this.date, 4);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.add(4, 'months')
-  })
+    return this.moment.add(4, 'months');
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = ext_moment_moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = (0, _moment2.default)();
   }
-})
+});

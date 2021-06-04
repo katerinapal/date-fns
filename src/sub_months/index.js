@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.subMonths = undefined;
+
+var _index = require("../add_months/index.js");
+
 var mod_subMonths = subMonths;
-import { addMonths as index_addMonths } from "../add_months/index.js";
+
 
 /**
  * @category Month Helpers
@@ -17,9 +26,9 @@ import { addMonths as index_addMonths } from "../add_months/index.js";
  * var result = subMonths(new Date(2015, 1, 1), 5)
  * //=> Mon Sep 01 2014 00:00:00
  */
-function subMonths (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addMonths(dirtyDate, -amount);
+function subMonths(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addMonths)(dirtyDate, -amount);
 }
 
 /**
@@ -38,4 +47,4 @@ function subMonths (dirtyDate, dirtyAmount) {
  * var result = subMonths(new Date(2015, 1, 1), 5)
  * //=> Mon Sep 01 2014 00:00:00
  */
-export { mod_subMonths as subMonths };
+exports.subMonths = mod_subMonths;

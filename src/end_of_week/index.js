@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.endOfWeek = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_endOfWeek = endOfWeek;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Week Helpers
@@ -24,16 +33,16 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = endOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})
  * //=> Sun Sep 07 2014 23:59:59.999
  */
-function endOfWeek (dirtyDate, dirtyOptions) {
-  var weekStartsOn = dirtyOptions ? (Number(dirtyOptions.weekStartsOn) || 0) : 0
+function endOfWeek(dirtyDate, dirtyOptions) {
+  var weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
 
-  var date = index_parse(dirtyDate)
-  var day = date.getDay()
-  var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn)
+  var date = (0, _index.parse)(dirtyDate);
+  var day = date.getDay();
+  var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
 
-  date.setDate(date.getDate() + diff)
-  date.setHours(23, 59, 59, 999)
-  return date
+  date.setDate(date.getDate() + diff);
+  date.setHours(23, 59, 59, 999);
+  return date;
 }
 
 /**
@@ -59,4 +68,4 @@ function endOfWeek (dirtyDate, dirtyOptions) {
  * var result = endOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})
  * //=> Sun Sep 07 2014 23:59:59.999
  */
-export { mod_endOfWeek as endOfWeek };
+exports.endOfWeek = mod_endOfWeek;

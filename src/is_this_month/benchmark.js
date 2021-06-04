@@ -1,11 +1,13 @@
-import { isThisMonth as _isThisMonth } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isThisMonth', function () {
   benchmark('date-fns', function () {
-    return _isThisMonth(this.date);
-  })
+    return (0, _.isThisMonth)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getDaysInMonth = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getDaysInMonth = getDaysInMonth;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Month Helpers
@@ -16,14 +25,14 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getDaysInMonth(new Date(2000, 1))
  * //=> 29
  */
-function getDaysInMonth (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var year = date.getFullYear()
-  var monthIndex = date.getMonth()
-  var lastDayOfMonth = new Date(0)
-  lastDayOfMonth.setFullYear(year, monthIndex + 1, 0)
-  lastDayOfMonth.setHours(0, 0, 0, 0)
-  return lastDayOfMonth.getDate()
+function getDaysInMonth(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var year = date.getFullYear();
+  var monthIndex = date.getMonth();
+  var lastDayOfMonth = new Date(0);
+  lastDayOfMonth.setFullYear(year, monthIndex + 1, 0);
+  lastDayOfMonth.setHours(0, 0, 0, 0);
+  return lastDayOfMonth.getDate();
 }
 
 /**
@@ -41,4 +50,4 @@ function getDaysInMonth (dirtyDate) {
  * var result = getDaysInMonth(new Date(2000, 1))
  * //=> 29
  */
-export { mod_getDaysInMonth as getDaysInMonth };
+exports.getDaysInMonth = mod_getDaysInMonth;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isToday = undefined;
+
+var _index = require("../start_of_day/index.js");
+
 var mod_isToday = isToday;
-import { startOfDay as index_startOfDay } from "../start_of_day/index.js";
+
 
 /**
  * @category Day Helpers
@@ -16,8 +25,8 @@ import { startOfDay as index_startOfDay } from "../start_of_day/index.js";
  * var result = isToday(new Date(2014, 9, 6, 14, 0))
  * //=> true
  */
-function isToday (dirtyDate) {
-  return index_startOfDay(dirtyDate).getTime() === index_startOfDay(new Date()).getTime();
+function isToday(dirtyDate) {
+  return (0, _index.startOfDay)(dirtyDate).getTime() === (0, _index.startOfDay)(new Date()).getTime();
 }
 
 /**
@@ -35,4 +44,4 @@ function isToday (dirtyDate) {
  * var result = isToday(new Date(2014, 9, 6, 14, 0))
  * //=> true
  */
-export { mod_isToday as isToday };
+exports.isToday = mod_isToday;
