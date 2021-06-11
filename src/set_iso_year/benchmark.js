@@ -1,17 +1,24 @@
-import { setISOYear as _setISOYear } from "./";
-import ext_moment_moment from "moment";
+"use strict";
+
+var _ = require("./");
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 suite('setISOYear', function () {
   benchmark('date-fns', function () {
-    return _setISOYear(this.date, 2008);
-  })
+    return (0, _.setISOYear)(this.date, 2008);
+  });
 
   benchmark('Moment.js', function () {
-    return this.moment.isoWeekYear(2008)
-  })
+    return this.moment.isoWeekYear(2008);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
-    this.moment = ext_moment_moment()
+  setup: function setup() {
+    this.date = new Date();
+    this.moment = (0, _moment2.default)();
   }
-})
+});

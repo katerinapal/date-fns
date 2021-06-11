@@ -1,6 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInCalendarQuarters = undefined;
+
+var _index = require("../get_quarter/index.js");
+
+var _index2 = require("../parse/index.js");
+
 var mod_differenceInCalendarQuarters = differenceInCalendarQuarters;
-import { getQuarter as index_getQuarter } from "../get_quarter/index.js";
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Quarter Helpers
@@ -21,14 +31,14 @@ import { parse as index_parse } from "../parse/index.js";
  * )
  * //=> 3
  */
-function differenceInCalendarQuarters (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = index_parse(dirtyDateLeft)
-  var dateRight = index_parse(dirtyDateRight)
+function differenceInCalendarQuarters(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = (0, _index2.parse)(dirtyDateLeft);
+  var dateRight = (0, _index2.parse)(dirtyDateRight);
 
-  var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear()
-  var quarterDiff = index_getQuarter(dateLeft) - index_getQuarter(dateRight)
+  var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
+  var quarterDiff = (0, _index.getQuarter)(dateLeft) - (0, _index.getQuarter)(dateRight);
 
-  return yearDiff * 4 + quarterDiff
+  return yearDiff * 4 + quarterDiff;
 }
 
 /**
@@ -50,4 +60,4 @@ function differenceInCalendarQuarters (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 3
  */
-export { mod_differenceInCalendarQuarters as differenceInCalendarQuarters };
+exports.differenceInCalendarQuarters = mod_differenceInCalendarQuarters;

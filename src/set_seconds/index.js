@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setSeconds = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_setSeconds = setSeconds;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Second Helpers
@@ -17,11 +26,11 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = setSeconds(new Date(2014, 8, 1, 11, 30, 40), 45)
  * //=> Mon Sep 01 2014 11:30:45
  */
-function setSeconds (dirtyDate, dirtySeconds) {
-  var date = index_parse(dirtyDate)
-  var seconds = Number(dirtySeconds)
-  date.setSeconds(seconds)
-  return date
+function setSeconds(dirtyDate, dirtySeconds) {
+  var date = (0, _index.parse)(dirtyDate);
+  var seconds = Number(dirtySeconds);
+  date.setSeconds(seconds);
+  return date;
 }
 
 /**
@@ -40,4 +49,4 @@ function setSeconds (dirtyDate, dirtySeconds) {
  * var result = setSeconds(new Date(2014, 8, 1, 11, 30, 40), 45)
  * //=> Mon Sep 01 2014 11:30:45
  */
-export { mod_setSeconds as setSeconds };
+exports.setSeconds = mod_setSeconds;

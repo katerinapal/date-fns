@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.distanceInWordsToNow = undefined;
+
+var _index = require("../distance_in_words/index.js");
+
 var mod_distanceInWordsToNow = distanceInWordsToNow;
-import { distanceInWords as index_distanceInWords } from "../distance_in_words/index.js";
+
 
 /**
  * @category Common Helpers
@@ -79,8 +88,8 @@ import { distanceInWords as index_distanceInWords } from "../distance_in_words/i
  * )
  * //=> 'pli ol 1 jaro'
  */
-function distanceInWordsToNow (dirtyDate, dirtyOptions) {
-  return index_distanceInWords(Date.now(), dirtyDate, dirtyOptions);
+function distanceInWordsToNow(dirtyDate, dirtyOptions) {
+  return (0, _index.distanceInWords)(Date.now(), dirtyDate, dirtyOptions);
 }
 
 /**
@@ -161,4 +170,4 @@ function distanceInWordsToNow (dirtyDate, dirtyOptions) {
  * )
  * //=> 'pli ol 1 jaro'
  */
-export { mod_distanceInWordsToNow as distanceInWordsToNow };
+exports.distanceInWordsToNow = mod_distanceInWordsToNow;

@@ -1,7 +1,16 @@
-var mod_differenceInMinutes = differenceInMinutes;
-import { differenceInMilliseconds as index_differenceInMilliseconds } from "../difference_in_milliseconds/index.js";
+"use strict";
 
-var MILLISECONDS_IN_MINUTE = 60000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInMinutes = undefined;
+
+var _index = require("../difference_in_milliseconds/index.js");
+
+var mod_differenceInMinutes = differenceInMinutes;
+
+
+var MILLISECONDS_IN_MINUTE = 60000;
 
 /**
  * @category Minute Helpers
@@ -22,9 +31,9 @@ var MILLISECONDS_IN_MINUTE = 60000
  * )
  * //=> 12
  */
-function differenceInMinutes (dirtyDateLeft, dirtyDateRight) {
-  var diff = index_differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_MINUTE
-  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+function differenceInMinutes(dirtyDateLeft, dirtyDateRight) {
+  var diff = (0, _index.differenceInMilliseconds)(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_MINUTE;
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff);
 }
 
 /**
@@ -46,4 +55,4 @@ function differenceInMinutes (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 12
  */
-export { mod_differenceInMinutes as differenceInMinutes };
+exports.differenceInMinutes = mod_differenceInMinutes;

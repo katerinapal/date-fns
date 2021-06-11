@@ -1,19 +1,26 @@
-import ext_assert from "power-assert";
-import { getYear as _getYear } from "./";
+"use strict";
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+var _ = require("./");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('getYear', function () {
   it('returns the year of the given date', function () {
-    var result = _getYear(new Date(2014, 6 /* Jul */, 2))
-    ext_assert(result === 2014)
-  })
+    var result = (0, _.getYear)(new Date(2014, 6 /* Jul */, 2));
+    (0, _powerAssert2.default)(result === 2014);
+  });
 
   it('accepts a string', function () {
-    var result = _getYear(new Date(700, 6 /* Jul */, 2).toISOString())
-    ext_assert(result === 700)
-  })
+    var result = (0, _.getYear)(new Date(700, 6 /* Jul */, 2).toISOString());
+    (0, _powerAssert2.default)(result === 700);
+  });
 
   it('accepts a timestamp', function () {
-    var result = _getYear(new Date(20000, 3 /* Apr */, 2).getTime())
-    ext_assert(result === 20000)
-  })
-})
+    var result = (0, _.getYear)(new Date(20000, 3 /* Apr */, 2).getTime());
+    (0, _powerAssert2.default)(result === 20000);
+  });
+});

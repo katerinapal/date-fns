@@ -1,11 +1,13 @@
-import { lastDayOfQuarter as _lastDayOfQuarter } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('lastDayOfQuarter', function () {
   benchmark('date-fns', function () {
-    return _lastDayOfQuarter(this.date);
-  })
+    return (0, _.lastDayOfQuarter)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

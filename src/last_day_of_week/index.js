@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.lastDayOfWeek = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_lastDayOfWeek = lastDayOfWeek;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Week Helpers
@@ -24,16 +33,16 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = lastDayOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})
  * //=> Sun Sep 07 2014 00:00:00
  */
-function lastDayOfWeek (dirtyDate, dirtyOptions) {
-  var weekStartsOn = dirtyOptions ? (Number(dirtyOptions.weekStartsOn) || 0) : 0
+function lastDayOfWeek(dirtyDate, dirtyOptions) {
+  var weekStartsOn = dirtyOptions ? Number(dirtyOptions.weekStartsOn) || 0 : 0;
 
-  var date = index_parse(dirtyDate)
-  var day = date.getDay()
-  var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn)
+  var date = (0, _index.parse)(dirtyDate);
+  var day = date.getDay();
+  var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
 
-  date.setHours(0, 0, 0, 0)
-  date.setDate(date.getDate() + diff)
-  return date
+  date.setHours(0, 0, 0, 0);
+  date.setDate(date.getDate() + diff);
+  return date;
 }
 
 /**
@@ -59,4 +68,4 @@ function lastDayOfWeek (dirtyDate, dirtyOptions) {
  * var result = lastDayOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})
  * //=> Sun Sep 07 2014 00:00:00
  */
-export { mod_lastDayOfWeek as lastDayOfWeek };
+exports.lastDayOfWeek = mod_lastDayOfWeek;

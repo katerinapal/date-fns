@@ -1,8 +1,18 @@
-var mod_getISOWeeksInYear = getISOWeeksInYear;
-import { startOfISOYear as index_startOfISOYear } from "../start_of_iso_year/index.js";
-import { addWeeks as index_addWeeks } from "../add_weeks/index.js";
+"use strict";
 
-var MILLISECONDS_IN_WEEK = 604800000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getISOWeeksInYear = undefined;
+
+var _index = require("../start_of_iso_year/index.js");
+
+var _index2 = require("../add_weeks/index.js");
+
+var mod_getISOWeeksInYear = getISOWeeksInYear;
+
+
+var MILLISECONDS_IN_WEEK = 604800000;
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -21,14 +31,14 @@ var MILLISECONDS_IN_WEEK = 604800000
  * var result = getISOWeeksInYear(new Date(2015, 1, 11))
  * //=> 53
  */
-function getISOWeeksInYear (dirtyDate) {
-  var thisYear = index_startOfISOYear(dirtyDate)
-  var nextYear = index_startOfISOYear(index_addWeeks(thisYear, 60))
-  var diff = nextYear.valueOf() - thisYear.valueOf()
+function getISOWeeksInYear(dirtyDate) {
+  var thisYear = (0, _index.startOfISOYear)(dirtyDate);
+  var nextYear = (0, _index.startOfISOYear)((0, _index2.addWeeks)(thisYear, 60));
+  var diff = nextYear.valueOf() - thisYear.valueOf();
   // Round the number of weeks to the nearest integer
   // because the number of milliseconds in a week is not constant
   // (e.g. it's different in the week of the daylight saving time clock shift)
-  return Math.round(diff / MILLISECONDS_IN_WEEK)
+  return Math.round(diff / MILLISECONDS_IN_WEEK);
 }
 
 /**
@@ -48,4 +58,4 @@ function getISOWeeksInYear (dirtyDate) {
  * var result = getISOWeeksInYear(new Date(2015, 1, 11))
  * //=> 53
  */
-export { mod_getISOWeeksInYear as getISOWeeksInYear };
+exports.getISOWeeksInYear = mod_getISOWeeksInYear;

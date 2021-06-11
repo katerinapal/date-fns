@@ -1,8 +1,17 @@
-var mod_differenceInCalendarWeeks = differenceInCalendarWeeks;
-import { startOfWeek as index_startOfWeek } from "../start_of_week/index.js";
+"use strict";
 
-var MILLISECONDS_IN_MINUTE = 60000
-var MILLISECONDS_IN_WEEK = 604800000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInCalendarWeeks = undefined;
+
+var _index = require("../start_of_week/index.js");
+
+var mod_differenceInCalendarWeeks = differenceInCalendarWeeks;
+
+
+var MILLISECONDS_IN_MINUTE = 60000;
+var MILLISECONDS_IN_WEEK = 604800000;
 
 /**
  * @category Week Helpers
@@ -35,19 +44,17 @@ var MILLISECONDS_IN_WEEK = 604800000
  * )
  * //=> 2
  */
-function differenceInCalendarWeeks (dirtyDateLeft, dirtyDateRight, dirtyOptions) {
-  var startOfWeekLeft = index_startOfWeek(dirtyDateLeft, dirtyOptions)
-  var startOfWeekRight = index_startOfWeek(dirtyDateRight, dirtyOptions)
+function differenceInCalendarWeeks(dirtyDateLeft, dirtyDateRight, dirtyOptions) {
+  var startOfWeekLeft = (0, _index.startOfWeek)(dirtyDateLeft, dirtyOptions);
+  var startOfWeekRight = (0, _index.startOfWeek)(dirtyDateRight, dirtyOptions);
 
-  var timestampLeft = startOfWeekLeft.getTime() -
-    startOfWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
-  var timestampRight = startOfWeekRight.getTime() -
-    startOfWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+  var timestampLeft = startOfWeekLeft.getTime() - startOfWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+  var timestampRight = startOfWeekRight.getTime() - startOfWeekRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
 
   // Round the number of days to the nearest integer
   // because the number of milliseconds in a week is not constant
   // (e.g. it's different in the week of the daylight saving time clock shift)
-  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK)
+  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK);
 }
 
 /**
@@ -81,4 +88,4 @@ function differenceInCalendarWeeks (dirtyDateLeft, dirtyDateRight, dirtyOptions)
  * )
  * //=> 2
  */
-export { mod_differenceInCalendarWeeks as differenceInCalendarWeeks };
+exports.differenceInCalendarWeeks = mod_differenceInCalendarWeeks;

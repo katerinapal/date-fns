@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isSameYear = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_isSameYear = isSameYear;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Year Helpers
@@ -20,10 +29,10 @@ import { parse as index_parse } from "../parse/index.js";
  * )
  * //=> true
  */
-function isSameYear (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = index_parse(dirtyDateLeft)
-  var dateRight = index_parse(dirtyDateRight)
-  return dateLeft.getFullYear() === dateRight.getFullYear()
+function isSameYear(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = (0, _index.parse)(dirtyDateLeft);
+  var dateRight = (0, _index.parse)(dirtyDateRight);
+  return dateLeft.getFullYear() === dateRight.getFullYear();
 }
 
 /**
@@ -45,4 +54,4 @@ function isSameYear (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> true
  */
-export { mod_isSameYear as isSameYear };
+exports.isSameYear = mod_isSameYear;

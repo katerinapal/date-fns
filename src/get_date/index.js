@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getDate = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getDate = getDate;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Day Helpers
@@ -16,10 +25,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getDate(new Date(2012, 1, 29))
  * //=> 29
  */
-function getDate (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var dayOfMonth = date.getDate()
-  return dayOfMonth
+function getDate(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var dayOfMonth = date.getDate();
+  return dayOfMonth;
 }
 
 /**
@@ -37,4 +46,4 @@ function getDate (dirtyDate) {
  * var result = getDate(new Date(2012, 1, 29))
  * //=> 29
  */
-export { mod_getDate as getDate };
+exports.getDate = mod_getDate;

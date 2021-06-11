@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInQuarters = undefined;
+
+var _index = require("../difference_in_months/index.js");
+
 var mod_differenceInQuarters = differenceInQuarters;
-import { differenceInMonths as index_differenceInMonths } from "../difference_in_months/index.js";
+
 
 /**
  * @category Quarter Helpers
@@ -20,9 +29,9 @@ import { differenceInMonths as index_differenceInMonths } from "../difference_in
  * )
  * //=> 2
  */
-function differenceInQuarters (dirtyDateLeft, dirtyDateRight) {
-  var diff = index_differenceInMonths(dirtyDateLeft, dirtyDateRight) / 3
-  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+function differenceInQuarters(dirtyDateLeft, dirtyDateRight) {
+  var diff = (0, _index.differenceInMonths)(dirtyDateLeft, dirtyDateRight) / 3;
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff);
 }
 
 /**
@@ -44,4 +53,4 @@ function differenceInQuarters (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 2
  */
-export { mod_differenceInQuarters as differenceInQuarters };
+exports.differenceInQuarters = mod_differenceInQuarters;

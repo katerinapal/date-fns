@@ -1,7 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInMonths = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../difference_in_calendar_months/index.js");
+
+var _index3 = require("../compare_asc/index.js");
+
 var mod_differenceInMonths = differenceInMonths;
-import { parse as index_parse } from "../parse/index.js";
-import { differenceInCalendarMonths as index_differenceInCalendarMonths } from "../difference_in_calendar_months/index.js";
-import { compareAsc as index_compareAsc } from "../compare_asc/index.js";
+
 
 /**
  * @category Month Helpers
@@ -22,18 +33,18 @@ import { compareAsc as index_compareAsc } from "../compare_asc/index.js";
  * )
  * //=> 7
  */
-function differenceInMonths (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = index_parse(dirtyDateLeft)
-  var dateRight = index_parse(dirtyDateRight)
+function differenceInMonths(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = (0, _index.parse)(dirtyDateLeft);
+  var dateRight = (0, _index.parse)(dirtyDateRight);
 
-  var sign = index_compareAsc(dateLeft, dateRight)
-  var difference = Math.abs(index_differenceInCalendarMonths(dateLeft, dateRight))
-  dateLeft.setMonth(dateLeft.getMonth() - sign * difference)
+  var sign = (0, _index3.compareAsc)(dateLeft, dateRight);
+  var difference = Math.abs((0, _index2.differenceInCalendarMonths)(dateLeft, dateRight));
+  dateLeft.setMonth(dateLeft.getMonth() - sign * difference);
 
   // Math.abs(diff in full months - diff in calendar months) === 1 if last calendar month is not full
   // If so, result must be decreased by 1 in absolute value
-  var isLastMonthNotFull = index_compareAsc(dateLeft, dateRight) === -sign
-  return sign * (difference - isLastMonthNotFull)
+  var isLastMonthNotFull = (0, _index3.compareAsc)(dateLeft, dateRight) === -sign;
+  return sign * (difference - isLastMonthNotFull);
 }
 
 /**
@@ -55,4 +66,4 @@ function differenceInMonths (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 7
  */
-export { mod_differenceInMonths as differenceInMonths };
+exports.differenceInMonths = mod_differenceInMonths;

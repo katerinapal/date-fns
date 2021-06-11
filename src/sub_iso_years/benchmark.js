@@ -1,11 +1,13 @@
-import { subISOYears as _subISOYears } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('subISOYears', function () {
   benchmark('date-fns', function () {
-    return _subISOYears(this.date, 7);
-  })
+    return (0, _.subISOYears)(this.date, 7);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

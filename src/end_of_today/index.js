@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.endOfToday = undefined;
+
+var _index = require("../end_of_day/index.js");
+
 var mod_endOfToday = endOfToday;
-import { endOfDay as index_endOfDay } from "../end_of_day/index.js";
+
 
 /**
  * @category Day Helpers
@@ -15,8 +24,8 @@ import { endOfDay as index_endOfDay } from "../end_of_day/index.js";
  * var result = endOfToday()
  * //=> Mon Oct 6 2014 23:59:59.999
  */
-function endOfToday () {
-  return index_endOfDay(new Date());
+function endOfToday() {
+  return (0, _index.endOfDay)(new Date());
 }
 
 /**
@@ -33,4 +42,4 @@ function endOfToday () {
  * var result = endOfToday()
  * //=> Mon Oct 6 2014 23:59:59.999
  */
-export { mod_endOfToday as endOfToday };
+exports.endOfToday = mod_endOfToday;

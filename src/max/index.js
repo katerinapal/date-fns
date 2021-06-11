@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.max = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_max = max;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Common Helpers
@@ -21,13 +30,13 @@ import { parse as index_parse } from "../parse/index.js";
  * )
  * //=> Sun Jul 02 1995 00:00:00
  */
-function max () {
-  var dirtyDates = Array.prototype.slice.call(arguments)
+function max() {
+  var dirtyDates = Array.prototype.slice.call(arguments);
   var dates = dirtyDates.map(function (dirtyDate) {
-    return index_parse(dirtyDate);
-  })
-  var latestTimestamp = Math.max.apply(null, dates)
-  return new Date(latestTimestamp)
+    return (0, _index.parse)(dirtyDate);
+  });
+  var latestTimestamp = Math.max.apply(null, dates);
+  return new Date(latestTimestamp);
 }
 
 /**
@@ -50,4 +59,4 @@ function max () {
  * )
  * //=> Sun Jul 02 1995 00:00:00
  */
-export { mod_max as max };
+exports.max = mod_max;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.subMilliseconds = undefined;
+
+var _index = require("../add_milliseconds/index.js");
+
 var mod_subMilliseconds = subMilliseconds;
-import { addMilliseconds as index_addMilliseconds } from "../add_milliseconds/index.js";
+
 
 /**
  * @category Millisecond Helpers
@@ -17,9 +26,9 @@ import { addMilliseconds as index_addMilliseconds } from "../add_milliseconds/in
  * var result = subMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
  * //=> Thu Jul 10 2014 12:45:29.250
  */
-function subMilliseconds (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addMilliseconds(dirtyDate, -amount);
+function subMilliseconds(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addMilliseconds)(dirtyDate, -amount);
 }
 
 /**
@@ -38,4 +47,4 @@ function subMilliseconds (dirtyDate, dirtyAmount) {
  * var result = subMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
  * //=> Thu Jul 10 2014 12:45:29.250
  */
-export { mod_subMilliseconds as subMilliseconds };
+exports.subMilliseconds = mod_subMilliseconds;

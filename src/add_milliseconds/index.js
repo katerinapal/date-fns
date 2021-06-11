@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addMilliseconds = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_addMilliseconds = addMilliseconds;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Millisecond Helpers
@@ -17,10 +26,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = addMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
  * //=> Thu Jul 10 2014 12:45:30.750
  */
-function addMilliseconds (dirtyDate, dirtyAmount) {
-  var timestamp = index_parse(dirtyDate).getTime()
-  var amount = Number(dirtyAmount)
-  return new Date(timestamp + amount)
+function addMilliseconds(dirtyDate, dirtyAmount) {
+  var timestamp = (0, _index.parse)(dirtyDate).getTime();
+  var amount = Number(dirtyAmount);
+  return new Date(timestamp + amount);
 }
 
 /**
@@ -39,4 +48,4 @@ function addMilliseconds (dirtyDate, dirtyAmount) {
  * var result = addMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
  * //=> Thu Jul 10 2014 12:45:30.750
  */
-export { mod_addMilliseconds as addMilliseconds };
+exports.addMilliseconds = mod_addMilliseconds;

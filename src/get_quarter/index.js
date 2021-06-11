@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getQuarter = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getQuarter = getQuarter;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Quarter Helpers
@@ -16,10 +25,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getQuarter(new Date(2014, 6, 2))
  * //=> 3
  */
-function getQuarter (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var quarter = Math.floor(date.getMonth() / 3) + 1
-  return quarter
+function getQuarter(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var quarter = Math.floor(date.getMonth() / 3) + 1;
+  return quarter;
 }
 
 /**
@@ -37,4 +46,4 @@ function getQuarter (dirtyDate) {
  * var result = getQuarter(new Date(2014, 6, 2))
  * //=> 3
  */
-export { mod_getQuarter as getQuarter };
+exports.getQuarter = mod_getQuarter;

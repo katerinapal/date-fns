@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isSameSecond = undefined;
+
+var _index = require("../start_of_second/index.js");
+
 var mod_isSameSecond = isSameSecond;
-import { startOfSecond as index_startOfSecond } from "../start_of_second/index.js";
+
 
 /**
  * @category Second Helpers
@@ -21,11 +30,11 @@ import { startOfSecond as index_startOfSecond } from "../start_of_second/index.j
  * )
  * //=> true
  */
-function isSameSecond (dirtyDateLeft, dirtyDateRight) {
-  var dateLeftStartOfSecond = index_startOfSecond(dirtyDateLeft)
-  var dateRightStartOfSecond = index_startOfSecond(dirtyDateRight)
+function isSameSecond(dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfSecond = (0, _index.startOfSecond)(dirtyDateLeft);
+  var dateRightStartOfSecond = (0, _index.startOfSecond)(dirtyDateRight);
 
-  return dateLeftStartOfSecond.getTime() === dateRightStartOfSecond.getTime()
+  return dateLeftStartOfSecond.getTime() === dateRightStartOfSecond.getTime();
 }
 
 /**
@@ -48,4 +57,4 @@ function isSameSecond (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> true
  */
-export { mod_isSameSecond as isSameSecond };
+exports.isSameSecond = mod_isSameSecond;

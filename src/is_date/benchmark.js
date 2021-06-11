@@ -1,16 +1,23 @@
-import { isDate as _isDate } from "./";
-import ext_moment_moment from "moment";
+"use strict";
+
+var _ = require("./");
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 suite('isDate', function () {
   benchmark('date-fns', function () {
-    return _isDate(this.string);
-  })
+    return (0, _.isDate)(this.string);
+  });
 
   benchmark('Moment.js', function () {
-    return ext_moment_moment.isDate(this.string);
-  })
+    return _moment2.default.isDate(this.string);
+  });
 }, {
-  setup: function () {
-    this.string = '123'
+  setup: function setup() {
+    this.string = '123';
   }
-})
+});

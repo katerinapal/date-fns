@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setDate = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_setDate = setDate;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Day Helpers
@@ -17,11 +26,11 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = setDate(new Date(2014, 8, 1), 30)
  * //=> Tue Sep 30 2014 00:00:00
  */
-function setDate (dirtyDate, dirtyDayOfMonth) {
-  var date = index_parse(dirtyDate)
-  var dayOfMonth = Number(dirtyDayOfMonth)
-  date.setDate(dayOfMonth)
-  return date
+function setDate(dirtyDate, dirtyDayOfMonth) {
+  var date = (0, _index.parse)(dirtyDate);
+  var dayOfMonth = Number(dirtyDayOfMonth);
+  date.setDate(dayOfMonth);
+  return date;
 }
 
 /**
@@ -40,4 +49,4 @@ function setDate (dirtyDate, dirtyDayOfMonth) {
  * var result = setDate(new Date(2014, 8, 1), 30)
  * //=> Tue Sep 30 2014 00:00:00
  */
-export { mod_setDate as setDate };
+exports.setDate = mod_setDate;

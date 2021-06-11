@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.lastDayOfQuarter = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_lastDayOfQuarter = lastDayOfQuarter;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Quarter Helpers
@@ -17,13 +26,13 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = lastDayOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 00:00:00
  */
-function lastDayOfQuarter (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var currentMonth = date.getMonth()
-  var month = currentMonth - currentMonth % 3 + 3
-  date.setMonth(month, 0)
-  date.setHours(0, 0, 0, 0)
-  return date
+function lastDayOfQuarter(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var currentMonth = date.getMonth();
+  var month = currentMonth - currentMonth % 3 + 3;
+  date.setMonth(month, 0);
+  date.setHours(0, 0, 0, 0);
+  return date;
 }
 
 /**
@@ -42,4 +51,4 @@ function lastDayOfQuarter (dirtyDate) {
  * var result = lastDayOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 00:00:00
  */
-export { mod_lastDayOfQuarter as lastDayOfQuarter };
+exports.lastDayOfQuarter = mod_lastDayOfQuarter;

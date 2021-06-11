@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isThisWeek = undefined;
+
+var _index = require("../is_same_week/index.js");
+
 var mod_isThisWeek = isThisWeek;
-import { isSameWeek as index_isSameWeek } from "../is_same_week/index.js";
+
 
 /**
  * @category Week Helpers
@@ -24,8 +33,8 @@ import { isSameWeek as index_isSameWeek } from "../is_same_week/index.js";
  * var result = isThisWeek(new Date(2014, 8, 21), {weekStartsOn: 1})
  * //=> false
  */
-function isThisWeek (dirtyDate, dirtyOptions) {
-  return index_isSameWeek(new Date(), dirtyDate, dirtyOptions);
+function isThisWeek(dirtyDate, dirtyOptions) {
+  return (0, _index.isSameWeek)(new Date(), dirtyDate, dirtyOptions);
 }
 
 /**
@@ -51,4 +60,4 @@ function isThisWeek (dirtyDate, dirtyOptions) {
  * var result = isThisWeek(new Date(2014, 8, 21), {weekStartsOn: 1})
  * //=> false
  */
-export { mod_isThisWeek as isThisWeek };
+exports.isThisWeek = mod_isThisWeek;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getYear = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getYear = getYear;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Year Helpers
@@ -16,10 +25,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getYear(new Date(2014, 6, 2))
  * //=> 2014
  */
-function getYear (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var year = date.getFullYear()
-  return year
+function getYear(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var year = date.getFullYear();
+  return year;
 }
 
 /**
@@ -37,4 +46,4 @@ function getYear (dirtyDate) {
  * var result = getYear(new Date(2014, 6, 2))
  * //=> 2014
  */
-export { mod_getYear as getYear };
+exports.getYear = mod_getYear;

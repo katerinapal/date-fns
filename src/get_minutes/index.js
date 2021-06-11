@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getMinutes = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getMinutes = getMinutes;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Minute Helpers
@@ -16,10 +25,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getMinutes(new Date(2012, 1, 29, 11, 45, 5))
  * //=> 45
  */
-function getMinutes (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var minutes = date.getMinutes()
-  return minutes
+function getMinutes(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var minutes = date.getMinutes();
+  return minutes;
 }
 
 /**
@@ -37,4 +46,4 @@ function getMinutes (dirtyDate) {
  * var result = getMinutes(new Date(2012, 1, 29, 11, 45, 5))
  * //=> 45
  */
-export { mod_getMinutes as getMinutes };
+exports.getMinutes = mod_getMinutes;

@@ -1,6 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setQuarter = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../set_month/index.js");
+
 var mod_setQuarter = setQuarter;
-import { parse as index_parse } from "../parse/index.js";
-import { setMonth as index_setMonth } from "../set_month/index.js";
+
 
 /**
  * @category Quarter Helpers
@@ -18,12 +28,12 @@ import { setMonth as index_setMonth } from "../set_month/index.js";
  * var result = setQuarter(new Date(2014, 6, 2), 2)
  * //=> Wed Apr 02 2014 00:00:00
  */
-function setQuarter (dirtyDate, dirtyQuarter) {
-  var date = index_parse(dirtyDate)
-  var quarter = Number(dirtyQuarter)
-  var oldQuarter = Math.floor(date.getMonth() / 3) + 1
-  var diff = quarter - oldQuarter
-  return index_setMonth(date, date.getMonth() + diff * 3);
+function setQuarter(dirtyDate, dirtyQuarter) {
+  var date = (0, _index.parse)(dirtyDate);
+  var quarter = Number(dirtyQuarter);
+  var oldQuarter = Math.floor(date.getMonth() / 3) + 1;
+  var diff = quarter - oldQuarter;
+  return (0, _index2.setMonth)(date, date.getMonth() + diff * 3);
 }
 
 /**
@@ -42,4 +52,4 @@ function setQuarter (dirtyDate, dirtyQuarter) {
  * var result = setQuarter(new Date(2014, 6, 2), 2)
  * //=> Wed Apr 02 2014 00:00:00
  */
-export { mod_setQuarter as setQuarter };
+exports.setQuarter = mod_setQuarter;

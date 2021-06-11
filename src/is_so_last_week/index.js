@@ -1,6 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isSoLastWeek = undefined;
+
+var _index = require("../is_same_week/index.js");
+
+var _index2 = require("../add_weeks/index.js");
+
 var mod_isSoLastWeek = isSoLastWeek;
-import { isSameWeek as index_isSameWeek } from "../is_same_week/index.js";
-import { addWeeks as index_addWeeks } from "../add_weeks/index.js";
+
 
 /**
  * @category Week Helpers
@@ -21,8 +31,8 @@ import { addWeeks as index_addWeeks } from "../add_weeks/index.js";
  * )
  * //=> true
  */
-function isSoLastWeek (dirtyDate, dirtyOptions) {
-  return index_isSameWeek(new Date(), index_addWeeks(dirtyDate, 1), dirtyOptions);
+function isSoLastWeek(dirtyDate, dirtyOptions) {
+  return (0, _index.isSameWeek)(new Date(), (0, _index2.addWeeks)(dirtyDate, 1), dirtyOptions);
 }
 
 /**
@@ -44,4 +54,4 @@ function isSoLastWeek (dirtyDate, dirtyOptions) {
  * )
  * //=> true
  */
-export { mod_isSoLastWeek as isSoLastWeek };
+exports.isSoLastWeek = mod_isSoLastWeek;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setDayOfYear = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_setDayOfYear = setDayOfYear;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Day Helpers
@@ -17,12 +26,12 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = setDayOfYear(new Date(2014, 6, 2), 2)
  * //=> Thu Jan 02 2014 00:00:00
  */
-function setDayOfYear (dirtyDate, dirtyDayOfYear) {
-  var date = index_parse(dirtyDate)
-  var dayOfYear = Number(dirtyDayOfYear)
-  date.setMonth(0)
-  date.setDate(dayOfYear)
-  return date
+function setDayOfYear(dirtyDate, dirtyDayOfYear) {
+  var date = (0, _index.parse)(dirtyDate);
+  var dayOfYear = Number(dirtyDayOfYear);
+  date.setMonth(0);
+  date.setDate(dayOfYear);
+  return date;
 }
 
 /**
@@ -41,4 +50,4 @@ function setDayOfYear (dirtyDate, dirtyDayOfYear) {
  * var result = setDayOfYear(new Date(2014, 6, 2), 2)
  * //=> Thu Jan 02 2014 00:00:00
  */
-export { mod_setDayOfYear as setDayOfYear };
+exports.setDayOfYear = mod_setDayOfYear;

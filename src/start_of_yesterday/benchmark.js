@@ -1,7 +1,9 @@
-import { startOfYesterday as startOfToday } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('startOfYesterday', function () {
   benchmark('date-fns', function () {
-    return startOfToday();
-  })
-})
+    return (0, _.startOfYesterday)();
+  });
+});

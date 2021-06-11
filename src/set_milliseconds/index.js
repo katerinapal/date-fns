@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setMilliseconds = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_setMilliseconds = setMilliseconds;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Millisecond Helpers
@@ -17,11 +26,11 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = setMilliseconds(new Date(2014, 8, 1, 11, 30, 40, 500), 300)
  * //=> Mon Sep 01 2014 11:30:40.300
  */
-function setMilliseconds (dirtyDate, dirtyMilliseconds) {
-  var date = index_parse(dirtyDate)
-  var milliseconds = Number(dirtyMilliseconds)
-  date.setMilliseconds(milliseconds)
-  return date
+function setMilliseconds(dirtyDate, dirtyMilliseconds) {
+  var date = (0, _index.parse)(dirtyDate);
+  var milliseconds = Number(dirtyMilliseconds);
+  date.setMilliseconds(milliseconds);
+  return date;
 }
 
 /**
@@ -40,4 +49,4 @@ function setMilliseconds (dirtyDate, dirtyMilliseconds) {
  * var result = setMilliseconds(new Date(2014, 8, 1, 11, 30, 40, 500), 300)
  * //=> Mon Sep 01 2014 11:30:40.300
  */
-export { mod_setMilliseconds as setMilliseconds };
+exports.setMilliseconds = mod_setMilliseconds;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isThisYear = undefined;
+
+var _index = require("../is_same_year/index.js");
+
 var mod_isThisYear = isThisYear;
-import { isSameYear as index_isSameYear } from "../is_same_year/index.js";
+
 
 /**
  * @category Year Helpers
@@ -16,8 +25,8 @@ import { isSameYear as index_isSameYear } from "../is_same_year/index.js";
  * var result = isThisYear(new Date(2014, 6, 2))
  * //=> true
  */
-function isThisYear (dirtyDate) {
-  return index_isSameYear(new Date(), dirtyDate);
+function isThisYear(dirtyDate) {
+  return (0, _index.isSameYear)(new Date(), dirtyDate);
 }
 
 /**
@@ -35,4 +44,4 @@ function isThisYear (dirtyDate) {
  * var result = isThisYear(new Date(2014, 6, 2))
  * //=> true
  */
-export { mod_isThisYear as isThisYear };
+exports.isThisYear = mod_isThisYear;

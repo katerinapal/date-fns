@@ -1,11 +1,13 @@
-import { isThisYear as _isThisYear } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isThisYear', function () {
   benchmark('date-fns', function () {
-    return _isThisYear(this.date);
-  })
+    return (0, _.isThisYear)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

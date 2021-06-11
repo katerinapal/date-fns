@@ -1,11 +1,13 @@
-import { lastDayOfWeek as _lastDayOfWeek } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('lastDayOfWeek', function () {
   benchmark('date-fns', function () {
-    return _lastDayOfWeek(this.date);
-  })
+    return (0, _.lastDayOfWeek)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

@@ -1,34 +1,39 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
-function declensionGroup (scheme, count) {
+function declensionGroup(scheme, count) {
   if (count === 1) {
-    return scheme.one
+    return scheme.one;
   }
 
-  var rem100 = count % 100
+  var rem100 = count % 100;
 
   // ends with 11-20
   if (rem100 <= 20 && rem100 > 10) {
-    return scheme.other
+    return scheme.other;
   }
 
-  var rem10 = rem100 % 10
+  var rem10 = rem100 % 10;
 
   // ends with 2, 3, 4
   if (rem10 >= 2 && rem10 <= 4) {
-    return scheme.twoFour
+    return scheme.twoFour;
   }
 
-  return scheme.other
+  return scheme.other;
 }
 
-function declension (scheme, count, time) {
-  time = time || 'regular'
-  var group = declensionGroup(scheme, count)
-  var finalText = group[time] || group
-  return finalText.replace('{{count}}', count)
+function declension(scheme, count, time) {
+  time = time || 'regular';
+  var group = declensionGroup(scheme, count);
+  var finalText = group[time] || group;
+  return finalText.replace('{{count}}', count);
 }
 
-function buildDistanceInWordsLocale () {
+function buildDistanceInWordsLocale() {
   var distanceInWordsLocale = {
     lessThanXSeconds: {
       one: {
@@ -141,26 +146,26 @@ function buildDistanceInWordsLocale () {
       twoFour: 'prawie {{count}} lata',
       other: 'prawie {{count}} lat'
     }
-  }
+  };
 
-  function localize (token, count, options) {
-    options = options || {}
+  function localize(token, count, options) {
+    options = options || {};
 
-    var scheme = distanceInWordsLocale[token]
+    var scheme = distanceInWordsLocale[token];
     if (!options.addSuffix) {
-      return declension(scheme, count)
+      return declension(scheme, count);
     }
 
     if (options.comparison > 0) {
-      return 'za ' + declension(scheme, count, 'future')
+      return 'za ' + declension(scheme, count, 'future');
     } else {
-      return declension(scheme, count, 'past') + ' temu'
+      return declension(scheme, count, 'past') + ' temu';
     }
   }
 
   return {
     localize: localize
-  }
+  };
 }
 
-export { mod_buildDistanceInWordsLocale as buildDistanceInWordsLocale };
+exports.buildDistanceInWordsLocale = mod_buildDistanceInWordsLocale;

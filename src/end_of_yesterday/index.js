@@ -1,3 +1,8 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_endOfYesterday = endOfYesterday;
 /**
  * @category Day Helpers
@@ -13,16 +18,16 @@ var mod_endOfYesterday = endOfYesterday;
  * var result = endOfYesterday()
  * //=> Sun Oct 5 2014 23:59:59.999
  */
-function endOfYesterday () {
-  var now = new Date()
-  var year = now.getFullYear()
-  var month = now.getMonth()
-  var day = now.getDate()
+function endOfYesterday() {
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth();
+  var day = now.getDate();
 
-  var date = new Date(0)
-  date.setFullYear(year, month, day - 1)
-  date.setHours(23, 59, 59, 999)
-  return date
+  var date = new Date(0);
+  date.setFullYear(year, month, day - 1);
+  date.setHours(23, 59, 59, 999);
+  return date;
 }
 
 /**
@@ -39,4 +44,4 @@ function endOfYesterday () {
  * var result = endOfYesterday()
  * //=> Sun Oct 5 2014 23:59:59.999
  */
-export { mod_endOfYesterday as endOfYesterday };
+exports.endOfYesterday = mod_endOfYesterday;

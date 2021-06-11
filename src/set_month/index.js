@@ -1,6 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setMonth = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../get_days_in_month/index.js");
+
 var mod_setMonth = setMonth;
-import { parse as index_parse } from "../parse/index.js";
-import { getDaysInMonth as index_getDaysInMonth } from "../get_days_in_month/index.js";
+
 
 /**
  * @category Month Helpers
@@ -18,20 +28,20 @@ import { getDaysInMonth as index_getDaysInMonth } from "../get_days_in_month/ind
  * var result = setMonth(new Date(2014, 8, 1), 1)
  * //=> Sat Feb 01 2014 00:00:00
  */
-function setMonth (dirtyDate, dirtyMonth) {
-  var date = index_parse(dirtyDate)
-  var month = Number(dirtyMonth)
-  var year = date.getFullYear()
-  var day = date.getDate()
+function setMonth(dirtyDate, dirtyMonth) {
+  var date = (0, _index.parse)(dirtyDate);
+  var month = Number(dirtyMonth);
+  var year = date.getFullYear();
+  var day = date.getDate();
 
-  var dateWithDesiredMonth = new Date(0)
-  dateWithDesiredMonth.setFullYear(year, month, 15)
-  dateWithDesiredMonth.setHours(0, 0, 0, 0)
-  var daysInMonth = index_getDaysInMonth(dateWithDesiredMonth)
+  var dateWithDesiredMonth = new Date(0);
+  dateWithDesiredMonth.setFullYear(year, month, 15);
+  dateWithDesiredMonth.setHours(0, 0, 0, 0);
+  var daysInMonth = (0, _index2.getDaysInMonth)(dateWithDesiredMonth);
   // Set the last day of the new month
   // if the original date was the last day of the longer month
-  date.setMonth(month, Math.min(day, daysInMonth))
-  return date
+  date.setMonth(month, Math.min(day, daysInMonth));
+  return date;
 }
 
 /**
@@ -50,4 +60,4 @@ function setMonth (dirtyDate, dirtyMonth) {
  * var result = setMonth(new Date(2014, 8, 1), 1)
  * //=> Sat Feb 01 2014 00:00:00
  */
-export { mod_setMonth as setMonth };
+exports.setMonth = mod_setMonth;

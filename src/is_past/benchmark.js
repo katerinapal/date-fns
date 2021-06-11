@@ -1,11 +1,13 @@
-import { isPast as _isPast } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isPast', function () {
   benchmark('date-fns', function () {
-    return _isPast(this.date);
-  })
+    return (0, _.isPast)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

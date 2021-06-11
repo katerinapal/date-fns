@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getMonth = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getMonth = getMonth;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Month Helpers
@@ -16,10 +25,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getMonth(new Date(2012, 1, 29))
  * //=> 1
  */
-function getMonth (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var month = date.getMonth()
-  return month
+function getMonth(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var month = date.getMonth();
+  return month;
 }
 
 /**
@@ -37,4 +46,4 @@ function getMonth (dirtyDate) {
  * var result = getMonth(new Date(2012, 1, 29))
  * //=> 1
  */
-export { mod_getMonth as getMonth };
+exports.getMonth = mod_getMonth;
