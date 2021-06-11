@@ -1,39 +1,36 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var isEqual = require('./')
+import ext_assert from "power-assert";
+import { isEqual as _isEqual } from "./";
 
 describe('isEqual', function () {
   it('returns true if the given dates are equal', function () {
-    var result = isEqual(
+    var result = _isEqual(
       new Date(1987, 1 /* Feb */, 11),
       new Date(1987, 1 /* Feb */, 11)
     )
-    assert(result === true)
+    ext_assert(result === true)
   })
 
   it('returns false if the given dates are not equal', function () {
-    var result = isEqual(
+    var result = _isEqual(
       new Date(1989, 6 /* Jul */, 10),
       new Date(1987, 1 /* Feb */, 11)
     )
-    assert(result === false)
+    ext_assert(result === false)
   })
 
   it('accepts a string', function () {
-    var result = isEqual(
+    var result = _isEqual(
       new Date(1987, 1 /* Feb */, 11).toISOString(),
       new Date(1987, 1 /* Feb */, 11).toISOString()
     )
-    assert(result === true)
+    ext_assert(result === true)
   })
 
   it('accepts a timestamp', function () {
-    var result = isEqual(
+    var result = _isEqual(
       new Date(1987, 1 /* Feb */, 11).getTime(),
       new Date(1987, 1 /* Feb */, 11).getTime()
     )
-    assert(result === true)
+    ext_assert(result === true)
   })
 })

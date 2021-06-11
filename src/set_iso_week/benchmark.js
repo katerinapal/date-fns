@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var setISOWeek = require('./')
-var moment = require('moment')
+import { setISOWeek as _setISOWeek } from "./";
+import ext_moment_moment from "moment";
 
 suite('setISOWeek', function () {
   benchmark('date-fns', function () {
-    return setISOWeek(this.date, 10)
+    return _setISOWeek(this.date, 10);
   })
 
   benchmark('Moment.js', function () {
@@ -16,6 +12,6 @@ suite('setISOWeek', function () {
 }, {
   setup: function () {
     this.date = new Date()
-    this.moment = moment()
+    this.moment = ext_moment_moment()
   }
 })

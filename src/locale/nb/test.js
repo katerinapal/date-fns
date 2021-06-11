@@ -1,15 +1,12 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var nbLocale = require('./')
+import ext_assert from "power-assert";
+import { indexjs as nbLocale } from "./";
 
 describe('nb locale', function () {
   it('exports distanceInWords object', function () {
-    assert(typeof nbLocale.distanceInWords === 'object')
+    ext_assert(typeof nbLocale.distanceInWords === 'object')
   })
 
   it('exports format object', function () {
-    assert(typeof nbLocale.format === 'object')
+    ext_assert(typeof nbLocale.format === 'object')
   })
 })

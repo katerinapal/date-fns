@@ -1,4 +1,5 @@
-var parse = require('../parse/index.js')
+var mod_isWeekend = isWeekend;
+import { parse as index_parse } from "../parse/index.js";
 
 /**
  * @category Weekday Helpers
@@ -16,9 +17,24 @@ var parse = require('../parse/index.js')
  * //=> true
  */
 function isWeekend (dirtyDate) {
-  var date = parse(dirtyDate)
+  var date = index_parse(dirtyDate)
   var day = date.getDay()
   return day === 0 || day === 6
 }
 
-module.exports = isWeekend
+/**
+ * @category Weekday Helpers
+ * @summary Does the given date fall on a weekend?
+ *
+ * @description
+ * Does the given date fall on a weekend?
+ *
+ * @param {Date|String|Number} date - the date to check
+ * @returns {Boolean} the date falls on a weekend
+ *
+ * @example
+ * // Does 5 October 2014 fall on a weekend?
+ * var result = isWeekend(new Date(2014, 9, 5))
+ * //=> true
+ */
+export { mod_isWeekend as isWeekend };

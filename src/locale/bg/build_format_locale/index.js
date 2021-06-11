@@ -1,4 +1,5 @@
-var buildFormattingTokensRegExp = require('../../_lib/build_formatting_tokens_reg_exp/index.js')
+var mod_buildFormatLocale = buildFormatLocale;
+import { buildFormattingTokensRegExp as index_buildFormattingTokensRegExp } from "../../_lib/build_formatting_tokens_reg_exp/index.js";
 
 function buildFormatLocale () {
   var months3char = ['яну', 'фев', 'мар', 'апр', 'май', 'юни', 'юли', 'авг', 'сеп', 'окт', 'ное', 'дек']
@@ -67,8 +68,8 @@ function buildFormatLocale () {
 
   return {
     formatters: formatters,
-    formattingTokensRegExp: buildFormattingTokensRegExp(formatters)
-  }
+    formattingTokensRegExp: index_buildFormattingTokensRegExp(formatters)
+  };
 }
 
 function ordinal (number) {
@@ -84,4 +85,4 @@ function ordinal (number) {
   return number + '-и'
 }
 
-module.exports = buildFormatLocale
+export { mod_buildFormatLocale as buildFormatLocale };

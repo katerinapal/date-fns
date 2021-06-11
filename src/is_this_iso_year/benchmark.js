@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var isThisISOYear = require('./')
+import { isThisISOYear as _isThisISOYear } from "./";
 
 suite('isThisISOYear', function () {
   benchmark('date-fns', function () {
-    return isThisISOYear(this.date)
+    return _isThisISOYear(this.date);
   })
 }, {
   setup: function () {

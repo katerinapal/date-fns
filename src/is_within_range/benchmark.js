@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var isWithinRange = require('./')
-var moment = require('moment')
+import { isWithinRange as _isWithinRange } from "./";
+import ext_moment_moment from "moment";
 
 suite('isWithinRange', function () {
   benchmark('date-fns', function () {
-    return isWithinRange(this.dateA, this.dateB, this.dateC)
+    return _isWithinRange(this.dateA, this.dateB, this.dateC);
   })
 
   benchmark('Moment.js', function () {
@@ -16,7 +12,7 @@ suite('isWithinRange', function () {
 }, {
   setup: function () {
     this.dateA = new Date()
-    this.momentA = moment()
+    this.momentA = ext_moment_moment()
     this.dateB = new Date(this.dateA.getTime() - 604800000)
     this.momentB = this.momentA.clone().subtract(7, 'days')
     this.dateC = new Date(this.dateA.getTime() + 604800000)

@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var eachDay = require('./')
+import { eachDay as _eachDay } from "./";
 
 suite('eachDay', function () {
   benchmark('date-fns', function () {
-    return eachDay(this.dateA, this.dateB)
+    return _eachDay(this.dateA, this.dateB);
   })
 }, {
   setup: function () {

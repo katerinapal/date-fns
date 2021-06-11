@@ -1,7 +1,8 @@
-var compareDesc = require('../compare_desc/index.js')
-var parse = require('../parse/index.js')
-var differenceInSeconds = require('../difference_in_seconds/index.js')
-var enLocale = require('../locale/en/index.js')
+var mod_distanceInWordsStrict = distanceInWordsStrict;
+import { compareDesc as index_compareDesc } from "../compare_desc/index.js";
+import { parse as index_parse } from "../parse/index.js";
+import { differenceInSeconds as index_differenceInSeconds } from "../difference_in_seconds/index.js";
+import { indexjs as enLocale } from "../locale/en/index.js";
 
 var MINUTES_IN_DAY = 1440
 var MINUTES_IN_MONTH = 43200
@@ -94,7 +95,7 @@ var MINUTES_IN_YEAR = 525600
 function distanceInWordsStrict (dirtyDateToCompare, dirtyDate, dirtyOptions) {
   var options = dirtyOptions || {}
 
-  var comparison = compareDesc(dirtyDateToCompare, dirtyDate)
+  var comparison = index_compareDesc(dirtyDateToCompare, dirtyDate)
 
   var locale = options.locale
   var localize = enLocale.distanceInWords.localize
@@ -109,16 +110,16 @@ function distanceInWordsStrict (dirtyDateToCompare, dirtyDate, dirtyOptions) {
 
   var dateLeft, dateRight
   if (comparison > 0) {
-    dateLeft = parse(dirtyDateToCompare)
-    dateRight = parse(dirtyDate)
+    dateLeft = index_parse(dirtyDateToCompare)
+    dateRight = index_parse(dirtyDate)
   } else {
-    dateLeft = parse(dirtyDate)
-    dateRight = parse(dirtyDateToCompare)
+    dateLeft = index_parse(dirtyDate)
+    dateRight = index_parse(dirtyDateToCompare)
   }
 
   var unit
   var mathPartial = Math[options.partialMethod ? String(options.partialMethod) : 'floor']
-  var seconds = differenceInSeconds(dateRight, dateLeft)
+  var seconds = index_differenceInSeconds(dateRight, dateLeft)
   var offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset()
   var minutes = mathPartial(seconds / 60) - offset
   var hours, days, months, years
@@ -173,4 +174,88 @@ function distanceInWordsStrict (dirtyDateToCompare, dirtyDate, dirtyOptions) {
   throw new Error('Unknown unit: ' + unit)
 }
 
-module.exports = distanceInWordsStrict
+/**
+ * @category Common Helpers
+ * @summary Return the distance between the given dates in words.
+ *
+ * @description
+ * Return the distance between the given dates in words, using strict units.
+ * This is like `distanceInWords`, but does not use helpers like 'almost', 'over',
+ * 'less than' and the like.
+ *
+ * | Distance between dates | Result              |
+ * |------------------------|---------------------|
+ * | 0 ... 59 secs          | [0..59] seconds     |
+ * | 1 ... 59 mins          | [1..59] minutes     |
+ * | 1 ... 23 hrs           | [1..23] hours       |
+ * | 1 ... 29 days          | [1..29] days        |
+ * | 1 ... 11 months        | [1..11] months      |
+ * | 1 ... N years          | [1..N]  years       |
+ *
+ * @param {Date|String|Number} dateToCompare - the date to compare with
+ * @param {Date|String|Number} date - the other date
+ * @param {Object} [options] - the object with options
+ * @param {Boolean} [options.addSuffix=false] - result indicates if the second date is earlier or later than the first
+ * @param {'s'|'m'|'h'|'d'|'M'|'Y'} [options.unit] - if specified, will force a unit
+ * @param {'floor'|'ceil'|'round'} [options.partialMethod='floor'] - which way to round partial units
+ * @param {Object} [options.locale=enLocale] - the locale object
+ * @returns {String} the distance in words
+ *
+ * @example
+ * // What is the distance between 2 July 2014 and 1 January 2015?
+ * var result = distanceInWordsStrict(
+ *   new Date(2014, 6, 2),
+ *   new Date(2015, 0, 2)
+ * )
+ * //=> '6 months'
+ *
+ * @example
+ * // What is the distance between 1 January 2015 00:00:15
+ * // and 1 January 2015 00:00:00?
+ * var result = distanceInWordsStrict(
+ *   new Date(2015, 0, 1, 0, 0, 15),
+ *   new Date(2015, 0, 1, 0, 0, 0),
+ * )
+ * //=> '15 seconds'
+ *
+ * @example
+ * // What is the distance from 1 January 2016
+ * // to 1 January 2015, with a suffix?
+ * var result = distanceInWordsStrict(
+ *   new Date(2016, 0, 1),
+ *   new Date(2015, 0, 1),
+ *   {addSuffix: true}
+ * )
+ * //=> '1 year ago'
+ *
+ * @example
+ * // What is the distance from 1 January 2016
+ * // to 1 January 2015, in minutes?
+ * var result = distanceInWordsStrict(
+ *   new Date(2016, 0, 1),
+ *   new Date(2015, 0, 1),
+ *   {unit: 'm'}
+ * )
+ * //=> '525600 minutes'
+ *
+ * @example
+ * // What is the distance from 1 January 2016
+ * // to 28 January 2015, in months, rounded up?
+ * var result = distanceInWordsStrict(
+ *   new Date(2015, 0, 28),
+ *   new Date(2015, 0, 1),
+ *   {unit: 'M', partialMethod: 'ceil'}
+ * )
+ * //=> '1 month'
+ *
+ * @example
+ * // What is the distance between 1 August 2016 and 1 January 2015 in Esperanto?
+ * var eoLocale = require('date-fns/locale/eo')
+ * var result = distanceInWordsStrict(
+ *   new Date(2016, 7, 1),
+ *   new Date(2015, 0, 1),
+ *   {locale: eoLocale}
+ * )
+ * //=> '1 jaro'
+ */
+export { mod_distanceInWordsStrict as distanceInWordsStrict };

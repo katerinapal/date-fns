@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var compareAsc = require('./')
+import { compareAsc as _compareAsc } from "./";
 
 suite('compareAsc', function () {
   benchmark('date-fns', function () {
-    return compareAsc(this.dateA, this.dateB)
+    return _compareAsc(this.dateA, this.dateB);
   })
 }, {
   setup: function () {

@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var closestIndexTo = require('./')
+import { closestIndexTo as _closestIndexTo } from "./";
 
 suite('closestIndexTo', function () {
   benchmark('date-fns', function () {
-    return closestIndexTo(this.date, this.array)
+    return _closestIndexTo(this.date, this.array);
   })
 }, {
   setup: function () {

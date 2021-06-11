@@ -1,11 +1,7 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var startOfToday = require('./')
+import { startOfToday as _startOfToday } from "./";
 
 suite('startOfToday', function () {
   benchmark('date-fns', function () {
-    return startOfToday()
+    return _startOfToday();
   })
 })

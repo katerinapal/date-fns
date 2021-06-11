@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var lastDayOfQuarter = require('./')
+import { lastDayOfQuarter as _lastDayOfQuarter } from "./";
 
 suite('lastDayOfQuarter', function () {
   benchmark('date-fns', function () {
-    return lastDayOfQuarter(this.date)
+    return _lastDayOfQuarter(this.date);
   })
 }, {
   setup: function () {

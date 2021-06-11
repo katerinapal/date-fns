@@ -1,11 +1,7 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var endOfTomorrow = require('./')
+import { endOfTomorrow as _endOfTomorrow } from "./";
 
 suite('endOfTomorrow', function () {
   benchmark('date-fns', function () {
-    return endOfTomorrow()
+    return _endOfTomorrow();
   })
 })

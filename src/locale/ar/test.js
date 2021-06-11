@@ -1,15 +1,12 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var arLocale = require('./')
+import ext_assert from "power-assert";
+import { indexjs as arLocale } from "./";
 
 describe('ar locale', function () {
   it('exports distanceInWords object', function () {
-    assert(typeof arLocale.distanceInWords === 'object')
+    ext_assert(typeof arLocale.distanceInWords === 'object')
   })
 
   it('exports format object', function () {
-    assert(typeof arLocale.format === 'object')
+    ext_assert(typeof arLocale.format === 'object')
   })
 })

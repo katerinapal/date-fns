@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var closestTo = require('./')
+import { closestTo as _closestTo } from "./";
 
 suite('closestTo', function () {
   benchmark('date-fns', function () {
-    return closestTo(this.date, this.array)
+    return _closestTo(this.date, this.array);
   })
 }, {
   setup: function () {

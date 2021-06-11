@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var subWeeks = require('./')
-var moment = require('moment')
+import { subWeeks as _subWeeks } from "./";
+import ext_moment_moment from "moment";
 
 suite('subWeeks', function () {
   benchmark('date-fns', function () {
-    return subWeeks(this.date, 8)
+    return _subWeeks(this.date, 8);
   })
 
   benchmark('Moment.js', function () {
@@ -16,6 +12,6 @@ suite('subWeeks', function () {
 }, {
   setup: function () {
     this.date = new Date()
-    this.moment = moment()
+    this.moment = ext_moment_moment()
   }
 })

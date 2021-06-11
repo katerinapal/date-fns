@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var addISOYears = require('./')
+import { addISOYears as _addISOYears } from "./";
 
 suite('addISOYears', function () {
   benchmark('date-fns', function () {
-    return addISOYears(this.date, 7)
+    return _addISOYears(this.date, 7);
   })
 }, {
   setup: function () {

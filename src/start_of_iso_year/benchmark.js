@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var startOfISOYear = require('./')
+import { startOfISOYear as _startOfISOYear } from "./";
 
 suite('startOfISOYear', function () {
   benchmark('date-fns', function () {
-    return startOfISOYear(this.date)
+    return _startOfISOYear(this.date);
   })
 }, {
   setup: function () {

@@ -1,15 +1,12 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var idLocale = require('./')
+import ext_assert from "power-assert";
+import { indexjs as idLocale } from "./";
 
 describe('id locale', function () {
   it('exports distanceInWords object', function () {
-    assert(typeof idLocale.distanceInWords === 'object')
+    ext_assert(typeof idLocale.distanceInWords === 'object')
   })
 
   it('exports format object', function () {
-    assert(typeof idLocale.format === 'object')
+    ext_assert(typeof idLocale.format === 'object')
   })
 })
