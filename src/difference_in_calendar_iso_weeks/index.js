@@ -1,4 +1,5 @@
-var startOfISOWeek = require('../start_of_iso_week/index.js')
+var mod_differenceInCalendarISOWeeks = differenceInCalendarISOWeeks;
+import { startOfISOWeek as index_startOfISOWeek } from "../start_of_iso_week/index.js";
 
 var MILLISECONDS_IN_MINUTE = 60000
 var MILLISECONDS_IN_WEEK = 604800000
@@ -25,8 +26,8 @@ var MILLISECONDS_IN_WEEK = 604800000
  * //=> 3
  */
 function differenceInCalendarISOWeeks (dirtyDateLeft, dirtyDateRight) {
-  var startOfISOWeekLeft = startOfISOWeek(dirtyDateLeft)
-  var startOfISOWeekRight = startOfISOWeek(dirtyDateRight)
+  var startOfISOWeekLeft = index_startOfISOWeek(dirtyDateLeft)
+  var startOfISOWeekRight = index_startOfISOWeek(dirtyDateRight)
 
   var timestampLeft = startOfISOWeekLeft.getTime() -
     startOfISOWeekLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
@@ -39,4 +40,25 @@ function differenceInCalendarISOWeeks (dirtyDateLeft, dirtyDateRight) {
   return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK)
 }
 
-module.exports = differenceInCalendarISOWeeks
+/**
+ * @category ISO Week Helpers
+ * @summary Get the number of calendar ISO weeks between the given dates.
+ *
+ * @description
+ * Get the number of calendar ISO weeks between the given dates.
+ *
+ * ISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date
+ *
+ * @param {Date|String|Number} dateLeft - the later date
+ * @param {Date|String|Number} dateRight - the earlier date
+ * @returns {Number} the number of calendar ISO weeks
+ *
+ * @example
+ * // How many calendar ISO weeks are between 6 July 2014 and 21 July 2014?
+ * var result = differenceInCalendarISOWeeks(
+ *   new Date(2014, 6, 21),
+ *   new Date(2014, 6, 6)
+ * )
+ * //=> 3
+ */
+export { mod_differenceInCalendarISOWeeks as differenceInCalendarISOWeeks };

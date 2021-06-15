@@ -1,9 +1,5 @@
-// @flow
-/* eslint-env mocha */
-/* global sinon */
-
-var assert = require('power-assert')
-var isToday = require('./')
+import ext_assert from "power-assert";
+import { isToday as _isToday } from "./";
 
 describe('isToday', function () {
   beforeEach(function () {
@@ -17,22 +13,22 @@ describe('isToday', function () {
   })
 
   it('returns true if the given date is today', function () {
-    var result = isToday(new Date(2014, 8 /* Sep */, 25))
-    assert(result === true)
+    var result = _isToday(new Date(2014, 8 /* Sep */, 25))
+    ext_assert(result === true)
   })
 
   it('returns false if the given date is not today', function () {
-    var result = isToday(new Date(2014, 8 /* Sep */, 26))
-    assert(result === false)
+    var result = _isToday(new Date(2014, 8 /* Sep */, 26))
+    ext_assert(result === false)
   })
 
   it('accepts a string', function () {
-    var result = isToday(new Date(2014, 8 /* Sep */, 25).toString())
-    assert(result === true)
+    var result = _isToday(new Date(2014, 8 /* Sep */, 25).toString())
+    ext_assert(result === true)
   })
 
   it('accepts a timestamp', function () {
-    var result = isToday(new Date(2014, 8 /* Sep */, 25).getTime())
-    assert(result === true)
+    var result = _isToday(new Date(2014, 8 /* Sep */, 25).getTime())
+    ext_assert(result === true)
   })
 })

@@ -1,231 +1,228 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var buildFormatLocale = require('./')
+import ext_assert from "power-assert";
+import { buildFormatLocale as _buildFormatLocale } from "./";
 
 describe('ru locale > buildFormatLocale', function () {
   it('returns an object', function () {
-    assert(typeof buildFormatLocale() === 'object')
+    ext_assert(typeof _buildFormatLocale() === 'object')
   })
 
   describe('formatters property', function () {
     it('is an object', function () {
-      assert(typeof buildFormatLocale().formatters === 'object')
+      ext_assert(typeof _buildFormatLocale().formatters === 'object')
     })
 
     describe('MMM', function () {
       it('returns the correct string for January', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 0)) === 'янв.')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 0)) === 'янв.')
       })
 
       it('returns the correct string for February', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 1)) === 'фев.')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 1)) === 'фев.')
       })
 
       it('returns the correct string for March', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 2)) === 'март')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 2)) === 'март')
       })
 
       it('returns the correct string for April', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2015, 3)) === 'апр.')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2015, 3)) === 'апр.')
       })
 
       it('returns the correct string for May', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 4)) === 'май')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 4)) === 'май')
       })
 
       it('returns the correct string for June', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 5)) === 'июнь')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 5)) === 'июнь')
       })
 
       it('returns the correct string for July', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 6)) === 'июль')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 6)) === 'июль')
       })
 
       it('returns the correct string for August', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 7)) === 'авг.')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 7)) === 'авг.')
       })
 
       it('returns the correct string for September', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 8)) === 'сент.')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 8)) === 'сент.')
       })
 
       it('returns the correct string for October', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 9)) === 'окт.')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 9)) === 'окт.')
       })
 
       it('returns the correct string for November', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 10)) === 'нояб.')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 10)) === 'нояб.')
       })
 
       it('returns the correct string for December', function () {
-        assert(buildFormatLocale().formatters.MMM(new Date(2016, 11)) === 'дек.')
+        ext_assert(_buildFormatLocale().formatters.MMM(new Date(2016, 11)) === 'дек.')
       })
     })
 
     describe('MMMM', function () {
       it('returns the correct string for January', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 0)) === 'январь')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 0)) === 'январь')
       })
 
       it('returns the correct string for February', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 1)) === 'февраль')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 1)) === 'февраль')
       })
 
       it('returns the correct string for March', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 2)) === 'март')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 2)) === 'март')
       })
 
       it('returns the correct string for April', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2015, 3)) === 'апрель')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2015, 3)) === 'апрель')
       })
 
       it('returns the correct string for May', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 4)) === 'май')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 4)) === 'май')
       })
 
       it('returns the correct string for June', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 5)) === 'июнь')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 5)) === 'июнь')
       })
 
       it('returns the correct string for July', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 6)) === 'июль')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 6)) === 'июль')
       })
 
       it('returns the correct string for August', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 7)) === 'август')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 7)) === 'август')
       })
 
       it('returns the correct string for September', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 8)) === 'сентябрь')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 8)) === 'сентябрь')
       })
 
       it('returns the correct string for October', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 9)) === 'октябрь')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 9)) === 'октябрь')
       })
 
       it('returns the correct string for November', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 10)) === 'ноябрь')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 10)) === 'ноябрь')
       })
 
       it('returns the correct string for December', function () {
-        assert(buildFormatLocale().formatters.MMMM(new Date(2016, 11)) === 'декабрь')
+        ext_assert(_buildFormatLocale().formatters.MMMM(new Date(2016, 11)) === 'декабрь')
       })
     })
 
     describe('dd', function () {
       it('returns the correct string for Sunday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 7)) === 'вс')
+        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 7)) === 'вс')
       })
 
       it('returns the correct string for Monday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 1)) === 'пн')
+        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 1)) === 'пн')
       })
 
       it('returns the correct string for Tuesday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 2)) === 'вт')
+        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 2)) === 'вт')
       })
 
       it('returns the correct string for Wednesday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 3)) === 'ср')
+        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 3)) === 'ср')
       })
 
       it('returns the correct string for Thursday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 4)) === 'чт')
+        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 4)) === 'чт')
       })
 
       it('returns the correct string for Friday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 5)) === 'пт')
+        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 5)) === 'пт')
       })
 
       it('returns the correct string for Saturday', function () {
-        assert(buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 6)) === 'сб')
+        ext_assert(_buildFormatLocale().formatters.dd(new Date(2016, 1 /* Feb */, 6)) === 'сб')
       })
     })
 
     describe('ddd', function () {
       it('returns the correct string for Sunday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 7)) === 'вск')
+        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 7)) === 'вск')
       })
 
       it('returns the correct string for Monday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 1)) === 'пнд')
+        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 1)) === 'пнд')
       })
 
       it('returns the correct string for Tuesday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 2)) === 'втр')
+        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 2)) === 'втр')
       })
 
       it('returns the correct string for Wednesday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 3)) === 'срд')
+        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 3)) === 'срд')
       })
 
       it('returns the correct string for Thursday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 4)) === 'чтв')
+        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 4)) === 'чтв')
       })
 
       it('returns the correct string for Friday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 5)) === 'птн')
+        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 5)) === 'птн')
       })
 
       it('returns the correct string for Saturday', function () {
-        assert(buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 6)) === 'суб')
+        ext_assert(_buildFormatLocale().formatters.ddd(new Date(2016, 1 /* Feb */, 6)) === 'суб')
       })
     })
 
     describe('dddd', function () {
       it('returns the correct string for Sunday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 7)) === 'воскресенье')
+        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 7)) === 'воскресенье')
       })
 
       it('returns the correct string for Monday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 1)) === 'понедельник')
+        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 1)) === 'понедельник')
       })
 
       it('returns the correct string for Tuesday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 2)) === 'вторник')
+        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 2)) === 'вторник')
       })
 
       it('returns the correct string for Wednesday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 3)) === 'среда')
+        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 3)) === 'среда')
       })
 
       it('returns the correct string for Thursday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 4)) === 'четверг')
+        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 4)) === 'четверг')
       })
 
       it('returns the correct string for Friday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 5)) === 'пятница')
+        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 5)) === 'пятница')
       })
 
       it('returns the correct string for Saturday', function () {
-        assert(buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 6)) === 'суббота')
+        ext_assert(_buildFormatLocale().formatters.dddd(new Date(2016, 1 /* Feb */, 6)) === 'суббота')
       })
     })
 
     describe('A', function () {
       it('returns the correct string for 12-3 a.m.', function () {
         [0, 1, 2, 3].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, hours)) === 'ночи')
+          ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, hours)) === 'ночи')
         })
       })
 
       it('returns the correct string for 4-11 a.m.', function () {
         [4, 5, 6, 7, 8, 9, 10, 11].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, hours)) === 'утра')
+          ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, hours)) === 'утра')
         })
       })
 
       it('returns the correct string for 12-4 p.m.', function () {
         [12, 13, 14, 15, 16].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, hours)) === 'дня')
+          ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, hours)) === 'дня')
         })
       })
 
       it('returns the correct string for 5-11 p.m.', function () {
         [17, 18, 19, 20, 21, 22, 23].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, hours)) === 'вечера')
+          ext_assert(_buildFormatLocale().formatters.A(new Date(2016, 1 /* Feb */, 11, hours)) === 'вечера')
         })
       })
     })
@@ -233,25 +230,25 @@ describe('ru locale > buildFormatLocale', function () {
     describe('a', function () {
       it('returns the correct string for 12-3 a.m.', function () {
         [0, 1, 2, 3].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, hours)) === 'ночи')
+          ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, hours)) === 'ночи')
         })
       })
 
       it('returns the correct string for 4-11 a.m.', function () {
         [4, 5, 6, 7, 8, 9, 10, 11].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, hours)) === 'утра')
+          ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, hours)) === 'утра')
         })
       })
 
       it('returns the correct string for 12-4 p.m.', function () {
         [12, 13, 14, 15, 16].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, hours)) === 'дня')
+          ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, hours)) === 'дня')
         })
       })
 
       it('returns the correct string for 5-11 p.m.', function () {
         [17, 18, 19, 20, 21, 22, 23].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, hours)) === 'вечера')
+          ext_assert(_buildFormatLocale().formatters.a(new Date(2016, 1 /* Feb */, 11, hours)) === 'вечера')
         })
       })
     })
@@ -259,74 +256,74 @@ describe('ru locale > buildFormatLocale', function () {
     describe('aa', function () {
       it('returns the correct string for 12-3 a.m.', function () {
         [0, 1, 2, 3].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, hours)) === 'ночи')
+          ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, hours)) === 'ночи')
         })
       })
 
       it('returns the correct string for 4-11 a.m.', function () {
         [4, 5, 6, 7, 8, 9, 10, 11].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, hours)) === 'утра')
+          ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, hours)) === 'утра')
         })
       })
 
       it('returns the correct string for 12-4 p.m.', function () {
         [12, 13, 14, 15, 16].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, hours)) === 'дня')
+          ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, hours)) === 'дня')
         })
       })
 
       it('returns the correct string for 5-11 p.m.', function () {
         [17, 18, 19, 20, 21, 22, 23].forEach(function (hours) {
-          assert(buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, hours)) === 'вечера')
+          ext_assert(_buildFormatLocale().formatters.aa(new Date(2016, 1 /* Feb */, 11, hours)) === 'вечера')
         })
       })
     })
 
     describe('Mo', function () {
       it('returns ordinal result of M formatter', function () {
-        assert(buildFormatLocale().formatters.Mo(null, {M: function () { return 1 }}) === '1-й')
-        assert(buildFormatLocale().formatters.Mo(null, {M: function () { return 2 }}) === '2-й')
-        assert(buildFormatLocale().formatters.Mo(null, {M: function () { return 3 }}) === '3-й')
+        ext_assert(_buildFormatLocale().formatters.Mo(null, {M: function () { return 1 }}) === '1-й')
+        ext_assert(_buildFormatLocale().formatters.Mo(null, {M: function () { return 2 }}) === '2-й')
+        ext_assert(_buildFormatLocale().formatters.Mo(null, {M: function () { return 3 }}) === '3-й')
       })
     })
 
     describe('Do', function () {
       it('returns ordinal result of D formatter', function () {
-        assert(buildFormatLocale().formatters.Do(null, {D: function () { return 1 }}) === '1-е')
-        assert(buildFormatLocale().formatters.Do(null, {D: function () { return 2 }}) === '2-е')
-        assert(buildFormatLocale().formatters.Do(null, {D: function () { return 3 }}) === '3-е')
+        ext_assert(_buildFormatLocale().formatters.Do(null, {D: function () { return 1 }}) === '1-е')
+        ext_assert(_buildFormatLocale().formatters.Do(null, {D: function () { return 2 }}) === '2-е')
+        ext_assert(_buildFormatLocale().formatters.Do(null, {D: function () { return 3 }}) === '3-е')
       })
     })
 
     describe('DDDo', function () {
       it('returns ordinal result of DDD formatter', function () {
-        assert(buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 1 }}) === '1-й')
-        assert(buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 2 }}) === '2-й')
-        assert(buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 3 }}) === '3-й')
+        ext_assert(_buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 1 }}) === '1-й')
+        ext_assert(_buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 2 }}) === '2-й')
+        ext_assert(_buildFormatLocale().formatters.DDDo(null, {DDD: function () { return 3 }}) === '3-й')
       })
     })
 
     describe('do', function () {
       it('returns ordinal result of d formatter', function () {
-        assert(buildFormatLocale().formatters.do(null, {d: function () { return 1 }}) === '1-й')
-        assert(buildFormatLocale().formatters.do(null, {d: function () { return 2 }}) === '2-й')
-        assert(buildFormatLocale().formatters.do(null, {d: function () { return 3 }}) === '3-й')
+        ext_assert(_buildFormatLocale().formatters.do(null, {d: function () { return 1 }}) === '1-й')
+        ext_assert(_buildFormatLocale().formatters.do(null, {d: function () { return 2 }}) === '2-й')
+        ext_assert(_buildFormatLocale().formatters.do(null, {d: function () { return 3 }}) === '3-й')
       })
     })
 
     describe('Qo', function () {
       it('returns ordinal result of Q formatter', function () {
-        assert(buildFormatLocale().formatters.Qo(null, {Q: function () { return 1 }}) === '1-й')
-        assert(buildFormatLocale().formatters.Qo(null, {Q: function () { return 2 }}) === '2-й')
-        assert(buildFormatLocale().formatters.Qo(null, {Q: function () { return 3 }}) === '3-й')
+        ext_assert(_buildFormatLocale().formatters.Qo(null, {Q: function () { return 1 }}) === '1-й')
+        ext_assert(_buildFormatLocale().formatters.Qo(null, {Q: function () { return 2 }}) === '2-й')
+        ext_assert(_buildFormatLocale().formatters.Qo(null, {Q: function () { return 3 }}) === '3-й')
       })
     })
 
     describe('Wo', function () {
       it('returns ordinal result of W formatter', function () {
-        assert(buildFormatLocale().formatters.Wo(null, {W: function () { return 1 }}) === '1-я')
-        assert(buildFormatLocale().formatters.Wo(null, {W: function () { return 2 }}) === '2-я')
-        assert(buildFormatLocale().formatters.Wo(null, {W: function () { return 3 }}) === '3-я')
+        ext_assert(_buildFormatLocale().formatters.Wo(null, {W: function () { return 1 }}) === '1-я')
+        ext_assert(_buildFormatLocale().formatters.Wo(null, {W: function () { return 2 }}) === '2-я')
+        ext_assert(_buildFormatLocale().formatters.Wo(null, {W: function () { return 3 }}) === '3-я')
       })
     })
 
@@ -342,7 +339,7 @@ describe('ru locale > buildFormatLocale', function () {
           }
         }
         months.forEach(function (month, index) {
-          assert(buildFormatLocale().formatters['D MMMM'](new Date(2015, index, 5), formatters) === '5 ' + month)
+          ext_assert(_buildFormatLocale().formatters['D MMMM'](new Date(2015, index, 5), formatters) === '5 ' + month)
         })
       })
     })
@@ -359,7 +356,7 @@ describe('ru locale > buildFormatLocale', function () {
           }
         }
         months.forEach(function (month, index) {
-          assert(buildFormatLocale().formatters['Do MMMM'](new Date(2016, index, 3), formatters) === '3-е ' + month)
+          ext_assert(_buildFormatLocale().formatters['Do MMMM'](new Date(2016, index, 3), formatters) === '3-е ' + month)
         })
       })
     })
@@ -376,7 +373,7 @@ describe('ru locale > buildFormatLocale', function () {
           }
         }
         months.forEach(function (month, index) {
-          assert(buildFormatLocale().formatters['DD MMMM'](new Date(2016, index, 7), formatters) === '07 ' + month)
+          ext_assert(_buildFormatLocale().formatters['DD MMMM'](new Date(2016, index, 7), formatters) === '07 ' + month)
         })
       })
     })
@@ -384,7 +381,7 @@ describe('ru locale > buildFormatLocale', function () {
 
   describe('formattingTokensRegExp property', function () {
     it('is an instance of RegExp', function () {
-      assert(buildFormatLocale().formattingTokensRegExp instanceof RegExp)
+      ext_assert(_buildFormatLocale().formattingTokensRegExp instanceof RegExp)
     })
   })
 })

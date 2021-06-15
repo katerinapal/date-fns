@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var differenceInCalendarDays = require('./')
+import { differenceInCalendarDays as _differenceInCalendarDays } from "./";
 
 suite('differenceInCalendarDays', function () {
   benchmark('date-fns', function () {
-    return differenceInCalendarDays(this.dateA, this.dateB)
+    return _differenceInCalendarDays(this.dateA, this.dateB);
   })
 }, {
   setup: function () {

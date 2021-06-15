@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var isBefore = require('./')
-var moment = require('moment')
+import { isBefore as _isBefore } from "./";
+import ext_moment_moment from "moment";
 
 suite('isBefore', function () {
   benchmark('date-fns', function () {
-    return isBefore(this.dateA, this.dateB)
+    return _isBefore(this.dateA, this.dateB);
   })
 
   benchmark('Moment.js', function () {
@@ -16,7 +12,7 @@ suite('isBefore', function () {
 }, {
   setup: function () {
     this.dateA = new Date()
-    this.momentA = moment()
+    this.momentA = ext_moment_moment()
     this.dateB = new Date(this.dateA.getTime() + 604800000)
     this.momentB = this.momentA.clone().add(7, 'days')
   }

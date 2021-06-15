@@ -1,4 +1,5 @@
-var buildFormattingTokensRegExp = require('../../_lib/build_formatting_tokens_reg_exp/index.js')
+var mod_buildFormatLocale = buildFormatLocale;
+import { buildFormattingTokensRegExp as index_buildFormattingTokensRegExp } from "../../_lib/build_formatting_tokens_reg_exp/index.js";
 
 function buildFormatLocale () {
   var months3char = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
@@ -62,12 +63,12 @@ function buildFormatLocale () {
 
   return {
     formatters: formatters,
-    formattingTokensRegExp: buildFormattingTokensRegExp(formatters)
-  }
+    formattingTokensRegExp: index_buildFormattingTokensRegExp(formatters)
+  };
 }
 
 function ordinal (number) {
   return number + '日'
 }
 
-module.exports = buildFormatLocale
+export { mod_buildFormatLocale as buildFormatLocale };

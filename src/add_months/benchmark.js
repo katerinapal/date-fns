@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var addMonths = require('./')
-var moment = require('moment')
+import { addMonths as _addMonths } from "./";
+import ext_moment_moment from "moment";
 
 suite('addMonths', function () {
   benchmark('date-fns', function () {
-    return addMonths(this.date, 4)
+    return _addMonths(this.date, 4);
   })
 
   benchmark('Moment.js', function () {
@@ -16,6 +12,6 @@ suite('addMonths', function () {
 }, {
   setup: function () {
     this.date = new Date()
-    this.moment = moment()
+    this.moment = ext_moment_moment()
   }
 })

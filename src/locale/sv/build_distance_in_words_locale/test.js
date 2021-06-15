@@ -1,34 +1,31 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var buildDistanceInWordsLocale = require('./')
+import ext_assert from "power-assert";
+import { buildDistanceInWordsLocale as _buildDistanceInWordsLocale } from "./";
 
 describe('sv locale > buildDistanceInWordsLocale', function () {
   it('returns an object', function () {
-    assert(typeof buildDistanceInWordsLocale() === 'object')
+    ext_assert(typeof _buildDistanceInWordsLocale() === 'object')
   })
 
   it('localize property is a function', function () {
-    assert(typeof buildDistanceInWordsLocale().localize === 'function')
+    ext_assert(typeof _buildDistanceInWordsLocale().localize === 'function')
   })
 
   describe('lessThanXSeconds', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 1) === 'mindre än en sekund')
+        ext_assert(_buildDistanceInWordsLocale().localize('lessThanXSeconds', 1) === 'mindre än en sekund')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 2) === 'mindre än två sekunder')
+        ext_assert(_buildDistanceInWordsLocale().localize('lessThanXSeconds', 2) === 'mindre än två sekunder')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXSeconds', 13) === 'mindre än 13 sekunder')
+        ext_assert(_buildDistanceInWordsLocale().localize('lessThanXSeconds', 13) === 'mindre än 13 sekunder')
       })
     })
   })
@@ -36,49 +33,49 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('xSeconds', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xSeconds', 1) === 'en sekund')
+        ext_assert(_buildDistanceInWordsLocale().localize('xSeconds', 1) === 'en sekund')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xSeconds', 2) === 'två sekunder')
+        ext_assert(_buildDistanceInWordsLocale().localize('xSeconds', 2) === 'två sekunder')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xSeconds', 13) === '13 sekunder')
+        ext_assert(_buildDistanceInWordsLocale().localize('xSeconds', 13) === '13 sekunder')
       })
     })
   })
 
   describe('halfAMinute', function () {
     it('returns a proper string', function () {
-      assert(buildDistanceInWordsLocale().localize('halfAMinute') === 'en halv minut')
+      ext_assert(_buildDistanceInWordsLocale().localize('halfAMinute') === 'en halv minut')
     })
 
     it('ignores the second argument', function () {
-      assert(buildDistanceInWordsLocale().localize('halfAMinute', 123) === 'en halv minut')
+      ext_assert(_buildDistanceInWordsLocale().localize('halfAMinute', 123) === 'en halv minut')
     })
   })
 
   describe('lessThanXMinutes', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 1) === 'mindre än en minut')
+        ext_assert(_buildDistanceInWordsLocale().localize('lessThanXMinutes', 1) === 'mindre än en minut')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 2) === 'mindre än två minuter')
+        ext_assert(_buildDistanceInWordsLocale().localize('lessThanXMinutes', 2) === 'mindre än två minuter')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('lessThanXMinutes', 13) === 'mindre än 13 minuter')
+        ext_assert(_buildDistanceInWordsLocale().localize('lessThanXMinutes', 13) === 'mindre än 13 minuter')
       })
     })
   })
@@ -86,19 +83,19 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('xMinutes', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMinutes', 1) === 'en minut')
+        ext_assert(_buildDistanceInWordsLocale().localize('xMinutes', 1) === 'en minut')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMinutes', 2) === 'två minuter')
+        ext_assert(_buildDistanceInWordsLocale().localize('xMinutes', 2) === 'två minuter')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMinutes', 13) === '13 minuter')
+        ext_assert(_buildDistanceInWordsLocale().localize('xMinutes', 13) === '13 minuter')
       })
     })
   })
@@ -106,19 +103,19 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('aboutXHours', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXHours', 1) === 'ungefär en timme')
+        ext_assert(_buildDistanceInWordsLocale().localize('aboutXHours', 1) === 'ungefär en timme')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXHours', 2) === 'ungefär två timmar')
+        ext_assert(_buildDistanceInWordsLocale().localize('aboutXHours', 2) === 'ungefär två timmar')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXHours', 13) === 'ungefär 13 timmar')
+        ext_assert(_buildDistanceInWordsLocale().localize('aboutXHours', 13) === 'ungefär 13 timmar')
       })
     })
   })
@@ -126,19 +123,19 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('xHours', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xHours', 1) === 'en timme')
+        ext_assert(_buildDistanceInWordsLocale().localize('xHours', 1) === 'en timme')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xHours', 2) === 'två timmar')
+        ext_assert(_buildDistanceInWordsLocale().localize('xHours', 2) === 'två timmar')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xHours', 13) === '13 timmar')
+        ext_assert(_buildDistanceInWordsLocale().localize('xHours', 13) === '13 timmar')
       })
     })
   })
@@ -146,19 +143,19 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('xDays', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xDays', 1) === 'en dag')
+        ext_assert(_buildDistanceInWordsLocale().localize('xDays', 1) === 'en dag')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xDays', 2) === 'två dagar')
+        ext_assert(_buildDistanceInWordsLocale().localize('xDays', 2) === 'två dagar')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xDays', 13) === '13 dagar')
+        ext_assert(_buildDistanceInWordsLocale().localize('xDays', 13) === '13 dagar')
       })
     })
   })
@@ -166,19 +163,19 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('aboutXMonths', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXMonths', 1) === 'ungefär en månad')
+        ext_assert(_buildDistanceInWordsLocale().localize('aboutXMonths', 1) === 'ungefär en månad')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXMonths', 2) === 'ungefär två månader')
+        ext_assert(_buildDistanceInWordsLocale().localize('aboutXMonths', 2) === 'ungefär två månader')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXMonths', 13) === 'ungefär 13 månader')
+        ext_assert(_buildDistanceInWordsLocale().localize('aboutXMonths', 13) === 'ungefär 13 månader')
       })
     })
   })
@@ -186,19 +183,19 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('xMonths', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMonths', 1) === 'en månad')
+        ext_assert(_buildDistanceInWordsLocale().localize('xMonths', 1) === 'en månad')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMonths', 2) === 'två månader')
+        ext_assert(_buildDistanceInWordsLocale().localize('xMonths', 2) === 'två månader')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xMonths', 13) === '13 månader')
+        ext_assert(_buildDistanceInWordsLocale().localize('xMonths', 13) === '13 månader')
       })
     })
   })
@@ -206,19 +203,19 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('aboutXYears', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXYears', 1) === 'ungefär ett år')
+        ext_assert(_buildDistanceInWordsLocale().localize('aboutXYears', 1) === 'ungefär ett år')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXYears', 2) === 'ungefär två år')
+        ext_assert(_buildDistanceInWordsLocale().localize('aboutXYears', 2) === 'ungefär två år')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('aboutXYears', 13) === 'ungefär 13 år')
+        ext_assert(_buildDistanceInWordsLocale().localize('aboutXYears', 13) === 'ungefär 13 år')
       })
     })
   })
@@ -226,19 +223,19 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('xYears', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xYears', 1) === 'ett år')
+        ext_assert(_buildDistanceInWordsLocale().localize('xYears', 1) === 'ett år')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xYears', 2) === 'två år')
+        ext_assert(_buildDistanceInWordsLocale().localize('xYears', 2) === 'två år')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('xYears', 13) === '13 år')
+        ext_assert(_buildDistanceInWordsLocale().localize('xYears', 13) === '13 år')
       })
     })
   })
@@ -246,19 +243,19 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('overXYears', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('overXYears', 1) === 'över ett år')
+        ext_assert(_buildDistanceInWordsLocale().localize('overXYears', 1) === 'över ett år')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('overXYears', 2) === 'över två år')
+        ext_assert(_buildDistanceInWordsLocale().localize('overXYears', 2) === 'över två år')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('overXYears', 13) === 'över 13 år')
+        ext_assert(_buildDistanceInWordsLocale().localize('overXYears', 13) === 'över 13 år')
       })
     })
   })
@@ -266,40 +263,40 @@ describe('sv locale > buildDistanceInWordsLocale', function () {
   describe('almostXYears', function () {
     context('when the count equals 1', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('almostXYears', 1) === 'nästan ett år')
+        ext_assert(_buildDistanceInWordsLocale().localize('almostXYears', 1) === 'nästan ett år')
       })
     })
 
     context('when the count equals 2', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('almostXYears', 2) === 'nästan två år')
+        ext_assert(_buildDistanceInWordsLocale().localize('almostXYears', 2) === 'nästan två år')
       })
     })
 
     context('when the count is more than 12', function () {
       it('returns a proper string', function () {
-        assert(buildDistanceInWordsLocale().localize('almostXYears', 13) === 'nästan 13 år')
+        ext_assert(_buildDistanceInWordsLocale().localize('almostXYears', 13) === 'nästan 13 år')
       })
     })
   })
 
   context('with a past suffix', function () {
     it('adds `sedan` to a string', function () {
-      var result = buildDistanceInWordsLocale().localize('aboutXYears', 1, {
+      var result = _buildDistanceInWordsLocale().localize('aboutXYears', 1, {
         addSuffix: true,
         comparison: -1
       })
-      assert(result === 'ungefär ett år sedan')
+      ext_assert(result === 'ungefär ett år sedan')
     })
   })
 
   context('with a future suffix', function () {
     it('adds `om` to a string', function () {
-      var result = buildDistanceInWordsLocale().localize('halfAMinute', null, {
+      var result = _buildDistanceInWordsLocale().localize('halfAMinute', null, {
         addSuffix: true,
         comparison: 1
       })
-      assert(result === 'om en halv minut')
+      ext_assert(result === 'om en halv minut')
     })
   })
 })

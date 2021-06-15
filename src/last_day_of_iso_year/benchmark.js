@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var lastDayOfISOYear = require('./')
+import { lastDayOfISOYear as _lastDayOfISOYear } from "./";
 
 suite('lastDayOfISOYear', function () {
   benchmark('date-fns', function () {
-    return lastDayOfISOYear(this.date)
+    return _lastDayOfISOYear(this.date);
   })
 }, {
   setup: function () {

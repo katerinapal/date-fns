@@ -1,9 +1,5 @@
-// @flow
-/* eslint-env mocha */
-/* global sinon */
-
-var assert = require('power-assert')
-var endOfTomorrow = require('./')
+import ext_assert from "power-assert";
+import { endOfTomorrow as _endOfTomorrow } from "./";
 
 describe('endOfTomorrow', function () {
   it('returns tomorrow with the time setted to 23:59:59.999', function () {
@@ -11,8 +7,8 @@ describe('endOfTomorrow', function () {
       new Date(2014, 8 /* Sep */, 25, 14, 30, 45, 500).getTime()
     )
 
-    var result = endOfTomorrow()
-    assert.deepEqual(result, new Date(2014, 8 /* Sep */, 26, 23, 59, 59, 999))
+    var result = _endOfTomorrow()
+    ext_assert.deepEqual(result, new Date(2014, 8 /* Sep */, 26, 23, 59, 59, 999))
 
     this.clock.restore()
   })
@@ -28,8 +24,8 @@ describe('endOfTomorrow', function () {
     var expectedResult = new Date(0)
     expectedResult.setFullYear(14, 8 /* Sep */, 26)
     expectedResult.setHours(23, 59, 59, 999)
-    var result = endOfTomorrow()
-    assert.deepEqual(result, expectedResult)
+    var result = _endOfTomorrow()
+    ext_assert.deepEqual(result, expectedResult)
 
     this.clock.restore()
   })

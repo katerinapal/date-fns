@@ -1,4 +1,5 @@
-var buildFormattingTokensRegExp = require('../../_lib/build_formatting_tokens_reg_exp/index.js')
+var mod_buildFormatLocale = buildFormatLocale;
+import { buildFormattingTokensRegExp as index_buildFormattingTokensRegExp } from "../../_lib/build_formatting_tokens_reg_exp/index.js";
 
 function buildFormatLocale () {
   // Note: in Romanian language the weekdays and months should be in the lowercase.
@@ -63,12 +64,12 @@ function buildFormatLocale () {
 
   return {
     formatters: formatters,
-    formattingTokensRegExp: buildFormattingTokensRegExp(formatters)
-  }
+    formattingTokensRegExp: index_buildFormattingTokensRegExp(formatters)
+  };
 }
 
 function ordinal (number) {
   return number.toString()
 }
 
-module.exports = buildFormatLocale
+export { mod_buildFormatLocale as buildFormatLocale };

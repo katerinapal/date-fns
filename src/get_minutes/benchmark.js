@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var getMinutes = require('./')
-var moment = require('moment')
+import { getMinutes as _getMinutes } from "./";
+import ext_moment_moment from "moment";
 
 suite('getMinutes', function () {
   benchmark('date-fns', function () {
-    return getMinutes(this.date)
+    return _getMinutes(this.date);
   })
 
   benchmark('Moment.js', function () {
@@ -16,6 +12,6 @@ suite('getMinutes', function () {
 }, {
   setup: function () {
     this.date = new Date()
-    this.moment = moment()
+    this.moment = ext_moment_moment()
   }
 })

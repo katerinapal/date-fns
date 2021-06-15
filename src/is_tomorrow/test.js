@@ -1,9 +1,5 @@
-// @flow
-/* eslint-env mocha */
-/* global sinon */
-
-var assert = require('power-assert')
-var isTomorrow = require('./')
+import ext_assert from "power-assert";
+import { isTomorrow as _isTomorrow } from "./";
 
 describe('isTomorrow', function () {
   beforeEach(function () {
@@ -17,22 +13,22 @@ describe('isTomorrow', function () {
   })
 
   it('returns true if the given date is tomorrow', function () {
-    var result = isTomorrow(new Date(2014, 8 /* Sep */, 26))
-    assert(result === true)
+    var result = _isTomorrow(new Date(2014, 8 /* Sep */, 26))
+    ext_assert(result === true)
   })
 
   it('returns false if the given date is not tomorrow', function () {
-    var result = isTomorrow(new Date(2014, 8 /* Sep */, 25))
-    assert(result === false)
+    var result = _isTomorrow(new Date(2014, 8 /* Sep */, 25))
+    ext_assert(result === false)
   })
 
   it('accepts a string', function () {
-    var result = isTomorrow(new Date(2014, 8 /* Sep */, 26).toString())
-    assert(result === true)
+    var result = _isTomorrow(new Date(2014, 8 /* Sep */, 26).toString())
+    ext_assert(result === true)
   })
 
   it('accepts a timestamp', function () {
-    var result = isTomorrow(new Date(2014, 8 /* Sep */, 26).getTime())
-    assert(result === true)
+    var result = _isTomorrow(new Date(2014, 8 /* Sep */, 26).getTime())
+    ext_assert(result === true)
   })
 })

@@ -1,4 +1,5 @@
-var buildFormattingTokensRegExp = require('../../_lib/build_formatting_tokens_reg_exp/index.js')
+var mod_buildFormatLocale = buildFormatLocale;
+import { buildFormattingTokensRegExp as index_buildFormattingTokensRegExp } from "../../_lib/build_formatting_tokens_reg_exp/index.js";
 
 function buildFormatLocale () {
   var months3char = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juill.', 'août', 'sept.', 'oct.', 'nov.', 'déc.']
@@ -99,8 +100,8 @@ function buildFormatLocale () {
 
   return {
     formatters: formatters,
-    formattingTokensRegExp: buildFormattingTokensRegExp(formatters)
-  }
+    formattingTokensRegExp: index_buildFormattingTokensRegExp(formatters)
+  };
 }
 
 function masculineOrdinal (number) {
@@ -119,4 +120,4 @@ function feminineOrdinal (number) {
   return number + 'e'
 }
 
-module.exports = buildFormatLocale
+export { mod_buildFormatLocale as buildFormatLocale };

@@ -1,22 +1,18 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var max = require('./')
-var moment = require('moment')
+import { max as _max } from "./";
+import ext_moment_moment from "moment";
 
 suite('max', function () {
   benchmark('date-fns', function () {
-    return max(this.dateA, this.dateB)
+    return _max(this.dateA, this.dateB);
   })
 
   benchmark('Moment.js', function () {
-    return moment.max(this.momentA, this.momentB)
+    return ext_moment_moment.max(this.momentA, this.momentB);
   })
 }, {
   setup: function () {
     this.dateA = new Date()
-    this.momentA = moment()
+    this.momentA = ext_moment_moment()
     this.dateB = new Date(this.dateA.getTime() + 604800000)
     this.momentB = this.momentA.clone().add(7, 'days')
   }

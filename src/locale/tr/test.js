@@ -1,15 +1,12 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var trLocale = require('./')
+import ext_assert from "power-assert";
+import { indexjs as trLocale } from "./";
 
 describe('tr locale', function () {
   it('exports distanceInWords object', function () {
-    assert(typeof trLocale.distanceInWords === 'object')
+    ext_assert(typeof trLocale.distanceInWords === 'object')
   })
 
   it('exports format object', function () {
-    assert(typeof trLocale.format === 'object')
+    ext_assert(typeof trLocale.format === 'object')
   })
 })

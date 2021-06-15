@@ -1,9 +1,10 @@
-var getDayOfYear = require('../get_day_of_year/index.js')
-var getISOWeek = require('../get_iso_week/index.js')
-var getISOYear = require('../get_iso_year/index.js')
-var parse = require('../parse/index.js')
-var isValid = require('../is_valid/index.js')
-var enLocale = require('../locale/en/index.js')
+var mod_format = format;
+import { getDayOfYear as index_getDayOfYear } from "../get_day_of_year/index.js";
+import { getISOWeek as index_getISOWeek } from "../get_iso_week/index.js";
+import { getISOYear as index_getISOYear } from "../get_iso_year/index.js";
+import { parse as index_parse } from "../parse/index.js";
+import { isValid as index_isValid } from "../is_valid/index.js";
+import { indexjs as enLocale } from "../locale/en/index.js";
 
 /**
  * @category Common Helpers
@@ -103,9 +104,9 @@ function format (dirtyDate, dirtyFormatStr, dirtyOptions) {
     }
   }
 
-  var date = parse(dirtyDate)
+  var date = index_parse(dirtyDate)
 
-  if (!isValid(date)) {
+  if (!index_isValid(date)) {
     return 'Invalid Date'
   }
 
@@ -142,12 +143,12 @@ var formatters = {
 
   // Day of year: 1, 2, ..., 366
   'DDD': function (date) {
-    return getDayOfYear(date)
+    return index_getDayOfYear(date);
   },
 
   // Day of year: 001, 002, ..., 366
   'DDDD': function (date) {
-    return addLeadingZeros(getDayOfYear(date), 3)
+    return addLeadingZeros(index_getDayOfYear(date), 3);
   },
 
   // Day of week: 0, 1, ..., 6
@@ -162,12 +163,12 @@ var formatters = {
 
   // ISO week: 1, 2, ..., 53
   'W': function (date) {
-    return getISOWeek(date)
+    return index_getISOWeek(date);
   },
 
   // ISO week: 01, 02, ..., 53
   'WW': function (date) {
-    return addLeadingZeros(getISOWeek(date), 2)
+    return addLeadingZeros(index_getISOWeek(date), 2);
   },
 
   // Year: 00, 01, ..., 99
@@ -182,12 +183,12 @@ var formatters = {
 
   // ISO week-numbering year: 00, 01, ..., 99
   'GG': function (date) {
-    return String(getISOYear(date)).substr(2)
+    return String(index_getISOYear(date)).substr(2);
   },
 
   // ISO week-numbering year: 1900, 1901, ..., 2099
   'GGGG': function (date) {
-    return getISOYear(date)
+    return index_getISOYear(date);
   },
 
   // Hour: 0, 1, ... 23
@@ -325,4 +326,87 @@ function addLeadingZeros (number, targetLength) {
   return output
 }
 
-module.exports = format
+/**
+ * @category Common Helpers
+ * @summary Format the date.
+ *
+ * @description
+ * Return the formatted date string in the given format.
+ *
+ * Accepted tokens:
+ * | Unit                    | Token | Result examples                  |
+ * |-------------------------|-------|----------------------------------|
+ * | Month                   | M     | 1, 2, ..., 12                    |
+ * |                         | Mo    | 1st, 2nd, ..., 12th              |
+ * |                         | MM    | 01, 02, ..., 12                  |
+ * |                         | MMM   | Jan, Feb, ..., Dec               |
+ * |                         | MMMM  | January, February, ..., December |
+ * | Quarter                 | Q     | 1, 2, 3, 4                       |
+ * |                         | Qo    | 1st, 2nd, 3rd, 4th               |
+ * | Day of month            | D     | 1, 2, ..., 31                    |
+ * |                         | Do    | 1st, 2nd, ..., 31st              |
+ * |                         | DD    | 01, 02, ..., 31                  |
+ * | Day of year             | DDD   | 1, 2, ..., 366                   |
+ * |                         | DDDo  | 1st, 2nd, ..., 366th             |
+ * |                         | DDDD  | 001, 002, ..., 366               |
+ * | Day of week             | d     | 0, 1, ..., 6                     |
+ * |                         | do    | 0th, 1st, ..., 6th               |
+ * |                         | dd    | Su, Mo, ..., Sa                  |
+ * |                         | ddd   | Sun, Mon, ..., Sat               |
+ * |                         | dddd  | Sunday, Monday, ..., Saturday    |
+ * | Day of ISO week         | E     | 1, 2, ..., 7                     |
+ * | ISO week                | W     | 1, 2, ..., 53                    |
+ * |                         | Wo    | 1st, 2nd, ..., 53rd              |
+ * |                         | WW    | 01, 02, ..., 53                  |
+ * | Year                    | YY    | 00, 01, ..., 99                  |
+ * |                         | YYYY  | 1900, 1901, ..., 2099            |
+ * | ISO week-numbering year | GG    | 00, 01, ..., 99                  |
+ * |                         | GGGG  | 1900, 1901, ..., 2099            |
+ * | AM/PM                   | A     | AM, PM                           |
+ * |                         | a     | am, pm                           |
+ * |                         | aa    | a.m., p.m.                       |
+ * | Hour                    | H     | 0, 1, ... 23                     |
+ * |                         | HH    | 00, 01, ... 23                   |
+ * |                         | h     | 1, 2, ..., 12                    |
+ * |                         | hh    | 01, 02, ..., 12                  |
+ * | Minute                  | m     | 0, 1, ..., 59                    |
+ * |                         | mm    | 00, 01, ..., 59                  |
+ * | Second                  | s     | 0, 1, ..., 59                    |
+ * |                         | ss    | 00, 01, ..., 59                  |
+ * | 1/10 of second          | S     | 0, 1, ..., 9                     |
+ * | 1/100 of second         | SS    | 00, 01, ..., 99                  |
+ * | Millisecond             | SSS   | 000, 001, ..., 999               |
+ * | Timezone                | Z     | -01:00, +00:00, ... +12:00       |
+ * |                         | ZZ    | -0100, +0000, ..., +1200         |
+ * | Seconds timestamp       | X     | 512969520                        |
+ * | Milliseconds timestamp  | x     | 512969520900                     |
+ *
+ * The characters wrapped in square brackets are escaped.
+ *
+ * The result may vary by locale.
+ *
+ * @param {Date|String|Number} date - the original date
+ * @param {String} [format='YYYY-MM-DDTHH:mm:ss.SSSZ'] - the string of tokens
+ * @param {Object} [options] - the object with options
+ * @param {Object} [options.locale=enLocale] - the locale object
+ * @returns {String} the formatted date string
+ *
+ * @example
+ * // Represent 11 February 2014 in middle-endian format:
+ * var result = format(
+ *   new Date(2014, 1, 11),
+ *   'MM/DD/YYYY'
+ * )
+ * //=> '02/11/2014'
+ *
+ * @example
+ * // Represent 2 July 2014 in Esperanto:
+ * var eoLocale = require('date-fns/locale/eo')
+ * var result = format(
+ *   new Date(2014, 6, 2),
+ *   'Do [de] MMMM YYYY',
+ *   {locale: eoLocale}
+ * )
+ * //=> '2-a de julio 2014'
+ */
+export { mod_format as format };

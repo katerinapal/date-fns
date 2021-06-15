@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var compareDesc = require('./')
+import { compareDesc as _compareDesc } from "./";
 
 suite('compareDesc', function () {
   benchmark('date-fns', function () {
-    return compareDesc(this.dateA, this.dateB)
+    return _compareDesc(this.dateA, this.dateB);
   })
 }, {
   setup: function () {

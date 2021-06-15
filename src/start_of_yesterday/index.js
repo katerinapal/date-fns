@@ -1,3 +1,4 @@
+var mod_startOfYesterday = startOfYesterday;
 /**
  * @category Day Helpers
  * @summary Return the start of yesterday.
@@ -24,4 +25,18 @@ function startOfYesterday () {
   return date
 }
 
-module.exports = startOfYesterday
+/**
+ * @category Day Helpers
+ * @summary Return the start of yesterday.
+ *
+ * @description
+ * Return the start of yesterday.
+ *
+ * @returns {Date} the start of yesterday
+ *
+ * @example
+ * // If today is 6 October 2014:
+ * var result = startOfYesterday()
+ * //=> Sun Oct 5 2014 00:00:00
+ */
+export { mod_startOfYesterday as startOfYesterday };

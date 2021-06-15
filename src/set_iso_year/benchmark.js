@@ -1,13 +1,9 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var setISOYear = require('./')
-var moment = require('moment')
+import { setISOYear as _setISOYear } from "./";
+import ext_moment_moment from "moment";
 
 suite('setISOYear', function () {
   benchmark('date-fns', function () {
-    return setISOYear(this.date, 2008)
+    return _setISOYear(this.date, 2008);
   })
 
   benchmark('Moment.js', function () {
@@ -16,6 +12,6 @@ suite('setISOYear', function () {
 }, {
   setup: function () {
     this.date = new Date()
-    this.moment = moment()
+    this.moment = ext_moment_moment()
   }
 })

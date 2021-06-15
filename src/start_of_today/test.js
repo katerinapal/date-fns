@@ -1,9 +1,5 @@
-// @flow
-/* eslint-env mocha */
-/* global sinon */
-
-var assert = require('power-assert')
-var startOfToday = require('./')
+import ext_assert from "power-assert";
+import { startOfToday as _startOfToday } from "./";
 
 describe('startOfToday', function () {
   beforeEach(function () {
@@ -17,7 +13,7 @@ describe('startOfToday', function () {
   })
 
   it('returns the current date with the time setted to 00:00:00', function () {
-    var result = startOfToday()
-    assert.deepEqual(result, new Date(2014, 8 /* Sep */, 25))
+    var result = _startOfToday()
+    ext_assert.deepEqual(result, new Date(2014, 8 /* Sep */, 25))
   })
 })

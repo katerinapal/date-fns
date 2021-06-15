@@ -1,12 +1,8 @@
-// @flow
-/* eslint-env mocha */
-/* global suite, benchmark */
-
-var isToday = require('./')
+import { isToday as _isToday } from "./";
 
 suite('isToday', function () {
   benchmark('date-fns', function () {
-    return isToday(this.date)
+    return _isToday(this.date);
   })
 }, {
   setup: function () {

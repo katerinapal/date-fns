@@ -1,3 +1,4 @@
+var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
 function buildDistanceInWordsLocale () {
   function futureSeconds (text) {
     return text.replace(/sekuntia?/, 'sekunnin')
@@ -133,4 +134,4 @@ function buildDistanceInWordsLocale () {
   }
 }
 
-module.exports = buildDistanceInWordsLocale
+export { mod_buildDistanceInWordsLocale as buildDistanceInWordsLocale };

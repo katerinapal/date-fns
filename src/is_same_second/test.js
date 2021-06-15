@@ -1,39 +1,36 @@
-// @flow
-/* eslint-env mocha */
-
-var assert = require('power-assert')
-var isSameSecond = require('./')
+import ext_assert from "power-assert";
+import { isSameSecond as _isSameSecond } from "./";
 
 describe('isSameSecond', function () {
   it('returns true if the given dates have the same second', function () {
-    var result = isSameSecond(
+    var result = _isSameSecond(
       new Date(2014, 8 /* Sep */, 4, 6, 30, 15),
       new Date(2014, 8 /* Sep */, 4, 6, 30, 15, 500)
     )
-    assert(result === true)
+    ext_assert(result === true)
   })
 
   it('returns false if the given dates have different seconds', function () {
-    var result = isSameSecond(
+    var result = _isSameSecond(
       new Date(2014, 8 /* Sep */, 4, 6, 30, 58, 999),
       new Date(2014, 8 /* Sep */, 4, 6, 30, 59)
     )
-    assert(result === false)
+    ext_assert(result === false)
   })
 
   it('accepts a string', function () {
-    var result = isSameSecond(
+    var result = _isSameSecond(
       new Date(2014, 8 /* Sep */, 4, 18, 45, 30).toISOString(),
       new Date(2014, 8 /* Sep */, 4, 18, 45, 30, 400).toISOString()
     )
-    assert(result === true)
+    ext_assert(result === true)
   })
 
   it('accepts a timestamp', function () {
-    var result = isSameSecond(
+    var result = _isSameSecond(
       new Date(2014, 8 /* Sep */, 4, 18, 45, 30).getTime(),
       new Date(2014, 8 /* Sep */, 4, 18, 45, 30, 400).getTime()
     )
-    assert(result === true)
+    ext_assert(result === true)
   })
 })
