@@ -1,12 +1,14 @@
-import { isSameISOYear as _isSameISOYear } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isSameISOYear', function () {
   benchmark('date-fns', function () {
-    return _isSameISOYear(this.dateA, this.dateB);
-  })
+    return (0, _.isSameISOYear)(this.dateA, this.dateB);
+  });
 }, {
-  setup: function () {
-    this.dateA = new Date()
-    this.dateB = new Date(this.dateA.getTime() + 604800000)
+  setup: function setup() {
+    this.dateA = new Date();
+    this.dateB = new Date(this.dateA.getTime() + 604800000);
   }
-})
+});

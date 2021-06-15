@@ -1,6 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getISOYear = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../start_of_iso_week/index.js");
+
 var mod_getISOYear = getISOYear;
-import { parse as index_parse } from "../parse/index.js";
-import { startOfISOWeek as index_startOfISOWeek } from "../start_of_iso_week/index.js";
+
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -20,26 +30,26 @@ import { startOfISOWeek as index_startOfISOWeek } from "../start_of_iso_week/ind
  * var result = getISOYear(new Date(2005, 0, 2))
  * //=> 2004
  */
-function getISOYear (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var year = date.getFullYear()
+function getISOYear(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var year = date.getFullYear();
 
-  var fourthOfJanuaryOfNextYear = new Date(0)
-  fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4)
-  fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0)
-  var startOfNextYear = index_startOfISOWeek(fourthOfJanuaryOfNextYear)
+  var fourthOfJanuaryOfNextYear = new Date(0);
+  fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
+  fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0);
+  var startOfNextYear = (0, _index2.startOfISOWeek)(fourthOfJanuaryOfNextYear);
 
-  var fourthOfJanuaryOfThisYear = new Date(0)
-  fourthOfJanuaryOfThisYear.setFullYear(year, 0, 4)
-  fourthOfJanuaryOfThisYear.setHours(0, 0, 0, 0)
-  var startOfThisYear = index_startOfISOWeek(fourthOfJanuaryOfThisYear)
+  var fourthOfJanuaryOfThisYear = new Date(0);
+  fourthOfJanuaryOfThisYear.setFullYear(year, 0, 4);
+  fourthOfJanuaryOfThisYear.setHours(0, 0, 0, 0);
+  var startOfThisYear = (0, _index2.startOfISOWeek)(fourthOfJanuaryOfThisYear);
 
   if (date.getTime() >= startOfNextYear.getTime()) {
-    return year + 1
+    return year + 1;
   } else if (date.getTime() >= startOfThisYear.getTime()) {
-    return year
+    return year;
   } else {
-    return year - 1
+    return year - 1;
   }
 }
 
@@ -61,4 +71,4 @@ function getISOYear (dirtyDate) {
  * var result = getISOYear(new Date(2005, 0, 2))
  * //=> 2004
  */
-export { mod_getISOYear as getISOYear };
+exports.getISOYear = mod_getISOYear;

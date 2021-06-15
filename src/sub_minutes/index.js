@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.subMinutes = undefined;
+
+var _index = require("../add_minutes/index.js");
+
 var mod_subMinutes = subMinutes;
-import { addMinutes as index_addMinutes } from "../add_minutes/index.js";
+
 
 /**
  * @category Minute Helpers
@@ -17,9 +26,9 @@ import { addMinutes as index_addMinutes } from "../add_minutes/index.js";
  * var result = subMinutes(new Date(2014, 6, 10, 12, 0), 30)
  * //=> Thu Jul 10 2014 11:30:00
  */
-function subMinutes (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addMinutes(dirtyDate, -amount);
+function subMinutes(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addMinutes)(dirtyDate, -amount);
 }
 
 /**
@@ -38,4 +47,4 @@ function subMinutes (dirtyDate, dirtyAmount) {
  * var result = subMinutes(new Date(2014, 6, 10, 12, 0), 30)
  * //=> Thu Jul 10 2014 11:30:00
  */
-export { mod_subMinutes as subMinutes };
+exports.subMinutes = mod_subMinutes;

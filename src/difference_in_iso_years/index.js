@@ -1,8 +1,20 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInISOYears = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../difference_in_calendar_iso_years/index.js");
+
+var _index3 = require("../compare_asc/index.js");
+
+var _index4 = require("../sub_iso_years/index.js");
+
 var mod_differenceInISOYears = differenceInISOYears;
-import { parse as index_parse } from "../parse/index.js";
-import { differenceInCalendarISOYears as index_differenceInCalendarISOYears } from "../difference_in_calendar_iso_years/index.js";
-import { compareAsc as index_compareAsc } from "../compare_asc/index.js";
-import { subISOYears as index_subISOYears } from "../sub_iso_years/index.js";
+
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -25,19 +37,19 @@ import { subISOYears as index_subISOYears } from "../sub_iso_years/index.js";
  * )
  * //=> 1
  */
-function differenceInISOYears (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = index_parse(dirtyDateLeft)
-  var dateRight = index_parse(dirtyDateRight)
+function differenceInISOYears(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = (0, _index.parse)(dirtyDateLeft);
+  var dateRight = (0, _index.parse)(dirtyDateRight);
 
-  var sign = index_compareAsc(dateLeft, dateRight)
-  var difference = Math.abs(index_differenceInCalendarISOYears(dateLeft, dateRight))
-  dateLeft = index_subISOYears(dateLeft, sign * difference)
+  var sign = (0, _index3.compareAsc)(dateLeft, dateRight);
+  var difference = Math.abs((0, _index2.differenceInCalendarISOYears)(dateLeft, dateRight));
+  dateLeft = (0, _index4.subISOYears)(dateLeft, sign * difference);
 
   // Math.abs(diff in full ISO years - diff in calendar ISO years) === 1
   // if last calendar ISO year is not full
   // If so, result must be decreased by 1 in absolute value
-  var isLastISOYearNotFull = index_compareAsc(dateLeft, dateRight) === -sign
-  return sign * (difference - isLastISOYearNotFull)
+  var isLastISOYearNotFull = (0, _index3.compareAsc)(dateLeft, dateRight) === -sign;
+  return sign * (difference - isLastISOYearNotFull);
 }
 
 /**
@@ -61,4 +73,4 @@ function differenceInISOYears (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 1
  */
-export { mod_differenceInISOYears as differenceInISOYears };
+exports.differenceInISOYears = mod_differenceInISOYears;

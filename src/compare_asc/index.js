@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.compareAsc = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_compareAsc = compareAsc;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Common Helpers
@@ -34,18 +43,18 @@ import { parse as index_parse } from "../parse/index.js";
  * //   Sun Jul 02 1995 00:00:00
  * // ]
  */
-function compareAsc (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = index_parse(dirtyDateLeft)
-  var timeLeft = dateLeft.getTime()
-  var dateRight = index_parse(dirtyDateRight)
-  var timeRight = dateRight.getTime()
+function compareAsc(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = (0, _index.parse)(dirtyDateLeft);
+  var timeLeft = dateLeft.getTime();
+  var dateRight = (0, _index.parse)(dirtyDateRight);
+  var timeRight = dateRight.getTime();
 
   if (timeLeft < timeRight) {
-    return -1
+    return -1;
   } else if (timeLeft > timeRight) {
-    return 1
+    return 1;
   } else {
-    return 0
+    return 0;
   }
 }
 
@@ -82,4 +91,4 @@ function compareAsc (dirtyDateLeft, dirtyDateRight) {
  * //   Sun Jul 02 1995 00:00:00
  * // ]
  */
-export { mod_compareAsc as compareAsc };
+exports.compareAsc = mod_compareAsc;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInCalendarISOYears = undefined;
+
+var _index = require("../get_iso_year/index.js");
+
 var mod_differenceInCalendarISOYears = differenceInCalendarISOYears;
-import { getISOYear as index_getISOYear } from "../get_iso_year/index.js";
+
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -22,8 +31,8 @@ import { getISOYear as index_getISOYear } from "../get_iso_year/index.js";
  * )
  * //=> 2
  */
-function differenceInCalendarISOYears (dirtyDateLeft, dirtyDateRight) {
-  return index_getISOYear(dirtyDateLeft) - index_getISOYear(dirtyDateRight);
+function differenceInCalendarISOYears(dirtyDateLeft, dirtyDateRight) {
+  return (0, _index.getISOYear)(dirtyDateLeft) - (0, _index.getISOYear)(dirtyDateRight);
 }
 
 /**
@@ -47,4 +56,4 @@ function differenceInCalendarISOYears (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 2
  */
-export { mod_differenceInCalendarISOYears as differenceInCalendarISOYears };
+exports.differenceInCalendarISOYears = mod_differenceInCalendarISOYears;

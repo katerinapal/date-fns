@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.subSeconds = undefined;
+
+var _index = require("../add_seconds/index.js");
+
 var mod_subSeconds = subSeconds;
-import { addSeconds as index_addSeconds } from "../add_seconds/index.js";
+
 
 /**
  * @category Second Helpers
@@ -17,9 +26,9 @@ import { addSeconds as index_addSeconds } from "../add_seconds/index.js";
  * var result = subSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)
  * //=> Thu Jul 10 2014 12:44:30
  */
-function subSeconds (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addSeconds(dirtyDate, -amount);
+function subSeconds(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addSeconds)(dirtyDate, -amount);
 }
 
 /**
@@ -38,4 +47,4 @@ function subSeconds (dirtyDate, dirtyAmount) {
  * var result = subSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)
  * //=> Thu Jul 10 2014 12:44:30
  */
-export { mod_subSeconds as subSeconds };
+exports.subSeconds = mod_subSeconds;

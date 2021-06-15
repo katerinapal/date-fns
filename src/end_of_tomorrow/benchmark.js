@@ -1,7 +1,9 @@
-import { endOfTomorrow as _endOfTomorrow } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('endOfTomorrow', function () {
   benchmark('date-fns', function () {
-    return _endOfTomorrow();
-  })
-})
+    return (0, _.endOfTomorrow)();
+  });
+});

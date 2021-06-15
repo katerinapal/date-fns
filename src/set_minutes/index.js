@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setMinutes = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_setMinutes = setMinutes;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Minute Helpers
@@ -17,11 +26,11 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = setMinutes(new Date(2014, 8, 1, 11, 30, 40), 45)
  * //=> Mon Sep 01 2014 11:45:40
  */
-function setMinutes (dirtyDate, dirtyMinutes) {
-  var date = index_parse(dirtyDate)
-  var minutes = Number(dirtyMinutes)
-  date.setMinutes(minutes)
-  return date
+function setMinutes(dirtyDate, dirtyMinutes) {
+  var date = (0, _index.parse)(dirtyDate);
+  var minutes = Number(dirtyMinutes);
+  date.setMinutes(minutes);
+  return date;
 }
 
 /**
@@ -40,4 +49,4 @@ function setMinutes (dirtyDate, dirtyMinutes) {
  * var result = setMinutes(new Date(2014, 8, 1, 11, 30, 40), 45)
  * //=> Mon Sep 01 2014 11:45:40
  */
-export { mod_setMinutes as setMinutes };
+exports.setMinutes = mod_setMinutes;

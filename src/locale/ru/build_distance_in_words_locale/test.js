@@ -1,1299 +1,1316 @@
-import ext_assert from "power-assert";
-import { buildDistanceInWordsLocale as _buildDistanceInWordsLocale } from "./";
+"use strict";
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+var _ = require("./");
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
 describe('ru locale > buildDistanceInWordsLocale', function () {
   it('returns an object', function () {
-    ext_assert(typeof _buildDistanceInWordsLocale() === 'object')
-  })
+    (0, _powerAssert2.default)(_typeof((0, _.buildDistanceInWordsLocale)()) === 'object');
+  });
 
   it('localize property is a function', function () {
-    ext_assert(typeof _buildDistanceInWordsLocale().localize === 'function')
-  })
+    (0, _powerAssert2.default)(typeof (0, _.buildDistanceInWordsLocale)().localize === 'function');
+  });
 
   describe('lessThanXSeconds', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', 1)
-          ext_assert(result === 'меньше секунды')
-        })
-      })
+          var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', 1);
+          (0, _powerAssert2.default)(result === 'меньше секунды');
+        });
+      });
 
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number)
-            ext_assert(result === 'меньше ' + number + ' секунды')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', number);
+            (0, _powerAssert2.default)(result === 'меньше ' + number + ' секунды');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number)
-            ext_assert(result === 'меньше ' + number + ' секунд')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', number);
+            (0, _powerAssert2.default)(result === 'меньше ' + number + ' секунд');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', 1, {
+          var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', 1, {
             addSuffix: true,
             comparison: -1
-          })
-          ext_assert(result === 'меньше секунды назад')
-        })
-      })
+          });
+          (0, _powerAssert2.default)(result === 'меньше секунды назад');
+        });
+      });
 
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'меньше ' + number + ' секунды назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'меньше ' + number + ' секунды назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'меньше ' + number + ' секунд назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === 'меньше ' + number + ' секунд назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', 1, {
+          var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', 1, {
             addSuffix: true,
             comparison: 1
-          })
-          ext_assert(result === 'меньше, чем через секунду')
-        })
-      })
+          });
+          (0, _powerAssert2.default)(result === 'меньше, чем через секунду');
+        });
+      });
 
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'меньше, чем через ' + number + ' секунду')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'меньше, чем через ' + number + ' секунду');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'меньше, чем через ' + number + ' секунды')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'меньше, чем через ' + number + ' секунды');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXSeconds', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'меньше, чем через ' + number + ' секунд')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'меньше, чем через ' + number + ' секунд');
+          });
+        });
+      });
+    });
+  });
 
   describe('xSeconds', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xSeconds', number)
-            ext_assert(result === number + ' секунда')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xSeconds', number);
+            (0, _powerAssert2.default)(result === number + ' секунда');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xSeconds', number)
-            ext_assert(result === number + ' секунды')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xSeconds', number);
+            (0, _powerAssert2.default)(result === number + ' секунды');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xSeconds', number)
-            ext_assert(result === number + ' секунд')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xSeconds', number);
+            (0, _powerAssert2.default)(result === number + ' секунд');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xSeconds', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' секунду назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' секунду назад');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xSeconds', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' секунды назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' секунды назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xSeconds', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' секунд назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === number + ' секунд назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xSeconds', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' секунду')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' секунду');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xSeconds', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' секунды')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' секунды');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xSeconds', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xSeconds', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' секунд')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' секунд');
+          });
+        });
+      });
+    });
+  });
 
   describe('halfAMinute', function () {
     it('ignores the second argument', function () {
-      var result = _buildDistanceInWordsLocale().localize('halfAMinute', 5)
-      ext_assert(result === 'полминуты')
-    })
+      var result = (0, _.buildDistanceInWordsLocale)().localize('halfAMinute', 5);
+      (0, _powerAssert2.default)(result === 'полминуты');
+    });
 
     describe('no suffix', function () {
       it('returns a proper string', function () {
-        var result = _buildDistanceInWordsLocale().localize('halfAMinute')
-        ext_assert(result === 'полминуты')
-      })
-    })
+        var result = (0, _.buildDistanceInWordsLocale)().localize('halfAMinute');
+        (0, _powerAssert2.default)(result === 'полминуты');
+      });
+    });
 
     describe('past suffix', function () {
       it('returns a proper string', function () {
-        var result = _buildDistanceInWordsLocale().localize('halfAMinute', null, {
+        var result = (0, _.buildDistanceInWordsLocale)().localize('halfAMinute', null, {
           addSuffix: true,
           comparison: -1
-        })
-        ext_assert(result === 'полминуты назад')
-      })
-    })
+        });
+        (0, _powerAssert2.default)(result === 'полминуты назад');
+      });
+    });
 
     describe('future suffix', function () {
       it('returns a proper string', function () {
-        var result = _buildDistanceInWordsLocale().localize('halfAMinute', null, {
+        var result = (0, _.buildDistanceInWordsLocale)().localize('halfAMinute', null, {
           addSuffix: true,
           comparison: 1
-        })
-        ext_assert(result === 'через полминуты')
-      })
-    })
-  })
+        });
+        (0, _powerAssert2.default)(result === 'через полминуты');
+      });
+    });
+  });
 
   describe('lessThanXMinutes', function () {
     describe('no suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', 1)
-          ext_assert(result === 'меньше минуты')
-        })
-      })
+          var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', 1);
+          (0, _powerAssert2.default)(result === 'меньше минуты');
+        });
+      });
 
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number)
-            ext_assert(result === 'меньше ' + number + ' минуты')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', number);
+            (0, _powerAssert2.default)(result === 'меньше ' + number + ' минуты');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number)
-            ext_assert(result === 'меньше ' + number + ' минут')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', number);
+            (0, _powerAssert2.default)(result === 'меньше ' + number + ' минут');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', 1, {
+          var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', 1, {
             addSuffix: true,
             comparison: -1
-          })
-          ext_assert(result === 'меньше минуты назад')
-        })
-      })
+          });
+          (0, _powerAssert2.default)(result === 'меньше минуты назад');
+        });
+      });
 
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'меньше ' + number + ' минуты назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'меньше ' + number + ' минуты назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'меньше ' + number + ' минут назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === 'меньше ' + number + ' минут назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count equals 1', function () {
         it('returns a proper string', function () {
-          var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', 1, {
+          var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', 1, {
             addSuffix: true,
             comparison: 1
-          })
-          ext_assert(result === 'меньше, чем через минуту')
-        })
-      })
+          });
+          (0, _powerAssert2.default)(result === 'меньше, чем через минуту');
+        });
+      });
 
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'меньше, чем через ' + number + ' минуту')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'меньше, чем через ' + number + ' минуту');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'меньше, чем через ' + number + ' минуты')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'меньше, чем через ' + number + ' минуты');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('lessThanXMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('lessThanXMinutes', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'меньше, чем через ' + number + ' минут')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'меньше, чем через ' + number + ' минут');
+          });
+        });
+      });
+    });
+  });
 
   describe('xMinutes', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMinutes', number)
-            ext_assert(result === number + ' минута')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMinutes', number);
+            (0, _powerAssert2.default)(result === number + ' минута');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMinutes', number)
-            ext_assert(result === number + ' минуты')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMinutes', number);
+            (0, _powerAssert2.default)(result === number + ' минуты');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMinutes', number)
-            ext_assert(result === number + ' минут')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMinutes', number);
+            (0, _powerAssert2.default)(result === number + ' минут');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMinutes', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' минуту назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' минуту назад');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMinutes', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' минуты назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' минуты назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMinutes', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' минут назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === number + ' минут назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMinutes', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' минуту')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' минуту');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMinutes', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' минуты')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' минуты');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMinutes', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMinutes', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' минут')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' минут');
+          });
+        });
+      });
+    });
+  });
 
   describe('aboutXHours', function () {
     context('when a remainder from division by 10 is 1 but not 11', function () {
       it('returns a proper string', function () {
         [1, 21, 101, 1231].forEach(function (count) {
-          var result = _buildDistanceInWordsLocale().localize('aboutXHours', count)
-          ext_assert(result === 'около ' + count + ' часа')
-        })
-      })
-    })
+          var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXHours', count);
+          (0, _powerAssert2.default)(result === 'около ' + count + ' часа');
+        });
+      });
+    });
 
     context('otherwise', function () {
       it('returns a proper string', function () {
         [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 20, 102, 1234].forEach(function (count) {
-          var result = _buildDistanceInWordsLocale().localize('aboutXHours', count)
-          ext_assert(result === 'около ' + count + ' часов')
-        })
-      })
-    })
-  })
+          var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXHours', count);
+          (0, _powerAssert2.default)(result === 'около ' + count + ' часов');
+        });
+      });
+    });
+  });
 
   describe('xHours', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xHours', number)
-            ext_assert(result === number + ' час')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xHours', number);
+            (0, _powerAssert2.default)(result === number + ' час');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xHours', number)
-            ext_assert(result === number + ' часа')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xHours', number);
+            (0, _powerAssert2.default)(result === number + ' часа');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xHours', number)
-            ext_assert(result === number + ' часов')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xHours', number);
+            (0, _powerAssert2.default)(result === number + ' часов');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xHours', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xHours', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' час назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' час назад');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xHours', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xHours', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' часа назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' часа назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xHours', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xHours', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' часов назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === number + ' часов назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xHours', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xHours', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' час')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' час');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xHours', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xHours', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' часа')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' часа');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xHours', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xHours', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' часов')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' часов');
+          });
+        });
+      });
+    });
+  });
 
   describe('xDays', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xDays', number)
-            ext_assert(result === number + ' день')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xDays', number);
+            (0, _powerAssert2.default)(result === number + ' день');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xDays', number)
-            ext_assert(result === number + ' дня')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xDays', number);
+            (0, _powerAssert2.default)(result === number + ' дня');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xDays', number)
-            ext_assert(result === number + ' дней')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xDays', number);
+            (0, _powerAssert2.default)(result === number + ' дней');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xDays', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xDays', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' день назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' день назад');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xDays', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xDays', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' дня назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' дня назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xDays', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xDays', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' дней назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === number + ' дней назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xDays', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xDays', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' день')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' день');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xDays', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xDays', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' дня')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' дня');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xDays', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xDays', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' дней')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' дней');
+          });
+        });
+      });
+    });
+  });
 
   describe('aboutXMonths', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number)
-            ext_assert(result === 'около ' + number + ' месяца')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXMonths', number);
+            (0, _powerAssert2.default)(result === 'около ' + number + ' месяца');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 302, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number)
-            ext_assert(result === 'около ' + number + ' месяцев')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXMonths', number);
+            (0, _powerAssert2.default)(result === 'около ' + number + ' месяцев');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXMonths', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'около ' + number + ' месяца назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'около ' + number + ' месяца назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 302, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXMonths', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'около ' + number + ' месяцев назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === 'около ' + number + ' месяцев назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXMonths', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'приблизительно через ' + number + ' месяц')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'приблизительно через ' + number + ' месяц');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXMonths', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'приблизительно через ' + number + ' месяца')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'приблизительно через ' + number + ' месяца');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXMonths', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'приблизительно через ' + number + ' месяцев')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'приблизительно через ' + number + ' месяцев');
+          });
+        });
+      });
+    });
+  });
 
   describe('xMonths', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMonths', number)
-            ext_assert(result === number + ' месяц')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMonths', number);
+            (0, _powerAssert2.default)(result === number + ' месяц');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMonths', number)
-            ext_assert(result === number + ' месяца')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMonths', number);
+            (0, _powerAssert2.default)(result === number + ' месяца');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMonths', number)
-            ext_assert(result === number + ' месяцев')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMonths', number);
+            (0, _powerAssert2.default)(result === number + ' месяцев');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMonths', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' месяц назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' месяц назад');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMonths', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' месяца назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' месяца назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMonths', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' месяцев назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === number + ' месяцев назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMonths', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' месяц')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' месяц');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMonths', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' месяца')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' месяца');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xMonths', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xMonths', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' месяцев')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' месяцев');
+          });
+        });
+      });
+    });
+  });
 
   describe('aboutXYears', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number)
-            ext_assert(result === 'около ' + number + ' года')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXYears', number);
+            (0, _powerAssert2.default)(result === 'около ' + number + ' года');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 302, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number)
-            ext_assert(result === 'около ' + number + ' лет')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXYears', number);
+            (0, _powerAssert2.default)(result === 'около ' + number + ' лет');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'около ' + number + ' года назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'около ' + number + ' года назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 302, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'около ' + number + ' лет назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === 'около ' + number + ' лет назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'приблизительно через ' + number + ' год')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'приблизительно через ' + number + ' год');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'приблизительно через ' + number + ' года')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'приблизительно через ' + number + ' года');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('aboutXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('aboutXYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'приблизительно через ' + number + ' лет')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'приблизительно через ' + number + ' лет');
+          });
+        });
+      });
+    });
+  });
 
   describe('xYears', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xYears', number)
-            ext_assert(result === number + ' год')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xYears', number);
+            (0, _powerAssert2.default)(result === number + ' год');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xYears', number)
-            ext_assert(result === number + ' года')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xYears', number);
+            (0, _powerAssert2.default)(result === number + ' года');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xYears', number)
-            ext_assert(result === number + ' лет')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xYears', number);
+            (0, _powerAssert2.default)(result === number + ' лет');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' год назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' год назад');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' года назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === number + ' года назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === number + ' лет назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === number + ' лет назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' год')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' год');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' года')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' года');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('xYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('xYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'через ' + number + ' лет')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'через ' + number + ' лет');
+          });
+        });
+      });
+    });
+  });
 
   describe('overXYears', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('overXYears', number)
-            ext_assert(result === 'больше ' + number + ' года')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('overXYears', number);
+            (0, _powerAssert2.default)(result === 'больше ' + number + ' года');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 302, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('overXYears', number)
-            ext_assert(result === 'больше ' + number + ' лет')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('overXYears', number);
+            (0, _powerAssert2.default)(result === 'больше ' + number + ' лет');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('overXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('overXYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'больше ' + number + ' года назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'больше ' + number + ' года назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 5, 6, 10, 11, 12, 22, 23, 100, 302, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('overXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('overXYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'больше ' + number + ' лет назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === 'больше ' + number + ' лет назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('overXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('overXYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'больше, чем через ' + number + ' год')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'больше, чем через ' + number + ' год');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('overXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('overXYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'больше, чем через ' + number + ' года')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'больше, чем через ' + number + ' года');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('overXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('overXYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'больше, чем через ' + number + ' лет')
-          })
-        })
-      })
-    })
-  })
+            });
+            (0, _powerAssert2.default)(result === 'больше, чем через ' + number + ' лет');
+          });
+        });
+      });
+    });
+  });
 
   describe('almostXYears', function () {
     describe('no suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('almostXYears', number)
-            ext_assert(result === 'почти ' + number + ' год')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('almostXYears', number);
+            (0, _powerAssert2.default)(result === 'почти ' + number + ' год');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('almostXYears', number)
-            ext_assert(result === 'почти ' + number + ' года')
-          })
-        })
-      })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('almostXYears', number);
+            (0, _powerAssert2.default)(result === 'почти ' + number + ' года');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('almostXYears', number)
-            ext_assert(result === 'почти ' + number + ' лет')
-          })
-        })
-      })
-    })
+            var result = (0, _.buildDistanceInWordsLocale)().localize('almostXYears', number);
+            (0, _powerAssert2.default)(result === 'почти ' + number + ' лет');
+          });
+        });
+      });
+    });
 
     describe('past suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('almostXYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'почти ' + number + ' год назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'почти ' + number + ' год назад');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('almostXYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'почти ' + number + ' года назад')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'почти ' + number + ' года назад');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('almostXYears', number, {
               addSuffix: true,
               comparison: -1
-            })
-            ext_assert(result === 'почти ' + number + ' лет назад')
-          })
-        })
-      })
-    })
+            });
+            (0, _powerAssert2.default)(result === 'почти ' + number + ' лет назад');
+          });
+        });
+      });
+    });
 
     describe('future suffix', function () {
       context('when the count ends with 1 but not with 11', function () {
         it('returns a proper string', function () {
           [1, 21, 31, 301, 321].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('almostXYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'почти через ' + number + ' год')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'почти через ' + number + ' год');
+          });
+        });
+      });
 
       context('when the count ends with 2, 3 or 4 but not with 12, 13 or 14', function () {
         it('returns a proper string', function () {
           [2, 3, 4, 22, 23, 302].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('almostXYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'почти через ' + number + ' года')
-          })
-        })
-      })
+            });
+            (0, _powerAssert2.default)(result === 'почти через ' + number + ' года');
+          });
+        });
+      });
 
       context('when the count is any other number', function () {
         it('returns a proper string', function () {
           [5, 6, 10, 11, 12, 100, 311, 1000].forEach(function (number) {
-            var result = _buildDistanceInWordsLocale().localize('almostXYears', number, {
+            var result = (0, _.buildDistanceInWordsLocale)().localize('almostXYears', number, {
               addSuffix: true,
               comparison: 1
-            })
-            ext_assert(result === 'почти через ' + number + ' лет')
-          })
-        })
-      })
-    })
-  })
-})
+            });
+            (0, _powerAssert2.default)(result === 'почти через ' + number + ' лет');
+          });
+        });
+      });
+    });
+  });
+});

@@ -1,7 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setISODay = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../add_days/index.js");
+
+var _index3 = require("../get_iso_day/index.js");
+
 var mod_setISODay = setISODay;
-import { parse as index_parse } from "../parse/index.js";
-import { addDays as index_addDays } from "../add_days/index.js";
-import { getISODay as index_getISODay } from "../get_iso_day/index.js";
+
 
 /**
  * @category Weekday Helpers
@@ -21,12 +32,12 @@ import { getISODay as index_getISODay } from "../get_iso_day/index.js";
  * var result = setISODay(new Date(2014, 8, 1), 7)
  * //=> Sun Sep 07 2014 00:00:00
  */
-function setISODay (dirtyDate, dirtyDay) {
-  var date = index_parse(dirtyDate)
-  var day = Number(dirtyDay)
-  var currentDay = index_getISODay(date)
-  var diff = day - currentDay
-  return index_addDays(date, diff);
+function setISODay(dirtyDate, dirtyDay) {
+  var date = (0, _index.parse)(dirtyDate);
+  var day = Number(dirtyDay);
+  var currentDay = (0, _index3.getISODay)(date);
+  var diff = day - currentDay;
+  return (0, _index2.addDays)(date, diff);
 }
 
 /**
@@ -47,4 +58,4 @@ function setISODay (dirtyDate, dirtyDay) {
  * var result = setISODay(new Date(2014, 8, 1), 7)
  * //=> Sun Sep 07 2014 00:00:00
  */
-export { mod_setISODay as setISODay };
+exports.setISODay = mod_setISODay;

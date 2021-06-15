@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInMilliseconds = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_differenceInMilliseconds = differenceInMilliseconds;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Millisecond Helpers
@@ -21,10 +30,10 @@ import { parse as index_parse } from "../parse/index.js";
  * )
  * //=> 1100
  */
-function differenceInMilliseconds (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = index_parse(dirtyDateLeft)
-  var dateRight = index_parse(dirtyDateRight)
-  return dateLeft.getTime() - dateRight.getTime()
+function differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = (0, _index.parse)(dirtyDateLeft);
+  var dateRight = (0, _index.parse)(dirtyDateRight);
+  return dateLeft.getTime() - dateRight.getTime();
 }
 
 /**
@@ -47,4 +56,4 @@ function differenceInMilliseconds (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 1100
  */
-export { mod_differenceInMilliseconds as differenceInMilliseconds };
+exports.differenceInMilliseconds = mod_differenceInMilliseconds;

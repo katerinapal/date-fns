@@ -1,36 +1,43 @@
-import ext_assert from "power-assert";
-import { isLeapYear as _isLeapYear } from "./";
+"use strict";
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+var _ = require("./");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('isLeapYear', function () {
   it('returns true if the given date is in the leap year', function () {
-    var result = _isLeapYear(new Date(2012, 6 /* Jul */, 2))
-    ext_assert(result === true)
-  })
+    var result = (0, _.isLeapYear)(new Date(2012, 6 /* Jul */, 2));
+    (0, _powerAssert2.default)(result === true);
+  });
 
   it('returns false if the given date is not in the leap year', function () {
-    var result = _isLeapYear(new Date(2014, 6 /* Jul */, 2))
-    ext_assert(result === false)
-  })
+    var result = (0, _.isLeapYear)(new Date(2014, 6 /* Jul */, 2));
+    (0, _powerAssert2.default)(result === false);
+  });
 
   it('works for the years divisible by 100 but not by 400', function () {
-    var result = _isLeapYear(new Date(2100, 6 /* Jul */, 2))
-    ext_assert(result === false)
-  })
+    var result = (0, _.isLeapYear)(new Date(2100, 6 /* Jul */, 2));
+    (0, _powerAssert2.default)(result === false);
+  });
 
   it('works for the years divisible by 400', function () {
-    var result = _isLeapYear(new Date(2000, 6 /* Jul */, 2))
-    ext_assert(result === true)
-  })
+    var result = (0, _.isLeapYear)(new Date(2000, 6 /* Jul */, 2));
+    (0, _powerAssert2.default)(result === true);
+  });
 
   it('accepts a string', function () {
-    var date = new Date(2012, 6 /* Jul */, 2).toISOString()
-    var result = _isLeapYear(date)
-    ext_assert(result === true)
-  })
+    var date = new Date(2012, 6 /* Jul */, 2).toISOString();
+    var result = (0, _.isLeapYear)(date);
+    (0, _powerAssert2.default)(result === true);
+  });
 
   it('accepts a timestamp', function () {
-    var date = new Date(2012, 6 /* Jul */, 2).getTime()
-    var result = _isLeapYear(date)
-    ext_assert(result === true)
-  })
-})
+    var date = new Date(2012, 6 /* Jul */, 2).getTime();
+    var result = (0, _.isLeapYear)(date);
+    (0, _powerAssert2.default)(result === true);
+  });
+});

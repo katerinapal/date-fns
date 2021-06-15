@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isAfter = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_isAfter = isAfter;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Common Helpers
@@ -17,10 +26,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = isAfter(new Date(1989, 6, 10), new Date(1987, 1, 11))
  * //=> true
  */
-function isAfter (dirtyDate, dirtyDateToCompare) {
-  var date = index_parse(dirtyDate)
-  var dateToCompare = index_parse(dirtyDateToCompare)
-  return date.getTime() > dateToCompare.getTime()
+function isAfter(dirtyDate, dirtyDateToCompare) {
+  var date = (0, _index.parse)(dirtyDate);
+  var dateToCompare = (0, _index.parse)(dirtyDateToCompare);
+  return date.getTime() > dateToCompare.getTime();
 }
 
 /**
@@ -39,4 +48,4 @@ function isAfter (dirtyDate, dirtyDateToCompare) {
  * var result = isAfter(new Date(1989, 6, 10), new Date(1987, 1, 11))
  * //=> true
  */
-export { mod_isAfter as isAfter };
+exports.isAfter = mod_isAfter;

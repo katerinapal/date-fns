@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.startOfSecond = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_startOfSecond = startOfSecond;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Second Helpers
@@ -17,10 +26,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = startOfSecond(new Date(2014, 11, 1, 22, 15, 45, 400))
  * //=> Mon Dec 01 2014 22:15:45.000
  */
-function startOfSecond (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  date.setMilliseconds(0)
-  return date
+function startOfSecond(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  date.setMilliseconds(0);
+  return date;
 }
 
 /**
@@ -39,4 +48,4 @@ function startOfSecond (dirtyDate) {
  * var result = startOfSecond(new Date(2014, 11, 1, 22, 15, 45, 400))
  * //=> Mon Dec 01 2014 22:15:45.000
  */
-export { mod_startOfSecond as startOfSecond };
+exports.startOfSecond = mod_startOfSecond;

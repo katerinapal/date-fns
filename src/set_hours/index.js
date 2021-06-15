@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setHours = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_setHours = setHours;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Hour Helpers
@@ -17,11 +26,11 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = setHours(new Date(2014, 8, 1, 11, 30), 4)
  * //=> Mon Sep 01 2014 04:30:00
  */
-function setHours (dirtyDate, dirtyHours) {
-  var date = index_parse(dirtyDate)
-  var hours = Number(dirtyHours)
-  date.setHours(hours)
-  return date
+function setHours(dirtyDate, dirtyHours) {
+  var date = (0, _index.parse)(dirtyDate);
+  var hours = Number(dirtyHours);
+  date.setHours(hours);
+  return date;
 }
 
 /**
@@ -40,4 +49,4 @@ function setHours (dirtyDate, dirtyHours) {
  * var result = setHours(new Date(2014, 8, 1, 11, 30), 4)
  * //=> Mon Sep 01 2014 04:30:00
  */
-export { mod_setHours as setHours };
+exports.setHours = mod_setHours;

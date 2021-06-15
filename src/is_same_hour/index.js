@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isSameHour = undefined;
+
+var _index = require("../start_of_hour/index.js");
+
 var mod_isSameHour = isSameHour;
-import { startOfHour as index_startOfHour } from "../start_of_hour/index.js";
+
 
 /**
  * @category Hour Helpers
@@ -20,11 +29,11 @@ import { startOfHour as index_startOfHour } from "../start_of_hour/index.js";
  * )
  * //=> true
  */
-function isSameHour (dirtyDateLeft, dirtyDateRight) {
-  var dateLeftStartOfHour = index_startOfHour(dirtyDateLeft)
-  var dateRightStartOfHour = index_startOfHour(dirtyDateRight)
+function isSameHour(dirtyDateLeft, dirtyDateRight) {
+  var dateLeftStartOfHour = (0, _index.startOfHour)(dirtyDateLeft);
+  var dateRightStartOfHour = (0, _index.startOfHour)(dirtyDateRight);
 
-  return dateLeftStartOfHour.getTime() === dateRightStartOfHour.getTime()
+  return dateLeftStartOfHour.getTime() === dateRightStartOfHour.getTime();
 }
 
 /**
@@ -46,4 +55,4 @@ function isSameHour (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> true
  */
-export { mod_isSameHour as isSameHour };
+exports.isSameHour = mod_isSameHour;

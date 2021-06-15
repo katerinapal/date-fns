@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getISODay = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getISODay = getISODay;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Weekday Helpers
@@ -19,15 +28,15 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getISODay(new Date(2012, 1, 26))
  * //=> 7
  */
-function getISODay (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var day = date.getDay()
+function getISODay(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var day = date.getDay();
 
   if (day === 0) {
-    day = 7
+    day = 7;
   }
 
-  return day
+  return day;
 }
 
 /**
@@ -48,4 +57,4 @@ function getISODay (dirtyDate) {
  * var result = getISODay(new Date(2012, 1, 26))
  * //=> 7
  */
-export { mod_getISODay as getISODay };
+exports.getISODay = mod_getISODay;

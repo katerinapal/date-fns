@@ -1,11 +1,13 @@
-import { endOfISOYear as _endOfISOYear } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('endOfISOYear', function () {
   benchmark('date-fns', function () {
-    return _endOfISOYear(this.date);
-  })
+    return (0, _.endOfISOYear)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

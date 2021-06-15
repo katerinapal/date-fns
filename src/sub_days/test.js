@@ -1,31 +1,38 @@
-import ext_assert from "power-assert";
-import { subDays as _subDays } from "./";
+"use strict";
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+var _ = require("./");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('subDays', function () {
   it('subtracts the given number of days', function () {
-    var result = _subDays(new Date(2014, 8 /* Sep */, 1), 10)
-    ext_assert.deepEqual(result, new Date(2014, 7 /* Aug */, 22))
-  })
+    var result = (0, _.subDays)(new Date(2014, 8 /* Sep */, 1), 10);
+    _powerAssert2.default.deepEqual(result, new Date(2014, 7 /* Aug */, 22));
+  });
 
   it('accepts a string', function () {
-    var result = _subDays(new Date(2014, 8 /* Sep */, 1).toISOString(), 10)
-    ext_assert.deepEqual(result, new Date(2014, 7 /* Aug */, 22))
-  })
+    var result = (0, _.subDays)(new Date(2014, 8 /* Sep */, 1).toISOString(), 10);
+    _powerAssert2.default.deepEqual(result, new Date(2014, 7 /* Aug */, 22));
+  });
 
   it('accepts a timestamp', function () {
-    var result = _subDays(new Date(2014, 8 /* Sep */, 1).getTime(), 10)
-    ext_assert.deepEqual(result, new Date(2014, 7 /* Aug */, 22))
-  })
+    var result = (0, _.subDays)(new Date(2014, 8 /* Sep */, 1).getTime(), 10);
+    _powerAssert2.default.deepEqual(result, new Date(2014, 7 /* Aug */, 22));
+  });
 
   it('implicitly converts number arguments', function () {
     // $ExpectedMistake
-    var result = _subDays(new Date(2014, 8 /* Sep */, 1), '10')
-    ext_assert.deepEqual(result, new Date(2014, 7 /* Aug */, 22))
-  })
+    var result = (0, _.subDays)(new Date(2014, 8 /* Sep */, 1), '10');
+    _powerAssert2.default.deepEqual(result, new Date(2014, 7 /* Aug */, 22));
+  });
 
   it('does not mutate the original date', function () {
-    var date = new Date(2014, 8 /* Sep */, 1)
-    _subDays(date, 11)
-    ext_assert.deepEqual(date, new Date(2014, 8 /* Sep */, 1))
-  })
-})
+    var date = new Date(2014, 8 /* Sep */, 1);
+    (0, _.subDays)(date, 11);
+    _powerAssert2.default.deepEqual(date, new Date(2014, 8 /* Sep */, 1));
+  });
+});

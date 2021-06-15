@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.lastDayOfMonth = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_lastDayOfMonth = lastDayOfMonth;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Month Helpers
@@ -17,12 +26,12 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = lastDayOfMonth(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 00:00:00
  */
-function lastDayOfMonth (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var month = date.getMonth()
-  date.setFullYear(date.getFullYear(), month + 1, 0)
-  date.setHours(0, 0, 0, 0)
-  return date
+function lastDayOfMonth(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var month = date.getMonth();
+  date.setFullYear(date.getFullYear(), month + 1, 0);
+  date.setHours(0, 0, 0, 0);
+  return date;
 }
 
 /**
@@ -41,4 +50,4 @@ function lastDayOfMonth (dirtyDate) {
  * var result = lastDayOfMonth(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 00:00:00
  */
-export { mod_lastDayOfMonth as lastDayOfMonth };
+exports.lastDayOfMonth = mod_lastDayOfMonth;

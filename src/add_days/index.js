@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addDays = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_addDays = addDays;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Day Helpers
@@ -17,11 +26,11 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = addDays(new Date(2014, 8, 1), 10)
  * //=> Thu Sep 11 2014 00:00:00
  */
-function addDays (dirtyDate, dirtyAmount) {
-  var date = index_parse(dirtyDate)
-  var amount = Number(dirtyAmount)
-  date.setDate(date.getDate() + amount)
-  return date
+function addDays(dirtyDate, dirtyAmount) {
+  var date = (0, _index.parse)(dirtyDate);
+  var amount = Number(dirtyAmount);
+  date.setDate(date.getDate() + amount);
+  return date;
 }
 
 /**
@@ -40,4 +49,4 @@ function addDays (dirtyDate, dirtyAmount) {
  * var result = addDays(new Date(2014, 8, 1), 10)
  * //=> Thu Sep 11 2014 00:00:00
  */
-export { mod_addDays as addDays };
+exports.addDays = mod_addDays;

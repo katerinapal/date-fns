@@ -1,11 +1,13 @@
-import { isFirstDayOfMonth as _isFirstDayOfMonth } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isFirstDayOfMonth', function () {
   benchmark('date-fns', function () {
-    return _isFirstDayOfMonth(this.date);
-  })
+    return (0, _.isFirstDayOfMonth)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.min = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_min = min;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Common Helpers
@@ -21,13 +30,13 @@ import { parse as index_parse } from "../parse/index.js";
  * )
  * //=> Wed Feb 11 1987 00:00:00
  */
-function min () {
-  var dirtyDates = Array.prototype.slice.call(arguments)
+function min() {
+  var dirtyDates = Array.prototype.slice.call(arguments);
   var dates = dirtyDates.map(function (dirtyDate) {
-    return index_parse(dirtyDate);
-  })
-  var earliestTimestamp = Math.min.apply(null, dates)
-  return new Date(earliestTimestamp)
+    return (0, _index.parse)(dirtyDate);
+  });
+  var earliestTimestamp = Math.min.apply(null, dates);
+  return new Date(earliestTimestamp);
 }
 
 /**
@@ -50,4 +59,4 @@ function min () {
  * )
  * //=> Wed Feb 11 1987 00:00:00
  */
-export { mod_min as min };
+exports.min = mod_min;

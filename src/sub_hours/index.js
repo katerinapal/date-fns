@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.subHours = undefined;
+
+var _index = require("../add_hours/index.js");
+
 var mod_subHours = subHours;
-import { addHours as index_addHours } from "../add_hours/index.js";
+
 
 /**
  * @category Hour Helpers
@@ -17,9 +26,9 @@ import { addHours as index_addHours } from "../add_hours/index.js";
  * var result = subHours(new Date(2014, 6, 11, 1, 0), 2)
  * //=> Thu Jul 10 2014 23:00:00
  */
-function subHours (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addHours(dirtyDate, -amount);
+function subHours(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addHours)(dirtyDate, -amount);
 }
 
 /**
@@ -38,4 +47,4 @@ function subHours (dirtyDate, dirtyAmount) {
  * var result = subHours(new Date(2014, 6, 11, 1, 0), 2)
  * //=> Thu Jul 10 2014 23:00:00
  */
-export { mod_subHours as subHours };
+exports.subHours = mod_subHours;

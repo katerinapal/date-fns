@@ -1,7 +1,16 @@
-var mod_addHours = addHours;
-import { addMilliseconds as index_addMilliseconds } from "../add_milliseconds/index.js";
+"use strict";
 
-var MILLISECONDS_IN_HOUR = 3600000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addHours = undefined;
+
+var _index = require("../add_milliseconds/index.js");
+
+var mod_addHours = addHours;
+
+
+var MILLISECONDS_IN_HOUR = 3600000;
 
 /**
  * @category Hour Helpers
@@ -19,9 +28,9 @@ var MILLISECONDS_IN_HOUR = 3600000
  * var result = addHours(new Date(2014, 6, 10, 23, 0), 2)
  * //=> Fri Jul 11 2014 01:00:00
  */
-function addHours (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addMilliseconds(dirtyDate, amount * MILLISECONDS_IN_HOUR);
+function addHours(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addMilliseconds)(dirtyDate, amount * MILLISECONDS_IN_HOUR);
 }
 
 /**
@@ -40,4 +49,4 @@ function addHours (dirtyDate, dirtyAmount) {
  * var result = addHours(new Date(2014, 6, 10, 23, 0), 2)
  * //=> Fri Jul 11 2014 01:00:00
  */
-export { mod_addHours as addHours };
+exports.addHours = mod_addHours;

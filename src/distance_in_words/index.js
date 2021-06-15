@@ -1,14 +1,27 @@
-var mod_distanceInWords = distanceInWords;
-import { compareDesc as index_compareDesc } from "../compare_desc/index.js";
-import { parse as index_parse } from "../parse/index.js";
-import { differenceInSeconds as index_differenceInSeconds } from "../difference_in_seconds/index.js";
-import { differenceInMonths as index_differenceInMonths } from "../difference_in_months/index.js";
-import { indexjs as enLocale } from "../locale/en/index.js";
+"use strict";
 
-var MINUTES_IN_DAY = 1440
-var MINUTES_IN_ALMOST_TWO_DAYS = 2520
-var MINUTES_IN_MONTH = 43200
-var MINUTES_IN_TWO_MONTHS = 86400
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.distanceInWords = undefined;
+
+var _index = require("../compare_desc/index.js");
+
+var _index2 = require("../parse/index.js");
+
+var _index3 = require("../difference_in_seconds/index.js");
+
+var _index4 = require("../difference_in_months/index.js");
+
+var _index5 = require("../locale/en/index.js");
+
+var mod_distanceInWords = distanceInWords;
+
+
+var MINUTES_IN_DAY = 1440;
+var MINUTES_IN_ALMOST_TWO_DAYS = 2520;
+var MINUTES_IN_MONTH = 43200;
+var MINUTES_IN_TWO_MONTHS = 86400;
 
 /**
  * @category Common Helpers
@@ -92,111 +105,111 @@ var MINUTES_IN_TWO_MONTHS = 86400
  * )
  * //=> 'pli ol 1 jaro'
  */
-function distanceInWords (dirtyDateToCompare, dirtyDate, dirtyOptions) {
-  var options = dirtyOptions || {}
+function distanceInWords(dirtyDateToCompare, dirtyDate, dirtyOptions) {
+  var options = dirtyOptions || {};
 
-  var comparison = index_compareDesc(dirtyDateToCompare, dirtyDate)
+  var comparison = (0, _index.compareDesc)(dirtyDateToCompare, dirtyDate);
 
-  var locale = options.locale
-  var localize = enLocale.distanceInWords.localize
+  var locale = options.locale;
+  var localize = _index5.indexjs.distanceInWords.localize;
   if (locale && locale.distanceInWords && locale.distanceInWords.localize) {
-    localize = locale.distanceInWords.localize
+    localize = locale.distanceInWords.localize;
   }
 
   var localizeOptions = {
     addSuffix: Boolean(options.addSuffix),
     comparison: comparison
-  }
+  };
 
-  var dateLeft, dateRight
+  var dateLeft, dateRight;
   if (comparison > 0) {
-    dateLeft = index_parse(dirtyDateToCompare)
-    dateRight = index_parse(dirtyDate)
+    dateLeft = (0, _index2.parse)(dirtyDateToCompare);
+    dateRight = (0, _index2.parse)(dirtyDate);
   } else {
-    dateLeft = index_parse(dirtyDate)
-    dateRight = index_parse(dirtyDateToCompare)
+    dateLeft = (0, _index2.parse)(dirtyDate);
+    dateRight = (0, _index2.parse)(dirtyDateToCompare);
   }
 
-  var seconds = index_differenceInSeconds(dateRight, dateLeft)
-  var offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset()
-  var minutes = Math.round(seconds / 60) - offset
-  var months
+  var seconds = (0, _index3.differenceInSeconds)(dateRight, dateLeft);
+  var offset = dateRight.getTimezoneOffset() - dateLeft.getTimezoneOffset();
+  var minutes = Math.round(seconds / 60) - offset;
+  var months;
 
   // 0 up to 2 mins
   if (minutes < 2) {
     if (options.includeSeconds) {
       if (seconds < 5) {
-        return localize('lessThanXSeconds', 5, localizeOptions)
+        return localize('lessThanXSeconds', 5, localizeOptions);
       } else if (seconds < 10) {
-        return localize('lessThanXSeconds', 10, localizeOptions)
+        return localize('lessThanXSeconds', 10, localizeOptions);
       } else if (seconds < 20) {
-        return localize('lessThanXSeconds', 20, localizeOptions)
+        return localize('lessThanXSeconds', 20, localizeOptions);
       } else if (seconds < 40) {
-        return localize('halfAMinute', null, localizeOptions)
+        return localize('halfAMinute', null, localizeOptions);
       } else if (seconds < 60) {
-        return localize('lessThanXMinutes', 1, localizeOptions)
+        return localize('lessThanXMinutes', 1, localizeOptions);
       } else {
-        return localize('xMinutes', 1, localizeOptions)
+        return localize('xMinutes', 1, localizeOptions);
       }
     } else {
       if (minutes === 0) {
-        return localize('lessThanXMinutes', 1, localizeOptions)
+        return localize('lessThanXMinutes', 1, localizeOptions);
       } else {
-        return localize('xMinutes', minutes, localizeOptions)
+        return localize('xMinutes', minutes, localizeOptions);
       }
     }
 
-  // 2 mins up to 0.75 hrs
+    // 2 mins up to 0.75 hrs
   } else if (minutes < 45) {
-    return localize('xMinutes', minutes, localizeOptions)
+    return localize('xMinutes', minutes, localizeOptions);
 
-  // 0.75 hrs up to 1.5 hrs
+    // 0.75 hrs up to 1.5 hrs
   } else if (minutes < 90) {
-    return localize('aboutXHours', 1, localizeOptions)
+    return localize('aboutXHours', 1, localizeOptions);
 
-  // 1.5 hrs up to 24 hrs
+    // 1.5 hrs up to 24 hrs
   } else if (minutes < MINUTES_IN_DAY) {
-    var hours = Math.round(minutes / 60)
-    return localize('aboutXHours', hours, localizeOptions)
+    var hours = Math.round(minutes / 60);
+    return localize('aboutXHours', hours, localizeOptions);
 
-  // 1 day up to 1.75 days
+    // 1 day up to 1.75 days
   } else if (minutes < MINUTES_IN_ALMOST_TWO_DAYS) {
-    return localize('xDays', 1, localizeOptions)
+    return localize('xDays', 1, localizeOptions);
 
-  // 1.75 days up to 30 days
+    // 1.75 days up to 30 days
   } else if (minutes < MINUTES_IN_MONTH) {
-    var days = Math.round(minutes / MINUTES_IN_DAY)
-    return localize('xDays', days, localizeOptions)
+    var days = Math.round(minutes / MINUTES_IN_DAY);
+    return localize('xDays', days, localizeOptions);
 
-  // 1 month up to 2 months
+    // 1 month up to 2 months
   } else if (minutes < MINUTES_IN_TWO_MONTHS) {
-    months = Math.round(minutes / MINUTES_IN_MONTH)
-    return localize('aboutXMonths', months, localizeOptions)
+    months = Math.round(minutes / MINUTES_IN_MONTH);
+    return localize('aboutXMonths', months, localizeOptions);
   }
 
-  months = index_differenceInMonths(dateRight, dateLeft)
+  months = (0, _index4.differenceInMonths)(dateRight, dateLeft);
 
   // 2 months up to 12 months
   if (months < 12) {
-    var nearestMonth = Math.round(minutes / MINUTES_IN_MONTH)
-    return localize('xMonths', nearestMonth, localizeOptions)
+    var nearestMonth = Math.round(minutes / MINUTES_IN_MONTH);
+    return localize('xMonths', nearestMonth, localizeOptions);
 
-  // 1 year up to max Date
+    // 1 year up to max Date
   } else {
-    var monthsSinceStartOfYear = months % 12
-    var years = Math.floor(months / 12)
+    var monthsSinceStartOfYear = months % 12;
+    var years = Math.floor(months / 12);
 
     // N years up to 1 years 3 months
     if (monthsSinceStartOfYear < 3) {
-      return localize('aboutXYears', years, localizeOptions)
+      return localize('aboutXYears', years, localizeOptions);
 
-    // N years 3 months up to N years 9 months
+      // N years 3 months up to N years 9 months
     } else if (monthsSinceStartOfYear < 9) {
-      return localize('overXYears', years, localizeOptions)
+      return localize('overXYears', years, localizeOptions);
 
-    // N years 9 months up to N year 12 months
+      // N years 9 months up to N year 12 months
     } else {
-      return localize('almostXYears', years + 1, localizeOptions)
+      return localize('almostXYears', years + 1, localizeOptions);
     }
   }
 }
@@ -283,4 +296,4 @@ function distanceInWords (dirtyDateToCompare, dirtyDate, dirtyOptions) {
  * )
  * //=> 'pli ol 1 jaro'
  */
-export { mod_distanceInWords as distanceInWords };
+exports.distanceInWords = mod_distanceInWords;

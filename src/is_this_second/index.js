@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isThisSecond = undefined;
+
+var _index = require("../is_same_second/index.js");
+
 var mod_isThisSecond = isThisSecond;
-import { isSameSecond as index_isSameSecond } from "../is_same_second/index.js";
+
 
 /**
  * @category Second Helpers
@@ -17,8 +26,8 @@ import { isSameSecond as index_isSameSecond } from "../is_same_second/index.js";
  * var result = isThisSecond(new Date(2014, 8, 25, 18, 30, 15))
  * //=> true
  */
-function isThisSecond (dirtyDate) {
-  return index_isSameSecond(new Date(), dirtyDate);
+function isThisSecond(dirtyDate) {
+  return (0, _index.isSameSecond)(new Date(), dirtyDate);
 }
 
 /**
@@ -37,4 +46,4 @@ function isThisSecond (dirtyDate) {
  * var result = isThisSecond(new Date(2014, 8, 25, 18, 30, 15))
  * //=> true
  */
-export { mod_isThisSecond as isThisSecond };
+exports.isThisSecond = mod_isThisSecond;

@@ -1,8 +1,17 @@
-var mod_differenceInCalendarDays = differenceInCalendarDays;
-import { startOfDay as index_startOfDay } from "../start_of_day/index.js";
+"use strict";
 
-var MILLISECONDS_IN_MINUTE = 60000
-var MILLISECONDS_IN_DAY = 86400000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInCalendarDays = undefined;
+
+var _index = require("../start_of_day/index.js");
+
+var mod_differenceInCalendarDays = differenceInCalendarDays;
+
+
+var MILLISECONDS_IN_MINUTE = 60000;
+var MILLISECONDS_IN_DAY = 86400000;
 
 /**
  * @category Day Helpers
@@ -24,19 +33,17 @@ var MILLISECONDS_IN_DAY = 86400000
  * )
  * //=> 366
  */
-function differenceInCalendarDays (dirtyDateLeft, dirtyDateRight) {
-  var startOfDayLeft = index_startOfDay(dirtyDateLeft)
-  var startOfDayRight = index_startOfDay(dirtyDateRight)
+function differenceInCalendarDays(dirtyDateLeft, dirtyDateRight) {
+  var startOfDayLeft = (0, _index.startOfDay)(dirtyDateLeft);
+  var startOfDayRight = (0, _index.startOfDay)(dirtyDateRight);
 
-  var timestampLeft = startOfDayLeft.getTime() -
-    startOfDayLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
-  var timestampRight = startOfDayRight.getTime() -
-    startOfDayRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE
+  var timestampLeft = startOfDayLeft.getTime() - startOfDayLeft.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
+  var timestampRight = startOfDayRight.getTime() - startOfDayRight.getTimezoneOffset() * MILLISECONDS_IN_MINUTE;
 
   // Round the number of days to the nearest integer
   // because the number of milliseconds in a day is not constant
   // (e.g. it's different in the day of the daylight saving time clock shift)
-  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_DAY)
+  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_DAY);
 }
 
 /**
@@ -59,4 +66,4 @@ function differenceInCalendarDays (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 366
  */
-export { mod_differenceInCalendarDays as differenceInCalendarDays };
+exports.differenceInCalendarDays = mod_differenceInCalendarDays;

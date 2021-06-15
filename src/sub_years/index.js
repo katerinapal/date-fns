@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.subYears = undefined;
+
+var _index = require("../add_years/index.js");
+
 var mod_subYears = subYears;
-import { addYears as index_addYears } from "../add_years/index.js";
+
 
 /**
  * @category Year Helpers
@@ -17,9 +26,9 @@ import { addYears as index_addYears } from "../add_years/index.js";
  * var result = subYears(new Date(2014, 8, 1), 5)
  * //=> Tue Sep 01 2009 00:00:00
  */
-function subYears (dirtyDate, dirtyAmount) {
-  var amount = Number(dirtyAmount)
-  return index_addYears(dirtyDate, -amount);
+function subYears(dirtyDate, dirtyAmount) {
+  var amount = Number(dirtyAmount);
+  return (0, _index.addYears)(dirtyDate, -amount);
 }
 
 /**
@@ -38,4 +47,4 @@ function subYears (dirtyDate, dirtyAmount) {
  * var result = subYears(new Date(2014, 8, 1), 5)
  * //=> Tue Sep 01 2009 00:00:00
  */
-export { mod_subYears as subYears };
+exports.subYears = mod_subYears;

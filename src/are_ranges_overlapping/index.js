@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.areRangesOverlapping = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_areRangesOverlapping = areRangesOverlapping;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Range Helpers
@@ -29,17 +38,17 @@ import { parse as index_parse } from "../parse/index.js";
  * )
  * //=> false
  */
-function areRangesOverlapping (dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
-  var initialStartTime = index_parse(dirtyInitialRangeStartDate).getTime()
-  var initialEndTime = index_parse(dirtyInitialRangeEndDate).getTime()
-  var comparedStartTime = index_parse(dirtyComparedRangeStartDate).getTime()
-  var comparedEndTime = index_parse(dirtyComparedRangeEndDate).getTime()
+function areRangesOverlapping(dirtyInitialRangeStartDate, dirtyInitialRangeEndDate, dirtyComparedRangeStartDate, dirtyComparedRangeEndDate) {
+  var initialStartTime = (0, _index.parse)(dirtyInitialRangeStartDate).getTime();
+  var initialEndTime = (0, _index.parse)(dirtyInitialRangeEndDate).getTime();
+  var comparedStartTime = (0, _index.parse)(dirtyComparedRangeStartDate).getTime();
+  var comparedEndTime = (0, _index.parse)(dirtyComparedRangeEndDate).getTime();
 
   if (initialStartTime > initialEndTime || comparedStartTime > comparedEndTime) {
-    throw new Error('The start of the range cannot be after the end of the range')
+    throw new Error('The start of the range cannot be after the end of the range');
   }
 
-  return initialStartTime < comparedEndTime && comparedStartTime < initialEndTime
+  return initialStartTime < comparedEndTime && comparedStartTime < initialEndTime;
 }
 
 /**
@@ -70,4 +79,4 @@ function areRangesOverlapping (dirtyInitialRangeStartDate, dirtyInitialRangeEndD
  * )
  * //=> false
  */
-export { mod_areRangesOverlapping as areRangesOverlapping };
+exports.areRangesOverlapping = mod_areRangesOverlapping;

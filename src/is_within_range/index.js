@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isWithinRange = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_isWithinRange = isWithinRange;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Range Helpers
@@ -28,16 +37,16 @@ import { parse as index_parse } from "../parse/index.js";
  * )
  * //=> false
  */
-function isWithinRange (dirtyDate, dirtyStartDate, dirtyEndDate) {
-  var time = index_parse(dirtyDate).getTime()
-  var startTime = index_parse(dirtyStartDate).getTime()
-  var endTime = index_parse(dirtyEndDate).getTime()
+function isWithinRange(dirtyDate, dirtyStartDate, dirtyEndDate) {
+  var time = (0, _index.parse)(dirtyDate).getTime();
+  var startTime = (0, _index.parse)(dirtyStartDate).getTime();
+  var endTime = (0, _index.parse)(dirtyEndDate).getTime();
 
   if (startTime > endTime) {
-    throw new Error('The start of the range cannot be after the end of the range')
+    throw new Error('The start of the range cannot be after the end of the range');
   }
 
-  return time >= startTime && time <= endTime
+  return time >= startTime && time <= endTime;
 }
 
 /**
@@ -67,4 +76,4 @@ function isWithinRange (dirtyDate, dirtyStartDate, dirtyEndDate) {
  * )
  * //=> false
  */
-export { mod_isWithinRange as isWithinRange };
+exports.isWithinRange = mod_isWithinRange;

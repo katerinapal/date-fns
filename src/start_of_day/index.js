@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.startOfDay = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_startOfDay = startOfDay;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Day Helpers
@@ -17,10 +26,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = startOfDay(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 02 2014 00:00:00
  */
-function startOfDay (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  date.setHours(0, 0, 0, 0)
-  return date
+function startOfDay(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  date.setHours(0, 0, 0, 0);
+  return date;
 }
 
 /**
@@ -39,4 +48,4 @@ function startOfDay (dirtyDate) {
  * var result = startOfDay(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 02 2014 00:00:00
  */
-export { mod_startOfDay as startOfDay };
+exports.startOfDay = mod_startOfDay;

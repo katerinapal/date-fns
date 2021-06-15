@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getTime = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_getTime = getTime;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Timestamp Helpers
@@ -16,10 +25,10 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = getTime(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 1330515905123
  */
-function getTime (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  var timestamp = date.getTime()
-  return timestamp
+function getTime(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  var timestamp = date.getTime();
+  return timestamp;
 }
 
 /**
@@ -37,4 +46,4 @@ function getTime (dirtyDate) {
  * var result = getTime(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 1330515905123
  */
-export { mod_getTime as getTime };
+exports.getTime = mod_getTime;

@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isFirstDayOfMonth = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_isFirstDayOfMonth = isFirstDayOfMonth;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Month Helpers
@@ -16,8 +25,8 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = isFirstDayOfMonth(new Date(2014, 8, 1))
  * //=> true
  */
-function isFirstDayOfMonth (dirtyDate) {
-  return index_parse(dirtyDate).getDate() === 1;
+function isFirstDayOfMonth(dirtyDate) {
+  return (0, _index.parse)(dirtyDate).getDate() === 1;
 }
 
 /**
@@ -35,4 +44,4 @@ function isFirstDayOfMonth (dirtyDate) {
  * var result = isFirstDayOfMonth(new Date(2014, 8, 1))
  * //=> true
  */
-export { mod_isFirstDayOfMonth as isFirstDayOfMonth };
+exports.isFirstDayOfMonth = mod_isFirstDayOfMonth;

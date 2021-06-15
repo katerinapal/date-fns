@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isThisMonth = undefined;
+
+var _index = require("../is_same_month/index.js");
+
 var mod_isThisMonth = isThisMonth;
-import { isSameMonth as index_isSameMonth } from "../is_same_month/index.js";
+
 
 /**
  * @category Month Helpers
@@ -16,8 +25,8 @@ import { isSameMonth as index_isSameMonth } from "../is_same_month/index.js";
  * var result = isThisMonth(new Date(2014, 8, 15))
  * //=> true
  */
-function isThisMonth (dirtyDate) {
-  return index_isSameMonth(new Date(), dirtyDate);
+function isThisMonth(dirtyDate) {
+  return (0, _index.isSameMonth)(new Date(), dirtyDate);
 }
 
 /**
@@ -35,4 +44,4 @@ function isThisMonth (dirtyDate) {
  * var result = isThisMonth(new Date(2014, 8, 15))
  * //=> true
  */
-export { mod_isThisMonth as isThisMonth };
+exports.isThisMonth = mod_isThisMonth;

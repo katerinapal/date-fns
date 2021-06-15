@@ -1,5 +1,10 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_buildDistanceInWordsLocale = buildDistanceInWordsLocale;
-function buildDistanceInWordsLocale () {
+function buildDistanceInWordsLocale() {
   var distanceInWordsLocale = {
     lessThanXSeconds: {
       one: 'menos de un segundo',
@@ -67,34 +72,34 @@ function buildDistanceInWordsLocale () {
       one: 'casi 1 año',
       other: 'casi {{count}} años'
     }
-  }
+  };
 
-  function localize (token, count, options) {
-    options = options || {}
+  function localize(token, count, options) {
+    options = options || {};
 
-    var result
+    var result;
     if (typeof distanceInWordsLocale[token] === 'string') {
-      result = distanceInWordsLocale[token]
+      result = distanceInWordsLocale[token];
     } else if (count === 1) {
-      result = distanceInWordsLocale[token].one
+      result = distanceInWordsLocale[token].one;
     } else {
-      result = distanceInWordsLocale[token].other.replace('{{count}}', count)
+      result = distanceInWordsLocale[token].other.replace('{{count}}', count);
     }
 
     if (options.addSuffix) {
       if (options.comparison > 0) {
-        return 'en ' + result
+        return 'en ' + result;
       } else {
-        return 'hace ' + result
+        return 'hace ' + result;
       }
     }
 
-    return result
+    return result;
   }
 
   return {
     localize: localize
-  }
+  };
 }
 
-export { mod_buildDistanceInWordsLocale as buildDistanceInWordsLocale };
+exports.buildDistanceInWordsLocale = mod_buildDistanceInWordsLocale;

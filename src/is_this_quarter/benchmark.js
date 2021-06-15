@@ -1,11 +1,13 @@
-import { isThisQuarter as _isThisQuarter } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isThisQuarter', function () {
   benchmark('date-fns', function () {
-    return _isThisQuarter(this.date);
-  })
+    return (0, _.isThisQuarter)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

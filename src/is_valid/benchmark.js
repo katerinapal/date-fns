@@ -1,17 +1,24 @@
-import { isValid as _isValid } from "./";
-import ext_moment_moment from "moment";
+"use strict";
+
+var _ = require("./");
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 suite('isValid', function () {
   benchmark('date-fns', function () {
-    return _isValid(this.invalidDate);
-  })
+    return (0, _.isValid)(this.invalidDate);
+  });
 
   benchmark('Moment.js', function () {
-    return this.invalidMoment.isValid()
-  })
+    return this.invalidMoment.isValid();
+  });
 }, {
-  setup: function () {
-    this.invalidDate = new Date(NaN)
-    this.invalidMoment = ext_moment_moment(new Date(NaN))
+  setup: function setup() {
+    this.invalidDate = new Date(NaN);
+    this.invalidMoment = (0, _moment2.default)(new Date(NaN));
   }
-})
+});

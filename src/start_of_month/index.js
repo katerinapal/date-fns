@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.startOfMonth = undefined;
+
+var _index = require("../parse/index.js");
+
 var mod_startOfMonth = startOfMonth;
-import { parse as index_parse } from "../parse/index.js";
+
 
 /**
  * @category Month Helpers
@@ -17,11 +26,11 @@ import { parse as index_parse } from "../parse/index.js";
  * var result = startOfMonth(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Mon Sep 01 2014 00:00:00
  */
-function startOfMonth (dirtyDate) {
-  var date = index_parse(dirtyDate)
-  date.setDate(1)
-  date.setHours(0, 0, 0, 0)
-  return date
+function startOfMonth(dirtyDate) {
+  var date = (0, _index.parse)(dirtyDate);
+  date.setDate(1);
+  date.setHours(0, 0, 0, 0);
+  return date;
 }
 
 /**
@@ -40,4 +49,4 @@ function startOfMonth (dirtyDate) {
  * var result = startOfMonth(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Mon Sep 01 2014 00:00:00
  */
-export { mod_startOfMonth as startOfMonth };
+exports.startOfMonth = mod_startOfMonth;

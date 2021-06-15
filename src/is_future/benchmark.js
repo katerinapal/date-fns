@@ -1,11 +1,13 @@
-import { isFuture as _isFuture } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isFuture', function () {
   benchmark('date-fns', function () {
-    return _isFuture(this.date);
-  })
+    return (0, _.isFuture)(this.date);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

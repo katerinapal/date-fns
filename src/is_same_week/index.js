@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isSameWeek = undefined;
+
+var _index = require("../start_of_week/index.js");
+
 var mod_isSameWeek = isSameWeek;
-import { startOfWeek as index_startOfWeek } from "../start_of_week/index.js";
+
 
 /**
  * @category Week Helpers
@@ -32,11 +41,11 @@ import { startOfWeek as index_startOfWeek } from "../start_of_week/index.js";
  * )
  * //=> false
  */
-function isSameWeek (dirtyDateLeft, dirtyDateRight, dirtyOptions) {
-  var dateLeftStartOfWeek = index_startOfWeek(dirtyDateLeft, dirtyOptions)
-  var dateRightStartOfWeek = index_startOfWeek(dirtyDateRight, dirtyOptions)
+function isSameWeek(dirtyDateLeft, dirtyDateRight, dirtyOptions) {
+  var dateLeftStartOfWeek = (0, _index.startOfWeek)(dirtyDateLeft, dirtyOptions);
+  var dateRightStartOfWeek = (0, _index.startOfWeek)(dirtyDateRight, dirtyOptions);
 
-  return dateLeftStartOfWeek.getTime() === dateRightStartOfWeek.getTime()
+  return dateLeftStartOfWeek.getTime() === dateRightStartOfWeek.getTime();
 }
 
 /**
@@ -70,4 +79,4 @@ function isSameWeek (dirtyDateLeft, dirtyDateRight, dirtyOptions) {
  * )
  * //=> false
  */
-export { mod_isSameWeek as isSameWeek };
+exports.isSameWeek = mod_isSameWeek;

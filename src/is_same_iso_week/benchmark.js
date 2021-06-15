@@ -1,12 +1,14 @@
-import { isSameISOWeek as _isSameISOWeek } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('isSameISOWeek', function () {
   benchmark('date-fns', function () {
-    return _isSameISOWeek(this.dateA, this.dateB);
-  })
+    return (0, _.isSameISOWeek)(this.dateA, this.dateB);
+  });
 }, {
-  setup: function () {
-    this.dateA = new Date()
-    this.dateB = new Date(this.dateA.getTime() + 604800000)
+  setup: function setup() {
+    this.dateA = new Date();
+    this.dateB = new Date(this.dateA.getTime() + 604800000);
   }
-})
+});

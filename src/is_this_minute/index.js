@@ -1,5 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isThisMinute = undefined;
+
+var _index = require("../is_same_minute/index.js");
+
 var mod_isThisMinute = isThisMinute;
-import { isSameMinute as index_isSameMinute } from "../is_same_minute/index.js";
+
 
 /**
  * @category Minute Helpers
@@ -17,8 +26,8 @@ import { isSameMinute as index_isSameMinute } from "../is_same_minute/index.js";
  * var result = isThisMinute(new Date(2014, 8, 25, 18, 30))
  * //=> true
  */
-function isThisMinute (dirtyDate) {
-  return index_isSameMinute(new Date(), dirtyDate);
+function isThisMinute(dirtyDate) {
+  return (0, _index.isSameMinute)(new Date(), dirtyDate);
 }
 
 /**
@@ -37,4 +46,4 @@ function isThisMinute (dirtyDate) {
  * var result = isThisMinute(new Date(2014, 8, 25, 18, 30))
  * //=> true
  */
-export { mod_isThisMinute as isThisMinute };
+exports.isThisMinute = mod_isThisMinute;

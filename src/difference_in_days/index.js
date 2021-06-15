@@ -1,7 +1,18 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInDays = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../difference_in_calendar_days/index.js");
+
+var _index3 = require("../compare_asc/index.js");
+
 var mod_differenceInDays = differenceInDays;
-import { parse as index_parse } from "../parse/index.js";
-import { differenceInCalendarDays as index_differenceInCalendarDays } from "../difference_in_calendar_days/index.js";
-import { compareAsc as index_compareAsc } from "../compare_asc/index.js";
+
 
 /**
  * @category Day Helpers
@@ -23,18 +34,18 @@ import { compareAsc as index_compareAsc } from "../compare_asc/index.js";
  * )
  * //=> 365
  */
-function differenceInDays (dirtyDateLeft, dirtyDateRight) {
-  var dateLeft = index_parse(dirtyDateLeft)
-  var dateRight = index_parse(dirtyDateRight)
+function differenceInDays(dirtyDateLeft, dirtyDateRight) {
+  var dateLeft = (0, _index.parse)(dirtyDateLeft);
+  var dateRight = (0, _index.parse)(dirtyDateRight);
 
-  var sign = index_compareAsc(dateLeft, dateRight)
-  var difference = Math.abs(index_differenceInCalendarDays(dateLeft, dateRight))
-  dateLeft.setDate(dateLeft.getDate() - sign * difference)
+  var sign = (0, _index3.compareAsc)(dateLeft, dateRight);
+  var difference = Math.abs((0, _index2.differenceInCalendarDays)(dateLeft, dateRight));
+  dateLeft.setDate(dateLeft.getDate() - sign * difference);
 
   // Math.abs(diff in full days - diff in calendar days) === 1 if last calendar day is not full
   // If so, result must be decreased by 1 in absolute value
-  var isLastDayNotFull = index_compareAsc(dateLeft, dateRight) === -sign
-  return sign * (difference - isLastDayNotFull)
+  var isLastDayNotFull = (0, _index3.compareAsc)(dateLeft, dateRight) === -sign;
+  return sign * (difference - isLastDayNotFull);
 }
 
 /**
@@ -57,4 +68,4 @@ function differenceInDays (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 365
  */
-export { mod_differenceInDays as differenceInDays };
+exports.differenceInDays = mod_differenceInDays;

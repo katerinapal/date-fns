@@ -1,11 +1,13 @@
-import { addISOYears as _addISOYears } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('addISOYears', function () {
   benchmark('date-fns', function () {
-    return _addISOYears(this.date, 7);
-  })
+    return (0, _.addISOYears)(this.date, 7);
+  });
 }, {
-  setup: function () {
-    this.date = new Date()
+  setup: function setup() {
+    this.date = new Date();
   }
-})
+});

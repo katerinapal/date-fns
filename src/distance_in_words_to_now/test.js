@@ -1,273 +1,209 @@
-import ext_assert from "power-assert";
-import { distanceInWordsToNow as _distanceInWordsToNow } from "./";
+"use strict";
+
+var _powerAssert = require("power-assert");
+
+var _powerAssert2 = _interopRequireDefault(_powerAssert);
+
+var _ = require("./");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('distanceInWordsToNow', function () {
   beforeEach(function () {
-    this.clock = sinon.useFakeTimers(
-      new Date(1986, 3, 4, 10, 32, 0).getTime()
-    )
-  })
+    this.clock = sinon.useFakeTimers(new Date(1986, 3, 4, 10, 32, 0).getTime());
+  });
 
   afterEach(function () {
-    this.clock.restore()
-  })
+    this.clock.restore();
+  });
 
   describe('seconds', function () {
     context('when the includeSeconds option is true', function () {
       it('less than 5 seconds', function () {
-        var result = _distanceInWordsToNow(
-          new Date(1986, 3, 4, 10, 31, 58),
-          {includeSeconds: true}
-        )
-        ext_assert(result === 'less than 5 seconds')
-      })
+        var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 58), { includeSeconds: true });
+        (0, _powerAssert2.default)(result === 'less than 5 seconds');
+      });
 
       it('less than 10 seconds', function () {
-        var result = _distanceInWordsToNow(
-          new Date(1986, 3, 4, 10, 31, 52),
-          {includeSeconds: true}
-        )
-        ext_assert(result === 'less than 10 seconds')
-      })
+        var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 52), { includeSeconds: true });
+        (0, _powerAssert2.default)(result === 'less than 10 seconds');
+      });
 
       it('less than 20 seconds', function () {
-        var result = _distanceInWordsToNow(
-          new Date(1986, 3, 4, 10, 31, 45),
-          {includeSeconds: true}
-        )
-        ext_assert(result === 'less than 20 seconds')
-      })
+        var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 45), { includeSeconds: true });
+        (0, _powerAssert2.default)(result === 'less than 20 seconds');
+      });
 
       it('half a minute', function () {
-        var result = _distanceInWordsToNow(
-          new Date(1986, 3, 4, 10, 31, 35),
-          {includeSeconds: true}
-        )
-        ext_assert(result === 'half a minute')
-      })
+        var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 35), { includeSeconds: true });
+        (0, _powerAssert2.default)(result === 'half a minute');
+      });
 
       it('less than a minute', function () {
-        var result = _distanceInWordsToNow(
-          new Date(1986, 3, 4, 10, 31, 15),
-          {includeSeconds: true}
-        )
-        ext_assert(result === 'less than a minute')
-      })
+        var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 15), { includeSeconds: true });
+        (0, _powerAssert2.default)(result === 'less than a minute');
+      });
 
       it('1 minute', function () {
-        var result = _distanceInWordsToNow(
-          new Date(1986, 3, 4, 10, 31, 0),
-          {includeSeconds: true}
-        )
-        ext_assert(result === '1 minute')
-      })
-    })
-  })
+        var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 0), { includeSeconds: true });
+        (0, _powerAssert2.default)(result === '1 minute');
+      });
+    });
+  });
 
   describe('minutes', function () {
     it('less than a minute', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 10, 31, 40)
-      )
-      ext_assert(result === 'less than a minute')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 40));
+      (0, _powerAssert2.default)(result === 'less than a minute');
+    });
 
     it('1 minute', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 10, 31, 10)
-      )
-      ext_assert(result === '1 minute')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 10));
+      (0, _powerAssert2.default)(result === '1 minute');
+    });
 
     it('n minutes', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 10, 29, 10)
-      )
-      ext_assert(result === '3 minutes')
-    })
-  })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 29, 10));
+      (0, _powerAssert2.default)(result === '3 minutes');
+    });
+  });
 
   describe('hours', function () {
     it('about 1 hour', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 9, 32, 0)
-      )
-      ext_assert(result === 'about 1 hour')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 9, 32, 0));
+      (0, _powerAssert2.default)(result === 'about 1 hour');
+    });
 
     it('about n hours', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 7, 32, 0)
-      )
-      ext_assert(result === 'about 3 hours')
-    })
-  })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 7, 32, 0));
+      (0, _powerAssert2.default)(result === 'about 3 hours');
+    });
+  });
 
   describe('days', function () {
     it('1 day', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 3, 10, 32, 0)
-      )
-      ext_assert(result === '1 day')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 3, 10, 32, 0));
+      (0, _powerAssert2.default)(result === '1 day');
+    });
 
     it('n days', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 1, 10, 32, 0)
-      )
-      ext_assert(result === '3 days')
-    })
-  })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 1, 10, 32, 0));
+      (0, _powerAssert2.default)(result === '3 days');
+    });
+  });
 
   describe('months', function () {
     it('about 1 month', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 2, 4, 10, 32, 0)
-      )
-      ext_assert(result === 'about 1 month')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 2, 4, 10, 32, 0));
+      (0, _powerAssert2.default)(result === 'about 1 month');
+    });
 
     it('n months', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 0, 4, 10, 32, 0)
-      )
-      ext_assert(result === '3 months')
-    })
-  })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 0, 4, 10, 32, 0));
+      (0, _powerAssert2.default)(result === '3 months');
+    });
+  });
 
   describe('years', function () {
     it('about 1 year', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1985, 3, 4, 10, 32, 0)
-      )
-      ext_assert(result === 'about 1 year')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1985, 3, 4, 10, 32, 0));
+      (0, _powerAssert2.default)(result === 'about 1 year');
+    });
 
     it('over 1 year', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1984, 10, 4, 10, 32, 0)
-      )
-      ext_assert(result === 'over 1 year')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1984, 10, 4, 10, 32, 0));
+      (0, _powerAssert2.default)(result === 'over 1 year');
+    });
 
     it('almost n years', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1983, 4, 4, 10, 32, 0)
-      )
-      ext_assert(result === 'almost 3 years')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1983, 4, 4, 10, 32, 0));
+      (0, _powerAssert2.default)(result === 'almost 3 years');
+    });
 
     it('about n years', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1983, 3, 4, 10, 32, 0)
-      )
-      ext_assert(result === 'about 3 years')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1983, 3, 4, 10, 32, 0));
+      (0, _powerAssert2.default)(result === 'about 3 years');
+    });
 
     it('over n years', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1982, 10, 4, 10, 32, 0)
-      )
-      ext_assert(result === 'over 3 years')
-    })
-  })
+      var result = (0, _.distanceInWordsToNow)(new Date(1982, 10, 4, 10, 32, 0));
+      (0, _powerAssert2.default)(result === 'over 3 years');
+    });
+  });
 
   it('accepts a string', function () {
-    var result = _distanceInWordsToNow(
-      new Date(1986, 3, 4, 10, 31, 40).toISOString()
-    )
-    ext_assert(result === 'less than a minute')
-  })
+    var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 40).toISOString());
+    (0, _powerAssert2.default)(result === 'less than a minute');
+  });
 
   it('accepts a timestamp', function () {
-    var result = _distanceInWordsToNow(
-      new Date(1986, 3, 4, 10, 31, 40).getTime()
-    )
-    ext_assert(result === 'less than a minute')
-  })
+    var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 40).getTime());
+    (0, _powerAssert2.default)(result === 'less than a minute');
+  });
 
   describe('when the addSuffix option is true', function () {
     it('adds a past suffix', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 10, 31, 35),
-        {includeSeconds: true, addSuffix: true}
-      )
-      ext_assert(result === 'half a minute ago')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 35), { includeSeconds: true, addSuffix: true });
+      (0, _powerAssert2.default)(result === 'half a minute ago');
+    });
 
     it('adds a future suffix', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 11, 32, 0),
-        {addSuffix: true}
-      )
-      ext_assert(result === 'in about 1 hour')
-    })
-  })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 11, 32, 0), { addSuffix: true });
+      (0, _powerAssert2.default)(result === 'in about 1 hour');
+    });
+  });
 
   describe('implicit conversion of options', function () {
     it('`options.includeSeconds`', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 10, 31, 52),
-        // $ExpectedMistake
-        {includeSeconds: 1}
-      )
-      ext_assert(result === 'less than 10 seconds')
-    })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 10, 31, 52),
+      // $ExpectedMistake
+      { includeSeconds: 1 });
+      (0, _powerAssert2.default)(result === 'less than 10 seconds');
+    });
 
     it('`options.addSuffix`', function () {
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 11, 32, 0),
-        // $ExpectedMistake
-        {addSuffix: 1}
-      )
-      ext_assert(result === 'in about 1 hour')
-    })
-  })
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 11, 32, 0),
+      // $ExpectedMistake
+      { addSuffix: 1 });
+      (0, _powerAssert2.default)(result === 'in about 1 hour');
+    });
+  });
 
   describe('custom locale', function () {
     it('can be passed to the function', function () {
-      function localize (token, count, options) {
-        ext_assert(token === 'aboutXHours')
-        ext_assert(count === 1)
-        ext_assert(options.addSuffix === true)
-        ext_assert(options.comparison > 0)
-        return 'It works!'
+      function localize(token, count, options) {
+        (0, _powerAssert2.default)(token === 'aboutXHours');
+        (0, _powerAssert2.default)(count === 1);
+        (0, _powerAssert2.default)(options.addSuffix === true);
+        (0, _powerAssert2.default)(options.comparison > 0);
+        return 'It works!';
       }
 
       var customLocale = {
         distanceInWords: {
           localize: localize
         }
-      }
+      };
 
-      var result = _distanceInWordsToNow(
-        new Date(1986, 3, 4, 11, 32, 0),
-        {addSuffix: true, locale: customLocale}
-      )
+      var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 11, 32, 0), { addSuffix: true, locale: customLocale });
 
-      ext_assert(result === 'It works!')
-    })
+      (0, _powerAssert2.default)(result === 'It works!');
+    });
 
     context('does not contain `distanceInWords` property', function () {
       it('fallbacks to enLocale', function () {
-        var customLocale = {}
-        var result = _distanceInWordsToNow(
-          new Date(1986, 3, 4, 11, 32, 0),
-          {addSuffix: true, locale: customLocale}
-        )
-        ext_assert(result === 'in about 1 hour')
-      })
-    })
+        var customLocale = {};
+        var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 11, 32, 0), { addSuffix: true, locale: customLocale });
+        (0, _powerAssert2.default)(result === 'in about 1 hour');
+      });
+    });
 
     context('does not contain `distanceInWords.localize` property', function () {
       it('fallbacks to enLocale', function () {
-        var customLocale = {distanceInWords: {}}
-        var result = _distanceInWordsToNow(
-          new Date(1986, 3, 4, 11, 32, 0),
-          {addSuffix: true, locale: customLocale}
-        )
-        ext_assert(result === 'in about 1 hour')
-      })
-    })
-  })
-})
+        var customLocale = { distanceInWords: {} };
+        var result = (0, _.distanceInWordsToNow)(new Date(1986, 3, 4, 11, 32, 0), { addSuffix: true, locale: customLocale });
+        (0, _powerAssert2.default)(result === 'in about 1 hour');
+      });
+    });
+  });
+});

@@ -1,12 +1,14 @@
-import { differenceInCalendarWeeks as _differenceInCalendarWeeks } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('differenceInCalendarWeeks', function () {
   benchmark('date-fns', function () {
-    return _differenceInCalendarWeeks(this.dateA, this.dateB);
-  })
+    return (0, _.differenceInCalendarWeeks)(this.dateA, this.dateB);
+  });
 }, {
-  setup: function () {
-    this.dateA = new Date()
-    this.dateB = new Date(this.dateA.getTime() + 604800000)
+  setup: function setup() {
+    this.dateA = new Date();
+    this.dateB = new Date(this.dateA.getTime() + 604800000);
   }
-})
+});

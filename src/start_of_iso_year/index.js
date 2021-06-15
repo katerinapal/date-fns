@@ -1,6 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.startOfISOYear = undefined;
+
+var _index = require("../get_iso_year/index.js");
+
+var _index2 = require("../start_of_iso_week/index.js");
+
 var mod_startOfISOYear = startOfISOYear;
-import { getISOYear as index_getISOYear } from "../get_iso_year/index.js";
-import { startOfISOWeek as index_startOfISOWeek } from "../start_of_iso_week/index.js";
+
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -21,13 +31,13 @@ import { startOfISOWeek as index_startOfISOWeek } from "../start_of_iso_week/ind
  * var result = startOfISOYear(new Date(2005, 6, 2))
  * //=> Mon Jan 03 2005 00:00:00
  */
-function startOfISOYear (dirtyDate) {
-  var year = index_getISOYear(dirtyDate)
-  var fourthOfJanuary = new Date(0)
-  fourthOfJanuary.setFullYear(year, 0, 4)
-  fourthOfJanuary.setHours(0, 0, 0, 0)
-  var date = index_startOfISOWeek(fourthOfJanuary)
-  return date
+function startOfISOYear(dirtyDate) {
+  var year = (0, _index.getISOYear)(dirtyDate);
+  var fourthOfJanuary = new Date(0);
+  fourthOfJanuary.setFullYear(year, 0, 4);
+  fourthOfJanuary.setHours(0, 0, 0, 0);
+  var date = (0, _index2.startOfISOWeek)(fourthOfJanuary);
+  return date;
 }
 
 /**
@@ -49,4 +59,4 @@ function startOfISOYear (dirtyDate) {
  * var result = startOfISOYear(new Date(2005, 6, 2))
  * //=> Mon Jan 03 2005 00:00:00
  */
-export { mod_startOfISOYear as startOfISOYear };
+exports.startOfISOYear = mod_startOfISOYear;

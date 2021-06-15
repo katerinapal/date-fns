@@ -1,7 +1,16 @@
-var mod_differenceInHours = differenceInHours;
-import { differenceInMilliseconds as index_differenceInMilliseconds } from "../difference_in_milliseconds/index.js";
+"use strict";
 
-var MILLISECONDS_IN_HOUR = 3600000
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.differenceInHours = undefined;
+
+var _index = require("../difference_in_milliseconds/index.js");
+
+var mod_differenceInHours = differenceInHours;
+
+
+var MILLISECONDS_IN_HOUR = 3600000;
 
 /**
  * @category Hour Helpers
@@ -22,9 +31,9 @@ var MILLISECONDS_IN_HOUR = 3600000
  * )
  * //=> 12
  */
-function differenceInHours (dirtyDateLeft, dirtyDateRight) {
-  var diff = index_differenceInMilliseconds(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_HOUR
-  return diff > 0 ? Math.floor(diff) : Math.ceil(diff)
+function differenceInHours(dirtyDateLeft, dirtyDateRight) {
+  var diff = (0, _index.differenceInMilliseconds)(dirtyDateLeft, dirtyDateRight) / MILLISECONDS_IN_HOUR;
+  return diff > 0 ? Math.floor(diff) : Math.ceil(diff);
 }
 
 /**
@@ -46,4 +55,4 @@ function differenceInHours (dirtyDateLeft, dirtyDateRight) {
  * )
  * //=> 12
  */
-export { mod_differenceInHours as differenceInHours };
+exports.differenceInHours = mod_differenceInHours;

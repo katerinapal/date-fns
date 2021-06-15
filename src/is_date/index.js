@@ -1,3 +1,8 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var mod_isDate = isDate;
 /**
  * @category Common Helpers
@@ -14,8 +19,8 @@ var mod_isDate = isDate;
  * var result = isDate('mayonnaise')
  * //=> false
  */
-function isDate (argument) {
-  return argument instanceof Date
+function isDate(argument) {
+  return argument instanceof Date;
 }
 
 /**
@@ -33,4 +38,4 @@ function isDate (argument) {
  * var result = isDate('mayonnaise')
  * //=> false
  */
-export { mod_isDate as isDate };
+exports.isDate = mod_isDate;

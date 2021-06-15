@@ -1,6 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setISOWeek = undefined;
+
+var _index = require("../parse/index.js");
+
+var _index2 = require("../get_iso_week/index.js");
+
 var mod_setISOWeek = setISOWeek;
-import { parse as index_parse } from "../parse/index.js";
-import { getISOWeek as index_getISOWeek } from "../get_iso_week/index.js";
+
 
 /**
  * @category ISO Week Helpers
@@ -20,12 +30,12 @@ import { getISOWeek as index_getISOWeek } from "../get_iso_week/index.js";
  * var result = setISOWeek(new Date(2004, 7, 7), 53)
  * //=> Sat Jan 01 2005 00:00:00
  */
-function setISOWeek (dirtyDate, dirtyISOWeek) {
-  var date = index_parse(dirtyDate)
-  var isoWeek = Number(dirtyISOWeek)
-  var diff = index_getISOWeek(date) - isoWeek
-  date.setDate(date.getDate() - diff * 7)
-  return date
+function setISOWeek(dirtyDate, dirtyISOWeek) {
+  var date = (0, _index.parse)(dirtyDate);
+  var isoWeek = Number(dirtyISOWeek);
+  var diff = (0, _index2.getISOWeek)(date) - isoWeek;
+  date.setDate(date.getDate() - diff * 7);
+  return date;
 }
 
 /**
@@ -46,4 +56,4 @@ function setISOWeek (dirtyDate, dirtyISOWeek) {
  * var result = setISOWeek(new Date(2004, 7, 7), 53)
  * //=> Sat Jan 01 2005 00:00:00
  */
-export { mod_setISOWeek as setISOWeek };
+exports.setISOWeek = mod_setISOWeek;

@@ -1,12 +1,14 @@
-import { differenceInCalendarYears as _differenceInCalendarYears } from "./";
+'use strict';
+
+var _ = require('./');
 
 suite('differenceInCalendarYears', function () {
   benchmark('date-fns', function () {
-    return _differenceInCalendarYears(this.dateA, this.dateB);
-  })
+    return (0, _.differenceInCalendarYears)(this.dateA, this.dateB);
+  });
 }, {
-  setup: function () {
-    this.dateA = new Date()
-    this.dateB = new Date(this.dateA.getTime() + 604800000)
+  setup: function setup() {
+    this.dateA = new Date();
+    this.dateB = new Date(this.dateA.getTime() + 604800000);
   }
-})
+});

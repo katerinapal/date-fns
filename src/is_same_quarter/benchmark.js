@@ -1,19 +1,26 @@
-import { isSameQuarter as _isSameQuarter } from "./";
-import ext_moment_moment from "moment";
+"use strict";
+
+var _ = require("./");
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 suite('isSameQuarter', function () {
   benchmark('date-fns', function () {
-    return _isSameQuarter(this.dateA, this.dateB);
-  })
+    return (0, _.isSameQuarter)(this.dateA, this.dateB);
+  });
 
   benchmark('Moment.js', function () {
-    return this.momentA.isSame(this.momentB, 'quarter')
-  })
+    return this.momentA.isSame(this.momentB, 'quarter');
+  });
 }, {
-  setup: function () {
-    this.dateA = new Date()
-    this.momentA = ext_moment_moment()
-    this.dateB = new Date(this.dateA.getTime() + 604800000)
-    this.momentB = this.momentA.clone().add(7, 'days')
+  setup: function setup() {
+    this.dateA = new Date();
+    this.momentA = (0, _moment2.default)();
+    this.dateB = new Date(this.dateA.getTime() + 604800000);
+    this.momentB = this.momentA.clone().add(7, 'days');
   }
-})
+});
